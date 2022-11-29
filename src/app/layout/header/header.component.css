@@ -1,3 +1,9 @@
+:host{
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
 .container-drop{
     max-width: 650px ;
     margin:15px auto;
@@ -20,7 +26,7 @@
 }
 
 .dropdown-list{
-    position:fixed;
+    position:absolute;
     display: none;
     left: 0;
     right: 0; 
