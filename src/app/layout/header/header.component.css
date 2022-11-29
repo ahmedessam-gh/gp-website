@@ -16,6 +16,7 @@
     
 .nav-li-dropdown{
     position: relative;
+    padding: 5px 0px;
 }
 
 .dropdown-list{
@@ -24,6 +25,7 @@
     left: 0;
     right: 0; 
     z-index: 1;
+    margin: 5px 0px;
 }
 
 .nav-li-dropdown:hover .dropdown-list{
