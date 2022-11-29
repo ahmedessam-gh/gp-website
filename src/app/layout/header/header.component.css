@@ -22,7 +22,6 @@
     
 .nav-li-dropdown{
     position: relative;
-    padding: 5px 0px;
 }
 
 .dropdown-list{
@@ -30,8 +29,7 @@
     display: none;
     left: 0;
     right: 0; 
-    z-index: 1;
-    margin: 5px 0px;
+    z-index: -1;
 }
 
 .nav-li-dropdown:hover .dropdown-list{
@@ -42,25 +40,18 @@
     padding-left: 10px;
     padding-right: 10px;
     font-size: 16px;
+   
+
 }
-.nav-line::after{
-    content: '';
-    position: absolute;
-    background-color: black;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    transition: 0.3s ease-out ;
-    z-index: 2;
+.nav-line{
+    transition: all 0.2s ease-in-out;
+    border-bottom: 2px solid transparent;
 }
-.nav-line:hover::after {
-    transform: scaleX(1);
+.nav-line:hover{
+    border-bottom: 2px solid black;
+    transform: scale(1.1); 
 }
-.nav-li-dropdown:hover .nav-line::after{
-    transform: scaleX(1);
-}
+
 
 
 @keyframes dropdown{
