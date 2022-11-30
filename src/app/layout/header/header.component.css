@@ -51,6 +51,10 @@
     border-bottom: 2px solid black;
     transform: scale(1.1); 
 }
+.nav-li-dropdown:hover .nav-line{
+    border-bottom: 2px solid black;
+    transform: scale(1.1);  
+}
 
 
 
