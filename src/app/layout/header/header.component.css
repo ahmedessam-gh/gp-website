@@ -8,16 +8,6 @@
     max-width: 650px ;
     margin:15px auto;
 }
-.nav-end .sign-nav{
-    text-decoration: none;
-    color: black;
-    transition: ease-in-out 0.2s;
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
-    font-size:16px;
-}
-.nav-end .sign-nav:hover{
-    color: #0087ca;
-}
 
     
 .nav-li-dropdown{
@@ -27,6 +17,7 @@
 .dropdown-list{
     position:absolute;
     display: none;
+    padding: 20px 0px;
     left: 0;
     right: 0; 
     z-index: -1;
@@ -40,20 +31,26 @@
     padding-left: 10px;
     padding-right: 10px;
     font-size: 16px;
+    z-index: 999;
    
 
 }
 .nav-line{
     transition: all 0.2s ease-in-out;
     border-bottom: 2px solid transparent;
+   
 }
 .nav-line:hover{
     border-bottom: 2px solid black;
+    color: black;
     transform: scale(1.1); 
+   
 }
 .nav-li-dropdown:hover .nav-line{
     border-bottom: 2px solid black;
+    color: black;
     transform: scale(1.1);  
+   
 }
 
 
@@ -72,5 +69,38 @@
     100%{
         opacity: 1;
         transform: scale(100px);
+    }
+}
+@media screen and (max-width:990px) {
+    .nav-line{
+        border-bottom: none;
+    }
+    .nav-line:hover{
+        border-bottom:none;
+        transform: scale(1);  
+    }
+    .nav-li-dropdown:hover .nav-line{
+        border-bottom: none;  
+        transform: scale(1);      
+    }
+    .nav-li-dropdown:hover .dropdown-list{
+        display:none;
+        
+     }
+    .navbar{
+        padding: 10px 20px !important;
+    }
+    .nav-li-dropdown{
+        margin-top: 15px;
+    }
+    .nav-end .bag-link{
+        display: none;
+    }
+    .logo-nav{
+        margin: 0 0 0 auto !important;
+       
+    }
+    .navbar-brand{
+        margin: 0 !important;
     }
 }
