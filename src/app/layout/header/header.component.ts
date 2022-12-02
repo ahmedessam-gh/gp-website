@@ -11,12 +11,30 @@ export class HeaderComponent implements OnInit {
   toggler():void{
     this.collapsed = !this.collapsed;
   }
+
   constructor() { }
   ngOnInit(): void {
 
-  
+
+}
+
+searchContainer(){
+
+  const search_container= document.querySelector('.search-container');
+
+   search_container?.classList.add('activeSearchcontainer')
+
+
+}
+
+removeContainer(){
+  const search_container= document.querySelector('.search-container');
+
+  search_container?.classList.remove('activeSearchcontainer')
+
+
 }
 
 }
- 
+
 
