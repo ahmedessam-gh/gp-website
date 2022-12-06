@@ -103,8 +103,10 @@
       </ul>
     </div>
     <div class="mx-3 nav-end">
-      <fa-icon icon="magnifying-glass" (click)="searchContainer()"></fa-icon>
-      <fa-icon icon="cart-shopping"></fa-icon>
+      <div class="header-icons">
+        <fa-icon icon="magnifying-glass" (click)="searchContainer()"></fa-icon>
+        <fa-icon icon="cart-shopping"></fa-icon>
+      </div>
     </div>
   </nav>
   <div class="search-container bg-light">
@@ -115,8 +117,11 @@
         /></a>
       </div>
       <div class="inputBox col-8">
-        <div class="">
-          <input class="inputSearch" type="text" placeholder="Search" />
+        <div class="inputBox">
+          <div class="search-items">
+            <span> <fa-icon icon="magnifying-glass"></fa-icon></span>
+            <input type="search" placeholder="Search" />
+          </div>
         </div>
         <br />
         <div class="search-suggesions">
