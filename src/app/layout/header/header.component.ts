@@ -20,9 +20,11 @@ export class HeaderComponent implements OnInit {
 
 searchContainer(){
 
+  const body =document.getElementById('body') as HTMLBodyElement
   const search_container= document.querySelector('.search-container');
 
-   search_container?.classList.add('activeSearchcontainer')
+   search_container?.classList.add('activeSearchcontainer');
+   body?.classList.add('activesearch')
 
 
 }

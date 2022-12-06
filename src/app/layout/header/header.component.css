@@ -1,3 +1,8 @@
+html{
+
+  filter:blur(10px)
+}
+
 :host {
     position: sticky;
     top: 0;
@@ -22,6 +27,8 @@
     right: 0;
     z-index: -1;
 }
+
+
 
 .nav-li-dropdown:hover .dropdown-list {
     display: block;
@@ -79,6 +86,23 @@
 
 }
 
+.search-items{
+  padding: 0.5em;
+background:white;
+  display: flex;
+  align-items: center;
+border-radius: 10em;
+animation: searchinput 0.55s ease-in-out;
+
+
+
+}
+
+.search-items{
+
+  padding: 0;
+}
+
 .search-container .navbar-brand {
 
 
@@ -98,14 +122,12 @@
 }
 
 .inputBox input {
-
-    border-radius: 10em;
-    padding: 0.5em;
+  background: none;
     width: 100%;
     outline: 0;
-    border: transparent;
-    animation: searchinput 0.55s ease-in-out;
     animation-direction: normal;
+    border: 0;
+    padding: 0.5rem;
 
 
 
@@ -120,6 +142,14 @@
     margin-right: 10px;
     cursor: pointer;
 }
+.search-items input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  margin-left: .4em;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+  cursor: pointer;
+}
 
 .inputBox input::placeholder {
     color: rgb(207, 207, 207);
@@ -129,7 +159,7 @@
     color: rgb(139, 129, 117);
 }
 
-.inputBox input:hover {
+.inputBox .search-items:hover {
 
     background: rgb(229, 229, 229);
 }
@@ -140,12 +170,14 @@
 
 }
 
+
 .search-container button {
 
     border: 0;
     background: none;
     margin: 0;
     align-items: center;
+
 
 
 }
@@ -181,8 +213,14 @@
 
 .search-suggesions{
     animation: suggestions 0.4s ease-in-out;
-    
+
+
+
 }
+.activesearch{
+
+
+  }
 
 
 @keyframes suggestions{
@@ -191,7 +229,7 @@
     }
     100%{
         transform: translateX(0px);
-    }  
+    }
 }
 
 @keyframes dropdown {
