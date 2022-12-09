@@ -8,15 +8,28 @@ import { Component, OnInit } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
   collapsed = true;
-  toggler():void{
+  toggler(): void {
     this.collapsed = !this.collapsed;
   }
+
   constructor() { }
   ngOnInit(): void {
 
-  
-}
+
+  }
+  //function that displays search container
+  searchContainer() {
+    const search_container = document.querySelector('.search-container');
+    search_container?.classList.add('activeSearchcontainer');
+
+  }
+  //function that removes search container
+  removeContainer() {
+    const search_container = document.querySelector('.search-container');
+
+    search_container?.classList.remove('activeSearchcontainer')
+  }
 
 }
- 
+
 
