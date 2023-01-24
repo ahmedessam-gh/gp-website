@@ -35,8 +35,17 @@
     padding-right: 10px;
     font-size: 16px;
     z-index: 999;
+    margin: 0 7px;
 
 
+}
+.nav-ul-li{
+    position: absolute;
+    background-color: aqua;
+    height: 100%;
+    align-items: center;
+   
+    
 }
 
 .nav-line {
