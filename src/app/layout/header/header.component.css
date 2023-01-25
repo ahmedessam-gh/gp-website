@@ -9,58 +9,76 @@
     margin: 15px auto;
 }
 
+.start-nav{
+    margin: 0px 20px 0px 100px;
+}
+.end-nav{
+    margin-right: 100px;
+}
+
+.end-nav fa-icon {
+
+    font-size: 1.3em;
+    padding: 0.3em;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+
+}
+.header-cart{
+    color: var(--main-color);
+}
+
+
 
 .nav-li-dropdown {
     position: relative;
 }
-
-.dropdown-list {
+.dropdown-list{
     position: absolute;
     display: none;
-    padding: 10px 0px;
+    padding: 10px 15px;
     margin-top: 10px;
-    left:0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: -1;
+    border-radius: 5px;
+    
 }
 
 
 
 .nav-li-dropdown:hover .dropdown-list {
     display: block;
+    border-top: 5px solid var(--main-color);
     animation: dropdown 0.4s ease-in-out;
+    
+}
+.nav-li-dropdown:hover .nav-line{
+    color: var(--main-color) !important;
 }
 
-.nav-li-dropdown {
+.nav-li-dropdown{
     padding: 10px;
-    font-size: 16px;
+    font-size: 1rem;
     z-index: 999;
     margin: 0 7px;
-
-
+    font-family:var(--main-font) !important;
+    
+} 
+.nav-li-dropdown a:hover{
+    color: var(--main-color);
 }
 
-
-/* .nav-line {
-    transition: all 0.2s ease-in-out;
-    border-bottom: 2px solid transparent;
-
+.dropdown-list li a{
+    font-family: var(--main-font);
+}
+.dropdown-list li a:hover{
+    color: var(--secondary-color) !important;
+    
 }
 
-.nav-line:hover {
-    border-bottom: 2px solid black;
-    color: black;
-    transform: scale(1.1);
-
-}
-
-.nav-li-dropdown:hover .nav-line {
-    border-bottom: 2px solid black;
-    color: black;
-    transform: scale(1.1);
-
-} */
-
-
+/*search*/
 .search-container {
     display: none;
     top: 0;
@@ -197,26 +215,6 @@
     color: rgb(80, 80, 80)
 }
 
-
-.nav-end fa-icon {
-
-    font-size: 1.4em;
-    padding: 0.3em;
-    border-radius: 50%;
-    margin-right: 10px;
-    cursor: pointer;
-
-}
-.header-icons fa-icon{
-    transition: 0.1s all ease-in;
-    
-}
-.header-icons .header-cart:hover{
-    color: rgb(36, 120, 120);
-}
-.header-icons .header-search:hover{
-    color: rgb(129, 37, 34);
-}
 
 .search-suggesions {
     animation: suggestions 0.4s ease-in-out;
