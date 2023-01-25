@@ -1,0 +1,27 @@
+.background-img{
+    background-image: url(../../../assets/images/1920x1080-503178-formal-hand.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+h1{
+    font-family: var(--main-font);
+    color: #ffffff;
+}
+.home-content{
+    width: 35%;
+    text-align: center;
+}
+span{
+    color: var(--main-color);
+}
+.btn-custom{
+    background-color: var(--main-color);   
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+.btn-custom:hover{
+    background-color: transparent;   
+    border: 1px solid var(--main-color);
+}
