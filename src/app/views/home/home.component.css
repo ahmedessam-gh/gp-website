@@ -1,5 +1,5 @@
 .background-img{
-    background-image: url(../../assets/images/1920x1080-503178-formal-hand.jpg);
+    background-image: url(../../../assets/images/1920x1080-503178-formal-hand.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,6 +16,7 @@ h1{
 .btn-custom{
     background-color: var(--main-color);   
     color: #ffffff;
+    font-size: 1.2rem;
 }
 .btn-custom:hover{
     background-color: transparent;   
