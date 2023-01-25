@@ -13,6 +13,9 @@ h1{
     width: 35%;
     text-align: center;
 }
+span{
+    color: var(--main-color);
+}
 .btn-custom{
     background-color: var(--main-color);   
     color: #ffffff;
