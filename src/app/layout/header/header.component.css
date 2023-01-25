@@ -17,9 +17,9 @@
 .dropdown-list {
     position: absolute;
     display: none;
-    padding: 20px 0px;
-    left: 0;
-    right: 0;
+    padding: 10px 0px;
+    margin-top: 10px;
+    left:0;
     z-index: -1;
 }
 
@@ -31,24 +31,16 @@
 }
 
 .nav-li-dropdown {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 10px;
     font-size: 16px;
     z-index: 999;
     margin: 0 7px;
 
 
 }
-.nav-ul-li{
-    position: absolute;
-    background-color: aqua;
-    height: 100%;
-    align-items: center;
-   
-    
-}
 
-.nav-line {
+
+/* .nav-line {
     transition: all 0.2s ease-in-out;
     border-bottom: 2px solid transparent;
 
@@ -66,7 +58,7 @@
     color: black;
     transform: scale(1.1);
 
-}
+} */
 
 
 .search-container {
@@ -99,7 +91,7 @@
     animation: searchinput 0.55s ease-in-out;
 
 
-
+    
 }
 
 .search-items {
