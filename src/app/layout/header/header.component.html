@@ -227,7 +227,7 @@
       </div>
     </div>
   </nav>
-  <div class="search-container bg-light">
+  <div class="search-container bg-white">
     <div class="row">
       <div class="col-2 text-start">
         <a href="#" class="mx-3">
@@ -365,11 +365,13 @@
       </div>
       <div class="inputBox col-8">
         <div class="inputBox">
-          <div class="search-items">
+          <div class="search-items bg-light">
             <span> <fa-icon icon="magnifying-glass"></fa-icon></span>
             <input
               type="search"
+              name="search"
               placeholder="Search"
+              [(ngModel)]="searchText"
               (keyup)="searchResults()"
             />
           </div>
@@ -385,30 +387,15 @@
           </ul>
         </div>
         <div class="search-results bg-light">
-          <a href="" class="card">
-            <img src="../../../assets/images/kids.jpeg" height="350px" alt="" />
-            <p>Dress</p>
-            <p>100$</p>
-          </a>
-          <a href="" class="card">
-            <img src="../../../assets/images/kids.jpeg" height="350px" alt="" />
-            <p>Dress</p>
-            <p>100$</p>
-          </a>
-          <a href="" class="card">
-            <img src="../../../assets/images/kids.jpeg" height="350px" alt="" />
-            <p>Dress</p>
-            <p>100$</p>
-          </a>
-          <a href="" class="card">
-            <img src="../../../assets/images/kids.jpeg" height="350px" alt="" />
-            <p>Dress</p>
-            <p>100$</p>
-          </a>
-          <a href="" class="card">
-            <img src="../../../assets/images/kids.jpeg" height="350px" alt="" />
-            <p>Dress</p>
-            <p>100$</p>
+          <a
+            *ngFor="let pro of myProd | filter : searchText"
+            href=""
+            class="card"
+            data-aos="fade-up"
+          >
+            <img src="{{ pro.img }}" height="350px" alt="" />
+            <p>{{ pro?.ProdName }}</p>
+            <p>{{ pro?.Price }}</p>
           </a>
         </div>
       </div>
