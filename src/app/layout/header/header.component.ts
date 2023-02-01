@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
   collapsed = true;
-  toggler(): void {
+  toggler():void{
     this.collapsed = !this.collapsed;
   }
 
@@ -16,19 +17,34 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
 
 
-  }
-  //function that displays search container
-  searchContainer() {
-    const search_container = document.querySelector('.search-container');
-    search_container?.classList.add('activeSearchcontainer');
+}
 
-  }
-  //function that removes search container
-  removeContainer() {
-    const search_container = document.querySelector('.search-container');
+searchContainer(){
 
-    search_container?.classList.remove('activeSearchcontainer')
-  }
+  const search_container= document.querySelector('.search-container');
+  search_container?.classList.add('activeSearchcontainer');
+
+
+
+}
+
+removeContainer(){
+  const search_container= document.querySelector('.search-container');
+
+  search_container?.classList.remove('activeSearchcontainer')
+  const body = document.body.style.filter='blur(0px)'
+
+
+
+}
+
+searchResults(){
+const search_suggestions = document.querySelector('.search-suggesions')
+  const search_results = document.querySelector('.search-results');
+  search_suggestions?.classList.add('activeSearch-suggesions')
+  search_results?.classList.add('activeSearchresults')
+}
+
 
 }
 
