@@ -43,7 +43,7 @@
     transform: translateX(-50%);
     z-index: -1;
     border-radius: 5px;
-    
+
 }
 
 
@@ -52,7 +52,7 @@
     display: block;
     border-top: 5px solid var(--main-color);
     animation: dropdown 0.4s ease-in-out;
-    
+
 }
 .nav-li-dropdown:hover .nav-line{
     color: var(--main-color) !important;
@@ -64,8 +64,8 @@
     z-index: 999;
     margin: 0 7px;
     font-family:var(--main-font) !important;
-    
-} 
+
+}
 .nav-li-dropdown a:hover{
     color: var(--main-color);
 }
@@ -75,7 +75,7 @@
 }
 .dropdown-list li a:hover{
     color: var(--secondary-color) !important;
-    
+
 }
 
 /*search*/
@@ -88,7 +88,6 @@
     z-index: 999;
     animation: dropdown 0.25s ease-in-out;
     padding-top: 1.5rem;
-
 
 }
 
@@ -109,7 +108,7 @@
     animation: searchinput 0.55s ease-in-out;
 
 
-    
+
 }
 
 .search-items {
@@ -192,6 +191,8 @@
     background: none;
     margin: 0;
     align-items: center;
+    font-family: var(--main-font);
+    font-weight: lighter;
 
 
 
@@ -199,7 +200,7 @@
 
 .search-container button:hover {
 
-    color: rgb(80, 80, 80)
+    color: var(--main-color)
 }
 
 .search-container a {
@@ -207,21 +208,56 @@
     outline: 0;
     text-decoration: none;
     font-weight: 100;
+   font-family: var(--main-font)
 
 }
 
 .search-container a:hover {
 
-    color: rgb(80, 80, 80)
+    color: var(--main-color)
 }
 
 
-.search-suggesions {
+.search-container .search-suggesions {
     animation: suggestions 0.4s ease-in-out;
 
 
 
 }
+
+.activeSearch-suggesions {
+
+  display: none;
+
+}
+
+.search-container .search-results  {
+
+  display: none;
+
+
+
+}
+
+.activeSearchresults{
+
+
+  display: flex  !important;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.search-container .search-results .card {
+
+border: 1px solid white;
+
+}
+
+.search-container .search-results .card img {
+
+  border: 1px solid white;
+
+  }
 
 
 
