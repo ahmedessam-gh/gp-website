@@ -227,14 +227,19 @@
 
 .activeSearch-suggesions {
 
-  display: none;
-
+display: none;
 }
 
 .search-container .search-results  {
 
   display: none;
+  align-items: flex-start;
+  flex-direction: row;
 
+
+}
+.search-container .search-results  .card{
+padding:1rem;
 
 
 }
@@ -243,8 +248,7 @@
 
 
   display: flex  !important;
-  align-items: flex-start;
-  flex-direction: row;
+
 }
 
 .search-container .search-results .card {
