@@ -1,3 +1,6 @@
+*{
+    font-family:var(--main-font) ;
+}
 .background-img{
     background-image: url(../../../assets/images/1920x1080-503178-formal-hand.jpg);
     background-position: center;
@@ -17,11 +20,155 @@ span{
     color: var(--main-color);
 }
 .btn-custom{
-    background-color: var(--main-color);   
+    background-color: var(--main-color);
     color: #ffffff;
     font-size: 1.2rem;
 }
 .btn-custom:hover{
-    background-color: transparent;   
+    background-color: transparent;
     border: 1px solid var(--main-color);
 }
+/*cards*/
+.card{
+    cursor: pointer;
+    /* border-radius: 50%; */
+    border-radius: 0%;
+    /* border-radius: 50px; */
+}
+.card-layout{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 999;
+    background-color: rgba(117,91,180,0.5);
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    opacity: 1;
+    transform: translateY(100%);
+    animation: card-down 0.4s forwards;
+
+}
+
+.card:hover .card-layout{
+    animation: card-up 0.4s forwards;
+
+}
+.card-img{
+    transition: all 0.4s ease-in-out;
+}
+.card:hover .card-img{
+    transform: scale(1.1);
+
+}
+
+/* new arrival layout */
+
+.newArrivals-section h1{
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+color: var(--secondary-color);
+
+}
+
+.newArrivals-section .card{
+
+  border: transparent;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+
+
+
+}
+
+
+.newArrivals-section .card p{
+text-align: center;
+  text-transform: uppercase;
+  font-size: large;
+margin-top: 1rem;
+}
+
+.newArrivals-section  .card-design{
+  box-shadow: 0 0 2px rgba(33,33,33,.2)
+
+
+}
+.newArrivals-section  .card-design:hover{
+box-shadow: 0 0 7px rgba(33,33,33,.2)
+}
+ .newArrivals-section .btn-custom{
+
+  color: var(--main-color);
+  background-color: white;
+  border: 1px solid;
+  font-size: 1.2rem;
+  transition: all 0.4s ease-in-out;
+
+
+
+}
+
+.newArrivals-section .btn-custom:hover{
+background-color: var(--main-color);
+color: white;
+
+
+}
+
+
+
+
+
+
+
+@keyframes card-up {
+    0%{
+       transform: translateY(100%);
+
+    }
+    100%{
+        transform: translateY(0%);
+
+    }
+}
+
+@keyframes card-down {
+    0%{
+       transform: translateY(0%);
+
+    }
+    100%{
+        transform: translateY(100%);
+
+    }
+
+
+}
+
+@keyframes button-up {
+  0% {
+
+
+    background-color: white;
+    color: var(--main-color);
+
+  }
+
+  100%{
+
+    background-color: var(--main-color);
+    color: white
+  }
+
+
+}
+
+
+
+
+
