@@ -4,6 +4,7 @@
     --secondary-color:#7459b4;
     --tertiary-color:#8b67df;
     --main-font:Righteous, cursive;
+    --secondary-font:'Segoe UI', Tahoma, Geneva, Verdana;
 }
 *{
     padding: 0;
