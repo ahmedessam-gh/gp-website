@@ -1,23 +1,92 @@
 *{
     font-family:var(--main-font) ;
 }
-.background-img{
-    background-image: url(../../../assets/images/1920x1080-503178-formal-hand.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+.background1{
+  background-image: url(../../../assets/images/1920x1080-503178-formal-hand.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
-h1{
-    font-family: var(--main-font);
-    color: #ffffff;
+.background2{
+  background-image: url(../../../assets/images/formal.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
+.background3{
+  background-image: url(../../../assets/images/casual.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.background4{
+  background-image: url(../../../assets/images/1920x1080-503178-formal-hand.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+
+/*slideShow*/
+.slider-home{
+  position: relative;
+ overflow: hidden;
+}
+.slider-imgs{
+  position: relative;
+  width: 400%;
+  left: 0;
+  animation: slideShow 15s infinite ;
+}
+.slider-imgs img{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  float: left;
+  width: 25%;
+}
+
+@keyframes slideShow {
+  0%{left: 0;}
+  10%{left: 0;}
+  20%{left: -100%;}
+  40%{left:-100%}
+  50%{left: -200%;}
+  70%{left: -200%;}
+  80%{left: -300%;}
+  100%{left: -300%;}
+
+  
+}
+
+
+
+
 .home-content{
-    width: 35%;
-    text-align: center;
+  position: absolute;
+  width: 35%;
+  text-align: center;
+  color: #ffffff;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 30%; 
 }
-span{
-    color: var(--main-color);
+.rent{
+  position: relative;
+  display: inline-block;
+  color: var(--main-color);
+  animation: flip 2s infinite;
+animation-delay: calc(.2s * var(--i));
+font-size: 3rem;
+}
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg) 
+  }
 }
 .btn-custom{
     background-color: var(--main-color);
