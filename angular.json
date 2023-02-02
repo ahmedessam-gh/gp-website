@@ -45,14 +45,21 @@
               "budgets": [
                 {
                   "type": "initial",
-
-         "maximumWarning": "5mb",
+<<<<<<<<< Temporary merge branch 1
+                  "maximumWarning": "5mb",
                   "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "100kb",
-
+=========
+                  "maximumWarning": "10mb",
+                  "maximumError": "10mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "200kb",
+>>>>>>>>> Temporary merge branch 2
                   "maximumError": "400kb"
                 }
               ],

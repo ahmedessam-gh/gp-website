@@ -14,7 +14,12 @@ newProds:any
   ngOnInit(): void {
 
     this.newProds=this.prod.product
-    Aos.init();
+    Aos.init({
+
+    }
+
+
+    );
   }
 
 }

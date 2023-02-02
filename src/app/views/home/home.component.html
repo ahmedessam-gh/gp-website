@@ -46,7 +46,37 @@
       </div>
     </div>
   </div>
-  <div>
-    <p>{{ newProds.ProdName }}</p>
+  <div></div>
+
+  <!-- New Arrivals Section starts here-->
+  <div class="newArrivals-section" data-aos="fade-up" data-aos-duration="">
+    <h1>
+      NEW <br />
+      ARRIVAL
+    </h1>
+    <div class="container">
+      <div class="row">
+        <div
+          class="card col-lg-3"
+          *ngFor="let newProd of newProds"
+          data-aos="fade-up"
+          data-aos-duration="100"
+        >
+          <div class="card-design">
+            <img src="{{ newProd.img }}" height="300" width="280" alt="" />
+            <p style="color: rgba(117, 91, 180, 255)">{{ newProd.ProdName }}</p>
+            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana">
+              {{ newProd.Category }}
+            </p>
+            <p style="font-family: 'Courier New', Courier, monospace">
+              $ {{ newProd.Price }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1>
+      <button data-aos="fade-up" class="btn btn-custom">Browse More</button>
+    </h1>
   </div>
 </div>
