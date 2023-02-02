@@ -1,5 +1,8 @@
+import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import * as Aos from 'aos';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +11,20 @@ import * as Aos from 'aos';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+     
+    
+   }
 
   ngOnInit(): void {
     Aos.init();
+    
   }
 
+
+  
+  
+
+
+  
 }
