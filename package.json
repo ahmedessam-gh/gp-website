@@ -23,6 +23,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.0",
     "@fortawesome/free-regular-svg-icons": "^6.1.0",
     "@fortawesome/free-solid-svg-icons": "^6.1.0",
+    "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.1",
