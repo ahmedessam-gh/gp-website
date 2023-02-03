@@ -1,51 +1,58 @@
-*{
-    font-family:var(--main-font) ;
+* {
+  font-family: var(--main-font);
 }
-.background1{
+
+.background1 {
   background-image: url(../../../assets/images/1920x1080-503178-formal-hand.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
-.background2{
+
+.background2 {
   background-image: url(../../../assets/images/formal.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
-.background3{
+
+.background3 {
   background-image: url(../../../assets/images/casual.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
-.background4{
+
+.background4 {
   background-image: url(../../../assets/images/1920x1080-503178-formal-hand.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
-.pad-sections{
+
+.pad-sections {
   padding: 50px 0px;
   border: 0;
 }
 
 /*slideShow*/
-.slider-home{
+.slider-home {
   position: relative;
- overflow: hidden;
+  overflow: hidden;
 }
-.slider-imgs{
+
+.slider-imgs {
   position: relative;
   width: 400%;
   left: 0;
-  animation: slideShow 15s infinite ;
+  animation: slideShow 15s infinite;
 }
-.slider-imgs img{
+
+.slider-imgs img {
   position: relative;
   height: 100vh;
   width: 100%;
@@ -54,14 +61,37 @@
 }
 
 @keyframes slideShow {
-  0%{left: 0;}
-  10%{left: 0;}
-  20%{left: -100%;}
-  40%{left:-100%}
-  50%{left: -200%;}
-  70%{left: -200%;}
-  80%{left: -300%;}
-  100%{left: -300%;}
+  0% {
+    left: 0;
+  }
+
+  10% {
+    left: 0;
+  }
+
+  20% {
+    left: -100%;
+  }
+
+  40% {
+    left: -100%
+  }
+
+  50% {
+    left: -200%;
+  }
+
+  70% {
+    left: -200%;
+  }
+
+  80% {
+    left: -300%;
+  }
+
+  100% {
+    left: -300%;
+  }
 
 
 }
@@ -69,7 +99,7 @@
 
 
 
-.home-content{
+.home-content {
   position: absolute;
   width: 35%;
   text-align: center;
@@ -78,87 +108,100 @@
   transform: translateX(-50%);
   top: 30%;
 }
-.rent{
+
+.rent {
   position: relative;
   display: inline-block;
   color: var(--main-color);
   animation: flip 2s infinite;
-animation-delay: calc(.2s * var(--i));
-font-size: 3rem;
+  animation-delay: calc(.2s * var(--i));
+  font-size: 3rem;
 }
+
 @keyframes flip {
-  0%,80% {
+
+  0%,
+  80% {
     transform: rotateY(360deg)
   }
 }
-.btn-custom{
-    background-color: var(--main-color);
-    color: #ffffff;
-    font-size: 1.2rem;
+
+.btn-custom {
+  background-color: var(--main-color);
+  color: #ffffff;
+  font-size: 1.2rem;
 }
-.btn-custom:hover{
-    background-color: transparent;
-    border: 1px solid var(--main-color);
+
+.btn-custom:hover {
+  background-color: transparent;
+  border: 1px solid var(--main-color);
 }
+
 /*cards*/
-.card{
-    cursor: pointer;
+.card {
+  cursor: pointer;
   /* border-radius: 50%;   */
-    border-radius: 0%;
-    /* border-radius: 30px; */
+  border-radius: 0%;
+  /* border-radius: 30px; */
 }
-.card-layout{
-    display: flex;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    z-index: 999;
-    background-color: rgba(117,91,180,0.5);
-    width: 100%;
-    text-align: center;
-    color: #ffffff;
-    opacity: 1;
-    transform: translateY(100%);
-    animation: card-down 0.4s forwards;
+
+.card-layout {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(117, 91, 180, 0.5);
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  opacity: 1;
+  transform: translateY(100%);
+  animation: card-down 0.4s forwards;
 
 }
 
-.card:hover .card-layout{
-    animation: card-up 0.4s forwards;
+.card:hover .card-layout {
+  animation: card-up 0.4s forwards;
 
 }
-.card-img{
-    transition: all 0.4s ease-in-out;
+
+.card-img {
+  transition: all 0.4s ease-in-out;
 }
-.card:hover .card-img{
-    transform: scale(1.1);
+
+.card:hover .card-img {
+  transform: scale(1.1);
 
 }
 
 /* new arrival layout */
 
-.newArrivals-section h1{
+.newArrivals-section h1 {
   text-align: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
-color: var(--secondary-color);
+  color: var(--secondary-color);
 
 }
-.fav-cart{
-    margin: 0 5px;
-    top:80%;
-    right: 0;
-    margin-right: 20px;
-    display: none;
-    
+
+.fav-cart {
+  margin: 0 5px;
+  top: 80%;
+  right: 0;
+  margin-right: 20px;
+  display: none;
+
 }
-.card-fav-cart:hover .fav-cart{
+
+.card-fav-cart:hover .fav-cart {
   display: block;
- animation: slideInRight 0.3s ;
-  
+  animation: slideInRight 0.3s;
+
 }
-.fav-cart fa-icon{
+
+.fav-cart fa-icon {
   margin: 0px 5px;
   background-color: #ffffff;
   border-radius: 50%;
@@ -166,12 +209,13 @@ color: var(--secondary-color);
   color: var(--main-color);
   transition: all 0.2s ease-in-out;
 }
-.fav-cart fa-icon:hover{
+
+.fav-cart fa-icon:hover {
   background-color: var(--main-color);
   color: #ffffff;
 }
 
-.newArrivals-section .card{
+.newArrivals-section .card {
 
   border: transparent;
   align-items: center;
@@ -183,22 +227,22 @@ color: var(--secondary-color);
 }
 
 
-.newArrivals-section .card p{
-text-align: center;
+.newArrivals-section .card p {
+  text-align: center;
   text-transform: uppercase;
   font-size: large;
-margin-top: 1rem;
+  margin-top: 1rem;
 }
 
-.newArrivals-section  .card-design{
-  box-shadow: 0 0 2px rgba(33,33,33,.2)
-
-
+.newArrivals-section .card-design {
+  box-shadow: 0 0 2px rgba(33, 33, 33, .2)
 }
-.newArrivals-section  .card-design:hover{
-box-shadow: 0 0 7px rgba(33,33,33,.2)
+
+.newArrivals-section .card-design:hover {
+  box-shadow: 0 0 7px rgba(33, 33, 33, .2)
 }
- .newArrivals-section .btn-custom{
+
+.newArrivals-section .btn-custom {
 
   color: var(--main-color);
   background-color: white;
@@ -210,55 +254,55 @@ box-shadow: 0 0 7px rgba(33,33,33,.2)
 
 }
 
-.newArrivals-section .btn-custom:hover{
-background-color: var(--main-color);
-color: white;
+.newArrivals-section .btn-custom:hover {
+  background-color: var(--main-color);
+  color: white;
 
 
 }
 
 /* bg2-styling */
 
-.homeBgs img{
-width: 100%;
+.homeBgs img {
+  width: 100%;
   height: 100%;
 
 }
 
 
-.homeBg-2-content h2{
+.homeBg-2-content h2 {
   width: 35%;
 }
-.homeBgs .homeBg-2-content{
+
+.homeBgs .homeBg-2-content {
 
   position: absolute;
   width: 35%;
   text-align: center;
   color: #ffffff;
   z-index: 999;
-  
-}
-.homeBgs .homeBg-2-content h1{
 
-transition: all 1s ease-in-out;
+}
+
+.homeBgs .homeBg-2-content h1 {
+
+  transition: all 1s ease-in-out;
 
 }
 
 /* bg 3/4 styling */
 
-.container .homeBgs img{
+.container .homeBgs img {
   transition: all 0.4s ease-in-out
-
-
 }
 
-.container .homeBgs img:hover{
+.container .homeBgs img:hover {
 
   transform: scale(1.06);
 
 }
 
-.homeBgs .homeBgs-4-content{
+.homeBgs .homeBgs-4-content {
 
   position: absolute;
   width: 35%;
@@ -267,19 +311,20 @@ transition: all 1s ease-in-out;
 
 }
 
-.container .homeBgs:hover img{
+.container .homeBgs:hover img {
   transform: scale(1.06);
 }
 
-.homeBgs-4-content h2{
+.homeBgs-4-content h2 {
   width: 60%;
 
 }
-.homeBgs-3-content h2{
+
+.homeBgs-3-content h2 {
   width: 60%;
 }
 
-.homeBgs .homeBgs-3-content{
+.homeBgs .homeBgs-3-content {
 
   position: absolute;
   width: 35%;
@@ -288,13 +333,15 @@ transition: all 1s ease-in-out;
 }
 
 /*features section*/
-.features-icons fa-icon{
-    font-size: 2.2rem;
+.features-icons fa-icon {
+  font-size: 2.2rem;
 }
-.features-icons{
+
+.features-icons {
   margin-bottom: 15px;
 }
-.features-content p{
+
+.features-content p {
   font-family: var(--secondary-font);
 }
 
@@ -302,25 +349,27 @@ transition: all 1s ease-in-out;
 
 
 @keyframes card-up {
-    0%{
-       transform: translateY(100%);
+  0% {
+    transform: translateY(100%);
 
-    }
-    100%{
-        transform: translateY(0%);
+  }
 
-    }
+  100% {
+    transform: translateY(0%);
+
+  }
 }
 
 @keyframes card-down {
-    0%{
-       transform: translateY(0%);
+  0% {
+    transform: translateY(0%);
 
-    }
-    100%{
-        transform: translateY(100%);
+  }
 
-    }
+  100% {
+    transform: translateY(100%);
+
+  }
 
 
 }
@@ -334,7 +383,7 @@ transition: all 1s ease-in-out;
 
   }
 
-  100%{
+  100% {
 
     background-color: var(--main-color);
     color: white
@@ -342,8 +391,3 @@ transition: all 1s ease-in-out;
 
 
 }
-
-
-
-
-
