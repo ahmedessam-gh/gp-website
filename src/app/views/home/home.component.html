@@ -1,53 +1,93 @@
 <div>
-  <div class="slider-home ">
+  <div class="slider-home">
     <div class="slider-imgs">
-
-      <img src="../../../assets/images/1920x1080-503178-formal-hand.jpg" alt="">
-      <img src="../../../assets/images/img2.jpg" alt="">
-      <img src="../../../assets/images/img3.jpg" alt="">
-      <img src="../../../assets/images/1920x1080-503178-formal-hand.jpg" alt="">
-
+      <img
+        src="../../../assets/images/1920x1080-503178-formal-hand.jpg"
+        alt=""
+      />
+      <img src="../../../assets/images/img2.jpg" alt="" />
+      <img src="../../../assets/images/img3.jpg" alt="" />
+      <img
+        src="../../../assets/images/1920x1080-503178-formal-hand.jpg"
+        alt=""
+      />
     </div>
-    <div class="home-content ">
-      <h1><span class="rent" style="--i:1">R</span><span class="rent" style="--i:2">E</span><span class="rent"
-          style="--i:3">N</span><span class="rent" style="--i:4">T</span> whatever you want ,wherever you are</h1>
+    <div class="home-content">
+      <h1>
+        <span class="rent" style="--i: 1">R</span
+        ><span class="rent" style="--i: 2">E</span
+        ><span class="rent" style="--i: 3">N</span
+        ><span class="rent" style="--i: 4">T</span> whatever you want ,wherever
+        you are
+      </h1>
       <div class="mt-5">
         <button class="btn btn-custom">Shop now</button>
       </div>
     </div>
-
   </div>
 
   <div class="categories-section py-5">
     <div class="container overflow-hidden py-2">
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-md-6">
           <div class="card overflow-hidden" data-aos="fade-up">
-            <img src="../../../assets/images/formal.jpg" height="350px" class="card-img" alt="" />
+            <img
+              src="../../../assets/images/formal.jpg"
+              height="350px"
+              class="card-img"
+              alt=""
+            />
             <div class="card-layout">
               <h3>FORMAL</h3>
             </div>
           </div>
         </div>
-        <div class="col-lg-3">
-          <div class="card overflow-hidden" data-aos="fade-up" data-aos-duration="500">
-            <img src="../../../assets/images/casual.jpg" height="350px" class="card-img" alt="" />
+        <div class="col-lg-3 col-md-6">
+          <div
+            class="card overflow-hidden"
+            data-aos="fade-up"
+            data-aos-duration="500"
+          >
+            <img
+              src="../../../assets/images/casual.jpg"
+              height="350px"
+              class="card-img"
+              alt=""
+            />
             <div class="card-layout">
               <h3>CASUAL</h3>
             </div>
           </div>
         </div>
-        <div class="col-lg-3">
-          <div class="card overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
-            <img src="../../../assets/images/kids.jpeg" height="350px" class="card-img" alt="" />
+        <div class="col-lg-3 col-md-6">
+          <div
+            class="card overflow-hidden"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
+            <img
+              src="../../../assets/images/kids.jpeg"
+              height="350px"
+              class="card-img"
+              alt=""
+            />
             <div class="card-layout">
               <h3>KIDS</h3>
             </div>
           </div>
         </div>
-        <div class="col-lg-3">
-          <div class="card overflow-hidden" data-aos="fade-up" data-aos-duration="2000">
-            <img src="../../../assets/images/accessory.jpg" height="350px" class="card-img" alt="" />
+        <div class="col-lg-3 col-md-6">
+          <div
+            class="card overflow-hidden"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <img
+              src="../../../assets/images/accessory.jpg"
+              height="350px"
+              class="card-img"
+              alt=""
+            />
             <div class="card-layout">
               <h3>ACCESSORIES</h3>
             </div>
@@ -66,7 +106,12 @@
     </h1>
     <div class="container">
       <div class="row">
-        <div class="card col-lg-3" *ngFor="let newProd of newProds" data-aos="fade-up" data-aos-duration="100">
+        <div
+          class="card col-xl-3 col-lg-4 col-md-6"
+          *ngFor="let newProd of newProds"
+          data-aos="fade-up"
+          data-aos-duration="100"
+        >
           <div class="card-design">
             <img src="{{ newProd.img }}" height="300" width="280" alt="" />
             <p style="color: rgba(117, 91, 180, 255)">{{ newProd.ProdName }}</p>
@@ -84,5 +129,4 @@
       <button data-aos="fade-up" class="btn btn-custom">Browse More</button>
     </h1>
   </div>
-
 </div>

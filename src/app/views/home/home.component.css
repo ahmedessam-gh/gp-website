@@ -60,7 +60,7 @@
   80%{left: -300%;}
   100%{left: -300%;}
 
-  
+
 }
 
 
@@ -73,7 +73,7 @@
   color: #ffffff;
   left: 50%;
   transform: translateX(-50%);
-  top: 30%; 
+  top: 30%;
 }
 .rent{
   position: relative;
@@ -85,7 +85,7 @@ font-size: 3rem;
 }
 @keyframes flip {
   0%,80% {
-    transform: rotateY(360deg) 
+    transform: rotateY(360deg)
   }
 }
 .btn-custom{

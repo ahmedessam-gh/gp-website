@@ -57,8 +57,8 @@
 
 .nav-li-dropdown:hover .dropdown-list {
     display: block;
-    border-top: 4px solid var(--main-color); 
-     
+    border-top: 4px solid var(--main-color);
+
     animation: slideInDown 0.5s ease-in-out;
 
 }
@@ -73,7 +73,7 @@
     z-index: 999;
     margin: 0 7px;
     font-family: var(--main-font) !important;
-    
+
 
 }
 
@@ -83,7 +83,7 @@
 
 .dropdown-list li a {
     font-family: var(--main-font);
-    
+
 }
 
 .dropdown-list li a:hover {
@@ -99,7 +99,7 @@
     width: 100%;
     position: fixed;
     z-index: 999;
-    animation: dropdown1 0.25s ease-in-out;
+    animation: bounceInDown 0.8s ease-in-out;
     padding-top: 1.5rem;
 
 }
@@ -118,7 +118,7 @@
     display: flex;
     align-items: center;
     border-radius: 10em;
-    animation: searchinput 0.55s ease-in-out;
+    animation: slideInRight 0.9s ease-in-out;
 
 
 
@@ -221,7 +221,8 @@
     outline: 0;
     text-decoration: none;
     font-weight: 100;
-    font-family: var(--main-font)
+    font-family: var(--main-font);
+    animation: bounceOut .9s ease-in-out
 }
 
 .search-container a:hover {
@@ -231,7 +232,7 @@
 
 
 .search-container .search-suggesions {
-    animation: suggestions 0.4s ease-in-out;
+    animation: bounceInLeft 1.5s ease-in-out;
 
 
 
