@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div class="categories-section py-5">
+  <div class="categories-section pad-sections">
     <div class="container overflow-hidden py-2">
       <div class="row">
         <div class="col-lg-3 col-md-6">
@@ -56,10 +56,9 @@
       </div>
     </div>
   </div>
-  <div></div>
 
   <!-- New Arrivals Section starts here-->
-  <div class="newArrivals-section" data-aos="fade-up" data-aos-duration="2000">
+  <div class="newArrivals-section pad-sections" data-aos="fade-up" data-aos-duration="2000">
     <h1>
       NEW <br />
       ARRIVAL
@@ -68,8 +67,20 @@
       <div class="row">
         <div class="card col-xl-3 col-lg-4 col-md-6" *ngFor="let newProd of newProds" data-aos="fade-up"
           data-aos-duration="100">
-          <div class="card-design">
-            <img src="{{ newProd.img }}" height="300" width="280" alt="" />
+          <div class="card-design ">
+            <div class="card-fav-cart position-relative ">
+              <img src="{{ newProd.img }}" height="300" width="280" alt="" />
+              <div class="position-absolute fav-cart ">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                  <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                </svg> -->
+                <fa-icon icon="cart-shopping"></fa-icon>
+                <fa-icon icon="heart"></fa-icon>
+              </div>
+            </div>
             <p style="color: rgba(117, 91, 180, 255)">{{ newProd.ProdName }}</p>
             <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana">
               {{ newProd.Category }}
@@ -89,7 +100,7 @@
   <!-- Backgrounds Section starts from here -->
 
   <!-- 2nd Background in home page starts here-->
-  <div class="homeBgs card position-relative">
+  <div class="homeBgs card position-relative pad-sections">
     <img src="../../../assets/images/1920x1080-503178-formal-hand.jpg " alt="" />
     <div class="homeBg-2-content d-flex flex-column justify-content-center align-items-center h-100 card-body w-100 ">
       <h2 data-aos="fade-up">Collection houses our first-ever</h2>
@@ -99,7 +110,7 @@
     </div>
   </div>
   <!-- 3rd & 4th Background in home page starts here-->
-  <div class="container py-5">
+  <div class="container pad-sections">
     <div class="row">
       <div class="col-lg-6">
         <div class="homeBgs position-relative">
@@ -127,4 +138,46 @@
       </div>
     </div>
   </div>
+
+  <div class="container pad-sections">
+    <div class="row">
+      <div class="col-3">
+        <div class="features-icons">
+          <fa-icon icon="envelope"></fa-icon>
+        </div>
+        <div class="features-content">
+          <h5>Online Support 24/7</h5>
+          <p>Dedicated support</p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="features-icons">
+          <fa-icon icon="truck-fast"></fa-icon>
+        </div>
+        <div class="features-content">
+          <h5>Fast and Free Delivery</h5>
+          <p>Free delivery on all orders</p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="features-icons">
+          <fa-icon icon="lock"></fa-icon>
+        </div>
+        <div class="features-content">
+          <h5>Payment Secure</h5>
+          <p>100% secure payment</p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="features-icons">
+          <fa-icon icon="money-bill-transfer"></fa-icon>
+        </div>
+        <div class="features-content">
+          <h5>Money Back Guarantee</h5>
+          <p>If good have Problems</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
 </div>

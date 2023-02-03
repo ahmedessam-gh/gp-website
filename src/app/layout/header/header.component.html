@@ -224,7 +224,7 @@
             <li><a href="" class="nav-link">Pants</a></li>
           </ul>
         </div>
-        <div class="search-results bg-light">
+        <div class="search-results bg-danger bg-light">
           <a *ngFor="let pro of myProd | filter : searchText" href="" class="card" data-aos="fade-up">
             <img src="{{ pro.img }}" height="350px" alt="" />
             <p>{{ pro?.ProdName }}</p>

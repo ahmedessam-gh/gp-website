@@ -29,7 +29,10 @@
   background-size: cover;
   height: 100vh;
 }
-
+.pad-sections{
+  padding: 50px 0px;
+  border: 0;
+}
 
 /*slideShow*/
 .slider-home{
@@ -141,6 +144,31 @@ font-size: 3rem;
   padding-bottom: 2rem;
 color: var(--secondary-color);
 
+}
+.fav-cart{
+    margin: 0 5px;
+    top:80%;
+    right: 0;
+    margin-right: 20px;
+    display: none;
+    
+}
+.card-fav-cart:hover .fav-cart{
+  display: block;
+ animation: slideInRight 0.3s ;
+  
+}
+.fav-cart fa-icon{
+  margin: 0px 5px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 10px;
+  color: var(--main-color);
+  transition: all 0.2s ease-in-out;
+}
+.fav-cart fa-icon:hover{
+  background-color: var(--main-color);
+  color: #ffffff;
 }
 
 .newArrivals-section .card{
@@ -259,7 +287,16 @@ transition: all 1s ease-in-out;
 
 }
 
-
+/*features section*/
+.features-icons fa-icon{
+    font-size: 2.2rem;
+}
+.features-icons{
+  margin-bottom: 15px;
+}
+.features-content p{
+  font-family: var(--secondary-font);
+}
 
 
 
