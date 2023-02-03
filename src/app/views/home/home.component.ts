@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Aos from 'aos';
 import { ProdService } from 'src/app/core/services/prod.service';
+import 'animate.css';
 
 @Component({
   selector: 'app-home',
