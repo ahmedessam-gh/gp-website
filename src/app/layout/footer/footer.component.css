@@ -4,6 +4,9 @@ footer{
     font-family: var(--main-font);
    
 }
+p{
+    font-family: var(--secondary-font);
+}
 .footer-ul{
     list-style: none;
 
@@ -25,6 +28,7 @@ footer{
 .about-us ul li a{
     color: #ffff;
     text-decoration: none;
+    font-family:var(--secondary-font) ;
 }
 .about-us ul li a:hover{
     color: var(--main-color);
