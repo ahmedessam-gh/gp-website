@@ -189,6 +189,66 @@ color: white;
 
 }
 
+/* bg2-styling */
+
+.homeBgs img{
+    position: relative;
+  width: 100%;
+  height: 10%;
+
+}
+
+.homeBgs img:hover{
+}
+
+.homeBgs .homeBg-2-content{
+
+  position: absolute;
+  width: 35%;
+  text-align: center;
+  color: #ffffff;
+  left: 30%;
+top: 380%;
+}
+.homeBgs .homeBg-2-content h1{
+
+transition: all 1s ease-in-out;
+
+}
+
+/* bg 3/4 styling */
+.container .homeBgs img{
+  transition: all 0.4s ease-in-out
+
+
+}
+
+.container .homeBgs img:hover{
+
+  transform: scale(1.06);
+
+}
+
+.homeBgs .homeBgs-4-content{
+
+  position: absolute;
+  width: 35%;
+  color: #ffffff;
+  left: 52%;
+  top: 480%;
+
+}
+
+
+.homeBgs .homeBgs-3-content{
+
+  position: absolute;
+  width: 35%;
+  color: #ffffff;
+  left: 8.5%;
+  top: 480%;
+
+}
 
 
 
