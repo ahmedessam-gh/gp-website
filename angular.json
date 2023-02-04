@@ -32,7 +32,8 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
-              "node_modules/aos/dist/aos.css"
+              "node_modules/aos/dist/aos.css",
+              "node_modules/animate.css/animate.min.css"
             ],
             "scripts": [
               
@@ -46,15 +47,15 @@
                 {
                   "type": "initial",
 
-                  "maximumWarning": "10mb",
-                  "maximumError": "10mb"
+         "maximumWarning": "5mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "200kb",
+                  "maximumWarning": "100kb",
 
-      }
-
+                  "maximumError": "400kb"
+                }
               ],
               "fileReplacements": [
                 {

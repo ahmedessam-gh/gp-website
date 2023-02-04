@@ -9,10 +9,12 @@
     margin: 15px auto;
 }
 
-.start-nav{
+.start-nav {
     margin: 0px 20px 0px 100px;
 }
-.end-nav{
+
+
+.end-nav {
     margin-right: 100px;
 }
 
@@ -25,7 +27,8 @@
     cursor: pointer;
 
 }
-.header-cart{
+
+.header-cart {
     color: var(--main-color);
 }
 
@@ -34,47 +37,61 @@
 .nav-li-dropdown {
     position: relative;
 }
-.dropdown-list{
+
+.dropdown-list {
     position: absolute;
     display: none;
-    padding: 10px 15px;
     margin-top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: -1;
     border-radius: 5px;
+    /* left: 50%;
+    transform: translateX(-50%); */
 
 }
 
+.dropdown-text li {
+    padding: 2px 15px;
+}
+
+.dropdown-text li:hover {
+    background-color: var(--main-color);
+}
 
 
 .nav-li-dropdown:hover .dropdown-list {
     display: block;
-    border-top: 5px solid var(--main-color);
-    animation: dropdown 0.4s ease-in-out;
+    border-top: 4px solid var(--main-color);
+
+    animation: slideInUp 0.3s ease-out;
+    animation: fadeInUp 0.3s ease-out;
 
 }
-.nav-li-dropdown:hover .nav-line{
+
+.nav-li-dropdown:hover .nav-line {
     color: var(--main-color) !important;
 }
 
-.nav-li-dropdown{
-    padding: 10px;
+.nav-li-dropdown {
+    padding: 10px 8px;
     font-size: 1rem;
     z-index: 999;
     margin: 0 7px;
-    font-family:var(--main-font) !important;
+    font-family: var(--main-font) !important;
+
 
 }
-.nav-li-dropdown a:hover{
+
+.nav-li-dropdown a:hover {
     color: var(--main-color);
 }
 
-.dropdown-list li a{
+.dropdown-list li a {
     font-family: var(--main-font);
+
 }
-.dropdown-list li a:hover{
-    color: var(--secondary-color) !important;
+
+.dropdown-list li a:hover {
+    color: #ffff !important;
 
 }
 
@@ -86,7 +103,7 @@
     width: 100%;
     position: fixed;
     z-index: 999;
-    animation: dropdown 0.25s ease-in-out;
+    animation: bounceInDown 0.8s ease-in-out;
     padding-top: 1.5rem;
 
 }
@@ -105,7 +122,7 @@
     display: flex;
     align-items: center;
     border-radius: 10em;
-    animation: searchinput 0.55s ease-in-out;
+    animation: slideInRight 0.9s ease-in-out;
 
 
 
@@ -208,8 +225,12 @@
     outline: 0;
     text-decoration: none;
     font-weight: 100;
-   font-family: var(--main-font)
+    font-family: var(--main-font);
 
+}
+
+.search-results {
+    animation: bounceOut .9s ease-in-out
 }
 
 .search-container a:hover {
@@ -219,7 +240,7 @@
 
 
 .search-container .search-suggesions {
-    animation: suggestions 0.4s ease-in-out;
+    animation: bounceInLeft 1.5s ease-in-out;
 
 
 
@@ -227,41 +248,43 @@
 
 .activeSearch-suggesions {
 
-display: none;
+    display: none;
 }
 
-.search-container .search-results  {
+.search-container .search-results {
 
-  display: none;
-  align-items: flex-start;
-  flex-direction: row;
-
-
-}
-.search-container .search-results  .card{
-padding:1rem;
+    display: none;
+    align-items: flex-start;
+    flex-direction: row;
 
 
 }
 
-.activeSearchresults{
+.search-container .search-results .card {
+    padding: 1rem;
 
 
-  display: flex  !important;
+}
+
+.activeSearchresults {
+
+
+    display: flex !important;
 
 }
 
 .search-container .search-results .card {
 
-border: 1px solid white;
+    border: 1px solid white;
 
 }
 
 .search-container .search-results .card img {
 
-  border: 1px solid white;
+    border: 1px solid white;
 
-  }
+}
+
 
 
 
@@ -276,7 +299,7 @@ border: 1px solid white;
     }
 }
 
-@keyframes dropdown {
+@keyframes dropdown1 {
     0% {
         opacity: 0;
         transform: scale(0px);
@@ -354,6 +377,27 @@ border: 1px solid white;
 }
 
 @media screen and (max-width:990px) {
+    .small-screen-end {
+        display: block;
+    }
+
+    .large-screen-end {
+        display: none;
+    }
+
+    .navbar-brand svg {
+        width: 100px !important;
+        height: 50px !important;
+
+    }
+
+    .navbar-toggler:focus,
+    .navbar-toggler:active,
+    .navbar-toggler-icon:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
     .nav-line {
         border-bottom: none;
     }
@@ -382,15 +426,24 @@ border: 1px solid white;
     }
 
     .nav-end {
-        display: none;
+        margin: 0 0 0 0;
     }
 
-    .logo-nav {
-        margin: 0 0 0 auto !important;
+    .start-nav {
+        margin: 0 auto 0 15px !important;
 
     }
 
     .navbar-brand {
         margin: 0 !important;
     }
+}
+
+@media screen and (max-width:280px) {
+    .navbar-brand svg {
+        width: 100px !important;
+        height: 50px !important;
+
+    }
+
 }

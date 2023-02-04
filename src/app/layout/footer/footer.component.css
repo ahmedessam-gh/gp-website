@@ -1,5 +1,11 @@
 footer{
     width: 100%;
+    background-color: var(--main-color);
+    font-family: var(--main-font);
+   
+}
+p{
+    font-family: var(--secondary-font);
 }
 .footer-ul{
     list-style: none;
@@ -15,3 +21,57 @@ footer{
     font-family: "Robotolight";
     font-size: 14px;
 }
+
+@media screen and (max-width:990px) {
+    .footer-respon p{
+        font-size: 0.7rem ;
+    }
+    .footer-respon h5{
+        font-size: 1rem;
+    }
+    .about-us ul li{
+        margin: 0px 0px !important;
+        font-size: 0.8rem;
+    }
+    .navbar-brand svg{
+        width: 120px;
+        height: 50px;
+    }
+    
+}
+.about-us ul li{
+    margin: 5px 0px;
+}
+.about-us ul li a{
+    color: #ffff;
+    text-decoration: none;
+    font-family:var(--secondary-font) ;
+}
+.about-us ul li a:hover{
+    color: var(--main-color);
+    text-decoration: none;
+}
+.btn-custom{
+    background-color: var(--main-color);
+    color: #ffffff;
+    font-size: 1rem;
+    border-end-end-radius: 10px;
+    border-end-start-radius: 10px;
+    border-top-left-radius: 0px;
+    border-end-start-radius: 0px;
+}
+.footer-icons a{
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+.footer-icons a :hover{
+    color: var(--main-color);
+}
+.copyright p{
+    font-size: 0.8rem;
+    color: rgba(117,91,180,0.5);
+    font-family: var(--secondary-font);
+    text-align: center;
+}
+
+
