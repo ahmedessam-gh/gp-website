@@ -110,7 +110,20 @@
 }
 @media screen and (max-width:990px) {
     .home-content h1{
-      font-size: 1.2rem !important;
+      font-size: 1rem !important;
+    }
+    .slider-home {
+      height: 50vh;
+    }
+    span{
+      font-size:1.2rem !important ;
+    }
+    .home-content{
+      top: 15% !important;
+    }
+    .head-btn-custom .btn-custom{
+        font-size: 0.8rem;
+        padding: 2px 5px;
     }
   
 }
