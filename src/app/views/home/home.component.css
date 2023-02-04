@@ -108,6 +108,12 @@
   transform: translateX(-50%);
   top: 30%;
 }
+@media screen and (max-width:990px) {
+    .home-content h1{
+      font-size: 1.2rem !important;
+    }
+  
+}
 
 .rent {
   position: relative;
@@ -282,6 +288,17 @@
   color: #ffffff;
   z-index: 999;
 
+}
+@media screen and (max-width:950px) {
+  .homeBgs h2{
+    font-size: 1.2rem;
+    width: 50%;
+    margin-bottom: 10px;
+  }
+  .btn-respon .btn-custom{
+    font-size: 0.8rem;
+    padding: 2px 5px;
+  }
 }
 
 .homeBgs .homeBg-2-content h1 {

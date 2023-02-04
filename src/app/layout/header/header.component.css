@@ -14,7 +14,7 @@
 }
 @media screen and (max-width:990px){
     .navbar-brand svg{
-        width: 140px !important;
+        width: 120px !important;
         height: 50px !important;
         
     }
