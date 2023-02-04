@@ -105,21 +105,19 @@
   text-align: center;
   color: #ffffff;
   left: 50%;
-  transform: translateX(-50%);
-  top: 30%;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  
 }
 @media screen and (max-width:990px) {
     .home-content h1{
-      font-size: 1rem !important;
+      font-size: 0.7rem !important;
     }
     .slider-home {
       height: 50vh;
     }
     span{
       font-size:1.2rem !important ;
-    }
-    .home-content{
-      top: 15% !important;
     }
     .head-btn-custom .btn-custom{
         font-size: 0.8rem;
