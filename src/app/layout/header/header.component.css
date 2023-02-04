@@ -12,6 +12,13 @@
 .start-nav {
     margin: 0px 20px 0px 100px;
 }
+@media screen and (max-width:990px){
+    .navbar-brand svg{
+        width: 140px !important;
+        height: 50px !important;
+        
+    }
+}
 
 .end-nav {
     margin-right: 100px;
@@ -47,10 +54,12 @@
     transform: translateX(-50%); */
 
 }
-.dropdown-text li{
+
+.dropdown-text li {
     padding: 2px 15px;
 }
-.dropdown-text li:hover{
+
+.dropdown-text li:hover {
     background-color: var(--main-color);
 }
 
@@ -223,9 +232,10 @@
     text-decoration: none;
     font-weight: 100;
     font-family: var(--main-font);
-    
+
 }
-.search-results{
+
+.search-results {
     animation: bounceOut .9s ease-in-out
 }
 

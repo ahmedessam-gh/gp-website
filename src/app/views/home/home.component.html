@@ -22,7 +22,7 @@
     <div class="container overflow-hidden py-2">
       <div class="row">
         <div class=" col-lg-3 col-md-6">
-          <div class="card overflow-hidden" data-aos="fade-up">
+          <div class="card overflow-hidden" data-aos="fade-up" data-aos-once="true">
             <img src="../../../assets/images/formal.jpg" height="350px" class="card-img" alt="" />
             <div class="card-layout">
               <h3>FORMAL</h3>
@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="mt-4 mt-md-0 mt-lg-0 col-lg-3 col-md-6">
-          <div class="card overflow-hidden" data-aos="fade-up" data-aos-duration="500">
+          <div class="card overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
             <img src="../../../assets/images/casual.jpg" height="350px" class="card-img" alt="" />
             <div class="card-layout">
               <h3>CASUAL</h3>
@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="mt-4 mt-md-4 mt-lg-0 col-lg-3 col-md-6">
-          <div class="card overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+          <div class="card overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
             <img src="../../../assets/images/kids.jpeg" height="350px" class="card-img" alt="" />
             <div class="card-layout">
               <h3>KIDS</h3>
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="mt-4 mt-md-4 mt-lg-0 col-lg-3 col-md-6">
-          <div class="card overflow-hidden" data-aos="fade-up" data-aos-duration="2000">
+          <div class="card overflow-hidden" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
             <img src="../../../assets/images/accessory.jpg" height="350px" class="card-img" alt="" />
             <div class="card-layout">
               <h3>ACCESSORIES</h3>
@@ -58,7 +58,7 @@
   </div>
 
   <!-- New Arrivals Section starts here-->
-  <div class="newArrivals-section pad-sections" data-aos="fade-up" data-aos-duration="2000">
+  <div class="newArrivals-section pad-sections" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
     <h1>
       NEW <br />
       ARRIVAL
@@ -66,7 +66,7 @@
     <div class="container">
       <div class="row">
         <div class="card col-xl-3 col-lg-4 col-md-6" *ngFor="let newProd of newProds" data-aos="fade-up"
-          data-aos-duration="100">
+          data-aos-once="true" data-aos-duration="100">
           <div class="card-design ">
             <div class="card-fav-cart position-relative ">
               <img src="{{ newProd.img }}" height="300" width="280" alt="" />
@@ -93,7 +93,7 @@
       </div>
     </div>
     <h1>
-      <button data-aos="fade-up" class="btn btn-custom">Browse More</button>
+      <button data-aos="fade-up" data-aos-once="true" class="btn btn-custom">Browse More</button>
     </h1>
   </div>
 
@@ -103,7 +103,7 @@
   <div class="homeBgs card position-relative pad-sections">
     <img src="../../../assets/images/1920x1080-503178-formal-hand.jpg " alt="" />
     <div class="homeBg-2-content d-flex flex-column justify-content-center align-items-center h-100 card-body w-100 ">
-      <h2 data-aos="fade-up">Collection houses our first-ever</h2>
+      <h2 data-aos="fade-up" data-aos-once="true">Collection houses our first-ever</h2>
       <div class="mt-0 mt-md-3">
         <button class="btn btn-custom">Shop now</button>
       </div>
@@ -117,7 +117,7 @@
           <img src="../../../assets/images/section-img1.jpg " alt="" />
 
           <div class="ms-3 homeBgs-4-content d-flex flex-column justify-content-end h-100 w-100 position-absolute">
-            <h2 data-aos="fade-out" class="">Collection houses our first-ever</h2>
+            <h2 data-aos="fade-out" data-aos-once="true" class="">Collection houses our first-ever</h2>
             <div class="mb-3">
               <button class="btn btn-custom">Shop now</button>
             </div>
@@ -129,7 +129,7 @@
           <img src="../../../assets/images/section-img2.jpg " alt="" />
 
           <div class="ms-3 homeBgs-4-content d-flex flex-column justify-content-end h-100 w-100 position-absolute">
-            <h2 data-aos="fade-out" class="">Collection houses our first-ever</h2>
+            <h2 data-aos="fade-out" data-aos-once="true" class="">Collection houses our first-ever</h2>
             <div class="mb-3">
               <button class="btn btn-custom">Shop now</button>
             </div>
@@ -179,5 +179,5 @@
       </div>
     </div>
   </div>
- 
+
 </div>
