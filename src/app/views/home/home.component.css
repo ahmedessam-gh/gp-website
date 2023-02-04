@@ -35,7 +35,7 @@
 }
 
 .pad-sections {
-  padding: 50px 0px;
+  margin: 50px auto 50px auto;
   border: 0;
 }
 
@@ -109,22 +109,7 @@
   top: 50%;
   
 }
-@media screen and (max-width:990px) {
-    .home-content h1{
-      font-size: 0.7rem !important;
-    }
-    .slider-home {
-      height: 50vh;
-    }
-    span{
-      font-size:1.2rem !important ;
-    }
-    .head-btn-custom .btn-custom{
-        font-size: 0.8rem;
-        padding: 2px 5px;
-    }
-  
-}
+
 
 .rent {
   position: relative;
@@ -416,4 +401,22 @@
   }
 
 
+}
+@media screen and (max-width:990px) {
+  .home-content h1{
+    font-size: 0.7rem !important;
+  }
+  .slider-home {
+    height: 50vh;
+  }
+  span{
+    font-size:1.2rem !important ;
+  }
+  .head-btn-custom .btn-custom{
+      font-size: 0.8rem;
+      padding: 2px 5px;
+  }
+  .categories-section .card{
+    height: 220px;
+  }
 }

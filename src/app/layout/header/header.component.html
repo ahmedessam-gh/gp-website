@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="start-nav logo-nav">
+    <div class="start-nav">
       <a href="#" routerLink="/home" class="navbar-brand">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svgjs="http://svgjs.dev/svgjs" version="1.1" width="170" height="60" viewBox="0 0 1000 255">
@@ -67,7 +67,13 @@
         </svg>
       </a>
     </div>
-
+    <div class="end-nav d-block d-lg-none nav-end">
+      <div class="header-icons">
+        <fa-icon icon="magnifying-glass" class="header-search" (click)="searchContainer()"></fa-icon>
+        <fa-icon icon="user" class="header-profile"></fa-icon>
+        <fa-icon icon="cart-shopping" class="header-cart"></fa-icon>
+      </div>
+    </div>
     <div class="collapse navbar-collapse position-relative" [ngClass]="{ collapse: collapsed }">
       <ul class="navbar-nav navbar-ul">
         <li class="nav-item nav-li-dropdown">
@@ -134,7 +140,7 @@
       </ul>
     </div>
 
-    <div class="end-nav nav-end">
+    <div class="end-nav d-none d-lg-block nav-end">
       <div class="header-icons">
         <fa-icon icon="magnifying-glass" class="header-search" (click)="searchContainer()"></fa-icon>
         <fa-icon icon="user" class="header-profile"></fa-icon>
@@ -144,7 +150,7 @@
   </nav>
   <div class="search-container bg-white">
     <div class="row">
-      <div class="col-2 text-start">
+      <div class="d-none d-lg-block col-2 logo-respon text-start">
         <a href="#" class="mx-3">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             xmlns:svgjs="http://svgjs.dev/svgjs" version="1.1" width="170" height="60" viewBox="0 0 1000 255">
@@ -206,7 +212,7 @@
           </svg>
         </a>
       </div>
-      <div class="inputBox col-8">
+      <div class="inputBox ms-4 ms-lg-0 col-8">
         <div class="inputBox">
           <div class="search-items bg-light">
             <span> <fa-icon icon="magnifying-glass"></fa-icon></span>
