@@ -244,6 +244,11 @@
   box-shadow: 0 0 7px rgba(33, 33, 33, .2)
 }
 
+.newArrivals-section .card-fav-cart img{
+  height: 300px;
+  /*object-fit: contain;*/
+}
+
 .newArrivals-section .btn-custom {
 
   color: var(--main-color);

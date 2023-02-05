@@ -66,11 +66,11 @@
     </h1>
     <div class="container">
       <div class="row">
-        <div class="card col-xl-3 col-lg-4 col-md-6" *ngFor="let newProd of newProds" data-aos="fade-up"
+        <div class="card col-xl-3 col-lg-4 col-6" *ngFor="let newProd of newProds" data-aos="fade-up"
           data-aos-once="true" data-aos-duration="100">
-          <div class="card-design ">
+          <div class="card-design">
             <div class="card-fav-cart position-relative ">
-              <img src="{{ newProd.img }}" height="300" width="280" alt="" />
+              <img src="{{ newProd.img }}" class="img-fluid" alt="" />
               <div class="position-absolute fav-cart ">
                 <fa-icon icon="cart-shopping"></fa-icon>
                 <fa-icon icon="heart"></fa-icon>
