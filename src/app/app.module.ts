@@ -17,8 +17,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CommonModule } from '@angular/common';
 import { Ng2SearchPipe } from 'ng2-search-filter/src/ng2-filter.pipe';
 import { Router } from '@angular/router';
+import { MainButtonModule } from './shared/main-button/main-button.module';
+import { LoginComponent } from './views/login/login.component';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, LoginComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -26,6 +28,7 @@ import { Router } from '@angular/router';
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    MainButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],
