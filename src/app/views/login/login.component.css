@@ -20,3 +20,9 @@
     font-family: var(--secondary-font);
     color: #ffffff;
 }
+/* .form-control{  
+    background-color: transparent;
+    border-width: 0 0 1px 0;
+    box-shadow: none;
+    
+} */
