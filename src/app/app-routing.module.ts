@@ -4,12 +4,12 @@ import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginModule } from './views/login/login.module';
 import { RegisterComponent } from './views/register/register.component';
-import { HeadFootDisplayComponent } from './views/head-foot-display/head-foot-display.component';
+import { HeadFootComponent } from './views/head-foot/head-foot.component';
 
 const routes: Routes = [
   {
     path:'',
-    component:HeadFootDisplayComponent,
+    component:HeadFootComponent,
     children: [
       {path: '',component: HomeComponent},
       {path: 'home',component: HomeComponent},

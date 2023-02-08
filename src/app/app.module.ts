@@ -19,9 +19,9 @@ import { Ng2SearchPipe } from 'ng2-search-filter/src/ng2-filter.pipe';
 import { Router } from '@angular/router';
 import { MainButtonModule } from './shared/main-button/main-button.module';
 import { LoginComponent } from './views/login/login.component';
-import { HeadFootDisplayModule } from './views/head-foot-display/head-foot-display.module';
+import { HeadFootComponent } from './views/head-foot/head-foot.component';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, LoginComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, LoginComponent, HeadFootComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -30,7 +30,7 @@ import { HeadFootDisplayModule } from './views/head-foot-display/head-foot-displ
     FontAwesomeModule,
     FormsModule,
     MainButtonModule,
-    HeadFootDisplayModule,
+
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
