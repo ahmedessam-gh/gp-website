@@ -1,0 +1,22 @@
+
+.login-form{
+    height:100vh;
+    font-family: var(--main-font);
+}
+.bg-login{
+    background-image: url('../../../assets/images/loginImg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--main-color);
+    background-blend-mode:hard-light;
+    height: 100%;
+}
+.login-img-content h4{
+    font-size: 3rem;
+    color: #ffffff;
+}
+.login-img-content p{
+    font-family: var(--secondary-font);
+    color: #ffffff;
+}

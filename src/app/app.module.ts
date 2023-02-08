@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,8 +19,9 @@ import { Ng2SearchPipe } from 'ng2-search-filter/src/ng2-filter.pipe';
 import { Router } from '@angular/router';
 import { MainButtonModule } from './shared/main-button/main-button.module';
 import { LoginComponent } from './views/login/login.component';
+import { HeadFootComponent } from './views/head-foot/head-foot.component';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, LoginComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, LoginComponent, HeadFootComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -28,8 +29,10 @@ import { LoginComponent } from './views/login/login.component';
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    MainButtonModule
+    MainButtonModule,
+
   ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent],
 })
