@@ -3,7 +3,6 @@ import { Router, Routes, RouterModule } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginModule } from './views/login/login.module';
-import { RegisterComponent } from './views/register/register.component';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
 
 const routes: Routes = [
@@ -16,7 +15,6 @@ const routes: Routes = [
       {path:'cart',loadChildren:() => import('./views/cart/cart.module').then(m=>m.CartModule)},
     ]
   },
-  {path:'register',loadChildren:() => import('./views/register/register.module').then(m=>m.RegisterModule)},
   {path:'login',loadChildren:() => import('./views/login/login.module').then(m=>m.LoginModule)},
 
 ];
