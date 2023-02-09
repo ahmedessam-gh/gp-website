@@ -20,8 +20,9 @@ import { Router } from '@angular/router';
 import { MainButtonModule } from './shared/main-button/main-button.module';
 import { LoginComponent } from './views/login/login.component';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
+import { InputComponent } from './shared/input/input.component';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, LoginComponent, HeadFootComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, LoginComponent, HeadFootComponent, InputComponent],
   imports: [
     CommonModule,
     BrowserModule,

@@ -3,20 +3,52 @@
     height:100vh;
     font-family: var(--main-font);
 }
+.dressifyWelcome{
+    color: var(--main-color);
+    font-size: 3rem;
+    animation: colorChange 1s forwards infinite;
+}
+
 .bg-login{
     background-image: url('../../../assets/images/loginImg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: var(--main-color);
-    background-blend-mode:hard-light;
+    /* background-blend-mode:hard-light; */
     height: 100%;
 }
 .login-img-content h4{
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: #ffffff;
+    
+}
+.login-img-content span{
+    font-size: 3rem;
+    color: var(--main-color);
+    
 }
 .login-img-content p{
     font-family: var(--secondary-font);
     color: #ffffff;
 }
+/* .form-control{  
+    background-color: transparent;
+    border-width: 0 0 1px 0;
+    box-shadow: none;
+    
+} */
+/*register*/
+.register-overlay{
+    position: absolute;
+    right: 0;
+    top:0;
+    height: 100%;
+    
+}
+    
+.loginRegisterBrand{
+    position: absolute;
+    right: 0;
+}
+
