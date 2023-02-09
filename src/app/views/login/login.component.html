@@ -1,39 +1,44 @@
-<div class="login-form row g-0">
-    <div class="col-md-6 d-none d-md-block bg-login animate__animated animate__slideInLeft animate">
-        <div class="h-100 d-flex flex-column text-center justify-content-center login-img-content">
-            <h4 class="animate__animated animate__backInDown animate__delay-1s">Welcome To </h4>
-            <span class="animate__animated animate__backInUp animate__delay-1s">Dressify</span>
-            
-            <!-- <p>login to Continue shopping</p> -->
-        </div>
+<div class="login-form row g-0 overflow-hidden">
+  <div class="col-md-6 d-none d-md-block bg-login animate__animated animate__slideInLeft animate">
+    <div class="h-100 d-flex flex-column text-center justify-content-center login-img-content">
+      <h4 class="animate__animated animate__backInDown animate__delay-1s">Welcome To </h4>
+      <span class="animate__animated animate__backInUp animate__delay-1s">Dressify</span>
+
+      <!-- <p>login to Continue shopping</p> -->
     </div>
-    <div class="col-md-6  my-md-0 d-block animate__animated animate__backInDown" id="loginFrom">    
-        <div class="mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
-            <h5 style="color:var(--main-color)">Login</h5>
-            <div class="w-50">
-                <app-input type="email" placeHolder="Enter Your Email ..."></app-input>
-                <app-input type="password" placeHolder="Enter Your Password ..."></app-input>
-                <a href="#" class="text-decoration-none" style="color:grey; font-size: 0.8rem;">Forgot Password ?</a>
-                <app-main-button width="100%" content="Login"></app-main-button>
-            </div>
-            <button class="btn" (click)="showRegister()">Create Account?</button>
-        </div>
+  </div>
+  <div class="col-md-6  my-md-0 d-block animate__animated animate__backInDown" id="loginFrom">
+    <div class="mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
+      <h5 style="color:var(--main-color)">Login</h5>
+      <div class="w-50">
+        <app-input type="email" placeHolder="Enter Your Email ..."></app-input>
+        <app-input type="password" placeHolder="Enter Your Password ..."></app-input>
+        <a href="#" class="text-decoration-none" style="color:grey; font-size: 0.8rem;">Forgot Password ?</a>
+        <app-main-button width="100%" content="Login"></app-main-button>
+      </div>
+      <button class="btn" (click)="showRegister()">Create Account?</button>
     </div>
-    <div class="col-md-6 my-md-0 register-overlay d-none animate__animated animate__backInDown" id="registerForm">
-        <div class="mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
-            <h5 style="color:var(--main-color)">Sign Up</h5>
-            <div class="w-50">
-                <app-input type="text" placeHolder="Enter Your Name ..."></app-input>
-                <app-input type="email" placeHolder="Enter Your Email ..."></app-input>
-                <app-input type="password" placeHolder="Enter Your Password ..."></app-input>
-                <app-input type="password" placeHolder="Renter Your Password ..."></app-input>
-                <app-main-button width="100%" content="register"></app-main-button>
-            </div>
-            <button class="btn" (click)="showLogin()">Sign Up</button>
-        </div>
-        
+  </div>
+  <div class="col-md-6 my-md-0 register-overlay d-none animate__animated animate__backInDown" id="registerForm">
+    <div class="mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
+      <h5 style="color:var(--main-color)">Sign Up</h5>
+      <div class="w-50">
+        <app-input type="text" placeHolder="Enter Your Name ..." myInputName></app-input>
+        <!-- <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)" class="alert">
+          <div *ngIf="fullname.errors?.['required']">
+            Name is required.
+          </div>
+        </div> -->
+        <app-input type="email" placeHolder="Enter Your Email ..."></app-input>
+        <app-input type="password" placeHolder="Enter Your Password ..."></app-input>
+        <app-input type="password" placeHolder="Renter Your Password ..."></app-input>
+        <app-main-button width="100%" content="register"></app-main-button>
+      </div>
+      <button class="btn" (click)="showLogin()">Sign Up</button>
     </div>
-    <!-- <div class="w-50 loginRegisterBrand">
+
+  </div>
+  <!-- <div class="w-50 loginRegisterBrand">
         <a href="#" routerLink="/home" class="navbar-brand ms-4">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
               xmlns:svgjs="http://svgjs.dev/svgjs" version="1.1" width="170" height="60" viewBox="0 0 1000 255">
