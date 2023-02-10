@@ -51,4 +51,38 @@
     position: absolute;
     right: 0;
 }
+/*form style*/
+.form-control{  
+    background-color: transparent;
+    border-width: 0 0 1px 0;
+    box-shadow: none;  
+    border-radius: 0; 
+    text-shadow: none;     
+}
 
+.form-control:focus{  
+    border-color: var(--main-color);
+}
+input::placeholder{
+    font-size: 0.8rem;
+    font-family: var(--secondary-font);
+}
+/*validation style*/
+.ng-invalid .ng-touched{
+    border-color: red;
+}
+.form-content p{
+    color: red;
+    font-size: 0.7rem;
+}
+.app-button{
+   animation: shake 0.15s forwards;
+}
+@keyframes shake {
+  0%,100%{transform: translateX(0px);}
+  20%{transform: translateX(5px);}
+  40%{transform: translateX(5px);}
+  60%{transform: translateX(-5px);}
+  80%{transform: translateX(-5px);}
+  
+}

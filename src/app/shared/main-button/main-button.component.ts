@@ -10,6 +10,12 @@ export class MainButtonComponent implements OnInit {
   @Input() content:string = 'button';
   @Input() color?:string 
   @Input() width:string ='100%'
+  @Input() type:string;
+  @Input() myClass:string;
+ 
+
+
+  
   buttonStyle:Record<string,string>={};
   constructor() { }
 
@@ -19,6 +25,7 @@ export class MainButtonComponent implements OnInit {
       'color':this.color || 'white',
       'width':this.width 
     }
+  
   }
 
 }

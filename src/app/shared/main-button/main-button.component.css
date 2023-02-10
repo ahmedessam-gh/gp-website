@@ -1,8 +1,8 @@
 .btn-custom {
     background-color: var(--main-color);
-    font-size: 1.1rem;
-  
+    font-size: 1.1rem;  
   }
+  
   .btn-custom:hover {
     color: var(--main-color);
     background-color: var(--tertiary-color);
