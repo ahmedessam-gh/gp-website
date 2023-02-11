@@ -8,9 +8,11 @@
     font-size: 3rem;
     animation: colorChange 1s forwards infinite;
 }
-
+svg{
+    color: #ffffff;
+}
 .bg-login{
-    background-image: url('../../../assets/images/loginImg.jpg');
+    background-image: url('../../../assets/images/sl_063022_51250_19.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -38,18 +40,11 @@
     box-shadow: none;
     
 } */
-/*register*/
-.register-overlay{
-    position: absolute;
-    right: 0;
-    top:0;
-    height: 100%;
-    
-}
     
 .loginRegisterBrand{
     position: absolute;
-    right: 0;
+   
+    
 }
 /*form style*/
 .form-control{  
