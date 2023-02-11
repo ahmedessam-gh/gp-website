@@ -68,6 +68,7 @@
     </h1>
     <div class="container">
       <div class="row">
+<<<<<<< Updated upstream
         <div class="card col-xl-3 col-lg-4 col-md-6" *ngFor="let newProd of newProds" data-aos="fade-up"
           data-aos-once="true" data-aos-duration="100">
           <div class="card-design ">
@@ -75,6 +76,15 @@
               <img src="{{ newProd.img }}" height="300" width="280" alt="" />
               <div class="position-absolute fav-cart ">
                 <fa-icon icon="cart-shopping"></fa-icon>
+=======
+        <div  class="card col-xl-3 col-lg-4 col-6" *ngFor="let newProd of newProds" data-aos="fade-up"
+          data-aos-once="true" data-aos-duration="100">
+          <div class="card-design" id="items">
+            <div class="card-fav-cart position-relative" id="imgDiv">
+              <img src="{{ newProd.img }}" class="img-fluid" alt="" />
+              <div class="position-absolute fav-cart">
+                <fa-icon icon="cart-shopping" (click)="function($event)"></fa-icon>
+>>>>>>> Stashed changes
                 <fa-icon icon="heart"></fa-icon>
               </div>
             </div>
