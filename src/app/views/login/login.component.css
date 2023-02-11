@@ -8,9 +8,11 @@
     font-size: 3rem;
     animation: colorChange 1s forwards infinite;
 }
-
+svg{
+    color: #ffffff;
+}
 .bg-login{
-    background-image: url('../../../assets/images/loginImg.jpg');
+    background-image: url('../../../assets/images/sl_063022_51250_19.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -38,17 +40,44 @@
     box-shadow: none;
     
 } */
-/*register*/
-.register-overlay{
-    position: absolute;
-    right: 0;
-    top:0;
-    height: 100%;
-    
-}
     
 .loginRegisterBrand{
     position: absolute;
-    right: 0;
+   
+    
+}
+/*form style*/
+.form-control{  
+    background-color: transparent;
+    border-width: 0 0 1px 0;
+    box-shadow: none;  
+    border-radius: 0; 
+    text-shadow: none;     
 }
 
+.form-control:focus{  
+    border-color: var(--main-color);
+}
+input::placeholder{
+    font-size: 0.8rem;
+    font-family: var(--secondary-font);
+}
+/*validation style*/
+.ng-invalid .ng-touched{
+    border-color: red;
+}
+.form-content p{
+    color: red;
+    font-size: 0.7rem;
+}
+.app-button{
+   animation: shake 0.15s forwards;
+}
+@keyframes shake {
+  0%,100%{transform: translateX(0px);}
+  20%{transform: translateX(5px);}
+  40%{transform: translateX(5px);}
+  60%{transform: translateX(-5px);}
+  80%{transform: translateX(-5px);}
+  
+}

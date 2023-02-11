@@ -20,9 +20,10 @@ import { Router } from '@angular/router';
 import { MainButtonModule } from './shared/main-button/main-button.module';
 import { LoginComponent } from './views/login/login.component';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
-import { InputComponent } from './shared/input/input.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, LoginComponent, HeadFootComponent, InputComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, LoginComponent, HeadFootComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -31,6 +32,8 @@ import { InputComponent } from './shared/input/input.component';
     FontAwesomeModule,
     FormsModule,
     MainButtonModule,
+    ReactiveFormsModule,
+
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
