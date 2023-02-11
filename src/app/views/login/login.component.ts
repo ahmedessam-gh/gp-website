@@ -29,13 +29,15 @@ export class LoginComponent implements OnInit {
 
 
 
-  login(form: NgForm){
-    // const disabled = document.createAttribute('disabled');
-    
-    
-    console.log(form);
-    
-  }
+login(form:NgForm){
+  console.log(form);
+  // if(form.valid){
+  //   console.log(form);
+  // }
+  // else{
+  //   console.log('not valid');
+  // }
+}
 
 
 

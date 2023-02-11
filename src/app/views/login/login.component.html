@@ -10,14 +10,14 @@
   <div class="col-md-6  my-md-0 d-block animate__animated animate__backInDown" id="loginFrom">
     <div class="mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
       <h5 style="color:var(--main-color)">Login</h5>
-      <div class="w-50">
+      <div class="w-50 form-content">
         
-        <input type="email" name="email" ngModel class="d-block form-control my-3" placeholder="Enter Your Email ..." required>
-        <input type="password" name="password" ngModel class="d-block form-control my-3" placeholder="Enter Your password ..." required>
-        <a href="#" class="text-decoration-none" style="color:grey; font-size: 0.8rem;">Forgot Password ?</a>
-          <div>
-            <app-main-button style="width: 100%;" type="submit" content="Login"></app-main-button>
-          </div>
+       <input type="email" name="email" #email="ngModel" ngModel class="d-block form-control my-3" placeholder="Enter Your Email ..." required>
+       <input type="password" name="password" #password="ngModel" ngModel class="d-block form-control my-3" placeholder="Enter Your password ..." required>
+       <a href="#" class="text-decoration-none" style="color:grey; font-size: 0.8rem;">Forgot Password ?</a>
+         <div>
+           <app-main-button style="width: 100%;" type="submit" content="Login"></app-main-button>
+         </div>
       </div>
       <button class="btn" (click)="showRegister()">Create Account?</button>
     </div>
@@ -26,7 +26,7 @@
     <div class="mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
       <h5 style="color:var(--main-color)">Sign Up</h5>
       <div class="w-50 form-content">
-        <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+        <form (ngSubmit)="login(registerForm)" #registerForm="ngForm">
           <input type="text" name="fullName" #name="ngModel" ngModel class="d-block form-control my-3" placeholder="Enter Your Name ..." required>
           <div *ngIf="name.invalid && name.touched">
             <p>please enter name</p>
@@ -37,7 +37,7 @@
           </div>
           <input type="password" name="password" ngModel class="d-block form-control my-3" placeholder="Enter Your Password ..." required maxlength="14">
           <div>
-            <app-main-button (click)="addShake(loginForm)" id="app-button" style="width: 100%;" type="submit" content="register"></app-main-button>
+            <app-main-button (click)="addShake(registerForm)" id="app-button" style="width: 100%;" type="submit" content="register"></app-main-button>
           </div>
         </form>
       </div>
