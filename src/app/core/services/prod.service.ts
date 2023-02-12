@@ -6,6 +6,8 @@ import { Prod } from '../interfaces/Prod';
 })
 export class ProdService {
 product:Prod[]
+objects:any;
+cartArray:Array<string>[]=[];
   constructor() {
     this.product = [{
       id: 1,
@@ -66,4 +68,14 @@ product:Prod[]
 
     ]
   }
+
+
+  setData(obj){
+    this.objects = obj;
+    this.cartArray.unshift(obj);
+  }
+  getData(){
+    return this.cartArray;
+  }
+  
 }

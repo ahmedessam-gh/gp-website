@@ -1,1 +1,22 @@
-<p>cart works!</p>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Details</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let cartProd of cartProds;let i =index">
+                <tr>
+                    <td class="row"><div class="col-4"><img src="{{cartProd.url}}" width="170px" class="img-fluid" alt=""></div><div class="col-8"><h6>{{cartProd.category}}</h6><p>{{cartProd.gender}}</p> <button class="btn btn-danger">remove</button></div></td>
+                    <td>gggggg</td>
+                    <td>{{cartProd.price}}</td>
+                    <td>sadds</td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

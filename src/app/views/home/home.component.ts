@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Aos from 'aos';
+import { once } from 'events';
 import { ProdService } from 'src/app/core/services/prod.service';
 
 @Component({
@@ -14,23 +15,46 @@ export class HomeComponent implements OnInit {
   category: string = '';
   gender: string = '';
   price: string = '';
-  favouritItem: object = {};
+  id :Number ;
+  cartItem: any;
+  compareArray: any[]=[];
   ngOnInit(): void {
     this.newProds = this.prod.product;
     Aos.init({});
   }
 
   function($event) {
+
     this.imgUrl = $event.target.parentNode.parentNode.childNodes[0].src;
     this.category = $event.target.parentNode.parentNode.parentNode.childNodes[1].innerText;
     this.gender = $event.target.parentNode.parentNode.parentNode.childNodes[2].innerText;
     this.price = $event.target.parentNode.parentNode.parentNode.childNodes[3].innerText;
-    this.favouritItem = {
+    this.id = $event.target.parentNode.parentNode.parentNode.childNodes[4].innerText;
+    let index = 0.1;
+    this.cartItem = {
+      id:this.id,
       url: this.imgUrl,
       category: this.category,
       gender: this.gender,
       price: this.price
     }
-    console.log(this.favouritItem);
+    for (var i = 0; i < this.compareArray.length; i++) {
+      if (this.compareArray[i]?.id == this.cartItem?.id) {
+         index=i;
+         this.compareArray
+         break;  
+        } else{
+          index=0.1;
+       } 
+     }
+     if(index==0.1){
+      this.compareArray.push(this.cartItem);
+     }else{
+      console.log('dup');
+     }
+  
+     
+    this.prod.setData(this.cartItem);
+    console.log(this.compareArray);
   }
 }
