@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { event } from 'jquery';
 import { Observable } from 'rxjs';
 import { ProdService } from 'src/app/core/services/prod.service';
 
@@ -9,6 +10,7 @@ import { ProdService } from 'src/app/core/services/prod.service';
 })
 export class CartComponent implements OnInit {
   cartProds:any;
+  selectedQuantity :Number = 1;
   constructor(private prod:ProdService){ }
 
 
@@ -16,13 +18,22 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {   
     this.cartProds = this.prod.getData();
-    // for(var i= 1;i<this.cartProds.length;i++){
-    //   if(this.cartProds[i].category != this.cartProds[0].category){
-    //     console.log('no duplicates');
-    //   }else{
-    //     console.log('there is duplicates');
-    //   }
-    // }
-  }
+    console.log(this.cartProds);
+    }
+  
+  // emptyCart() {
+  //   if(this.cartProds){
 
+  //   }
+  // }
+  Quantity(newSelection){
+    this.cartProds.forEach(Object => {
+        this.selectedQuantity=newSelection 
+        Object['quantity']=(this.selectedQuantity); 
+    });
+    ///el option byt8yr fe kol el selects 
+    console.log(newSelection);
+    this.prod.setData(this.cartProds);
+    console.log(this.cartProds);
+  }
 }

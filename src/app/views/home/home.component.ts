@@ -21,10 +21,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.newProds = this.prod.product;
     Aos.init({});
+    this.compareArray =this.prod.getData();
+    
   }
 
   function($event) {
-
     this.imgUrl = $event.target.parentNode.parentNode.childNodes[0].src;
     this.category = $event.target.parentNode.parentNode.parentNode.childNodes[1].innerText;
     this.gender = $event.target.parentNode.parentNode.parentNode.childNodes[2].innerText;
@@ -41,20 +42,19 @@ export class HomeComponent implements OnInit {
     for (var i = 0; i < this.compareArray.length; i++) {
       if (this.compareArray[i]?.id == this.cartItem?.id) {
          index=i;
-         this.compareArray
+         this.compareArray.splice(i,1);
          break;  
         } else{
           index=0.1;
        } 
      }
      if(index==0.1){
-      this.compareArray.push(this.cartItem);
+      this.compareArray.unshift(this.cartItem);
      }else{
-      console.log('dup');
+      alert('item is removed');
      }
   
-     
-    this.prod.setData(this.cartItem);
-    console.log(this.compareArray);
+    this.prod.setData(this.compareArray);
+    // console.log(this.compareArray);
   }
 }

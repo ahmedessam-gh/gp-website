@@ -11,8 +11,18 @@
         <tbody>
             <ng-container *ngFor="let cartProd of cartProds;let i =index">
                 <tr>
-                    <td class="row"><div class="col-4"><img src="{{cartProd.url}}" width="170px" class="img-fluid" alt=""></div><div class="col-8"><h6>{{cartProd.category}}</h6><p>{{cartProd.gender}}</p> <button class="btn btn-danger">remove</button></div></td>
-                    <td>gggggg</td>
+                    <td class="row">
+                        <div class="col-4"><img src="{{cartProd.url}}" width="170px" class="img-fluid" alt=""></div>
+                        <div class="col-8">
+                            <h6>{{cartProd.category}}</h6>
+                            <p>{{cartProd.gender}}</p> <button class="btn btn-danger">remove</button>
+                        </div>
+                    </td>
+                    <td>
+                        <select name="quantity" id="quantity" [ngModel]="selectedQuantity" (ngModelChange)="Quantity($event)">
+                            <option [ngValue]="i+1" *ngFor="let item of [].constructor(10);index as i" >{{i+1}}</option>
+                        </select>
+                    </td>
                     <td>{{cartProd.price}}</td>
                     <td>sadds</td>
                 </tr>
