@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { event } from 'jquery';
 import { Observable } from 'rxjs';
+import { CartService } from 'src/app/core/services/cart.service';
 import { ProdService } from 'src/app/core/services/prod.service';
 
 @Component({
@@ -9,16 +10,15 @@ import { ProdService } from 'src/app/core/services/prod.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cartProds:any;
-  selectedQuantity :Number = 1;
-  constructor(private prod:ProdService){ }
+  cartProducts:any;
+  constructor(private cart:CartService){ }
 
 
 
 
   ngOnInit(): void {   
-    this.cartProds = this.prod.getData();
-    console.log(this.cartProds);
+    this.cartProducts=this.cart.getCart();
+    console.log(this.cartProducts)
     }
   
   // emptyCart() {
@@ -26,14 +26,14 @@ export class CartComponent implements OnInit {
 
   //   }
   // }
-  Quantity(newSelection){
-    this.cartProds.forEach(Object => {
-        this.selectedQuantity=newSelection 
-        Object['quantity']=(this.selectedQuantity); 
-    });
-    ///el option byt8yr fe kol el selects 
-    console.log(newSelection);
-    this.prod.setData(this.cartProds);
-    console.log(this.cartProds);
-  }
+  // Quantity(newSelection){
+  //   this.cartProds.forEach(Object => {
+  //       this.selectedQuantity=newSelection 
+  //       Object['quantity']=(this.selectedQuantity); 
+  //   });
+  //   ///el option byt8yr fe kol el selects 
+  //   console.log(newSelection);
+  //   this.prod.setData(this.cartProds);
+  //   console.log(this.cartProds);
+  // }
 }

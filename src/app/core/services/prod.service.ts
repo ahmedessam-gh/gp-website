@@ -6,7 +6,7 @@ import { Prod } from '../interfaces/Prod';
 })
 export class ProdService {
 product:Prod[]
-cartArray:any[]=[];
+
   constructor() {
     this.product = [{
       id: 1,
@@ -44,21 +44,21 @@ cartArray:any[]=[];
      img: "assets/images/dressify-logo-zip-file (1)/png/logo-black.png"
     },
     {
-      id: 4,
+      id: 6,
       ProdName: "Casual Wear",
       Price: 100,
       Category: 'Women',
      img: "assets/images/casual.jpg"
     },
     {
-      id: 4,
+      id: 7,
       ProdName: "Kids Wear",
       Price: 100,
       Category: 'Women',
      img: "assets/images/kids.jpeg"
     },
     {
-      id: 4,
+      id: 8,
       ProdName: "accessory",
       Category: 'Women',
       Price: 100,
@@ -69,11 +69,8 @@ cartArray:any[]=[];
   }
 
 
-  setData(obj){
-    this.cartArray = obj;
-  }
-  getData(){
-    return this.cartArray;
-  }
+
+
+  
   
 }
