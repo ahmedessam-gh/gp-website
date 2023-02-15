@@ -1,5 +1,6 @@
 <div class="container">
-    <table class="table">
+    <div id="noItemsDiv">no items .. go to shop to add products</div>
+    <table class="table" id="tableContainer">
         <thead>
             <tr>
                 <th>Details</th>
@@ -15,7 +16,7 @@
                         <div class="col-4"><img src="{{cartProd.img}}" width="170px" class="img-fluid" alt=""></div>
                         <div class="col-8">
                             <h6>{{cartProd.ProdName}}</h6>
-                            <p>{{cartProd.Category}}</p> <button class="btn btn-danger">remove</button>
+                            <p>{{cartProd.Category}}</p> <button class="btn btn-outline-danger" (click)="removeItem(i)">remove</button>
                         </div>
                     </td>
                     <td>
