@@ -73,21 +73,18 @@
           <div class="card-design">
             <div class="card-fav-cart position-relative bg-danger">
               <img src="{{ newProd.img }}" class="img-fluid" alt="" />
-              <div class="position-absolute fav-cart ">
-                <div class="d-inline" (click)="addToCart(newProd)" >
+              <div class="position-absolute fav-cart " >
+                <div class="d-inline" (click)="addToCart(newProd)">
                   <span><fa-icon icon="cart-shopping"></fa-icon></span>
                 </div>
                 <div class="d-inline">
                   <fa-icon icon="heart" class="favIcon"></fa-icon>
                 </div>
-                  
-                
-                
               </div>
             </div>
             <p style="color: rgba(117, 91, 180, 255)">{{ newProd.ProdName }}</p>
             <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana">
-              {{ newProd.Category }}
+              {{ newProd.Category}}
             </p>
             <p style="font-family: 'Courier New', Courier, monospace">
               $ {{ newProd.Price }}

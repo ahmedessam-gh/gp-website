@@ -212,14 +212,15 @@
   transition: all 0.2s ease-in-out;
 }
 
+
 .fav-cart .cartIcon{
   background-color: var(--main-color);
   color: #ffffff;
 }
-.fav-cart .favIcon{
+/* .fav-cart .favIcon{
   background-color: red;
   color: #ffffff;
-}
+} */
 
 .newArrivals-section .card {
 

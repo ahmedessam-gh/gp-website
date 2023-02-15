@@ -23,8 +23,7 @@ export class CartService {
      }
      if(index==0.1){
       this.cartProduct.unshift(product);
-     }else{
-      alert('item is removed');
+      
      }
      
   }

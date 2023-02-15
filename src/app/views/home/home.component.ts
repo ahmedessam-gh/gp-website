@@ -1,4 +1,4 @@
-import { Component, OnInit, QueryList, ViewChild } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import * as Aos from 'aos';
 import { once } from 'events';
 import { event } from 'jquery';
@@ -13,7 +13,7 @@ import { ProdService } from 'src/app/core/services/prod.service';
 })
 export class HomeComponent implements OnInit {
   newProds: any;
-  
+  cartproducts:any;
   constructor(private prod: ProdService ,private cart:CartService) {
 
    }
@@ -22,8 +22,9 @@ export class HomeComponent implements OnInit {
     this.newProds = this.prod.product;
     Aos.init({});
     console.log(this.newProds);
+    this.cartproducts = this.cart.getCart();
+    console.log(this.cartproducts);
   }
-
   addToCart(newProd :Prod) {
     this.cart.addToCart(newProd);
   }

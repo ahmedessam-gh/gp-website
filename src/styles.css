@@ -13,25 +13,10 @@
 }
 
 html,body{
-
-
     height: 100%;
 }
 
-@font-face {
-    font-family: Roboto;
-    src:local("Roboto"), url(assets/fonts/Roboto/Roboto-Bold.ttf);
-}
-@font-face {
-    font-family: Robotolight;
-    src:local("Roboto"), url(assets/fonts/Roboto/Roboto-Light.ttf);
-}
 
-
-li{
-    font-family: "Roboto",Arial, sans-serif;
-    font-size: 16px;
-}
 
 
 
