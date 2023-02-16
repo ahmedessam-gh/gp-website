@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { CartRoutingModule } from './cart-routing.module';
 import { CartComponent } from './cart.component';
 import { MainButtonModule } from "../../shared/main-button/main-button.module";
-
+import 'animate.css';
 import {
     FontAwesomeModule,
     FaIconLibrary,

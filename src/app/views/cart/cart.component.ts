@@ -9,10 +9,18 @@ import { ProdService } from 'src/app/core/services/prod.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
-  cartProducts:any;
-  constructor(private cart:CartService){ }
 
+
+
+
+export class CartComponent implements OnInit {
+  
+  cartProducts:any;
+value = 1;
+  constructor(private cart:CartService){ 
+    
+  }
+  
 
 
 
@@ -22,6 +30,28 @@ export class CartComponent implements OnInit {
     this.noCartItems();
     }
   
+    minus(){
+      if(this.value<=1){
+        this.value;
+      }else{
+        this.value--;
+
+      }
+    }
+    plus(){
+      if(this.value>=10){
+        this.value;
+      }else{
+      this.value++;
+      }
+    }
+    clearCart(){
+      const tableContainer = document.getElementById('tableContainer');
+      const noItemsDiv = document.getElementById('noItemsDiv');
+      this.cartProducts = []
+      tableContainer.classList.add('d-none');
+      noItemsDiv.classList.remove('d-none');
+    }
     removeItem(i){
       const tableContainer = document.getElementById('tableContainer');
       const noItemsDiv = document.getElementById('noItemsDiv');
@@ -34,10 +64,10 @@ export class CartComponent implements OnInit {
 
 
   noCartItems(){
-    const noItemsDiv = document.getElementById('noItemsDiv');
     const tableContainer = document.getElementById('tableContainer');
+    const noItemsDiv = document.getElementById('noItemsDiv');
     if(this.cartProducts.length==0){
-      tableContainer.classList.add('d-none');
+     tableContainer.classList.add('d-none');
       noItemsDiv.classList.remove('d-none');
     }else{
       tableContainer.classList.remove('d-none');
@@ -46,14 +76,5 @@ export class CartComponent implements OnInit {
   }
 
   
-  // Quantity(newSelection){
-  //   this.cartProds.forEach(Object => {
-  //       this.selectedQuantity=newSelection 
-  //       Object['quantity']=(this.selectedQuantity); 
-  //   });
-  //   ///el option byt8yr fe kol el selects 
-  //   console.log(newSelection);
-  //   this.prod.setData(this.cartProds);
-  //   console.log(this.cartProds);
-  // }
+  
 }
