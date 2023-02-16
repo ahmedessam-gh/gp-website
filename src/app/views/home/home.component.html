@@ -68,17 +68,17 @@
     </h1>
     <div class="container">
       <div class="row">
-        <div class="card col-xl-3 col-lg-4 col-6" *ngFor="let newProd of newProds;let i=index" data-aos="fade-up"
+        <div class="card col-xl-3 col-lg-4 col-6" *ngFor="let newProd of newProds; let i = index" data-aos="fade-up"
           data-aos-once="true" data-aos-duration="100">
           <div class="card-design">
-            <div class="card-fav-cart position-relative bg-danger">
+            <div class="card-fav-cart position-relative bg-danger" >
               <img src="{{ newProd.img }}" class="img-fluid" alt="" />
               <div class="position-absolute fav-cart " >
-                <div class="d-inline" (click)="addToCart(newProd)">
-                  <span><fa-icon icon="cart-shopping"></fa-icon></span>
+                <div class="d-inline" (click)="addToCart(newProd)" >
+                  <span><fa-icon icon="cart-shopping" [ngClass]="{'cartIcon':newProd == selectedCartItem}" (click)="cartClicked(newProd)"></fa-icon></span>
                 </div>
                 <div class="d-inline">
-                  <fa-icon icon="heart" class="favIcon"></fa-icon>
+                  <span><fa-icon icon="heart" class="favIcon"></fa-icon></span>
                 </div>
               </div>
             </div>

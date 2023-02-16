@@ -12,8 +12,9 @@ import { ProdService } from 'src/app/core/services/prod.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  newProds: any;
+  newProds: Prod[] = [];
   cartproducts:any;
+  selectedCartItem:Prod;
   constructor(private prod: ProdService ,private cart:CartService) {
 
    }
@@ -29,5 +30,10 @@ export class HomeComponent implements OnInit {
     this.cart.addToCart(newProd);
   }
   
+  cartClicked(obj:Prod){
+    this.selectedCartItem = obj;
+  }
   
+  
+
 }

@@ -25,7 +25,6 @@ export class CartComponent implements OnInit {
     removeItem(i){
       const tableContainer = document.getElementById('tableContainer');
       const noItemsDiv = document.getElementById('noItemsDiv');
-
     this.cartProducts.splice(i,1);
     if(this.cartProducts.length==0){
       tableContainer.classList.add('d-none');
@@ -45,6 +44,8 @@ export class CartComponent implements OnInit {
       noItemsDiv.classList.add('d-none');
     }
   }
+
+  
   // Quantity(newSelection){
   //   this.cartProds.forEach(Object => {
   //       this.selectedQuantity=newSelection 
