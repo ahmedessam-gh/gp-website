@@ -13,27 +13,42 @@ import { ProdService } from 'src/app/core/services/prod.service';
 })
 export class HomeComponent implements OnInit {
   newProds: Prod[] = [];
-  cartproducts:any;
-  selectedCartItem:Prod;
-  constructor(private prod: ProdService ,private cart:CartService) {
+  cartproducts: any;
+  selectedCartItem: Prod;
+  status: boolean;
+  constructor(private prod: ProdService, private cart: CartService) {
+ 
+  }
 
-   }
-  
   ngOnInit(): void {
     this.newProds = this.prod.product;
     Aos.init({});
     console.log(this.newProds);
     this.cartproducts = this.cart.getCart();
+
+    
+  }
+  addToCart(newProd: Prod) {
+    this.cart.addToCart(newProd);
     console.log(this.cartproducts);
   }
-  addToCart(newProd :Prod) {
-    this.cart.addToCart(newProd);
+
+  cartClicked(event) {
+    
+      event.target.classList.toggle("cartIcon");
+    
+    // for(var i=0;i<this.cartproducts.length;i++){
+    //   if(this.cartproducts[i]?.id==id){
+    //     event.target.classList.remove("cartIcon");
+    //   }
+    //   else{
+    //     event.target.classList.add("cartIcon");
+    //   }
+    // }
+    // console.log(event.target)
+  
   }
-  
-  cartClicked(obj:Prod){
-    this.selectedCartItem = obj;
-  }
-  
-  
+
+
 
 }

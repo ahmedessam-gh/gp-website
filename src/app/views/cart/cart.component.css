@@ -1,27 +1,33 @@
-h6{
+h6 {
     font-family: var(--main-font);
 }
-.fontawesomesvg{
+
+.fontawesomesvg {
     width: 100px;
 }
-input[type='number']{
-    -webkit-appearance:textfield !important;
+
+input[type='number'] {
+    -webkit-appearance: textfield !important;
     -moz-appearance: textfield !important;
     appearance: textfield !important;
     width: 15%;
 }
-input[type='number']::-webkit-inner-spin-button,input[type='number']::-webkit-outer-spin-button{
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
-    
+
 }
-.plusMinus{
+
+.plusMinus {
     padding: 1px 10px;
     border: none;
     background-color: var(--main-color);
     color: #ffffff;
 }
-.inputPlusMinus{
+
+.inputPlusMinus {
     border: 1px solid black;
     box-shadow: inset 0px 0px 0px 0px red;
-    
+
 }

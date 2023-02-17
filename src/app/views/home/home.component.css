@@ -203,24 +203,23 @@
 
 }
 
-.fav-cart fa-icon {
+.fav-cart .favCartIcons{
   margin: 0px 5px;
   background-color: #ffffff;
   border-radius: 50%;
   padding: 8px;
   color: var(--main-color);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
-
 
 .fav-cart .cartIcon{
-  background-color: var(--main-color);
-  color: #ffffff;
+  background-color: var(--main-color) ;
+  color: #ffffff ;
 }
-/* .fav-cart .favIcon{
+.fav-cart .favIcon{
   background-color: red;
   color: #ffffff;
-} */
+}
 
 .newArrivals-section .card {
 

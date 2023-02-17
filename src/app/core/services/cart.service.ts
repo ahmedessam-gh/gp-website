@@ -7,7 +7,7 @@ export class CartService {
   constructor() { }
 
   cartProduct:Prod[]=[];
-
+  quantity = 1;
 
 
   addToCart(product:Prod){
@@ -23,7 +23,7 @@ export class CartService {
      }
      if(index==0.1){
       this.cartProduct.unshift(product);
-      
+      product['quantity']=this.quantity
      }
      
   }

@@ -14,67 +14,65 @@ import { ProdService } from 'src/app/core/services/prod.service';
 
 
 export class CartComponent implements OnInit {
-  
-  cartProducts:any;
-value = 1;
-  constructor(private cart:CartService){ 
-    
+
+  cartProducts: any;
+  constructor(private cart: CartService) {
+
   }
-  
 
 
 
-  ngOnInit(): void {   
-    this.cartProducts=this.cart.getCart();
+
+  ngOnInit(): void {
+    this.cartProducts = this.cart.getCart();
     console.log(this.cartProducts);
     this.noCartItems();
-    }
-  
-    minus(){
-      if(this.value<=1){
-        this.value;
-      }else{
-        this.value--;
+  }
 
-      }
+  minus(obj) {
+    if (obj.quantity <= 1) {
+      obj.quantity;
+    } else {
+      obj.quantity--;
     }
-    plus(){
-      if(this.value>=10){
-        this.value;
-      }else{
-      this.value++;
-      }
+  }
+  plus(obj) {
+    if (obj.quantity >= 10) {
+      obj.quantity;
+    } else {
+      obj.quantity++;
     }
-    clearCart(){
-      const tableContainer = document.getElementById('tableContainer');
-      const noItemsDiv = document.getElementById('noItemsDiv');
-      this.cartProducts = []
-      tableContainer.classList.add('d-none');
-      noItemsDiv.classList.remove('d-none');
-    }
-    removeItem(i){
-      const tableContainer = document.getElementById('tableContainer');
-      const noItemsDiv = document.getElementById('noItemsDiv');
-    this.cartProducts.splice(i,1);
-    if(this.cartProducts.length==0){
+  }
+  clearCart() {
+    const tableContainer = document.getElementById('tableContainer');
+    const noItemsDiv = document.getElementById('noItemsDiv');
+    this.cartProducts = []
+    tableContainer.classList.add('d-none');
+    noItemsDiv.classList.remove('d-none');
+  }
+  removeItem(i) {
+    const tableContainer = document.getElementById('tableContainer');
+    const noItemsDiv = document.getElementById('noItemsDiv');
+    this.cartProducts.splice(i, 1);
+    if (this.cartProducts.length == 0) {
       tableContainer.classList.add('d-none');
       noItemsDiv.classList.remove('d-none');
     }
   }
 
 
-  noCartItems(){
+  noCartItems() {
     const tableContainer = document.getElementById('tableContainer');
     const noItemsDiv = document.getElementById('noItemsDiv');
-    if(this.cartProducts.length==0){
-     tableContainer.classList.add('d-none');
+    if (this.cartProducts.length == 0) {
+      tableContainer.classList.add('d-none');
       noItemsDiv.classList.remove('d-none');
-    }else{
+    } else {
       tableContainer.classList.remove('d-none');
       noItemsDiv.classList.add('d-none');
     }
   }
 
-  
-  
+
+
 }

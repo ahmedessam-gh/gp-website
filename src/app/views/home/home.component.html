@@ -73,12 +73,12 @@
           <div class="card-design">
             <div class="card-fav-cart position-relative bg-danger" >
               <img src="{{ newProd.img }}" class="img-fluid" alt="" />
-              <div class="position-absolute fav-cart " >
+              <div class="position-absolute fav-cart" >
                 <div class="d-inline" (click)="addToCart(newProd)" >
-                  <span><fa-icon icon="cart-shopping" [ngClass]="{'cartIcon':newProd == selectedCartItem}" (click)="cartClicked(newProd)"></fa-icon></span>
+                  <span ><fa-icon icon="cart-shopping" class="favCartIcons" (click)="cartClicked($event)"></fa-icon></span>
                 </div>
                 <div class="d-inline">
-                  <span><fa-icon icon="heart" class="favIcon"></fa-icon></span>
+                  <span><fa-icon icon="heart" class="favCartIcons"></fa-icon></span>
                 </div>
               </div>
             </div>
