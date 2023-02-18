@@ -18,7 +18,9 @@ input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
 
 }
-
+.tableContent{
+    vertical-align: middle;
+}
 .plusMinus {
     padding: 1px 10px;
     border: none;

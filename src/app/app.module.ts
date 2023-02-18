@@ -23,7 +23,7 @@ import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, LoginComponent, HeadFootComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, LoginComponent, HeadFootComponent,],
   imports: [
     CommonModule,
     BrowserModule,

@@ -6,7 +6,7 @@ import { Prod } from '../interfaces/Prod';
 })
 export class ProdService {
 product:Prod[]
-
+favourites:any=[]
   constructor() {
     this.product = [{
       id: 1,
@@ -70,7 +70,23 @@ product:Prod[]
 
 
 
-
-  
+  addToFav(obj){
+      let index = 0.1;
+      for (var i = 0; i < this.favourites.length; i++) {
+        if (this.favourites[i]?.id == obj.id) {
+           index=i;
+           this.favourites.splice(i,1);
+           break;  
+          } else{
+            index=0.1;
+         } 
+       }
+       if(index==0.1){
+        this.favourites.unshift(obj);
+    }
+  }
+  getFav(){
+    return this.favourites;
+  }
   
 }

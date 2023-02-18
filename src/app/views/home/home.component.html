@@ -16,7 +16,7 @@
         you are
       </h1>
       <div class="head-btn-custom mt-2 mt-md-4 mt-lg-5">
-        <button class="btn btn-custom">Shop now</button>
+        <button class="btn btn-custom" [routerLink]="['/favourite']">Shop now</button>
       </div>
     </div>
   </div>
@@ -74,10 +74,10 @@
             <div class="card-fav-cart position-relative bg-danger" >
               <img src="{{ newProd.img }}" class="img-fluid" alt="" />
               <div class="position-absolute fav-cart" >
-                <div class="d-inline" (click)="addToCart(newProd)" >
+                <!-- <div class="d-inline" (click)="addToCart(newProd)" >
                   <span ><fa-icon icon="cart-shopping" class="favCartIcons" (click)="cartClicked($event)"></fa-icon></span>
-                </div>
-                <div class="d-inline">
+                </div> -->
+                <div class="d-inline" (click)="addToFav(newProd)">
                   <span><fa-icon icon="heart" class="favCartIcons"></fa-icon></span>
                 </div>
               </div>

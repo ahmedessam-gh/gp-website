@@ -13,6 +13,7 @@ const routes: Routes = [
       {path: '',component: HomeComponent},
       {path: 'home',component: HomeComponent},
       {path:'cart',loadChildren:() => import('./views/cart/cart.module').then(m=>m.CartModule)},
+      {path:'favourite',loadChildren:()=>import('./views/favourite/favourite.module').then(m=>m.FavouriteModule)},
     ]
   },
   {path:'login',loadChildren:() => import('./views/login/login.module').then(m=>m.LoginModule)},

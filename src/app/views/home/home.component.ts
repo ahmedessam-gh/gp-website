@@ -13,9 +13,7 @@ import { ProdService } from 'src/app/core/services/prod.service';
 })
 export class HomeComponent implements OnInit {
   newProds: Prod[] = [];
-  cartproducts: any;
-  selectedCartItem: Prod;
-  status: boolean;
+  favouriteList
   constructor(private prod: ProdService, private cart: CartService) {
  
   }
@@ -23,31 +21,20 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.newProds = this.prod.product;
     Aos.init({});
-    console.log(this.newProds);
-    this.cartproducts = this.cart.getCart();
-
-    
+    // console.log(this.newProds);
+    // this.cartproducts = this.cart.getCart();
+    this.favouriteList = this.prod.getFav();
+    console.log(this.favouriteList);
   }
   addToCart(newProd: Prod) {
     this.cart.addToCart(newProd);
-    console.log(this.cartproducts);
+    // console.log(this.cartproducts);
+  }
+  addToFav(newProd:Prod){
+    this.prod.addToFav(newProd);
   }
 
-  cartClicked(event) {
-    
-      event.target.classList.toggle("cartIcon");
-    
-    // for(var i=0;i<this.cartproducts.length;i++){
-    //   if(this.cartproducts[i]?.id==id){
-    //     event.target.classList.remove("cartIcon");
-    //   }
-    //   else{
-    //     event.target.classList.add("cartIcon");
-    //   }
-    // }
-    // console.log(event.target)
   
-  }
 
 
 

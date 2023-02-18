@@ -25,7 +25,6 @@ export class CartService {
       this.cartProduct.unshift(product);
       product['quantity']=this.quantity
      }
-     
   }
   
   getCart(){

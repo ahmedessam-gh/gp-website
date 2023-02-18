@@ -50,6 +50,8 @@ export class CartComponent implements OnInit {
     tableContainer.classList.add('d-none');
     noItemsDiv.classList.remove('d-none');
   }
+
+  /*remove clicked item from cart*/
   removeItem(i) {
     const tableContainer = document.getElementById('tableContainer');
     const noItemsDiv = document.getElementById('noItemsDiv');
@@ -59,7 +61,6 @@ export class CartComponent implements OnInit {
       noItemsDiv.classList.remove('d-none');
     }
   }
-
 
   noCartItems() {
     const tableContainer = document.getElementById('tableContainer');
