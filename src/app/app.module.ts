@@ -1,4 +1,6 @@
-import { NgModule} from '@angular/core';
+import { FeaturesSectionModule } from './shared/features-section/features-section.module';
+import { MainCategoriesModule } from 'src/app/shared/main-categories/main-categories.module';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,9 +23,17 @@ import { MainButtonModule } from './shared/main-button/main-button.module';
 import { LoginComponent } from './views/login/login.component';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MainCategoriesComponent } from './shared/main-categories/main-categories.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, LoginComponent, HeadFootComponent,],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    LoginComponent,
+    HeadFootComponent,
+  ],
   imports: [
     CommonModule,
     BrowserModule,
@@ -32,9 +42,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     FontAwesomeModule,
     FormsModule,
     MainButtonModule,
+    MainCategoriesModule,
     ReactiveFormsModule,
-
-
+    FeaturesSectionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
