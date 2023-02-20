@@ -203,7 +203,7 @@
 
 }
 
-.fav-cart .favCartIcons{
+.fav-cart .favIcons{
   margin: 0px 5px;
   background-color: #ffffff;
   border-radius: 50%;
@@ -212,14 +212,7 @@
   transition: all 0.1s ease-in-out;
 }
 
-.fav-cart .cartIcon{
-  background-color: var(--main-color) ;
-  color: #ffffff ;
-}
-.fav-cart .favIcon{
-  background-color: red;
-  color: #ffffff;
-}
+
 
 .newArrivals-section .card {
 

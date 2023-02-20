@@ -12,12 +12,12 @@
             </thead>
             <tbody class="tableContent">
                 <ng-container *ngFor="let fav of favouriteList;let i=index"> 
-                    <tr >
+                    <tr>
                         <td class="row ">
                             <div class="col-4"><img src="{{fav.img}}" width="170px" class="img-fluid" alt=""></div>
-                            <div class="col-8 ps-5 text-start">
-                                <h6>{{fav.Category}}</h6>
-                                <p>asdasd</p> <button (click)="removeItem(i)" class="btn btn-outline-danger">remove</button>
+                            <div class="col-8 text-start">
+                                <h6>{{fav.ProdName}}</h6>
+                                <p>{{fav.Category}}</p> <button (click)="removeItem(i)" class="btn btn-outline-danger">remove</button>
                             </div>
                         </td>
                         <td>

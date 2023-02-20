@@ -14,11 +14,15 @@
 .pad-sections {
     margin: 50px auto 50px auto;
     border: 0;
-  }
-
+}
+.favIcon{
+    background-color: red !important;
+    color: #ffffff !important;
+}
 html,body{
     height: 100%;
 }
+
 
 
 

@@ -1,11 +1,10 @@
-<div class="pad-sections" id="tableContainer">
+<div class="pad-sections " id="tableContainer">
     <div class="container">
-        <table class="table">
+        <table class="table text-center">
             <thead>
                 <tr>
                     <th>Details</th>
                     <th>Quantity</th>
-                    <th>Price</th>
                     <th>Total</th>
                 </tr>
             </thead>
@@ -14,9 +13,9 @@
                     <tr>
                         <td class="row">
                             <div class="col-4"><img src="{{cartProd.img}}" width="170px" class="img-fluid" alt=""></div>
-                            <div class="col-8">
+                            <div class="col-8 text-start">
                                 <h6>{{cartProd.ProdName}}</h6>
-                                <p>{{cartProd.Category}}</p> <button class="btn btn-outline-danger"
+                                <p>{{cartProd.Price}}$</p> <button class="btn btn-outline-danger"
                                     (click)="removeItem(i)">remove</button>
                             </div>
                         </td>
@@ -28,36 +27,18 @@
                                 <button class="plusMinus" (click)="plus(cartProd)">+</button>
                             </div>
                         </td>
-                        <td>{{cartProd.Price}}$</td>
-                        <td>sadds</td>
+                        <td>{{this.totalForItem}}</td>
                     </tr>
                 </ng-container>
-                <!-- <tr>
-                    <td class="row">
-                        <div class="col-4"><img src="" width="170px" class="img-fluid" alt=""></div>
-                        <div class="col-8">
-                            <h6>Lorem, ipsum.</h6>
-                            <p>Lorem, ipsum.</p> <button class="btn btn-outline-danger">remove</button>
-                        </div>
-                    </td>
-                    <td>
-                        <button class="plusMinus" (click)="minus()">-</button>
-                        <input type="number" class="text-center inputPlusMinus" min="1" max="10" value="1" [(ngModel)]="value">
-                        <button class="plusMinus" (click)="plus()">+</button>
-
-                    </td>
-                    <td>100</td>
-                    <td>sadds</td>
-                </tr> -->
             </tbody>
         </table>
         <div class="btnsCart row">
             <div class="col-12 col-md-6">
                 <app-main-button width="30%" content="Update Cart"></app-main-button>
-                <app-main-button class="ms-3" (click)="clearCart()" width="30%" content="Clear Cart"></app-main-button>
+                <app-main-button class="ms-3" (click)="clearCart()" width="30%" content="Clear Cart" ></app-main-button>
             </div>
             <div class="col-12 col-md-6 text-end">
-                <app-main-button width="30%" content="Checkout"></app-main-button>
+                <app-main-button width="30%" content="Checkout" [routerLink]="['/checkout']"></app-main-button>
             </div>
         </div>
     </div>

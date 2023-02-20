@@ -16,6 +16,7 @@ import { ProdService } from 'src/app/core/services/prod.service';
 export class CartComponent implements OnInit {
 
   cartProducts: any;
+  totalForItem:Number;
   constructor(private cart: CartService) {
 
   }
@@ -28,7 +29,6 @@ export class CartComponent implements OnInit {
     console.log(this.cartProducts);
     this.noCartItems();
   }
-
   minus(obj) {
     if (obj.quantity <= 1) {
       obj.quantity;

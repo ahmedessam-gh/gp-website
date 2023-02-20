@@ -4,6 +4,7 @@ import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginModule } from './views/login/login.module';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
+import { CheckoutComponent } from './views/cart/checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },
+      { path:'checkout',component:CheckoutComponent},
       {
         path: 'cart',
         loadChildren: () =>
@@ -46,4 +48,4 @@ const routes: Routes = [
   imports: [CommonModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

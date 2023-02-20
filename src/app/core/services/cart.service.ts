@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
+import { cart } from '../interfaces/cart';
 import { Prod } from '../interfaces/Prod';
+
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   constructor() { }
 
-  cartProduct:Prod[]=[];
-  quantity = 1;
+  cartProduct:cart[]=[];
+  total = 1;
 
-
-  addToCart(product:Prod){
+  addToCart(cart:cart){
     let index = 0.1;
     for (var i = 0; i < this.cartProduct.length; i++) {
-      if (this.cartProduct[i]?.id == product.id) {
+      if (this.cartProduct[i]?.id ==cart.id) {
          index=i;
          this.cartProduct.splice(i,1);
          break;  
@@ -22,8 +23,7 @@ export class CartService {
        } 
      }
      if(index==0.1){
-      this.cartProduct.unshift(product);
-      product['quantity']=this.quantity
+      this.cartProduct.unshift(cart);
      }
   }
   
