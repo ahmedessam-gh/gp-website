@@ -1,0 +1,11 @@
+.features-icons fa-icon {
+  font-size: 2.2rem;
+}
+
+.features-icons {
+  margin-bottom: 15px;
+}
+
+.features-content p {
+  font-family: var(--secondary-font);
+}

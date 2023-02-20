@@ -1,0 +1,63 @@
+.card {
+  cursor: pointer;
+  /* border-radius: 50%;   */
+  border-radius: 0%;
+  /* border-radius: 30px; */
+}
+
+.card-layout {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(117, 91, 180, 0.5);
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  opacity: 1;
+  transform: translateY(100%);
+  animation: card-down 0.4s forwards;
+
+}
+
+.card:hover .card-layout {
+  animation: card-up 0.4s forwards;
+
+}
+
+.card-img {
+  transition: all 0.4s ease-in-out;
+}
+
+.card:hover .card-img {
+  transform: scale(1.1);
+
+}
+
+@keyframes card-up {
+  0% {
+    transform: translateY(100%);
+
+  }
+
+  100% {
+    transform: translateY(0%);
+
+  }
+}
+
+@keyframes card-down {
+  0% {
+    transform: translateY(0%);
+
+  }
+
+  100% {
+    transform: translateY(100%);
+
+  }
+
+
+}
