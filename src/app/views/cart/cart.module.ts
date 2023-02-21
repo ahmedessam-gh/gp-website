@@ -8,6 +8,7 @@ import { MainButtonModule } from "../../shared/main-button/main-button.module";
 import 'animate.css';
 import { FontAwesomeModule,FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { FeaturesSectionModule } from "../../shared/features-section/features-section.module";
 @NgModule({
     declarations: [
         CartComponent,
@@ -18,7 +19,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
         CartRoutingModule,
         FormsModule,
         MainButtonModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        FeaturesSectionModule
     ]
 })
 export class CartModule { }

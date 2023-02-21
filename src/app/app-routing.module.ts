@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LoginModule } from './views/login/login.module';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { CheckoutComponent } from './views/cart/checkout/checkout.component';
-
+import { ProfileModule } from './views/profile/profile.module';
 const routes: Routes = [
   {
     path: '',
@@ -19,7 +19,6 @@ const routes: Routes = [
         loadChildren: () =>
           import('./views/cart/cart.module').then((m) => m.CartModule),
       },
-
       {
         path: 'about-us',
         loadChildren: () =>
@@ -40,6 +39,11 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () =>
       import('./views/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./views/profile/profile.module').then((m) => m.ProfileModule),
   },
 ];
 

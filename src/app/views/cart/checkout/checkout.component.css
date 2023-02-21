@@ -16,11 +16,5 @@ legend {
     width:auto;
 }
 .placeOrderBtn{
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    text-align: center;
-}
-.checkoutPlaceOrder{
-    background-color: rgba(117,91,180,0.3);
+    margin-top: 100%;
 }
