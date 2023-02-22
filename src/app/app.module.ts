@@ -24,6 +24,7 @@ import { LoginComponent } from './views/login/login.component';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainCategoriesComponent } from './shared/main-categories/main-categories.component';
+import { ProfileModule } from './views/profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MainCategoriesComponent } from './shared/main-categories/main-categorie
     MainCategoriesModule,
     ReactiveFormsModule,
     FeaturesSectionModule,
+    ProfileModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

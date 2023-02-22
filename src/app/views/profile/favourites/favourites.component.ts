@@ -3,8 +3,8 @@ import { ProdService } from 'src/app/core/services/prod.service';
 
 @Component({
   selector: 'app-favourite',
-  templateUrl: './favourite.component.html',
-  styleUrls: ['./favourite.component.css']
+  templateUrl: './favourites.component.html',
+  styleUrls: ['./favourites.component.css']
 })
 export class FavouriteComponent implements OnInit {
   favouriteList:any;

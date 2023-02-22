@@ -6,6 +6,7 @@ import { LoginModule } from './views/login/login.module';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { CheckoutComponent } from './views/cart/checkout/checkout.component';
 import { ProfileModule } from './views/profile/profile.module';
+import { ProfileDetailsComponent } from './views/profile/profile-details/profile-details.component';
 const routes: Routes = [
   {
     path: '',
@@ -24,13 +25,6 @@ const routes: Routes = [
         loadChildren: () =>
           import('./views/about-us/about-us.module').then(
             (m) => m.AboutUsModule
-          ),
-      },
-      {
-        path: 'favourite',
-        loadChildren: () =>
-          import('./views/favourite/favourite.module').then(
-            (m) => m.FavouriteModule
           ),
       },
     ],
