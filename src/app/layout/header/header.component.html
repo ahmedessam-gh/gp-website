@@ -69,9 +69,10 @@
     </div>
     <div class="end-nav d-block d-lg-none nav-end">
       <div class="header-icons">
-        <fa-icon icon="magnifying-glass" class="header-search" (click)="searchContainer()"></fa-icon>
-        <fa-icon icon="user" class="header-profile"></fa-icon>
-        <fa-icon icon="cart-shopping" class="header-cart" [routerLink]="['/cart']" routerLinkActive="router-link-active"></fa-icon>
+        <fa-icon icon="magnifying-glass" (click)="searchContainer()"></fa-icon>
+        <fa-icon icon="user"></fa-icon>
+        <fa-icon icon="cart-shopping" [routerLink]="['/cart']"
+          routerLinkActive="router-link-active"></fa-icon>
       </div>
     </div>
     <div class="collapse navbar-collapse position-relative" [ngClass]="{ collapse: collapsed }">
@@ -140,11 +141,27 @@
       </ul>
     </div>
 
-    <div class="end-nav d-none d-lg-block nav-end">
-      <div class="header-icons">
-        <fa-icon icon="magnifying-glass" class="header-search" (click)="searchContainer()"></fa-icon>
-        <fa-icon icon="user" class="header-profile"></fa-icon>
-        <fa-icon icon="cart-shopping" class="header-cart" [routerLink]="['/cart']" routerLinkActive="router-link-active"></fa-icon>
+    <div class="end-nav d-none d-lg-block nav-end ">
+      <div class="header-icons d-flex">
+        <div class="header-search">
+          <fa-icon icon="magnifying-glass"  (click)="searchContainer()"></fa-icon>
+        </div>
+        <div class="header-profile position-relative">
+          <fa-icon icon="user" ></fa-icon>
+          <div class="user-dropdown">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between" [routerLink]="['/login']"><a class="nav-link"  href="#">Login</a><fa-icon [icon]="['fas','right-to-bracket']"></fa-icon></li>
+              <!-- <li class="list-group-item d-flex justify-content-between"><a class="nav-link" href="#">My Orders</a></li>
+              <li class="list-group-item d-flex justify-content-between"><a class="nav-link" href="#">Favourites</a></li> -->
+              <li class="list-group-item d-flex justify-content-between" [routerLink]="['/profile/details']"><a class="nav-link" href="#">Accoung Details</a><fa-icon [icon]="['fas','file-invoice']"></fa-icon></li>
+              <li class="list-group-item d-flex justify-content-between"><a class="nav-link" href="#">Sign Out</a><fa-icon [icon]="['fas','right-from-bracket']"></fa-icon></li>
+            </ul>
+          </div>
+        </div>
+        <div class="header-cart">
+          <fa-icon icon="cart-shopping" [routerLink]="['/cart']"
+          routerLinkActive="router-link-active"></fa-icon>
+        </div>
       </div>
     </div>
   </nav>

@@ -39,11 +39,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./views/profile/profile.module').then((m) => m.ProfileModule),
   },
-];
+] ;
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule.forRoot(routes)],
+  imports: [CommonModule, RouterModule.forRoot(routes,{enableTracing:true})],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
