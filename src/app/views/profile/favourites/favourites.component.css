@@ -5,7 +5,6 @@
     width: 100px;
 }
 .nofavs{
-    background-color: aqua;
     text-align: center;
     display: flex;
     flex-direction: column;

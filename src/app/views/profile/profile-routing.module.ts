@@ -4,13 +4,13 @@ import { FavouriteComponent } from './favourites/favourites.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { ProfileComponent } from './profile.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: ProfileComponent,
     children:[
       {path:'details',component:ProfileDetailsComponent},
-      {path:'fav',component:FavouriteComponent}
+      {path:'fav',component:FavouriteComponent},
     ]
   },
 ];

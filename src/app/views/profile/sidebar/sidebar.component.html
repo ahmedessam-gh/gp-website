@@ -65,25 +65,25 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="#" class="nav-link active" [routerLink]="['details']" aria-current="page">
+        <a href="#" class="nav-link text-dark" [routerLink]="['details']" [routerLinkActive]="['active','text-white']"  aria-current="page">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#profile"></use></svg>
           Profile
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link link-dark">
+        <a href="#" class="nav-link text-dark" [routerLinkActive]="['active','text-white']">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#"></use></svg>
           My Orders
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link link-dark" [routerLink]="['fav']">
+        <a href="#" class="nav-link text-dark" [routerLink]="['fav']" [routerLinkActive]="['active','text-white']">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#"></use></svg>
           Favourites
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link link-dark">
+        <a href="#" class="nav-link text-dark" [routerLinkActive]="['active','text-white']">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#"></use></svg>
           Products
         </a>
