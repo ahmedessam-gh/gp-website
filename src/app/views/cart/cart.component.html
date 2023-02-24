@@ -32,13 +32,19 @@
                 </ng-container>
             </tbody>
         </table>
-        <div class="btnsCart row">
-            <div class="col-12 col-md-6">
-                <app-main-button width="30%" content="Update Cart"></app-main-button>
-                <app-main-button class="ms-3" (click)="clearCart()" width="30%" content="Clear Cart" ></app-main-button>
+        <div class="d-flex flex-column flex-md-row">
+            <div class="btnsCart">
+                <app-main-button borderRadius="0%" [myClass]="'btn-w'" content="Update Cart"></app-main-button>
+                <app-main-button borderRadius="0%" [myClass]="'btn-w'"  class="ms-md-3" (click)="clearCart()" content="Clear Cart" ></app-main-button>
             </div>
-            <div class="col-12 col-md-6 text-end">
-                <app-main-button width="30%" content="Checkout" [routerLink]="['/checkout']"></app-main-button>
+            <div class="btnsCart text-end">
+                <div class="text-start ms-3 mt-3 ">
+                    <h4 style="font-family: var(--main-font);color: var(--main-color);">Cart Total</h4>
+                    <p>Shipping Fees : 100$</p>
+                    <p>VAT : 50%</p>
+                    <p>Total : 150$</p>
+                </div>
+                <app-main-button borderRadius="0%"  content="Checkout" [routerLink]="['/checkout']"></app-main-button>
             </div>
         </div>
     </div>
