@@ -8,3 +8,8 @@
     background-color: var(--tertiary-color);
     border: 1px solid var(--main-color);
   }
+  @media screen and (min-width:740px) {
+    .btn-w{
+        width: 35% !important;
+    }
+}

@@ -15,6 +15,14 @@ legend {
     float:none;
     width:auto;
 }
+.checkoutPlaceOrder{
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 1px 1px 5px;
+}
 .placeOrderBtn{
-    margin-top: 100%;
+    position: relative;
+    bottom: 0%;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
 }

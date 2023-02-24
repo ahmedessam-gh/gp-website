@@ -33,3 +33,13 @@ input[type='number']::-webkit-outer-spin-button {
     box-shadow: inset 0px 0px 0px 0px red;
 
 }
+
+@media screen and (min-width:752px) {
+    .btnsCart{
+        width: 50% !important;
+    }
+    /* .btn-w{
+        width: 40%;
+        
+    } */
+}
