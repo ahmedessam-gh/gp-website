@@ -1,13 +1,13 @@
 
 
-.waw-section h1{
+.information-section h1{
 
 
   color: var(--main-color);
   font-family: var(--main-font);
 }
 
-.waw-section p{
+.information-section p{
   line-height: 1.7;
   font-family: var(--main-font);
 }
