@@ -27,6 +27,11 @@ const routes: Routes = [
             (m) => m.AboutUsModule
           ),
       },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./views/profile/profile.module').then((m) => m.ProfileModule),
+      },
     ],
   },
   {
@@ -34,11 +39,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./views/login/login.module').then((m) => m.LoginModule),
   },
-  {
-    path: 'profile',
-    loadChildren: () =>
-      import('./views/profile/profile.module').then((m) => m.ProfileModule),
-  },
+ 
 ] ;
 
 @NgModule({
