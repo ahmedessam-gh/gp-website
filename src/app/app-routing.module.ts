@@ -46,6 +46,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./views/profile/profile.module').then((m) => m.ProfileModule),
   },
+  {
+    path: 'error-404',
+    loadChildren: () =>
+      import('./views/error404/error404.module').then((m) => m.Error404Module),
+  },
 ];
 
 @NgModule({
