@@ -1,0 +1,46 @@
+
+body{
+
+  background-image: url(src\assets\images\error404.jpg) ;
+  font-family: var(--main-font);
+
+}
+
+.error404{
+  position: absolute;
+  top: 20%;
+  left: 20%;
+
+
+}
+
+.error404section{
+
+  position: relative;
+  text-align: center;
+  color: white;
+  line-height: 2;
+}
+
+.error404section h1{
+
+  font-size: 250px;
+
+}
+
+
+
+
+.errorbuttonssection{
+  text-align: center;
+position: relative;
+  display: flex;
+  justify-content: center;
+
+
+
+}
+
+
+
+
