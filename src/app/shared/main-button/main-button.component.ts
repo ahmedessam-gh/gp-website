@@ -11,6 +11,7 @@ export class MainButtonComponent implements OnInit {
   @Input() color?:string 
   @Input() width:string ='100%'
   @Input() borderRadius:string = '10px'
+  @Input() padding:string = ''
   @Input() type:string;
   @Input() myClass:string;
  
@@ -25,7 +26,8 @@ export class MainButtonComponent implements OnInit {
       'content':this.content ,
       'color':this.color || 'white',
       'width':this.width ,
-      'border-radius':this.borderRadius
+      'border-radius':this.borderRadius,
+      'padding':this.padding,
     }
   
   }

@@ -350,7 +350,7 @@
 
 
 
-@keyframes card-up {
+/* @keyframes card-up {
   0% {
     transform: translateY(100%);
 
@@ -374,7 +374,7 @@
   }
 
 
-}
+} */
 
 @keyframes button-up {
   0% {
