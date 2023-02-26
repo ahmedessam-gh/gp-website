@@ -1,0 +1,12 @@
+<nav class="bg-light">
+    <div class="bot-bar animate__animated animate__slideInUp animate__fast">
+        <div class="text-center ">
+            <ul class="navbar-nav" >
+                <li class="nav-item" ><button class="btn"[routerLinkActive]="['active','bot-bar-active']"><fa-icon [icon]="['fas','house']"></fa-icon><span>Home</span></button></li>
+                <li class="nav-item"><button class="btn" [routerLink]="['details']" [routerLinkActive]="['active','bot-bar-active']"><fa-icon [icon]="['fas','user']"></fa-icon><span>Profile</span></button></li>
+                <li class="nav-item"><button class="btn" [routerLink]="['fav']" [routerLinkActive]="['active','bot-bar-active']"><fa-icon [icon]="['far','heart']"></fa-icon><span>Favourites</span></button></li>
+                <li class="nav-item"><button class="btn" [routerLinkActive]="['active','bot-bar-active']"><fa-icon [icon]="['fas','bag-shopping']"></fa-icon><span>Orders</span></button></li>
+            </ul>
+        </div>
+    </div>
+</nav>

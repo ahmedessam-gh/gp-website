@@ -70,7 +70,7 @@
     <div class="end-nav d-block d-lg-none nav-end">
       <div class="header-icons">
         <fa-icon icon="magnifying-glass" (click)="searchContainer()"></fa-icon>
-        <fa-icon icon="user"></fa-icon>
+        <fa-icon icon="user" [routerLink]="['profile/details']"></fa-icon>
         <fa-icon icon="cart-shopping" [routerLink]="['/cart']"
           routerLinkActive="router-link-active"></fa-icon>
       </div>
@@ -150,10 +150,10 @@
           <fa-icon icon="user" ></fa-icon>
           <div class="user-dropdown">
             <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between" [routerLink]="['/login']"><button style="border:none; background-color: white;" class="nav-link">Login</button><fa-icon [icon]="['fas','right-to-bracket']"></fa-icon></li>
+              <li class="list-group-item d-flex justify-content-between" [routerLink]="['login']"><button style="border:none; background-color: white;" class="nav-link">Login</button><fa-icon [icon]="['fas','right-to-bracket']"></fa-icon></li>
               <!-- <li class="list-group-item d-flex justify-content-between"><a class="nav-link" href="#">My Orders</a></li>
               <li class="list-group-item d-flex justify-content-between"><a class="nav-link" href="#">Favourites</a></li> -->
-              <li class="list-group-item d-flex justify-content-between" [routerLink]="['/profile/details']"><button style="border:none;background-color: white;" class="nav-link">Accoung Details</button><fa-icon [icon]="['fas','file-invoice']"></fa-icon></li>
+              <li class="list-group-item d-flex justify-content-between" [routerLink]="['profile/details']"><button style="border:none;background-color: white;" class="nav-link">Accoung Details</button><fa-icon [icon]="['fas','file-invoice']"></fa-icon></li>
               <li class="list-group-item d-flex justify-content-between"><button style="border:none; background-color: white;" class="nav-link">Sign Out</button><fa-icon [icon]="['fas','right-from-bracket']"></fa-icon></li>
             </ul>
           </div>

@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },
-      { path: 'checkout', component: CheckoutComponent },
+      { path:'checkout',component:CheckoutComponent},
       {
         path: 'cart',
         loadChildren: () =>
@@ -28,11 +28,9 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'contact-us',
+        path: 'profile',
         loadChildren: () =>
-          import('./views/contact-us/contact-us.module').then(
-            (m) => m.ContactUsModule
-          ),
+          import('./views/profile/profile.module').then((m) => m.ProfileModule),
       },
     ],
   },
@@ -41,19 +39,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./views/login/login.module').then((m) => m.LoginModule),
   },
-  {
-    path: 'profile',
-    loadChildren: () =>
-      import('./views/profile/profile.module').then((m) => m.ProfileModule),
-  },
-];
+ 
+] ;
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes, { enableTracing: true }),
-  ],
+  imports: [CommonModule, RouterModule.forRoot(routes,{enableTracing:true})],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

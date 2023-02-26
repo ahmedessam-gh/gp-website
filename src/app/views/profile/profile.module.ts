@@ -9,20 +9,23 @@ import {
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
 import { MainButtonModule } from "../../shared/main-button/main-button.module";
-
+import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 
 @NgModule({
     declarations: [
         ProfileComponent,
         SidebarComponent,
         ProfileDetailsComponent,
-        FavouriteComponent
+        FavouriteComponent,
+        BottomBarComponent,
+        
     ],
     imports: [
         CommonModule,
         ProfileRoutingModule,
         FontAwesomeModule,
-        MainButtonModule
+        MainButtonModule,
+        
     ],
 })
 export class ProfileModule { }
