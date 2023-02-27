@@ -1,0 +1,24 @@
+.bot-bar{
+    position: fixed;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    bottom: 0;
+    z-index: 9999;
+}
+.nav-item button{
+    width: 25%;
+    float: left;
+    border-radius: 0;
+}
+span{
+    display: block;
+    font-size:0.8rem ;
+}
+.navbar-nav{
+    display: block;
+}
+.bot-bar-active{
+    background-color: var(--main-color) !important;
+    color: white !important;
+}

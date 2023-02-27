@@ -1,0 +1,17 @@
+
+.information-section h1{
+
+
+  color: var(--main-color);
+  font-family: var(--main-font);
+}
+
+.information-section p{
+  line-height: 1.7;
+  font-family: var(--main-font);
+}
+
+
+
+
+

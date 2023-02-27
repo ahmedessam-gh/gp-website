@@ -1,5 +1,6 @@
 :root{
     --main-color:#7155b5;
+    /* --main-color:#590259; */
     /* --main-color-rgb:rgba(117,91,180,255); */
     --secondary-color:#7459b4;
     --tertiary-color:#8b67df;
@@ -10,27 +11,21 @@
     padding: 0;
     margin: 0;
 }
-
+.pad-sections {
+    margin: 50px auto 50px auto;
+    border: 0;
+}
+.favIcon{
+    background-color: red !important;
+    color: #ffffff !important;
+}
 html,body{
-
-
     height: 100%;
 }
 
-@font-face {
-    font-family: Roboto;
-    src:local("Roboto"), url(assets/fonts/Roboto/Roboto-Bold.ttf);
-}
-@font-face {
-    font-family: Robotolight;
-    src:local("Roboto"), url(assets/fonts/Roboto/Roboto-Light.ttf);
-}
 
 
-li{
-    font-family: "Roboto",Arial, sans-serif;
-    font-size: 16px;
-}
+
 
 
 

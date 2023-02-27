@@ -1,3 +1,4 @@
+<!-- i want a child outlet here -->
 <div class="overflow-hidden">
   <!-- Slideshow and header -->
   <div class="slider-home mb-5">
@@ -9,71 +10,51 @@
     </div>
     <div class="home-content">
       <h1>
-        <span class="rent" style="--i: 1">R</span><span class="rent" style="--i: 2">E</span><span class="rent"
-          style="--i: 3">N</span><span class="rent" style="--i: 4">T</span> whatever you want ,wherever
+        <span class="rent" style="--i: 1">R</span
+        ><span class="rent" style="--i: 2">E</span
+        ><span class="rent" style="--i: 3">N</span
+        ><span class="rent" style="--i: 4">T</span> whatever you want ,wherever
         you are
       </h1>
       <div class="head-btn-custom mt-2 mt-md-4 mt-lg-5">
-        <button class="btn btn-custom">Shop now</button>
+        <button class="btn btn-custom" [routerLink]="['/favourite']">
+          Shop now
+        </button>
       </div>
     </div>
   </div>
-<!-- categories section -->
-  <div class="categories-section pad-sections">
-    <div class="container overflow-hidden py-2">
-      <div class="row">
-        <div class=" col-lg-3 col-6">
-          <div class="card overflow-hidden" data-aos="fade-up" data-aos-once="true">
-            <img src="assets/images/formal.jpg" height="350px" class="card-img" alt="" />
-            <div class="card-layout">
-              <h3>FORMAL</h3>
-            </div>
-          </div>
-        </div>
-        <div class="mt-md-0 mt-lg-0 col-lg-3 col-6">
-          <div class="card overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
-            <img src="assets/images/casual.jpg" height="350px" class="card-img" alt="" />
-            <div class="card-layout">
-              <h3>CASUAL</h3>
-            </div>
-          </div>
-        </div>
-        <div class="mt-4 mt-md-4 mt-lg-0 col-lg-3 col-6">
-          <div class="card overflow-hidden" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-            <img src="assets/images/kids.jpeg" height="350px" class="card-img" alt="" />
-            <div class="card-layout">
-              <h3>KIDS</h3>
-            </div>
-          </div>
-        </div>
-        <div class="mt-4 mt-md-4 mt-lg-0 col-lg-3 col-6">
-          <div class="card overflow-hidden" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
-            <img src="assets/images/accessory.jpg" height="350px" class="card-img" alt="" />
-            <div class="card-layout">
-              <h3>ACCESSORIES</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <!-- categories section -->
+  <app-main-categories></app-main-categories>
   <!-- New Arrivals Section starts here-->
-  <div class="newArrivals-section pad-sections" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
+  <div
+    class="newArrivals-section pad-sections"
+    data-aos="fade-up"
+    data-aos-duration="2000"
+    data-aos-once="true"
+  >
     <h1>
       NEW <br />
       ARRIVAL
     </h1>
     <div class="container">
       <div class="row">
-        <div class="card col-xl-3 col-lg-4 col-md-6" *ngFor="let newProd of newProds" data-aos="fade-up"
-          data-aos-once="true" data-aos-duration="100">
-          <div class="card-design ">
-            <div class="card-fav-cart position-relative ">
-              <img src="{{ newProd.img }}" height="300" width="280" alt="" />
-              <div class="position-absolute fav-cart ">
-                <fa-icon icon="cart-shopping"></fa-icon>
-                <fa-icon icon="heart"></fa-icon>
+        <div
+          class="card col-xl-3 col-lg-4 col-6"
+          *ngFor="let newProd of newProds; let i = index"
+          data-aos="fade-up"
+          data-aos-once="true"
+          data-aos-duration="100"
+        >
+          <div class="card-design">
+            <div class="card-fav-cart position-relative bg-danger">
+              <img src="{{ newProd.img }}" class="img-fluid" alt="" (click)="addToCart(newProd)"/>
+              <div class="position-absolute fav-cart">
+                <!-- <div class="d-inline" (click)="addToCart(newProd)" >
+                  <span ><fa-icon icon="cart-shopping" class="favCartIcons" (click)="cartClicked($event)"></fa-icon></span>
+                </div> -->
+                <div class="d-inline">
+                  <span><fa-icon id="{{newProd.id}}" icon="heart"  (click)="addToFav(newProd,$event)" class="favIcons favs"></fa-icon></span>
+                </div>
               </div>
             </div>
             <p style="color: rgba(117, 91, 180, 255)">{{ newProd.ProdName }}</p>
@@ -88,7 +69,9 @@
       </div>
     </div>
     <h1>
-      <button data-aos="fade-up" data-aos-once="true" class="btn btn-custom">Browse More</button>
+      <button data-aos="fade-up" data-aos-once="true" class="btn btn-custom">
+        Browse More
+      </button>
     </h1>
   </div>
 
@@ -97,8 +80,12 @@
   <!-- 2nd Background in home page starts here-->
   <div class="homeBgs card position-relative pad-sections">
     <img src="assets/images/1920x1080-503178-formal-hand.jpg " alt="" />
-    <div class="homeBg-2-content d-flex flex-column justify-content-center align-items-center h-100 card-body w-100 ">
-      <h2 data-aos="fade-up" data-aos-once="true">Collection houses our first-ever</h2>
+    <div
+      class="homeBg-2-content d-flex flex-column justify-content-center align-items-center h-100 card-body w-100"
+    >
+      <h2 data-aos="fade-up" data-aos-once="true">
+        Collection houses our first-ever
+      </h2>
       <div class="btn-respon mt-0 mt-md-3">
         <button class="btn btn-custom">Shop now</button>
       </div>
@@ -111,8 +98,12 @@
         <div class="homeBgs position-relative">
           <img src="assets/images/section-img1.jpg " alt="" />
 
-          <div class="ms-3 homeBgs-4-content d-flex flex-column justify-content-end h-100 w-100 position-absolute">
-            <h2 data-aos="fade-out" data-aos-once="true" class="">Collection houses our first-ever</h2>
+          <div
+            class="ms-3 homeBgs-4-content d-flex flex-column justify-content-end h-100 w-100 position-absolute"
+          >
+            <h2 data-aos="fade-out" data-aos-once="true" class="">
+              Collection houses our first-ever
+            </h2>
             <div class="btn-respon mb-3">
               <button class="btn btn-custom">Shop now</button>
             </div>
@@ -123,8 +114,12 @@
         <div class="homeBgs position-relative">
           <img src="assets/images/section-img2.jpg " alt="" />
 
-          <div class="ms-3 homeBgs-4-content d-flex flex-column justify-content-end h-100 w-100 position-absolute">
-            <h2 data-aos="fade-out" data-aos-once="true" class="">Collection houses our first-ever</h2>
+          <div
+            class="ms-3 homeBgs-4-content d-flex flex-column justify-content-end h-100 w-100 position-absolute"
+          >
+            <h2 data-aos="fade-out" data-aos-once="true" class="">
+              Collection houses our first-ever
+            </h2>
             <div class="btn-respon mb-3">
               <button class="btn btn-custom">Shop now</button>
             </div>
@@ -134,45 +129,5 @@
     </div>
   </div>
 
-  <div class="container pad-sections">
-    <div class="row text-center ">
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="features-icons">
-          <fa-icon icon="envelope"></fa-icon>
-        </div>
-        <div class="features-content">
-          <h5>Online Support 24/7</h5>
-          <p>Dedicated support</p>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 mt-5 mt-md-0 col-lg-3">
-        <div class="features-icons">
-          <fa-icon icon="truck-fast"></fa-icon>
-        </div>
-        <div class="features-content">
-          <h5>Fast and Free Delivery</h5>
-          <p>Free delivery on all orders</p>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 mt-5 mt-md-0 col-lg-3">
-        <div class="features-icons">
-          <fa-icon icon="lock"></fa-icon>
-        </div>
-        <div class="features-content">
-          <h5>Payment Secure</h5>
-          <p>100% secure payment</p>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 mt-5 mt-md-0 col-lg-3">
-        <div class="features-icons">
-          <fa-icon icon="money-bill-transfer"></fa-icon>
-        </div>
-        <div class="features-content">
-          <h5>Money Back Guarantee</h5>
-          <p>If good have Problems</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <div><app-features-section></app-features-section></div>
 </div>

@@ -1,0 +1,90 @@
+<div class="pad-sections ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+
+                <form action="">
+                    <fieldset style="color:var(--main-color);">
+                        <legend>Billing Details</legend>
+                        <div class="w-75 row g-0 mx-auto my-3">
+                            <div class="pe-2 col-6">
+                                <label for="">First Name</label>
+                                <input type="text" name="First" #name="ngModel" ngModel
+                                    class="form-control col-md-6 my-3" placeholder="First Name ..." required>
+                            </div>
+                            <div class="ps-2 col-6">
+                                <label for="">Last Name</label>
+                                <input type="text" name="Last" #name="ngModel" ngModel
+                                    class="form-control col-md-6 my-3" placeholder="Last Name ..." required>
+                            </div>
+                            <div>
+                                <label for="">Address</label>
+                                <input type="text" name="Address" #name="ngModel" ngModel class="form-control my-3"
+                                    placeholder="Street Name ..." required>
+                                <input type="text" name="Address" #name="ngModel" ngModel
+                                    class="form-control col-md-6 my-3" placeholder="Apartment ..." required>
+
+                            </div>
+                            <div>
+                                <label for="" class="d-block">Country</label>
+                                <select class="form-select my-3" style="font-family: var(--secondary-font);"
+                                    aria-label=".form-select-lg example">
+                                    <option selected>Choose a Country</option>
+                                    <option value="1">egypt</option>
+                                    <option value="2">algeria</option>
+                                    <option value="3">KSA</option>
+                                </select>
+                            </div>
+                            <div class="pe-2 col-6">
+                                <label for="">Email</label>
+                                <input type="email" name="email" #name="ngModel" ngModel
+                                    class="form-control col-md-6 my-3" placeholder="First Name ..." required>
+                            </div>
+                            <div class="ps-2 col-6">
+                                <label for="">Zip/Postal Code</label>
+                                <input type="number" name="zip" #name="ngModel" ngModel
+                                    class="form-control col-md-6 my-3" placeholder="" required>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-md-5 checkoutPlaceOrder position-relative ps-0 ">
+                <h5 style="color: var(--main-color);font-size: 1.6rem;" class="my-3 text-center">Your Order</h5>
+                <table class="table w-75 m-auto">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>prod1</td>
+                            <td>100$</td>
+                        </tr>
+                        <tr>
+                            <td>prod2</td>
+                            <td>100$</td>
+                        </tr>
+                        <tr>
+                            <td>prod4</td>
+                            <td>100$</td>
+                        </tr>
+                        <tr>
+                            <td>prod5</td>
+                            <td>100$</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="placeOrderBtn m-0">
+                    <app-main-button class="mx-auto" borderRadius="0%" width="100%" content="Place Order"></app-main-button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pt-4">
+    <app-features-section></app-features-section>
+</div>

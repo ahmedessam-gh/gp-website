@@ -107,7 +107,7 @@
   left: 50%;
   transform: translate(-50%,-50%);
   top: 50%;
-  
+
 }
 
 
@@ -203,19 +203,16 @@
 
 }
 
-.fav-cart fa-icon {
+.fav-cart .favIcons{
   margin: 0px 5px;
   background-color: #ffffff;
   border-radius: 50%;
-  padding: 10px;
+  padding: 8px;
   color: var(--main-color);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
-.fav-cart fa-icon:hover {
-  background-color: var(--main-color);
-  color: #ffffff;
-}
+
 
 .newArrivals-section .card {
 
@@ -242,6 +239,11 @@
 
 .newArrivals-section .card-design:hover {
   box-shadow: 0 0 7px rgba(33, 33, 33, .2)
+}
+
+.newArrivals-section .card-fav-cart img{
+  height: 300px;
+  /*object-fit: contain;*/
 }
 
 .newArrivals-section .btn-custom {
@@ -343,23 +345,12 @@
 
 }
 
-/*features section*/
-.features-icons fa-icon {
-  font-size: 2.2rem;
-}
-
-.features-icons {
-  margin-bottom: 15px;
-}
-
-.features-content p {
-  font-family: var(--secondary-font);
-}
 
 
 
 
-@keyframes card-up {
+
+/* @keyframes card-up {
   0% {
     transform: translateY(100%);
 
@@ -383,7 +374,7 @@
   }
 
 
-}
+} */
 
 @keyframes button-up {
   0% {
@@ -405,9 +396,6 @@
 @media screen and (max-width:990px) {
   .home-content h1{
     font-size: 0.7rem !important;
-  }
-  .slider-home {
-    height: 50vh;
   }
   span{
     font-size:1.2rem !important ;
