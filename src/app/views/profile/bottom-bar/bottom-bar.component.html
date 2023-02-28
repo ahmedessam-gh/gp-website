@@ -1,5 +1,5 @@
 <nav class="bg-light">
-    <div class="side-bar-repons d-none animate__animated animate__slideInRight" id="navRespons">
+    <div class="side-bar-repons d-none animate__animated animate__slideInRight animate__faster" id="navRespons">
         <div class="me-2 text-end my-3 ">
             <button class="btn-close" (click)="closeRightBar()"></button>
         </div>
@@ -12,8 +12,8 @@
             </ul>
         </div>
     </div>
-    <div class="menu-sidebar-btn" id="leftBtn">
-        <button class="btn" (click)="showRightBar()"><fa-icon [icon]="['fas','arrow-left']"></fa-icon>
+    <div class="menu-sidebar-btn" >
+        <button class="btn" id="leftBtn" (click)="showRightBar()">+
         </button>
     </div>
     

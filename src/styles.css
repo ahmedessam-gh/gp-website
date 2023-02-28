@@ -22,6 +22,14 @@
 html,body{
     height: 100%;
 }
+.layout{
+    position: fixed;
+    left: 0;
+    background-color: rgb(128,128,128,0.5);
+    height: 100vh;
+    width: 100vw;
+    z-index: 99999;
+}
 
 
 
