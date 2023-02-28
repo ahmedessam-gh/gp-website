@@ -1,0 +1,36 @@
+
+body{
+  font-family: var(--main-font); ;
+}
+.contactusform h1{
+  text-transform: uppercase;
+color: var(--main-color);
+
+
+}
+
+
+.contactus-photo img{
+
+  height: 50vh;
+  background-size: cover;
+}
+
+.form-control {
+  background-color: transparent;
+  border-width: 1px 1px 1px 1px;
+  box-shadow: none;
+  border-radius: 0;
+  text-shadow: none;
+}
+
+
+
+
+.form-control:focus{
+  border-color: var(--main-color);
+}
+.form-control::placeholder{
+  font-size: 0.8rem;
+  font-family: var(--secondary-font);
+}
