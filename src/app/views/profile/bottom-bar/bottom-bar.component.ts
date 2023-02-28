@@ -11,5 +11,20 @@ export class BottomBarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  showRightBar(){
+    const leftBtn =document.getElementById('leftBtn');
+    const navRespons = document.getElementById('navRespons');
+    navRespons.classList.add('d-block');
+    navRespons.classList.remove('d-none');
+    leftBtn.classList.add('d-none');
+    document.body.classList.add('');
+  }
+  closeRightBar(){
+    const leftBtn =document.getElementById('leftBtn');
+    const navRespons = document.getElementById('navRespons');
+    leftBtn.classList.add('d-block');
+    leftBtn.classList.remove('d-none');
+    navRespons.classList.add('d-none');
+    
+  }
 }
