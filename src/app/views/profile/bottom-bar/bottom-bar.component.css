@@ -19,7 +19,6 @@
     position: fixed;
     right: 0;
     bottom: 0;
-    font-size: 1rem;
     margin: 20px;
     color: #ffffff !important;
     background-color: var(--main-color);

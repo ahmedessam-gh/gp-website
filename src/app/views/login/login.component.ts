@@ -50,10 +50,6 @@ login(form:NgForm){
       },500)
     } 
   }
-
-  disabledBtn(){
-    
-  }
  
 
   showRegister(){

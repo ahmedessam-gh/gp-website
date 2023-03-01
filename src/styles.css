@@ -1,6 +1,7 @@
 :root{
-    --main-color:#7155b5;
-    /* --main-color:#590259; */
+    /* --main-color:#7155b5; */
+    --main-color:#5A4196;
+    /* --main-color:#99B555; */
     /* --main-color-rgb:rgba(117,91,180,255); */
     --secondary-color:#7459b4;
     --tertiary-color:#8b67df;
@@ -29,6 +30,23 @@ html,body{
     height: 100vh;
     width: 100vw;
     z-index: 99999;
+}
+.form-control{  
+    background-color: transparent;
+    border-width: 0 0 1px 0;
+    box-shadow: none;  
+    border-radius: 0; 
+    text-shadow: none; 
+    outline: 0;    
+}
+
+.form-control:focus{  
+    border-color: var(--main-color);
+    box-shadow: none;
+}
+input::placeholder{
+    font-size: 0.8rem;
+    font-family: var(--secondary-font);
 }
 
 

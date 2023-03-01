@@ -1,2 +1,6 @@
-
+.btn-edit{
+    background-color: transparent;
+    color:var(--secondary-color);
+    border:none;
+}
 
