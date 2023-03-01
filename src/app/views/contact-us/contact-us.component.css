@@ -36,6 +36,11 @@ animation: bounceInLeft 1s ease-in-out;
   width: 50vh;
 }
 
+.app-main-button{
+
+  width: 15vh;
+}
+
 
 .form-control:focus{
   border-color: var(--main-color);
