@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { event } from 'jquery';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
+import * as Aos from 'aos';
 
 @Component({
   selector: 'app-contact-us',
@@ -8,10 +10,29 @@ import { NgForm, NgModel } from '@angular/forms';
 })
 export class ContactUsComponent implements OnInit {
   constructor() {}
-  form: NgModel;
-  ngOnInit(): void {}
+  form: any;
+  userName: String = '';
+  userEmail: String = '';
+  userSubject: String = '';
 
-  submitEmail(form: NgForm) {
-    console.log(form);
+  ngOnInit(): void {
+    Aos.init({});
+  }
+
+  submitEmail(form: any) {
+    if (!form.valid) {
+      form.stopPropagation();
+    } else console.log(this.userName);
+    console.log(this.userEmail);
+    console.log(this.userSubject);
+  }
+  addShake(form: NgForm) {
+    const btn = document.getElementById('app-button');
+    if (!form.valid) {
+      btn.classList.add('app-button');
+      setTimeout(() => {
+        btn.classList.remove('app-button');
+      }, 500);
+    }
   }
 }

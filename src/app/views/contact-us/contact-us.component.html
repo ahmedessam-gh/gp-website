@@ -3,7 +3,7 @@
     <img src="assets/images/contact.png" alt="" width="100%" height="50%" />
   </div>
 
-  <div class="contactusform pad-sections px-5">
+  <div class="contactusform pad-sections">
     <h1 class="headertext">Get in touch</h1>
     <div class="pad-sections">
       <form (ngSubmit)="submitEmail(sendForm)" #sendForm="ngForm">
@@ -12,10 +12,11 @@
           type="text"
           name="name"
           title="name"
-          ngModel
+          [(ngModel)]="userName"
           #name="ngModel"
           placeholder="Enter your name...."
           required
+          minlength="3"
         />
         <div *ngIf="name.invalid && name.touched">
           <p>please enter name</p>
@@ -26,13 +27,15 @@
           ngModel
           type="email"
           name="email"
+          email="true"
+          [(ngModel)]="userEmail"
           #email="ngModel"
           title="name"
           placeholder="Enter your email...."
           required
         />
         <div *ngIf="email.invalid && email.touched">
-          <p>please enter valid email</p>
+          <p class="px-6">please enter valid email</p>
         </div>
         <textarea
           class="form-control mb-3 w-50"
@@ -40,6 +43,7 @@
           name="subject"
           title="textarea"
           #subject="ngModel"
+          [(ngModel)]="userSubject"
           placeholder="Enter your subject"
           required
           minlength="12"
@@ -48,9 +52,19 @@
           <p>please enter valid subject</p>
         </div>
         <div>
-          <app-main-button type="submit" content="Submit"></app-main-button>
+          <app-main-button
+            (click)="addShake(sendForm)"
+            type="submit"
+            content="Submit"
+            id="app-button"
+          ></app-main-button>
         </div>
       </form>
     </div>
   </div>
+
+  <div>
+    <app-main-categories></app-main-categories>
+  </div>
+  <div><app-features-section></app-features-section></div>
 </body>
