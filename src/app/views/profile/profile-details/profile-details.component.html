@@ -34,8 +34,11 @@
                 <div class="col-sm-3">
                   <p class="mb-0">Full Name</p>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-8" id="nameField">
                   <p class="text-muted mb-0">ahmed essam</p>
+                </div>
+                <div class="col-sm-1" (click)="createInput('name','text',$event)">
+                  <button class="btn-edit">edit</button>
                 </div>
               </div>
               <hr>
@@ -43,8 +46,11 @@
                 <div class="col-sm-3">
                   <p class="mb-0">Email</p>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-8" >
                   <p class="text-muted mb-0">example@gmail.com</p>
+                </div>
+                <div class="col-sm-1" (click)="createInput('name','text',$event)">
+                  <button class="btn-edit">edit</button>
                 </div>
               </div>
               <hr>
@@ -52,8 +58,11 @@
                 <div class="col-sm-3">
                   <p class="mb-0">Phone</p>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-8" >
                   <p class="text-muted mb-0">123123123</p>
+                </div>
+                <div class="col-sm-1" (click)="createInput('email','email',$event)">
+                  <button class="btn-edit">edit</button>
                 </div>
               </div>
               <hr>
@@ -61,8 +70,11 @@
                 <div class="col-sm-3">
                   <p class="mb-0">Mobile</p>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-8">
                   <p class="text-muted mb-0">123123124124</p>
+                </div>
+                <div class="col-sm-1" (click)="createInput('email','email',$event)">
+                  <button class="btn-edit">edit</button>
                 </div>
               </div>
               <hr>
@@ -70,8 +82,11 @@
                 <div class="col-sm-3">
                   <p class="mb-0">Address</p>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-8">
                   <p class="text-muted mb-0">6 october</p>
+                </div>
+                <div class="col-sm-1" (click)="createInput('email','email',$event)">
+                  <button class="btn-edit">edit</button>
                 </div>
               </div>
             </div>

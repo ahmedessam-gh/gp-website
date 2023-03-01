@@ -11,6 +11,7 @@ export const routes: Routes = [
     children:[
       {path:'details',component:ProfileDetailsComponent},
       {path:'fav',component:FavouriteComponent},
+
     ]
   },
 ];
