@@ -14,29 +14,17 @@ export class LoginComponent implements OnInit {
   fullName:string ='';
   form:NgForm;
   ngOnInit(): void {
-    // const btn = document.getElementById('app-button');
-    // const child = btn.children[0];
-    // if(this.form?.invalid){
-    //   child.classList.add("disabled");
-      
-    // }else
-    // if(this.form?.valid && (child.classList.contains('disabled'))){
-    //   child.classList.remove('disabled');
-    // }
     
-
   }
 
 
 
-login(form:NgForm){
+login(form:any){
+  if(!form.valid){
+    form.stopPropagation();
+  }
   console.log(form);
-  // if(form.valid){
-  //   console.log(form);
-  // }
-  // else{
-  //   console.log('not valid');
-  // }
+  
 }
 
 
