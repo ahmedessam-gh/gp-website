@@ -19,6 +19,7 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
         FavouriteComponent,
         BottomBarComponent,
         
+        
     ],
     imports: [
         CommonModule,
