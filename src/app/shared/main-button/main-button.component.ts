@@ -6,20 +6,16 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./main-button.component.css']
 })
 export class MainButtonComponent implements OnInit {
-
-  @Input() content:string = 'button';
-  @Input() color?:string 
-  @Input() width:string ='100%'
-  @Input() borderRadius:string = '10px'
-  @Input() padding:string = ''
-  @Input() type:string;
-  @Input() myClass:string;
- 
-
-
-  
-  buttonStyle:Record<string,string>={};
-  constructor() { }
+  @Input() content: string = 'button';
+  @Input() color?: string;
+  @Input() width: string = '100%';
+  @Input() borderRadius: string = '10px';
+  @Input() padding: string = '';
+  @Input() type: string;
+  @Input() myClass: string;
+  @Input() disabledBtn : boolean;
+  buttonStyle: Record<string, string> = {};
+  constructor() {}
 
   ngOnInit(): void {
     this.buttonStyle={
