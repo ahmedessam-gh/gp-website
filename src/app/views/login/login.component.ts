@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 
 @Component({
@@ -7,12 +7,18 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @ViewChild('name') name : ElementRef<HTMLInputElement>;
+  @ViewChild('email') email : ElementRef<HTMLInputElement>;
+  @ViewChild('password') password : ElementRef<HTMLInputElement>;
 
   constructor() { 
     
   }
   fullName:string ='';
   form:NgForm;
+  errorName :boolean;
+  errorEmail :boolean;
+  errorPass :boolean;
   ngOnInit(): void {
     
   }
@@ -20,10 +26,14 @@ export class LoginComponent implements OnInit {
 
 
 login(form:any){
+  this.errorName = !this.name.nativeElement.validity.valid;
+  this.errorEmail = !this.email.nativeElement.validity.valid;
+  this.errorPass = !this.password.nativeElement.validity.valid;
+
   if(!form.valid){
     form.stopPropagation();
   }
-  console.log(form);
+  console.log(form.value);
   
 }
 

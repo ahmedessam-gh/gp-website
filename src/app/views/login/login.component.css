@@ -57,9 +57,6 @@ input::placeholder{
     font-family: var(--secondary-font);
 } */
 /*validation style*/
-.ng-invalid .ng-touched{
-    border-color: red;
-}
 .form-content p{
     color: red;
     font-size: 0.7rem;
