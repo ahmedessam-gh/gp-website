@@ -30,15 +30,8 @@ animation: bounceInLeft 1s ease-in-out;
 }
 
 
- textarea{
-
+textarea{
   height: 20vh;
-  width: 50vh;
-}
-
-.app-main-button{
-
-  width: 15vh;
 }
 
 
