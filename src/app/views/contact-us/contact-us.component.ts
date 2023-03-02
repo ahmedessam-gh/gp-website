@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { event } from 'jquery';
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import { NgForm, NgModel } from '@angular/forms';
+import * as Aos from 'aos';
 
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.css']
+  styleUrls: ['./contact-us.component.css'],
 })
 export class ContactUsComponent implements OnInit {
   constructor() {}
@@ -13,6 +16,7 @@ export class ContactUsComponent implements OnInit {
   userSubject: String = '';
 
   ngOnInit(): void {
+    Aos.init({});
   }
 
   submitEmail(form: any) {
