@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/angular-fontawesome';
 import { MainButtonModule } from "../../shared/main-button/main-button.module";
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
         ProfileDetailsComponent,
         FavouriteComponent,
         BottomBarComponent,
+        MyOrdersComponent,
         
         
     ],

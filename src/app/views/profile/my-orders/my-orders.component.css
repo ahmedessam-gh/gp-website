@@ -1,0 +1,26 @@
+
+.noOrders{
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-size: 10vh;
+  height: 100%;
+  color: var(--main-color);
+
+}
+
+.noOrders p{
+
+  font-family: var(--main-font);
+}
+
+
+.removeorders {
+
+background-color: black;
+
+}
+
