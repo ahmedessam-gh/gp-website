@@ -13,11 +13,11 @@ export class MyOrdersComponent implements OnInit {
   ngOnInit(): void {
     this.myOrders = this.orders.orders;
 
-    this.noFavItems;
+    this.noFavItems();
   }
   noFavItems() {
-    const tableContainer2 = document.getElementById('tableContainer2');
-    const noFavsDiv = document.getElementById('noFavsDiv');
+    const tableContainer2 = document.getElementById('tableContainer3');
+    const noFavsDiv = document.getElementById('noFavsDiv1');
     if (this.myOrders.length == 0) {
       tableContainer2.classList.add('d-none');
       noFavsDiv.classList.remove('d-none');
