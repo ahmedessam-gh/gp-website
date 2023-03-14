@@ -37,7 +37,6 @@
     background-color: #ffffff;
     overflow: hidden;
     opacity: 0;
-    box-shadow: 0px -1px 5px var(--main-color);
     transition: max-height 0.5s, opacity .2s ease-in-out;
     
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-details',
@@ -18,8 +19,9 @@ export class ProfileDetailsComponent implements OnInit {
     inp.type = type;
     inp.name = name;
     inp.value = text;
-    inp.classList.add('d-block', 'form-control');
+    inp.classList.add('d-block');
     event.currentTarget.previousElementSibling.replaceChild(inp,itemReplaced); 
+    
   }
   
 
