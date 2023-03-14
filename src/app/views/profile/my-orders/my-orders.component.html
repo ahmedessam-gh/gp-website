@@ -1,38 +1,32 @@
-<div id="tableContainer3">
-  <div class="container">
-    <table class="table text-center">
-      <thead>
-        <tr>
-          <th>orderNumber</th>
-          <th>orderDate</th>
-          <th>Price</th>
-          <th>status</th>
-        </tr>
-      </thead>
-      <tbody class="tableContent">
-        <ng-container *ngFor="let order of myOrders; let i = index">
-          <tr>
-            <td>
-              {{ order.orderNumber }}
-            </td>
-
-            <td>
-              {{ order.orderDate }}
-            </td>
-            <td>
-              {{ order.totalPrice }}
-            </td>
-
-            <td>
-              {{ order.status }}
-            </td>
-          </tr>
-        </ng-container>
-      </tbody>
-    </table>
-  </div>
+<div class="orderstitle pad-sections px-3">
+  <h1>My Orders</h1>
 </div>
-<div id="noFavsDiv1" class="noOrders">
+
+<div id="ordersContainer">
+  <ng-container *ngFor="let order of myOrders; let i = index">
+    <div class="card w-50 my-5 mx-3 bg-light" [routerLink]="['/home']">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <h4 class="card-title">Price : {{ order.totalPrice }}$</h4>
+          <p class="">
+            Status : <span> {{ order.status }}</span>
+          </p>
+        </div>
+        <br />
+        <div class="d-flex justify-content-between">
+          <p>
+            order number :<span> {{ order.orderNumber }}</span>
+          </p>
+          <p class="card-text">
+            Delivery Date :<span> {{ order.orderDate }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<div id="noOrdersid" class="noOrders">
   <fa-icon icon="cart-shopping"></fa-icon>
   <p>No orders placed</p>
 </div>

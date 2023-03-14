@@ -1,4 +1,7 @@
+*{
 
+  font-family: var(--main-font);
+}
 .noOrders{
 
   text-align: center;
@@ -24,3 +27,26 @@ background-color: black;
 
 }
 
+.orderstitle h1{
+
+  font-family: var(--main-font);
+  color: var(--main-color);
+  text-align: center;
+}
+
+.card{
+
+  border-radius: 15px;
+  border-color: var(--main-color);
+  cursor: pointer;
+}
+
+.card span{
+
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.card h4{
+
+  color: var(--main-color);
+}

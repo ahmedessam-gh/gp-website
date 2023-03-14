@@ -16,8 +16,8 @@ export class MyOrdersComponent implements OnInit {
     this.noFavItems();
   }
   noFavItems() {
-    const tableContainer2 = document.getElementById('tableContainer3');
-    const noFavsDiv = document.getElementById('noFavsDiv1');
+    const tableContainer2 = document.getElementById('ordersContainer');
+    const noFavsDiv = document.getElementById('noOrdersid');
     if (this.myOrders.length == 0) {
       tableContainer2.classList.add('d-none');
       noFavsDiv.classList.remove('d-none');
