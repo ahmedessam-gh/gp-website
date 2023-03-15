@@ -37,8 +37,9 @@ background-color: black;
 .card{
 
   border-radius: 15px;
-  border-color: var(--main-color);
+  box-shadow: 3px;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .card span{
@@ -49,4 +50,36 @@ background-color: black;
 .card h4{
 
   color: var(--main-color);
+}
+
+
+.my-pagination ::ng-deep .ngx-pagination {
+  margin: auto;
+  width: 50%;
+color: var(--main-color);
+}
+
+.my-pagination ::ng-deep  li{
+margin: auto;
+
+}
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background-color: var(--main-color);
+}
+
+
+
+.my-pagination ::ng-deep .ngx-pagination .current span{
+
+color: white;
+}
+
+
+
+
+@media screen and (max-width:974px) {
+ .card {
+width: 90% !important;
+}
+
 }

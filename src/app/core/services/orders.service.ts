@@ -20,6 +20,18 @@ export class OrdersService {
         totalPrice: 1000,
         status: 'delivered',
       },
+      {
+        orderNumber: 1,
+        orderDate: '1st Jan 2001',
+        totalPrice: 1000,
+        status: 'delivered',
+      },
+      {
+        orderNumber: 1,
+        orderDate: '1st Jan 2001',
+        totalPrice: 1000,
+        status: 'delivered',
+      },
     ];
   }
 }
