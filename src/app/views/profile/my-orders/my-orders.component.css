@@ -32,6 +32,7 @@ background-color: black;
   font-family: var(--main-font);
   color: var(--main-color);
   text-align: center;
+  animation: bounceIn 1s ease-in-out;
 }
 
 .card{
@@ -40,7 +41,14 @@ background-color: black;
   box-shadow: 3px;
   cursor: pointer;
   overflow: hidden;
+  animation : fadeInLeft 1s ease-in-out;
+
 }
+
+
+
+
+
 
 .card span{
 
@@ -60,7 +68,6 @@ color: var(--main-color);
 }
 
 .my-pagination ::ng-deep  li{
-margin: auto;
 
 }
 .my-pagination ::ng-deep .ngx-pagination .current {
