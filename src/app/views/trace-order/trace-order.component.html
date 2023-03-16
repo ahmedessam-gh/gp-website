@@ -1,1 +1,141 @@
-<p>trace-order works!</p>
+<!--
+<div class="container">
+  <h1 class="card-header">Track Order</h1>
+  <br />
+  <div class="card-body">
+    <h6>Order ID: OD45345345435</h6>
+    <div class="card">
+      <div class="card-body row">
+        <div class="col">
+          <strong>Estimated Delivery time:</strong> <br />29 nov 2019
+        </div>
+        <div class="col">
+          <strong>Shipping BY:</strong> <br />
+          BLUEDART, | <i class="fa fa-phone"></i> +1598675986
+        </div>
+        <div class="col">
+          <strong>Status:</strong> <br />
+          Picked by the courier
+        </div>
+        <div class="col">
+          <strong>Tracking #:</strong> <br />
+          BD045903594059
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <ul class="bs4-order-tracking">
+    <li class="step active">
+      <div><fa-icon icon="user"> </fa-icon></div>
+      Order Placed
+    </li>
+    <li class="step active">
+      <div><fa-icon icon="bread-slice"> </fa-icon></div>
+      In Progress
+    </li>
+    <li class="step active">
+      <div><fa-icon icon="truck"> </fa-icon></div>
+      Out for delivery
+    </li>
+    <li class="step">
+      <div>
+        <fa-icon icon="birthday-cake"></fa-icon>
+      </div>
+      Delivered
+    </li>
+  </ul>
+</div>
+-->
+<div class="container pad-sections">
+  <article class="card">
+    <h1 class="card-header">Track Order</h1>
+    <div class="card-body">
+      <h6>Order Number : {{ myOrders[0].orderNumber }}</h6>
+      <article class="card">
+        <div class="card-body row">
+          <div class="col-6 col-xl-3 py-2">
+            <strong>Order Date:</strong> <br />
+            {{ myOrders[0].orderDate }}
+          </div>
+          <div class="col-6 col-xl-3 py-2">
+            <strong>Total Price:</strong> <br />
+            $1000
+          </div>
+          <div class="col-6 col-xl-3 py-2">
+            <strong>Status:</strong> <br />
+            Order Placed
+          </div>
+          <div class="col-6 col-xl-3 py-2">
+            <strong>Arrival Date:</strong> <br />
+            1st Jan
+          </div>
+        </div>
+      </article>
+      <div class="track">
+        <div class="step active">
+          <span class="icon"><fa-icon icon="user"> </fa-icon> </span>
+          <span class="text"> </span>
+        </div>
+        <div class="step">
+          <span class="icon"> <fa-icon icon="bread-slice"></fa-icon> </span>
+          <span class="text"> Preparing Order</span>
+        </div>
+        <div class="step">
+          <span class="icon"><fa-icon icon="truck"> </fa-icon></span>
+          <span class="text"> Out for delivery </span>
+        </div>
+        <div class="step">
+          <span class="icon">
+            <div>
+              <fa-icon icon="birthday-cake"></fa-icon></div
+          ></span>
+          <span class="text">Delivered</span>
+        </div>
+      </div>
+      <hr />
+      <ul class="row">
+        <li class="col-6 col-xl-4">
+          <figure class="itemside mb-3">
+            <div class="aside mx-3">
+              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
+            </div>
+            <figcaption class="info align-self-center">
+              <p class="title">Dress</p>
+              <span class="text-muted">$100 </span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="col-6 col-xl-4">
+          <figure class="itemside mb-3">
+            <div class="aside mx-3">
+              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
+            </div>
+            <figcaption class="info align-self-center">
+              <p class="title">Dress</p>
+              <span class="text-muted">$100 </span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="col-6 col-xl-4">
+          <figure class="itemside mb-3">
+            <div class="aside mx-3">
+              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
+            </div>
+            <figcaption class="info align-self-center">
+              <p class="title">Dress</p>
+              <span class="text-muted">$100 </span>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+      <hr />
+      <a href="/myorders" class="btn btn-warning">
+        <app-main-button
+          class="orderButton"
+          content="Back to orders"
+        ></app-main-button>
+      </a>
+    </div>
+  </article>
+</div>

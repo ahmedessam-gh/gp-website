@@ -80,7 +80,11 @@ color: var(--main-color);
 
 color: white;
 }
+.main-button{
 
+  width: 20px;
+  background: black;
+}
 
 
 

@@ -9,9 +9,9 @@ export class OrdersService {
     this.orders = [
       {
         orderNumber: 1,
-        orderDate: '1st Jan 2001',
+        orderDate: '1st Jan, 2001',
         totalPrice: 1000,
-        status: 'delivered',
+        status: 'Order Placed',
       },
 
       {
@@ -21,13 +21,13 @@ export class OrdersService {
         status: 'delivered',
       },
       {
-        orderNumber: 1,
+        orderNumber: 3,
         orderDate: '1st Jan 2001',
-        totalPrice: 1000,
-        status: 'delivered',
+        totalPrice: 2000,
+        status: 'Order Deli',
       },
       {
-        orderNumber: 1,
+        orderNumber: 4,
         orderDate: '1st Jan 2001',
         totalPrice: 1000,
         status: 'delivered',
