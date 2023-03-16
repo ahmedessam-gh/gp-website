@@ -8,7 +8,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./trace-order.component.css'],
 })
 export class TraceOrderComponent implements OnInit {
-  @Input() myOrders: order[];
+  myOrders: any;
+
   number: any;
   constructor(
     private orders: OrdersService,
@@ -16,6 +17,10 @@ export class TraceOrderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.myOrders = this.orders.orders;
+    const ordersrouting = this.ActivatedRoute.snapshot.paramMap;
+    const orderid = Number(ordersrouting.get('orderNumber'));
+    this.myOrders = this.orders.orders.find(
+      (order) => order.orderNumber === orderid
+    );
   }
 }

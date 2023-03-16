@@ -26,11 +26,14 @@
             Delivery Date :<span> {{ order.orderDate }}</span>
           </p>
         </div>
-        <app-main-button
-          content="Track Order"
-          id="app-button"
-          routerLink="/trace-order"
-        ></app-main-button>
+        <div class="traceButton">
+          <app-main-button
+            content="Track Order"
+            id="app-button"
+            width="150px"
+            [routerLink]="['/trace-order', order.orderNumber]"
+          ></app-main-button>
+        </div>
       </div>
     </div>
   </ng-container>

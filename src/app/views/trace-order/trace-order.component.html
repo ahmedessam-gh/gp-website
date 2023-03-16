@@ -50,32 +50,32 @@
 <div class="container pad-sections">
   <article class="card">
     <h1 class="card-header">Track Order</h1>
-    <div class="card-body">
-      <h6>Order Number : {{ myOrders[0].orderNumber }}</h6>
+    <div class="card-body" *ngIf="myOrders">
+      <h6>Order Number : {{ myOrders.orderNumber }}</h6>
       <article class="card">
         <div class="card-body row">
           <div class="col-6 col-xl-3 py-2">
             <strong>Order Date:</strong> <br />
-            {{ myOrders[0].orderDate }}
+            {{ myOrders.orderDate }}
           </div>
           <div class="col-6 col-xl-3 py-2">
             <strong>Total Price:</strong> <br />
-            $1000
+            {{ myOrders.totalPrice }}
           </div>
           <div class="col-6 col-xl-3 py-2">
             <strong>Status:</strong> <br />
-            Order Placed
+            {{ myOrders.status }}
           </div>
           <div class="col-6 col-xl-3 py-2">
             <strong>Arrival Date:</strong> <br />
-            1st Jan
+            {{ myOrders.orderArrival }}
           </div>
         </div>
       </article>
       <div class="track">
         <div class="step active">
           <span class="icon"><fa-icon icon="user"> </fa-icon> </span>
-          <span class="text"> </span>
+          <span class="text">Order Placed </span>
         </div>
         <div class="step">
           <span class="icon"> <fa-icon icon="bread-slice"></fa-icon> </span>
@@ -94,7 +94,29 @@
         </div>
       </div>
       <hr />
-      <ul class="row">
+      <ul class="row mySlider">
+        <li class="col-6 col-xl-4">
+          <figure class="itemside mb-3">
+            <div class="aside mx-3">
+              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
+            </div>
+            <figcaption class="info align-self-center">
+              <p class="title">Dress</p>
+              <span class="text-muted">$100 </span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="col-6 col-xl-4">
+          <figure class="itemside mb-3">
+            <div class="aside mx-3">
+              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
+            </div>
+            <figcaption class="info align-self-center">
+              <p class="title">Dress</p>
+              <span class="text-muted">$100 </span>
+            </figcaption>
+          </figure>
+        </li>
         <li class="col-6 col-xl-4">
           <figure class="itemside mb-3">
             <div class="aside mx-3">

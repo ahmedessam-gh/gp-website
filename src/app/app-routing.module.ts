@@ -40,7 +40,7 @@ const routes: Routes = [
           import('./views/profile/profile.module').then((m) => m.ProfileModule),
       },
       {
-        path: 'trace-order',
+        path: 'trace-order/:orderNumber',
         loadChildren: () =>
           import('./views/trace-order/trace-order.module').then(
             (m) => m.TraceOrderModule
