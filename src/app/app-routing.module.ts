@@ -46,6 +46,11 @@ const routes: Routes = [
             (m) => m.TraceOrderModule
           ),
       },
+      {
+        path: 'shop',
+        loadChildren: () =>
+          import('./views/shop/shop.module').then((m) => m.ShopModule),
+      },
     ],
   },
   {

@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from 'src/app/core/services/orders.service';
 import { order } from 'src/app/core/interfaces/order';
 import { ActivatedRoute } from '@angular/router';
+import * as $ from 'jquery';
+import 'slick-carousel';
+
 @Component({
   selector: 'app-trace-order',
   templateUrl: './trace-order.component.html',
@@ -22,5 +25,12 @@ export class TraceOrderComponent implements OnInit {
     this.myOrders = this.orders.orders.find(
       (order) => order.orderNumber === orderid
     );
+
+    $('.my-slider').slick({
+      slidesToShow: 3, // Number of slides to show at once
+      slidesToScroll: 1, // Number of slides to scroll at once
+      prevArrow: null,
+      nextArrow: null,
+    });
   }
 }
