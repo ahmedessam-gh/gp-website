@@ -1,0 +1,30 @@
+<div *ngFor="let item of items | paginate: { itemsPerPage: pageSize, currentPage: p}">
+    <div class="card w-75 g-0 my-5 mx-lg-auto mx-auto shadow">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h4 class="card-title">Price : {{ item.totalPrice }}$</h4>
+            <p class="">
+              Status : <span> {{ item.status }}</span>
+            </p>
+          </div>
+          <br />
+          <div class="d-flex justify-content-between">
+            <p>
+              order number :<span> {{ item.orderNumber }}</span>
+            </p>
+            <p class="card-text">
+              Delivery Date :<span> {{ item.orderDate }}</span>
+            </p>
+          </div>
+          <div class="traceButton">
+            <app-main-button
+              content="Track Order"
+              id="app-button"
+              width="150px"
+              [routerLink]="['/trace-order', item.orderNumber]"
+            ></app-main-button>
+          </div>
+        </div>
+      </div>
+  </div>
+<pagination-controls (pageChange)="pageChange.emit(p = $event)" [maxSize]="5" [directionLinks]="true" [autoHide]="true"></pagination-controls>

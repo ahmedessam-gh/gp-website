@@ -8,7 +8,6 @@ import { order } from 'src/app/core/interfaces/order';
 })
 export class MyOrdersComponent implements OnInit {
   myOrders: order[] = [];
-  p: number = 1;
   constructor(private orders: OrdersService) {}
 
   ngOnInit(): void {

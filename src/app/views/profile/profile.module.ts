@@ -9,23 +9,25 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MainButtonModule } from '../../shared/main-button/main-button.module';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PaginationModule } from "../../shared/pagination/pagination.module"; // <-- import the module
 
 @NgModule({
-  declarations: [
-    ProfileComponent,
-    SidebarComponent,
-    ProfileDetailsComponent,
-    FavouriteComponent,
-    BottomBarComponent,
-    MyOrdersComponent,
-  ],
-  imports: [
-    CommonModule,
-    ProfileRoutingModule,
-    FontAwesomeModule,
-    MainButtonModule,
-    NgxPaginationModule
-  ],
+    declarations: [
+        ProfileComponent,
+        SidebarComponent,
+        ProfileDetailsComponent,
+        FavouriteComponent,
+        BottomBarComponent,
+        MyOrdersComponent,
+    ],
+    imports: [
+        CommonModule,
+        ProfileRoutingModule,
+        FontAwesomeModule,
+        MainButtonModule,
+        NgxPaginationModule,
+        PaginationModule
+    ]
 })
 export class ProfileModule {}
