@@ -1,0 +1,98 @@
+*{
+
+  font-family: var(--main-font);
+}
+.noOrders{
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-size: 10vh;
+  height: 100%;
+  color: var(--main-color);
+
+}
+
+.noOrders p{
+
+  font-family: var(--main-font);
+}
+
+
+.removeorders {
+
+background-color: black;
+
+}
+
+.orderstitle h1{
+
+  font-family: var(--main-font);
+  color: var(--main-color);
+  text-align: center;
+  animation: bounceIn 1s ease-in-out;
+}
+
+.card{
+
+  border-radius: 15px;
+  box-shadow: 3px;
+  cursor: pointer;
+  overflow: hidden;
+  animation : fadeInLeft 1s ease-in-out;
+
+}
+
+
+
+
+
+
+.card span{
+
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.card h4{
+
+  color: var(--main-color);
+}
+
+
+.my-pagination ::ng-deep .ngx-pagination {
+  margin: auto;
+  width: 50%;
+color: var(--main-color);
+}
+
+.my-pagination ::ng-deep  li{
+
+}
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background-color: var(--main-color);
+}
+
+
+
+.my-pagination ::ng-deep .ngx-pagination .current span{
+
+color: white;
+}
+.traceButton{
+
+width: 150px;
+margin: auto
+
+
+}
+
+
+
+@media screen and (max-width:974px) {
+ .card {
+width: 90% !important;
+}
+
+}

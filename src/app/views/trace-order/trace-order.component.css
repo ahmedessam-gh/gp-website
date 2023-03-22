@@ -1,0 +1,87 @@
+.card-header {
+  font-family: var(--main-font);
+  color: var(--main-color);
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  font-family: var(--main-font);
+}
+.track {
+  background-color: #878788;
+  height: 7px;
+  display: flex;
+  margin-bottom: 80px;
+  margin-top: 50px;
+}
+.track .step {
+  width: 25%;
+  margin-top: -18px;
+  text-align: center;
+  position: relative;
+}
+.track .step.active::before {
+  background: var(--main-color);
+}
+.track .step::before {
+  height: 7px;
+  position: absolute;
+  content: "";
+  width: 100%;
+  left: 0;
+  top: 18px;
+}
+
+.track .step.active .icon {
+  background: var(--main-color);
+  color: #fff;
+}
+.track .icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  border-radius: 50%;
+  color: white;
+  background: #878788;
+}
+
+.track .text {
+  display: block;
+}
+.itemside {
+  display: flex;
+}
+
+.img-sm {
+  width: 80px;
+  height: 80px;
+}
+ul.row,
+ul.row-sm {
+  list-style: none;
+}
+
+.btn-warning {
+  background: none;
+  border: transparent;
+}
+
+.btn-warning:active {
+  background: none;
+}
+.slick-prev:before, .slick-next:before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='currentColor' d='M288 288H32c-17.7 0-26.7 21.5-14.1 34.1l112 112c7.6 7.6 20.5 7.6 28.1 0l112-112C314.7 309.5 305.7 288 288 288z'%3E%3C/path%3E%3C/svg%3E");
+
+}
+
+.slick-prev:before {
+  transform: rotate(180deg);
+}

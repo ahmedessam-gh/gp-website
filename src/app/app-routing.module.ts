@@ -39,6 +39,18 @@ const routes: Routes = [
         loadChildren: () =>
           import('./views/profile/profile.module').then((m) => m.ProfileModule),
       },
+      {
+        path: 'trace-order/:orderNumber',
+        loadChildren: () =>
+          import('./views/trace-order/trace-order.module').then(
+            (m) => m.TraceOrderModule
+          ),
+      },
+      {
+        path: 'shop',
+        loadChildren: () =>
+          import('./views/shop/shop.module').then((m) => m.ShopModule),
+      },
     ],
   },
   {

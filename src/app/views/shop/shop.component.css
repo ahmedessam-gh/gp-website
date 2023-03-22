@@ -1,0 +1,189 @@
+
+.btn-toggle::after {
+
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16'  height='15' viewBox='0 0 16 16'%3e%3cpath fill='none'  stroke='blueviolet' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transform-origin: .5em 50%;
+  position: absolute;
+
+right: 0;
+  line-height: 20px;
+}
+.btn-toggle[aria-expanded="true"]::after {
+  transform: rotate(90deg);
+}
+.btn-toggle{
+
+  width: 100%;
+}
+.shopSidebar h5{
+font-family: var(--main-font);
+text-transform: uppercase;
+color: var(--main-color);
+
+}
+
+.shopSidebar a{
+
+  font-family: var(--main-font);
+}
+ .card p {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: large;
+  margin-top: 1rem;
+}
+
+ .card-design {
+  box-shadow: 0 0 2px rgba(33, 33, 33, .2)
+}
+
+ .card-design:hover {
+  box-shadow: 0 0 7px rgba(33, 33, 33, .2)
+}
+
+
+
+ .card-fav-cart img{
+  height: 300px;
+  /*object-fit: contain;*/
+}
+.fav-cart {
+  margin: 0 5px;
+  top: 80%;
+  right: 0;
+  margin-right: 20px;
+  display: none;
+
+}
+
+.card-fav-cart:hover .fav-cart {
+  display: block;
+  animation: slideInRight 0.3s;
+
+}
+
+.fav-cart .favIcons{
+  margin: 0px 5px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 8px;
+  color: var(--main-color);
+  transition: all 0.1s ease-in-out;
+  cursor:pointer
+}
+.card {
+  cursor:pointer;
+
+  border: transparent;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+
+
+
+}
+.prodDetails p:first-child{
+
+  color: var(--main-color);
+  font-family: var(--main-font);
+}
+.my-pagination ::ng-deep .ngx-pagination {
+  margin: auto;
+  width: 50%;
+color: var(--main-color);
+}
+
+.my-pagination ::ng-deep  li{
+
+}
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background-color: var(--main-color);
+}
+
+
+
+.my-pagination ::ng-deep .ngx-pagination .current span{
+
+color: white;
+}
+
+.size-filter{
+
+color: var(--main-color);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  border: 1px solid #e5e5e5;
+  padding: 6px 25px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+
+
+
+}
+
+.custom-sizes input[type=radio]:checked + .size-filter{
+  background-color: var(--main-color);
+  color: white;
+
+}
+
+.custom-sizes input{
+  display: none;
+}
+
+
+.custom-radios input[type=radio] {
+  display: none;
+}
+
+.custom-radios input[type=radio] + label span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  line-height: 44px;
+}
+.custom-radios input[type=radio] + label span fa-icon {
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  color: var(--main-color);
+}
+.custom-radios input[type="radio"]#color-1 + label span {
+  background-color: #1e1e1e;
+}
+
+.custom-radios input[type="radio"]#color-2 + label span {
+  background-color: #ec0303;
+}
+
+.custom-radios input[type="radio"]#color-3 + label span {
+  background-color: Blue;
+}
+
+.custom-radios input[type="radio"]#color-4 + label span {
+  background-color: white;
+}
+
+.custom-radios input[type="radio"]#color-5 + label span {
+  background-color: brown;
+}
+
+.custom-radios input[type="radio"]#color-6 + label span {
+  background-color: green;
+}
+.custom-radios input[type=radio]:checked + label span  fa-icon{
+  opacity: 1;
+
+}
