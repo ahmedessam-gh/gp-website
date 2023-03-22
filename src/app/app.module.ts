@@ -25,7 +25,7 @@ import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainCategoriesComponent } from './shared/main-categories/main-categories.component';
 import { ProfileModule } from './views/profile/profile.module';
-import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [

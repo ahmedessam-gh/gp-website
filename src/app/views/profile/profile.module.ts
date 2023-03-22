@@ -25,7 +25,7 @@ import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
     ProfileRoutingModule,
     FontAwesomeModule,
     MainButtonModule,
-    NgxPaginationModule,
+    NgxPaginationModule
   ],
 })
 export class ProfileModule {}
