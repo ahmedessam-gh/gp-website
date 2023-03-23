@@ -187,3 +187,7 @@ color: var(--main-color);
   opacity: 1;
 
 }
+app-main-button{
+
+  font-family: var(--main-font);
+}

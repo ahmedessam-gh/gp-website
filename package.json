@@ -33,6 +33,7 @@
     "ngx-pagination": "^6.0.3",
     "ngx-slick-carousel": "^15.0.0",
     "popper.js": "^1.16.1",
+    "reveal.js": "^4.4.0",
     "rxjs": "~7.5.0",
     "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",

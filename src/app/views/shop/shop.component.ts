@@ -4,6 +4,8 @@ import { ProdService } from 'src/app/core/services/prod.service';
 import { CartService } from 'src/app/core/services/cart.service';
 import { Router } from '@angular/router';
 import * as Aos from 'aos';
+import * as $ from 'jquery';
+import 'slick-carousel';
 
 @Component({
   selector: 'app-shop',
@@ -48,5 +50,13 @@ export class ShopComponent implements OnInit {
         }
       }
     }
+  }
+
+  clearAllFilters() {
+    $(document).ready(() => {
+      $('#uncheck').click(() => {
+        $('[type=radio]').prop('checked', false);
+      });
+    });
   }
 }
