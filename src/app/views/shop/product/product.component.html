@@ -122,9 +122,12 @@
         </ul>
       </div>
       <div class="productButtons">
-        <button class="addtoCartButton btn btn-custom">
-          <fa-icon icon="shopping-cart" class="favoriteIcon"></fa-icon> Add to
-          Cart
+        <button
+          (click)="addToCart(myprod)"
+          class="addtoCartButton btn btn-custom"
+        >
+          <fa-icon icon="shopping-cart" class="favoriteIcon"></fa-icon>
+          Add to Cart
         </button>
         <button class="favoriteButton btn btn-custom mx-2">
           <fa-icon icon="heart" class="favoriteIcon mx-1"></fa-icon>Favorite
@@ -132,6 +135,14 @@
       </div>
       <div class="productLabel py-4">
         <label class="quantityLabel"> Select Your Quantity </label>
+        <input
+          type="number"
+          class="text-center inputPlusMinus"
+          min="1"
+          max="10"
+          value="1"
+          [(ngModel)]="myprod.quantity"
+        />
       </div>
     </div>
   </div>
