@@ -1,0 +1,118 @@
+.productSizes input[type=radio]:checked + .productsingelSize{
+  background-color: var(--main-color);
+  color: white;
+
+}
+
+.productSizes input{
+  display: none;
+}
+.productSizes .productsingelSize{
+
+  color: var(--main-color);
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    border: 1px solid #e5e5e5;
+    padding: 6px 25px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+
+
+
+  }
+  .custom-radios input[type=radio] {
+    display: none;
+  }
+
+  .custom-radios input[type=radio] + label span {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    line-height: 44px;
+  }
+  .custom-radios input[type=radio] + label span fa-icon {
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    color: var(--main-color);
+  }
+
+
+
+  .custom-radios input[type=radio]:checked + label span  fa-icon{
+    opacity: 1;
+
+  }
+.productLabel{
+
+  color: grey;
+  text-transform: uppercase;
+  font-family: var(--main-font);
+}
+
+.productDetails .productName{
+margin: 0;
+font-family: var(--main-font);
+color: var(--main-color);
+}
+
+.productDetails .productPrice{
+
+  font-family: var(--main-font);
+  font-size: 50px;
+}
+
+
+.slider-nav .slick-dots {
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.addtoCartButton {
+  background-color: var(--main-color);
+  font-size: 1.1rem;
+  color: aliceblue;
+  font-family: var(--main-font);
+}
+
+.addtoCartButton:hover {
+color:white;
+  background-color: var(--tertiary-color);
+  border: 1px solid var(--main-color);
+}
+
+.favoriteButton {
+  background-color:rgb(152, 152, 152);
+  font-size: 1.1rem;
+  color: aliceblue;
+  font-family: var(--main-font);
+}
+
+.favoriteButton:hover {
+background-color: rgb(70, 69, 69);
+color:white;
+}
+
+.slick-slider ul {
+list-style-type: none;
+
+}
+@media screen and (min-width:740px) {
+  .btn-w{
+      width: 35% !important;
+  }
+}
