@@ -1,3 +1,4 @@
+import { CartService } from 'src/app/core/services/cart.service';
 import { Prod } from 'src/app/core/interfaces/Prod';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -14,6 +15,7 @@ export class ProductComponent implements OnInit {
   myprodColor: any;
   selectedValue: string;
   constructor(
+    private cart: CartService,
     private prod: ProdService,
     private ActivatedRoute: ActivatedRoute
   ) {}
@@ -31,5 +33,9 @@ export class ProductComponent implements OnInit {
       nextArrow: null,
       dots: true,
     });
+  }
+
+  addToCart(productItem: Prod) {
+    this.cart.addToCart(productItem);
   }
 }
