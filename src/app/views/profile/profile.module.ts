@@ -10,7 +10,6 @@ import { MainButtonModule } from '../../shared/main-button/main-button.module';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { PaginationModule } from "../../shared/pagination/pagination.module"; // <-- import the module
 
 @NgModule({
     declarations: [
@@ -27,7 +26,7 @@ import { PaginationModule } from "../../shared/pagination/pagination.module"; //
         FontAwesomeModule,
         MainButtonModule,
         NgxPaginationModule,
-        PaginationModule
+        
     ]
 })
 export class ProfileModule {}

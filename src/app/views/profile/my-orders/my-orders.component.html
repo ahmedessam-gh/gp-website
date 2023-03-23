@@ -1,9 +1,8 @@
 <div class="orderstitle pad-sections px-3">
   <h1>My Orders</h1>
 </div>
-<app-pagination [items]="myOrders" [pageSize]="3"></app-pagination>
 
-<!-- <div class="g-0" id="ordersContainer">
+<div class="g-0" id="ordersContainer">
   <ng-container
     *ngFor="
       let order of myOrders | paginate : { itemsPerPage: 3, currentPage: p };
@@ -48,7 +47,7 @@
   screenReaderPageLabel="page"
   screenReaderCurrentLabel="You're on page"
 >
-</pagination-controls> -->
+</pagination-controls>
 
 <div id="noOrdersid" class="noOrders">
   <fa-icon icon="cart-shopping"></fa-icon>

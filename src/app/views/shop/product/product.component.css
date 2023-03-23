@@ -107,10 +107,10 @@ background-color: rgb(70, 69, 69);
 color:white;
 }
 
-.slick-slider ul {
-list-style-type: none;
-
+.slick-dots{
+  list-style-type: none;
 }
+
 @media screen and (min-width:740px) {
   .btn-w{
       width: 35% !important;

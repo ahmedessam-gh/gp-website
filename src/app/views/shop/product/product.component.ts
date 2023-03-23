@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit {
     private ActivatedRoute: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     const ordersrouting = this.ActivatedRoute.snapshot.paramMap;
     const prodid = Number(ordersrouting.get('prodid'));
     this.myprod = this.prod.product.find((prod) => prod.id === prodid);
