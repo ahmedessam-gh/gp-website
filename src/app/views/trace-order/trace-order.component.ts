@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from 'src/app/core/services/orders.service';
 import { order } from 'src/app/core/interfaces/order';
 import { ActivatedRoute } from '@angular/router';
-import * as $ from 'jquery';
+declare var $: any;
 import 'slick-carousel';
 
 @Component({

@@ -202,6 +202,13 @@
           </div>
         </li>
       </ul>
+      <hr />
+      <app-main-button
+        id="uncheck"
+        content="Clear All Filters"
+        width="150px"
+        (click)="clearAllFilters()"
+      ></app-main-button>
     </div>
 
     <div class="ShopProducts col-xl-9">
@@ -223,7 +230,7 @@
                 src="{{ newProd.img }}"
                 class="img-fluid"
                 alt=""
-                (click)="addToCart(newProd)"
+                [routerLink]="['product', newProd.id]"
               />
               <div class="position-absolute fav-cart">
                 <!-- <div class="d-inline" (click)="addToCart(newProd)" >

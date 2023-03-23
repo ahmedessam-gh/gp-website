@@ -1,1 +1,138 @@
-<p>product works!</p>
+<div class="container pad-sections">
+  <div class="row">
+    <div class="productImg col-xl-7">
+      <div class="productBigImg slider slider-nav">
+        <img src="{{ myprod.img }}" alt="" width="70%" />
+        <img src="{{ myprod.img }}" alt="" width="70%" />
+        <img src="{{ myprod.img }}" alt="" width="70%" />
+      </div>
+    </div>
+    <div class="productDetails col-xl-5">
+      <h1 class="productName">{{ myprod.ProdName }}</h1>
+      <h5 class="productCategory py-2">{{ myprod.Category }}</h5>
+      <label class="productPrice py-2">${{ myprod.Price }}</label>
+
+      <div class="productSize py-2">
+        <label class="productLabel">Select your Size</label>
+        <ul class="productSizes py-3 list-unstyled">
+          <li>
+            <input
+              type="radio"
+              id="xs"
+              name="size"
+              value="xs"
+              [(ngModel)]="myprod.size"
+            />
+
+            <label for="xs" class="productsingelSize">XS </label>
+
+            <input
+              type="radio"
+              id="s"
+              name="size"
+              value="s"
+              [(ngModel)]="myprod.size"
+            />
+
+            <label for="s" class="productsingelSize">s </label>
+
+            <input
+              type="radio"
+              id="m"
+              name="size"
+              value="m"
+              [(ngModel)]="myprod.size"
+            />
+
+            <label for="m" class="productsingelSize">M </label>
+
+            <input
+              type="radio"
+              id="l"
+              name="size"
+              value="l"
+              [(ngModel)]="myprod.size"
+            />
+
+            <label for="l" class="productsingelSize">L </label>
+
+            <input
+              type="radio"
+              id="xl"
+              name="size"
+              value="xl"
+              [(ngModel)]="myprod.size"
+            />
+
+            <label for="xl" class="productsingelSize">XL </label>
+
+            <input
+              type="radio"
+              id="xxl"
+              name="size"
+              value="xxl"
+              [(ngModel)]="myprod.size"
+            />
+
+            <label for="xxl" class="productsingelSize">XXL </label>
+
+            <input
+              type="radio"
+              id="xxxl"
+              name="size"
+              value="xxxl"
+              [(ngModel)]="myprod.size"
+            />
+
+            <label for="xxxl" class="productsingelSize">xxxl </label>
+
+            <input
+              type="radio"
+              id="xxxxl"
+              name="size"
+              value="xxxxl"
+              [(ngModel)]="myprod.size"
+            />
+
+            <label for="xxxxl" class="productsingelSize">XxxxL </label>
+          </li>
+        </ul>
+      </div>
+
+      <div class="productColors">
+        <label class="productLabel">Select Your Color</label>
+
+        <ul
+          class="custom-radios btn-toggle-nav list-unstyled fw-normal small d-flex py-3"
+        >
+          <li *ngFor="let col of myprod.color">
+            <input
+              type="radio"
+              id="{{ col.value }}"
+              name="color"
+              value="{{ col.value }}"
+              [(ngModel)]="myprod.colorChosen"
+            />
+            <label for="{{ col.value }}">
+              <span style="background-color: {{ col.label }}">
+                <fa-icon icon="check"></fa-icon>
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="productButtons">
+        <button class="addtoCartButton btn btn-custom">
+          <fa-icon icon="shopping-cart" class="favoriteIcon"></fa-icon> Add to
+          Cart
+        </button>
+        <button class="favoriteButton btn btn-custom mx-2">
+          <fa-icon icon="heart" class="favoriteIcon mx-1"></fa-icon>Favorite
+        </button>
+      </div>
+      <div class="productLabel py-4">
+        <label class="quantityLabel"> Select Your Quantity </label>
+      </div>
+    </div>
+  </div>
+</div>
