@@ -1,10 +1,29 @@
 <div class="container pad-sections">
   <div class="row">
     <div class="productImg col-xl-7">
-      <div class="productBigImg slider slider-nav">
-        <img src="{{ myprod.img }}" alt="" width="70%" />
-        <img src="{{ myprod.img }}" alt="" width="70%" />
-        <img src="{{ myprod.img }}" alt="" width="70%" />
+      <div class="productBigImg py-2">
+        <img src="{{ myprod.img }}" alt="sss" width="80%" />
+      </div>
+      <div class="productSmallimgs">
+        <img
+          src="{{ myprod.img }}"
+          alt=""
+          width="15%"
+          (click)="changePhoto(myprod.img)"
+        />
+        <img
+          class="px-2"
+          src="assets\images\contactus.jpg"
+          alt=""
+          width="15%"
+          (click)="changePhoto('assets/images/contactus.jpg')"
+        />
+        <img
+          src="assets\images\formal.jpg"
+          alt=""
+          width="15%"
+          (click)="changePhoto('assets/images/formal.jpg')"
+        />
       </div>
     </div>
     <div class="productDetails col-xl-5">
@@ -13,7 +32,7 @@
       <label class="productPrice py-2">${{ myprod.Price }}</label>
 
       <div class="productSize py-2">
-        <label class="productLabel ">Select your Size</label>
+        <label class="productLabel">Select your Size</label>
         <ul class="productSizes py-3 list-unstyled">
           <li>
             <input
@@ -133,16 +152,65 @@
           <fa-icon icon="heart" class="favoriteIcon mx-1"></fa-icon>Favorite
         </button>
       </div>
-      <div class="productLabel py-4">
-        <label class="quantityLabel"> Select Your Quantity </label>
+      <div class="py-4">
+        <label class="productLabel px-2"> Select Your Quantity : </label>
         <input
           type="number"
-          class="text-center inputPlusMinus"
+          class="text-center productQuantity"
           min="1"
           max="10"
           value="1"
           [(ngModel)]="myprod.quantity"
         />
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<div class="similarProducts">
+  <div class="container pad-sections">
+    <h3 class="similarProductsHeader">Similar Products</h3>
+
+    <div class="row">
+      <div
+        class="card col-xl-3 col-6 d-flex"
+        *ngFor="let newProd of prods | slice : 0 : 4"
+      >
+        <div class="card-design">
+          <div class="card-fav-cart position-relative bg-danger">
+            <img
+              src="{{ newProd.img }}"
+              class="img-fluid"
+              alt=""
+              width="250px"
+              [routerLink]="['product', newProd.id]"
+            />
+            <div class="position-absolute fav-cart">
+              <div class="d-inline">
+                <span
+                  ><fa-icon
+                    id="{{ newProd.id }}"
+                    icon="heart"
+                    class="favIcons favs"
+                  ></fa-icon
+                ></span>
+              </div>
+            </div>
+          </div>
+          <div class="prodDetails">
+            <p>
+              {{ newProd.ProdName }}
+            </p>
+            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana">
+              {{ newProd.Category }}
+            </p>
+            <p style="font-family: 'Courier New', Courier, monospace">
+              $ {{ newProd.Price }}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

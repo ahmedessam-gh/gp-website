@@ -12,6 +12,7 @@ import 'slick-carousel';
 })
 export class ProductComponent implements OnInit {
   myprod: any;
+  prods: Prod[] = [];
   myprodColor: any;
   selectedValue: string;
   constructor(
@@ -20,9 +21,10 @@ export class ProductComponent implements OnInit {
     private ActivatedRoute: ActivatedRoute
   ) {}
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     const ordersrouting = this.ActivatedRoute.snapshot.paramMap;
     const prodid = Number(ordersrouting.get('prodid'));
+    this.prods = this.prod.product;
     this.myprod = this.prod.product.find((prod) => prod.id === prodid);
     this.myprodColor = this.prod.product[this.myprod.id].color;
 
@@ -37,5 +39,14 @@ export class ProductComponent implements OnInit {
 
   addToCart(productItem: Prod) {
     this.cart.addToCart(productItem);
+  }
+  changePhoto(photo: any) {
+    const smallPhotos = document.querySelectorAll(
+      '.productSmallimgs img'
+    ) as NodeListOf<HTMLImageElement>;
+    const bigPhoto = document.querySelector(
+      '.productBigImg img'
+    ) as HTMLImageElement;
+    bigPhoto.src = photo;
   }
 }

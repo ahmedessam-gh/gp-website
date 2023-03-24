@@ -4,6 +4,7 @@ import { order } from 'src/app/core/interfaces/order';
 import { ActivatedRoute } from '@angular/router';
 declare var $: any;
 import 'slick-carousel';
+import * as Aos from 'aos';
 
 @Component({
   selector: 'app-trace-order',
@@ -25,6 +26,7 @@ export class TraceOrderComponent implements OnInit {
     this.myOrders = this.orders.orders.find(
       (order) => order.orderNumber === orderid
     );
+    Aos.init();
 
     $('.my-slider').slick({
       slidesToShow: 3, // Number of slides to show at once
