@@ -1,8 +1,8 @@
 <div class="container pad-sections">
   <div class="row">
-    <div class="productImg col-xl-7">
+    <div class="productImg col-xl-7 col-6">
       <div class="productBigImg py-2">
-        <img src="{{ myprod.img }}" alt="sss" width="80%" />
+        <img src="{{ myprod.img }}" alt="sss" width="100%" />
       </div>
       <div class="productSmallimgs">
         <img
@@ -26,7 +26,7 @@
         />
       </div>
     </div>
-    <div class="productDetails col-xl-5">
+    <div class="productDetails col-xl-5 col-6">
       <h1 class="productName">{{ myprod.ProdName }}</h1>
       <h5 class="productCategory py-2">{{ myprod.Category }}</h5>
       <label class="productPrice py-2">${{ myprod.Price }}</label>
@@ -140,10 +140,10 @@
           </li>
         </ul>
       </div>
-      <div class="productButtons">
+      <div class="productButtons d-flex">
         <button
           (click)="addToCart(myprod)"
-          class="addtoCartButton btn btn-custom"
+          class="addtoCartButton btn btn-custom py-2"
         >
           <fa-icon icon="shopping-cart" class="favoriteIcon"></fa-icon>
           Add to Cart
