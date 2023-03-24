@@ -1,8 +1,9 @@
-*{
+* {
 
   font-family: var(--main-font);
 }
-.noOrders{
+
+.noOrders {
 
   text-align: center;
   display: flex;
@@ -15,7 +16,7 @@
 
 }
 
-.noOrders p{
+.noOrders p {
 
   font-family: var(--main-font);
 }
@@ -23,11 +24,11 @@
 
 .removeorders {
 
-background-color: black;
+  background-color: black;
 
 }
 
-.orderstitle h1{
+.orderstitle h1 {
 
   font-family: var(--main-font);
   color: var(--main-color);
@@ -35,13 +36,13 @@ background-color: black;
   animation: bounceIn 1s ease-in-out;
 }
 
-.card{
+.card {
 
   border-radius: 15px;
   box-shadow: 3px;
   cursor: pointer;
   overflow: hidden;
-  animation : fadeInLeft 1s ease-in-out;
+  animation: fadeInLeft 1s ease-in-out;
 
 }
 
@@ -50,49 +51,41 @@ background-color: black;
 
 
 
-.card span{
+.card span {
 
   font-family: 'Times New Roman', Times, serif;
 }
 
-.card h4{
+.card h4 {
 
   color: var(--main-color);
 }
 
-
 .my-pagination ::ng-deep .ngx-pagination {
-  margin: auto;
-  width: 50%;
-color: var(--main-color);
+  margin-top: 100%;
+  padding-left: 0px;
+  color: var(--main-color);
 }
 
-.my-pagination ::ng-deep  li{
 
-}
 .my-pagination ::ng-deep .ngx-pagination .current {
   background-color: var(--main-color);
 }
 
-
-
-.my-pagination ::ng-deep .ngx-pagination .current span{
-
-color: white;
+.my-pagination ::ng-deep .ngx-pagination .current span {
+  color: white;
 }
-.traceButton{
 
-width: 150px;
-margin: auto
-
-
+.traceButton {
+  width: 150px;
+  margin: auto
 }
 
 
 
 @media screen and (max-width:974px) {
- .card {
-width: 90% !important;
-}
+  .card {
+    width: 90% !important;
+  }
 
 }

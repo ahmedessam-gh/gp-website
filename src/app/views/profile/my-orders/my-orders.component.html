@@ -2,7 +2,7 @@
   <h1>My Orders</h1>
 </div>
 
-<div class="g-0" id="ordersContainer">
+<div class="g-0 position-relative" id="ordersContainer">
   <ng-container
     *ngFor="
       let order of myOrders | paginate : { itemsPerPage: 3, currentPage: p };
@@ -37,9 +37,9 @@
       </div>
     </div>
   </ng-container>
-</div>
-<pagination-controls
-  class="my-pagination"
+  <div class="d-flex justify-content-center p-0">
+    <pagination-controls
+  class="my-pagination  "
   (pageChange)="p = $event"
   previousLabel="Previous"
   nextLabel="Next"
@@ -48,6 +48,9 @@
   screenReaderCurrentLabel="You're on page"
 >
 </pagination-controls>
+  </div>
+</div>
+
 
 <div id="noOrdersid" class="noOrders">
   <fa-icon icon="cart-shopping"></fa-icon>
