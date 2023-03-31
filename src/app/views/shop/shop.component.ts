@@ -14,7 +14,7 @@ import 'slick-carousel';
 })
 export class ShopComponent implements OnInit {
   newProds: Prod[] = [];
-  favouriteList: any[];
+  favouriteList: any = [];
   p: number = 1;
 
   constructor(
@@ -28,29 +28,29 @@ export class ShopComponent implements OnInit {
     Aos.init();
     this.favouriteList = this.prod.getFav();
     console.log(this.favouriteList);
-    this.getFavourites();
+    // this.getFavourites();
   }
   addToCart(productItem: Prod) {
     this.cart.addToCart(productItem);
   }
   addToFav(newProd: Prod, event) {
     this.prod.addToFav(newProd, event);
-    this.getFavourites();
+    // this.getFavourites();
   }
-  getFavourites() {
-    var favs = document.getElementsByClassName('favs');
-    if (this.favouriteList.length == 0) {
-      console.log('no items');
-    } else {
-      for (var i = 0; i < favs.length; i++) {
-        for (var j = 0; j < this.favouriteList.length; j++) {
-          if (Number(favs[i].id) == this.favouriteList[j].id) {
-            favs[i].classList.add('favIcon');
-          }
-        }
-      }
-    }
-  }
+  // getFavourites() {
+  //   var favs = document.getElementsByClassName('favs');
+  //   if (this.favouriteList.length == 0) {
+  //     console.log('no items');
+  //   } else {
+  //     for (var i = 0; i < favs.length; i++) {
+  //       for (var j = 0; j < this.favouriteList.length; j++) {
+  //         if (Number(favs[i].id) == this.favouriteList[j].id) {
+  //           favs[i].classList.add('favIcon');
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   clearAllFilters() {
     $(document).ready(() => {

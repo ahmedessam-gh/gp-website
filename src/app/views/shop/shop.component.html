@@ -243,6 +243,7 @@
                       icon="heart"
                       (click)="addToFav(newProd, $event)"
                       class="favIcons favs"
+                      [ngClass]="{'favIcon': favouriteList.includes(newProd) }"
                     ></fa-icon
                   ></span>
                 </div>
