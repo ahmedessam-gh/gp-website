@@ -12,8 +12,11 @@ const routes: Routes = [
     path: '',
     component: HeadFootComponent,
     children: [
-      { path: '', component: HomeComponent },
-      { path: 'home', component: HomeComponent },
+      { path: '',
+        loadChildren: () =>
+          import('./views/home/home.module').then((m) => m.HomeModule)
+      },
+      { path: 'home', redirectTo: '', pathMatch: 'full'},
       { path: 'checkout', component: CheckoutComponent },
       {
         path: 'cart',

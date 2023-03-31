@@ -14,7 +14,6 @@ import {
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { HomeComponent } from './views/home/home.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CommonModule } from '@angular/common';
 import { Ng2SearchPipe } from 'ng2-search-filter/src/ng2-filter.pipe';
@@ -32,7 +31,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
     LoginComponent,
     HeadFootComponent,
   ],
