@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   newProds: Prod[] = [];
   favouriteList: any = [];
   constructor(private prod: ProdService, private cart: CartService ,private router:Router) {
-    
+
   }
 
   ngOnInit(): void {
@@ -25,33 +25,33 @@ export class HomeComponent implements OnInit {
     Aos.init({});
     this.favouriteList = this.prod.getFav();
     console.log(this.favouriteList);
-    this.getFavourites();
+    // this.getFavourites();
   }
   addToCart(productItem: Prod) {
-    this.cart.addToCart(productItem); 
+    this.cart.addToCart(productItem);
   }
   addToFav(newProd: Prod, event) {
-    this.prod.addToFav(newProd, event); 
-    this.getFavourites();
+    this.prod.addToFav(newProd, event);
+    // this.getFavourites();
   }
-  getFavourites() {
-    var favs = document.getElementsByClassName("favs");
-    if(this.favouriteList.length==0){
-      console.log('no items');
-    }else{
-      for(var i=0;i<favs.length;i++){
-        for(var j=0;j<this.favouriteList.length;j++){
-          if(Number(favs[i].id)==this.favouriteList[j].id){
-            favs[i].classList.add('favIcon');
-          }
-        }
-      }
-    }
-    
-
-    // console.log(Number(favs[i].id)) 
-  //  console.log(this.favouriteList)
-  }
+  // getFavourites() {
+  //   var favs = document.getElementsByClassName("favs");
+  //   if(this.favouriteList.length==0){
+  //     console.log('no items');
+  //   }else{
+  //     for(var i=0;i<favs.length;i++){
+  //       for(var j=0;j<this.favouriteList.length;j++){
+  //         if(Number(favs[i].id)==this.favouriteList[j].id){
+  //           favs[i].classList.add('favIcon');
+  //         }
+  //       }
+  //     }
+  //   }
+  //
+  //
+  //   // console.log(Number(favs[i].id))
+  // //  console.log(this.favouriteList)
+  // }
 
 
 
