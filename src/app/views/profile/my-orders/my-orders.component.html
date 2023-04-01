@@ -1,8 +1,12 @@
-<div class="orderstitle pad-sections px-3">
+<div *ngIf="myOrders.length > 0" class="orderstitle pad-sections px-3">
   <h1>My Orders</h1>
 </div>
 
-<div class="g-0 position-relative" id="ordersContainer">
+<div
+  *ngIf="myOrders.length > 0"
+  class="g-0 position-relative"
+  id="ordersContainer"
+>
   <ng-container
     *ngFor="
       let order of myOrders | paginate : { itemsPerPage: 3, currentPage: p };
@@ -39,20 +43,19 @@
   </ng-container>
   <div class="d-flex justify-content-center p-0">
     <pagination-controls
-  class="my-pagination  "
-  (pageChange)="p = $event"
-  previousLabel="Previous"
-  nextLabel="Next"
-  screenReaderPaginationLabel="Pagination"
-  screenReaderPageLabel="page"
-  screenReaderCurrentLabel="You're on page"
->
-</pagination-controls>
+      class="my-pagination"
+      (pageChange)="p = $event"
+      previousLabel="Previous"
+      nextLabel="Next"
+      screenReaderPaginationLabel="Pagination"
+      screenReaderPageLabel="page"
+      screenReaderCurrentLabel="You're on page"
+    >
+    </pagination-controls>
   </div>
 </div>
 
-
-<div id="noOrdersid" class="noOrders">
+<div *ngIf="myOrders.length === 0" id="noOrdersid" class="noOrders">
   <fa-icon icon="cart-shopping"></fa-icon>
   <p>No orders placed</p>
 </div>

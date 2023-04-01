@@ -8,23 +8,21 @@ import { order } from 'src/app/core/interfaces/order';
 })
 export class MyOrdersComponent implements OnInit {
   myOrders: order[] = [];
-  p :any;
+  p: any;
   constructor(private orders: OrdersService) {}
 
   ngOnInit(): void {
     this.myOrders = this.orders.orders;
-
-    this.noFavItems();
   }
-  noFavItems() {
-    const tableContainer2 = document.getElementById('ordersContainer');
-    const noFavsDiv = document.getElementById('noOrdersid');
-    if (this.myOrders.length == 0) {
-      tableContainer2.classList.add('d-none');
-      noFavsDiv.classList.remove('d-none');
-    } else {
-      tableContainer2.classList.remove('d-none');
-      noFavsDiv.classList.add('d-none');
-    }
-  }
+  //noFavItems() {
+  // const tableContainer2 = document.getElementById('ordersContainer');
+  //  const noFavsDiv = document.getElementById('noOrdersid');
+  //   if (this.myOrders.length == 0) {
+  //    tableContainer2.classList.add('d-none');
+  //    noFavsDiv.classList.remove('d-none');
+  // //   } else {
+  //   tableContainer2.classList.remove('d-none');
+  //     noFavsDiv.classList.add('d-none');
+  //   }
+  // }
 }
