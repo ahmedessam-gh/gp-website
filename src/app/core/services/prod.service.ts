@@ -14,8 +14,9 @@ export class ProdService {
         ProdName: 'Dress',
         Category: 'Women',
         Price: 100,
-        img: 'assets/images/kids.jpeg',
+        img: 'assets/images/01.jpg',
         size: 's ',
+        discount: 30,
         color: [
           {
             value: 'black',
@@ -30,7 +31,9 @@ export class ProdService {
           },
         ],
         colorChosen: ' ',
-
+        status: 'sale',
+        note: 'Solid Polo Collar T-shirt',
+        rating: 5,
         quantity: 1,
       },
 
@@ -40,6 +43,7 @@ export class ProdService {
         Category: 'Women',
         Price: 100,
         img: 'assets/images/kids.jpeg',
+
         color: [
           {
             value: '',
@@ -55,7 +59,10 @@ export class ProdService {
         colorChosen: ' ',
 
         size: ' ',
-
+        discount: 30,
+        status: '50%',
+        note: 'Solid Polo Collar T-shirt',
+        rating: 5,
         quantity: 1,
       },
       {
@@ -64,6 +71,9 @@ export class ProdService {
         Category: 'Women',
         Price: 100,
         img: 'assets/images/kids.jpeg',
+        discount: 50,
+        note: 'Solid Polo Collar T-shirt',
+        rating: 5,
         size: ' ',
         color: [
           {
@@ -78,6 +88,7 @@ export class ProdService {
           },
         ],
         colorChosen: ' ',
+        status: '50%',
 
         quantity: 1,
       },
@@ -88,6 +99,9 @@ export class ProdService {
         Price: 100,
         img: 'assets/images/kids.jpeg',
         size: ' ',
+        discount: 50,
+        note: 'Solid Polo Collar T-shirt',
+        rating: 5,
         color: [
           {
             value: '',
@@ -101,6 +115,7 @@ export class ProdService {
           },
         ],
         colorChosen: ' ',
+        status: '50%',
 
         quantity: 1,
       },
@@ -111,6 +126,9 @@ export class ProdService {
         Price: 100,
         img: 'assets/images/dressify-logo-zip-file (1)/png/logo-black.png',
         size: ' ',
+        discount: 50,
+        note: 'Solid Polo Collar T-shirt',
+        rating: 5,
         color: [
           {
             value: '',
@@ -124,6 +142,7 @@ export class ProdService {
           },
         ],
         colorChosen: ' ',
+        status: '50%',
 
         quantity: 1,
       },
@@ -134,6 +153,10 @@ export class ProdService {
         Category: 'Women',
         img: 'assets/images/casual.jpg',
         size: ' ',
+        discount: 50,
+        status: '50%',
+        note: 'Solid Polo Collar T-shirt',
+        rating: 5,
         color: [
           {
             value: '',
@@ -157,6 +180,10 @@ export class ProdService {
         Category: 'Women',
         img: 'assets/images/kids.jpeg',
         size: ' ',
+        discount: 50,
+        status: '50%',
+        note: 'Solid Polo Collar T-shirt',
+        rating: 5,
         color: [
           {
             value: '',
@@ -180,6 +207,10 @@ export class ProdService {
         Price: 100,
         img: 'assets/images/accessory.jpg',
         size: ' s',
+        discount: 50,
+        status: '50%',
+        note: 'Solid Polo Collar T-shirt',
+        rating: 5,
         color: [
           {
             value: '',

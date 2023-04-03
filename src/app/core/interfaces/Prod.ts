@@ -10,8 +10,11 @@ export class Prod {
   size: string;
   color: prodDetails[];
   colorChosen: string;
-
+  discount: number;
   quantity: Number = 1;
+  status: string;
+  rating: number;
+  note: string;
 }
 export interface prodDetails {
   value: string;

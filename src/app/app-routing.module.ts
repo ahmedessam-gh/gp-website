@@ -74,6 +74,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./views/error404/error404.module').then((m) => m.Error404Module),
   },
+  { path: 'shared', loadChildren: () => import('./views/shared/shared.module').then(m => m.SharedModule) },
 
   { path: '**', component: Error404Component },
 ];

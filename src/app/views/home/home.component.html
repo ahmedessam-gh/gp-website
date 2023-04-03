@@ -43,41 +43,9 @@
           *ngFor="let newProd of newProds; let i = index"
           data-aos="fade-up"
           data-aos-once="true"
-          data-aos-duration="100"
+          data-aos-duration="1000"
         >
-          <div class="card-design">
-            <div class="card-fav-cart position-relative bg-danger">
-              <img
-                src="{{ newProd.img }}"
-                class="img-fluid"
-                alt=""
-                (click)="addToCart(newProd)"
-              />
-              <div class="position-absolute fav-cart">
-                <!-- <div class="d-inline" (click)="addToCart(newProd)" >
-                  <span ><fa-icon icon="cart-shopping" class="favCartIcons" (click)="cartClicked($event)"></fa-icon></span>
-                </div> -->
-                <div class="d-inline">
-                  <span
-                    ><fa-icon
-                      id="{{ newProd.id }}"
-                      icon="heart"
-                      (click)="addToFav(newProd, $event)"
-                      class="favIcons favs"
-                      [ngClass]="{'favIcon': favouriteList.includes(newProd) }"
-                    ></fa-icon
-                  ></span>
-                </div>
-              </div>
-            </div>
-            <p style="color: rgba(117, 91, 180, 255)">{{ newProd.ProdName }}</p>
-            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana">
-              {{ newProd.Category }}
-            </p>
-            <p style="font-family: 'Courier New', Courier, monospace">
-              $ {{ newProd.Price }}
-            </p>
-          </div>
+          <app-productbox [product]="newProd"></app-productbox>
         </div>
       </div>
     </div>
