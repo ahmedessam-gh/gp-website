@@ -1,4 +1,4 @@
-h6 {
+:host{
     font-family: var(--main-font);
 }
 
@@ -6,7 +6,7 @@ h6 {
     width: 100px;
 }
 
-input[type='number'] {
+/* input[type='number'] {
     -webkit-appearance: textfield !important;
     -moz-appearance: textfield !important;
     appearance: textfield !important;
@@ -38,8 +38,5 @@ input[type='number']::-webkit-outer-spin-button {
     .btnsCart{
         width: 50% !important;
     }
-    /* .btn-w{
-        width: 40%;
-        
-    } */
-}
+  
+} */

@@ -20,7 +20,7 @@ import { FeaturesSectionModule } from "../../shared/features-section/features-se
         FormsModule,
         MainButtonModule,
         FontAwesomeModule,
-        FeaturesSectionModule
+        FeaturesSectionModule,   
     ]
 })
 export class CartModule { }

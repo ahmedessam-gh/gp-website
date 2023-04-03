@@ -27,7 +27,6 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartProducts = this.cart.getCart();
     console.log(this.cartProducts);
-    this.noCartItems();
   }
   minus(obj) {
     if (obj.quantity <= 1) {
@@ -44,35 +43,17 @@ export class CartComponent implements OnInit {
     }
   }
   clearCart() {
-    const tableContainer = document.getElementById('tableContainer');
-    const noItemsDiv = document.getElementById('noItemsDiv');
+    
     this.cartProducts = []
-    tableContainer.classList.add('d-none');
-    noItemsDiv.classList.remove('d-none');
+    
   }
 
   /*remove clicked item from cart*/
   removeItem(i) {
-    const tableContainer = document.getElementById('tableContainer');
-    const noItemsDiv = document.getElementById('noItemsDiv');
     this.cartProducts.splice(i, 1);
-    if (this.cartProducts.length == 0) {
-      tableContainer.classList.add('d-none');
-      noItemsDiv.classList.remove('d-none');
-    }
   }
 
-  noCartItems() {
-    const tableContainer = document.getElementById('tableContainer');
-    const noItemsDiv = document.getElementById('noItemsDiv');
-    if (this.cartProducts.length == 0) {
-      tableContainer.classList.add('d-none');
-      noItemsDiv.classList.remove('d-none');
-    } else {
-      tableContainer.classList.remove('d-none');
-      noItemsDiv.classList.add('d-none');
-    }
-  }
+  
 
 
 

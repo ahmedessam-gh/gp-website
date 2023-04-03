@@ -1,55 +1,7 @@
-<div class="pad-sections " id="tableContainer">
-    <div class="container">
-        <table class="table text-center">
-            <thead>
-                <tr>
-                    <th>Details</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody class="tableContent">
-                <ng-container *ngFor="let cartProd of cartProducts;let i =index">
-                    <tr>
-                        <td class="row">
-                            <div class="col-4"><img src="{{cartProd.img}}" width="170px" class="img-fluid" alt=""></div>
-                            <div class="col-8 text-start">
-                                <h6>{{cartProd.ProdName}}</h6>
-                                <p>{{cartProd.Price}}$</p> <button class="btn btn-outline-danger"
-                                    (click)="removeItem(i)">remove</button>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <button class="plusMinus" (click)="minus(cartProd)">-</button>
-                                <input type="number" class="text-center inputPlusMinus" min="1" max="10" value="1"
-                                    [(ngModel)]="cartProd.quantity">
-                                <button class="plusMinus" (click)="plus(cartProd)">+</button>
-                            </div>
-                        </td>
-                        <td>{{this.totalForItem}}</td>
-                    </tr>
-                </ng-container>
-            </tbody>
-        </table>
-        <div class="d-flex flex-column flex-md-row">
-            <div class="btnsCart">
-                <app-main-button borderRadius="0%" [myClass]="'btn-w'" content="Update Cart"></app-main-button>
-                <app-main-button borderRadius="0%" [myClass]="'btn-w'"  class="ms-md-3" (click)="clearCart()" content="Clear Cart" ></app-main-button>
-            </div>
-            <div class="btnsCart text-end">
-                <div class="text-start ms-3 mt-3 ">
-                    <h4 style="font-family: var(--main-font);color: var(--main-color);">Cart Total</h4>
-                    <p>Shipping Fees : 100$</p>
-                    <p>VAT : 50%</p>
-                    <p>Total : 150$</p>
-                </div>
-                <app-main-button borderRadius="0%"  content="Checkout" [routerLink]="['/checkout']"></app-main-button>
-            </div>
-        </div>
-    </div>
+<div>
+    
 </div>
-<div id="noItemsDiv" style="cursor: pointer;"
+<div  id="noItemsDiv" style="cursor: pointer;"
     class="pad-sections d-flex align-content-center flex-column align-items-center">
     <p><svg class='fontawesomesvg' xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
@@ -58,3 +10,6 @@
         </svg></p>
     <p>It Seems that your cat is Empty ..<br> got to shop to add more products</p>
 </div>
+
+    
+    

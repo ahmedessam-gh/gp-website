@@ -1,8 +1,18 @@
+:host{
+  font-family: var(--main-font);
+}
 .card {
   cursor: pointer;
   /* border-radius: 50%;   */
   border-radius: 0%;
   /* border-radius: 30px; */
+}
+.categories-section h1 {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: var(--secondary-color);
+
 }
 @media screen and (max-width:990px) {
     .card-layout{ 
