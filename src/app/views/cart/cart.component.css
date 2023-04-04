@@ -6,6 +6,114 @@
     width: 100px;
 }
 
+
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700");
+@import "compass/reset";
+@import "compass/css3";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Droid Serif", serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+.wrap {
+  width: 75%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 5% 0;
+  margin-bottom: 5em;
+}
+
+.projTitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2em;
+  padding: 1em 0;
+  border-bottom: 1px solid #dadada;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.projTitle span {
+  font-family: "Droid Serif", serif;
+  font-weight: normal;
+  font-style: italic;
+  text-transform: lowercase;
+  color: #777;
+}
+
+/* CART HEADER */
+
+.heading {
+  padding: 1em 0;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.heading h1 {
+  font-family: var(--main-font);
+  color: var(--main-color);
+  font-size: 2em;
+  float: left;
+}
+
+.heading a.continue:link,
+.heading a.continue:visited {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.015em;
+  font-size: 0.75em;
+  padding: 1em;
+  color: #fff;
+  background: #82ca9c;
+  font-weight: bold;
+  border-radius: 50px;
+  float: right;
+  text-align: right;
+  transition: 0.1s all ease-in-out;
+}
+
+.heading a.continue:after {
+  content: "\276f";
+  padding: 0.5em;
+  position: relative;
+  right: 0;
+}
+
+.heading a.continue:hover,
+.heading a.continue:focus,
+.heading a.continue:active {
+  background: var(--main-color);
+  
+}
+
+
+
+
+
 /* input[type='number'] {
     -webkit-appearance: textfield !important;
     -moz-appearance: textfield !important;
