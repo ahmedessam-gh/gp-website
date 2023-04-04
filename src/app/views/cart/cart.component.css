@@ -131,10 +131,7 @@ img {
   color: #9e9c9c;
   font-size: 14px;
 }
-.bgOutOfStock{
-  background-color: rgb(239, 225, 225);
- 
-}
+
 .inStock{
   color: rgb(152, 195, 88);
 }
