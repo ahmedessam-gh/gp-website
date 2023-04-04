@@ -12,12 +12,19 @@ import { ProdService } from 'src/app/core/services/prod.service';
 export class ProductboxComponent implements OnInit {
   @Input() product: Prod;
   public form: FormGroup;
+  favouriteList: any = [];
 
   constructor(private prod: ProdService, private fb: FormBuilder) {
     this.form = this.fb.group({
       rating: [5],
     });
+    this.favouriteList = this.prod.getFav();
   }
 
   ngOnInit(): void {}
+
+  addToFav(product: Prod, event) {
+    this.prod.addToFav(product, event);
+    // this.getFavourites();
+  }
 }

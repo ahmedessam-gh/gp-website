@@ -22,9 +22,17 @@ color: var(--main-color);
 
 }
 
-.shopSidebar a{
+.shopSidebar label{
 
   font-family: var(--main-font);
+  cursor: pointer;
+}
+
+
+.shopSidebar label :hover{
+
+
+
 }
  .card p {
   text-align: center;
@@ -190,4 +198,8 @@ color: var(--main-color);
 app-main-button{
 
   font-family: var(--main-font);
+}
+input[type="checkbox"] {
+position: absolute;
+  right: 0;
 }

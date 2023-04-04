@@ -17,6 +17,7 @@ export class ProdService {
         img: 'assets/images/01.jpg',
         size: 's ',
         discount: 30,
+        rent: true,
         color: [
           {
             value: 'black',
@@ -31,7 +32,7 @@ export class ProdService {
           },
         ],
         colorChosen: ' ',
-        status: 'sale',
+        status: 'Sale',
         note: 'Solid Polo Collar T-shirt',
         rating: 5,
         quantity: 1,
@@ -43,6 +44,7 @@ export class ProdService {
         Category: 'Women',
         Price: 100,
         img: 'assets/images/kids.jpeg',
+        rent: true,
 
         color: [
           {
@@ -60,7 +62,7 @@ export class ProdService {
 
         size: ' ',
         discount: 30,
-        status: '50%',
+        status: 'Sale',
         note: 'Solid Polo Collar T-shirt',
         rating: 5,
         quantity: 1,
@@ -88,7 +90,8 @@ export class ProdService {
           },
         ],
         colorChosen: ' ',
-        status: '50%',
+        status: 'Sale',
+        rent: false,
 
         quantity: 1,
       },
@@ -102,6 +105,8 @@ export class ProdService {
         discount: 50,
         note: 'Solid Polo Collar T-shirt',
         rating: 5,
+        rent: false,
+
         color: [
           {
             value: '',
@@ -115,7 +120,7 @@ export class ProdService {
           },
         ],
         colorChosen: ' ',
-        status: '50%',
+        status: 'Sale',
 
         quantity: 1,
       },
@@ -129,6 +134,8 @@ export class ProdService {
         discount: 50,
         note: 'Solid Polo Collar T-shirt',
         rating: 5,
+        rent: true,
+
         color: [
           {
             value: '',
@@ -142,7 +149,7 @@ export class ProdService {
           },
         ],
         colorChosen: ' ',
-        status: '50%',
+        status: 'Sale',
 
         quantity: 1,
       },
@@ -154,9 +161,11 @@ export class ProdService {
         img: 'assets/images/casual.jpg',
         size: ' ',
         discount: 50,
-        status: '50%',
+        status: 'Sale',
         note: 'Solid Polo Collar T-shirt',
         rating: 5,
+        rent: true,
+
         color: [
           {
             value: '',
@@ -181,9 +190,11 @@ export class ProdService {
         img: 'assets/images/kids.jpeg',
         size: ' ',
         discount: 50,
-        status: '50%',
+        status: 'Sale',
         note: 'Solid Polo Collar T-shirt',
         rating: 5,
+        rent: true,
+
         color: [
           {
             value: '',
@@ -207,10 +218,12 @@ export class ProdService {
         Price: 100,
         img: 'assets/images/accessory.jpg',
         size: ' s',
-        discount: 50,
-        status: '50%',
+        discount: 0,
+        status: 'Sale',
         note: 'Solid Polo Collar T-shirt',
         rating: 5,
+        rent: false,
+
         color: [
           {
             value: '',
