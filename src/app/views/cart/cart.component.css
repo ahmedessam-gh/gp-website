@@ -6,11 +6,6 @@
     width: 100px;
 }
 
-
-@import url("https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700");
-@import "compass/reset";
-@import "compass/css3";
-
 * {
   box-sizing: border-box;
 }
