@@ -1,8 +1,172 @@
 <div>
-    
+    <div class="wrap cf">
+        <h1 class="projTitle">Add To Your Cart<span>-&</span> Start Buying </h1>
+        <div class="heading cf">
+            <h1>My Cart</h1>
+            <a [routerLink]="['/shop']" class="continue">Continue Shopping</a>
+        </div>
+    </div>
+    <div class="tableContainer">
+        <table class="table table-borderless tableContent">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td class="d-flex m-auto tableInfoCell">
+                        <div>
+                            <img src="assets\images\casual.jpg" width="150px" height="150px" alt="">
+                        </div>
+                        <div class="prodInfo ms-3">
+                            <h6>item1</h6>
+                            <p>dress</p>
+                            <div class="">
+                                <button class="btn btn-close"></button>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="inStock">IN STOCK</td>
+                    <td>$100</td>
+                    <td>
+                        <div class="input-number">
+                            <button class="minus">-</button>
+                            <input type="number" value="1" min="0" max="10">
+                            <button class="plus">+</button>
+                        </div>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td class="d-flex tableInfoCell">
+                        <div>
+                            <img src="assets\images\01.jpg" width="150px" height="150px" alt="">
+                        </div>
+                        <div class="prodInfo ms-3">
+                            <h6>item1</h6>
+                            <p>dress</p>
+                            <p>$100</p>
+                        </div>
+                    </td>
+                    <td class="inStock">IN STOCK</td>
+                    <td>
+                        <div class="input-number">
+                            <button class="minus">-</button>
+                            <input type="number" value="1" min="0" max="10">
+                            <button class="plus">+</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="tableBtnRemove">
+                            <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="d-flex tableInfoCell">
+                        <div>
+                            <img src="assets\images\02.jpg" width="150px" height="150px" alt="">
+                        </div>
+                        <div class="prodInfo ms-3">
+                            <h6>item2</h6>
+                            <p>dress</p>
+                            <p>$100</p>
+                        </div>
+                    </td>
+                    <td class="inStock">IN STOCK</td>
+                    <td>
+                        <div class="input-number">
+                            <button class="minus">-</button>
+                            <input type="number" value="1" min="0" max="10">
+                            <button class="plus">+</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="tableBtnRemove">
+                            <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="bgOutOfStock">
+                    <td class="d-flex tableInfoCell">
+                        <div>
+                            <img src="assets\images\04.jpg" width="150px" height="150px" alt="">
+                        </div>
+                        <div class="prodInfo ms-3">
+                            <h6>item3</h6>
+                            <p>dress</p>
+                            <p>$100</p>
+                        </div>
+                    </td>
+                    <td class="outOfStock">OUT OF STOCK</td>
+                    <td>
+                        <div class="input-number">
+                            <button class="minus">-</button>
+                            <input type="number" value="1" min="0" max="10">
+                            <button class="plus">+</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="tableBtnRemove">
+                            <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="d-flex tableInfoCell">
+                        <div>
+                            <img src="assets\images\08.jpg" width="150px" height="150px" alt="">
+                        </div>
+                        <div class="prodInfo ms-3">
+                            <h6>item4</h6>
+                            <p>dress</p>
+                            <p>$100</p>
+                        </div>
+                    </td>
+                    <td class="inStock">IN STOCK</td>
+                    <td>
+                        <div class="input-number">
+                            <button class="minus">-</button>
+                            <input type="number" value="1" min="0" max="10">
+                            <button class="plus">+</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="tableBtnRemove">
+                            <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+        <div class="d-lg-flex justify-content-between pad-sections">
+            <div class="clearLink checkoutLink mt-3 mb-3 mb-md-0">
+                <a [routerLink]="['/checkout']">Clear Cart</a>
+            </div>
+            <div class="padCheckout d-flex flex-column me-0 align-items-center">
+                <div class="checkoutContent">
+                    <ul class="list-group list-unstyled">
+                        <li><span>Subtotal </span>$80</li>
+                        <li><span>Shipping </span>$180</li>
+                        <li><span>Taxes</span>$30</li>
+                    </ul>
+                </div>
+                <div class="checkoutLink mt-3">
+                    <a [routerLink]="['/checkout']">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
 </div>
-<div  id="noItemsDiv" style="cursor: pointer;"
-    class="pad-sections d-flex align-content-center flex-column align-items-center">
+<div id="noItemsDiv" style="cursor: pointer;"
+    class="pad-sections d-none d-flex align-content-center flex-column align-items-center">
     <p><svg class='fontawesomesvg' xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
             <path
@@ -10,6 +174,3 @@
         </svg></p>
     <p>It Seems that your cat is Empty ..<br> got to shop to add more products</p>
 </div>
-
-    
-    
