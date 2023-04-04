@@ -31,7 +31,7 @@
 .dropdown-list  .navbar-nav{
     display: grid;
     grid-template-columns: repeat(1,1fr);
-    
+
 }
 
 .dropdown-list {
@@ -42,7 +42,7 @@
     opacity: 0;
     padding: 10px 50px 10px 20px;
     transition: max-height 0.2s, opacity .1s ease-in-out;
-    
+
 }
 
 .dropdown-text li {
@@ -163,6 +163,7 @@
     animation-direction: normal;
     border: 0;
     padding: 0.5rem;
+    font-family: var(--main-font);
 
 
 
@@ -189,6 +190,7 @@
 
 .inputBox input::placeholder {
     color: rgb(207, 207, 207);
+    font-family: var(--main-font);
 }
 
 .inputBox input:hover::placeholder {
@@ -251,18 +253,21 @@
 
 }
 
-.activeSearch-suggesions {
 
-    display: none;
-}
 
 .search-container .search-results {
 
-    display: none;
-    align-items: flex-start;
+  display: contents ;
+  align-items: flex-start;
     flex-direction: row;
 
 
+}
+.search-container .search-results a{
+  color: black;
+}
+.search-container .search-results a:hover{
+  color: var(--main-color);
 }
 
 .search-container .search-results .card {
@@ -271,12 +276,6 @@
 
 }
 
-.activeSearchresults {
-
-
-    display: flex !important;
-
-}
 
 .search-container .search-results .card {
 

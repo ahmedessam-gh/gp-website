@@ -26,17 +26,17 @@
           <p>
             order number :<span> {{ order.orderNumber }}</span>
           </p>
+          <div class="traceButton">
+            <app-main-button
+              content="Track Order"
+              id="app-button"
+              width="150px"
+              [routerLink]="['/trace-order', order.orderNumber]"
+            ></app-main-button>
+          </div>
           <p class="card-text">
             Delivery Date :<span> {{ order.orderDate }}</span>
           </p>
-        </div>
-        <div class="traceButton">
-          <app-main-button
-            content="Track Order"
-            id="app-button"
-            width="150px"
-            [routerLink]="['/trace-order', order.orderNumber]"
-          ></app-main-button>
         </div>
       </div>
     </div>
