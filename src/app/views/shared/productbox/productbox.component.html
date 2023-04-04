@@ -1,28 +1,25 @@
 <div class="card">
   <div class="product-box">
     <div class="product-img position-relative">
-      <div class="ribbon-danger" *ngIf="product.status == 'sale'">
-        {{ product.status }}
-      </div>
-      <div class="ribbon-success" *ngIf="product.status == '50%'">
+      <div class="ribbon-danger" *ngIf="product.rent">Rent</div>
+      <div class="ribbon-success" *ngIf="product.status == 'Sale'">
         {{ product.status }}
       </div>
       <img class="img-fluid position-relative" src="{{ product.img }}" alt="" />
       <div class="product-hover position-absolute">
         <ul>
-          <li>
-            <a href="" [routerLink]="['/cart']"
-              ><fa-icon icon="shopping-cart"></fa-icon
-            ></a>
+          <li
+            (click)="addToFav(product, $event)"
+            [ngClass]="{ favIcon: favouriteList.includes(product) }"
+          >
+            <a><fa-icon id="{{ product.id }}" icon="heart"></fa-icon></a>
           </li>
         </ul>
       </div>
     </div>
 
-    <div class="product-details">
-      <form [formGroup]="form">
-        <div class="rating"></div>
-      </form>
+    <div class="product-details" [routerLink]="['/shop/product', product.id]">
+      <div class="rating"></div>
       <h4>
         {{ product.ProdName }}
       </h4>
@@ -30,7 +27,7 @@
       <p>{{ product.note }}</p>
       <div class="product-price">
         ${{ product.Price }}
-        <del>${{ product.discount }}</del>
+        <del *ngIf="product.discount > 0">${{ product.discount }}</del>
       </div>
     </div>
   </div>

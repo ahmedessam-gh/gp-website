@@ -12,6 +12,7 @@ export class cart implements Prod {
   discount: number;
   status: string;
   rating: number;
+  rent: boolean;
   note: string;
 
   quantity: Number = 1;

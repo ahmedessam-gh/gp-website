@@ -28,7 +28,7 @@
     </div>
     <div class="productDetails col-xl-5 col-6">
       <h1 class="productName">{{ myprod.ProdName }}</h1>
-      <h5 class="productCategory py-2">{{ myprod.Category }}</h5>
+      <h5 class="productCategory py-2">{{ myprod.note }}</h5>
       <label class="productPrice py-2">${{ myprod.Price }}</label>
 
       <div class="productSize py-2">
@@ -175,42 +175,10 @@
 
     <div class="row">
       <div
-        class="card col-xl-3 col-6 d-flex"
-        *ngFor="let newProd of prods | slice : 0 : 4"
+        class="card col-xl-4 col-6 d-flex"
+        *ngFor="let newProd of prods | slice : 0 : 3"
       >
-        <div class="card-design">
-          <div class="card-fav-cart position-relative bg-danger">
-            <img
-              src="{{ newProd.img }}"
-              class="img-fluid"
-              alt=""
-              width="250px"
-              [routerLink]="['product', newProd.id]"
-            />
-            <div class="position-absolute fav-cart">
-              <div class="d-inline">
-                <span
-                  ><fa-icon
-                    id="{{ newProd.id }}"
-                    icon="heart"
-                    class="favIcons favs"
-                  ></fa-icon
-                ></span>
-              </div>
-            </div>
-          </div>
-          <div class="prodDetails">
-            <p>
-              {{ newProd.ProdName }}
-            </p>
-            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana">
-              {{ newProd.Category }}
-            </p>
-            <p style="font-family: 'Courier New', Courier, monospace">
-              $ {{ newProd.Price }}
-            </p>
-          </div>
-        </div>
+        <app-productbox class="w-75" [product]="newProd"></app-productbox>
       </div>
     </div>
   </div>

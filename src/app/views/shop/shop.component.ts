@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProdService } from 'src/app/core/services/prod.service';
 import { CartService } from 'src/app/core/services/cart.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
+
 import * as Aos from 'aos';
 import * as $ from 'jquery';
 import 'slick-carousel';
@@ -14,10 +16,11 @@ import 'slick-carousel';
 })
 export class ShopComponent implements OnInit {
   newProds: Prod[] = [];
-  favouriteList: any = [];
   p: number = 1;
+  filterForm: FormGroup;
 
   constructor(
+    private fb: FormBuilder,
     private prod: ProdService,
     private cart: CartService,
     private router: Router
@@ -26,17 +29,18 @@ export class ShopComponent implements OnInit {
   ngOnInit(): void {
     this.newProds = this.prod.product;
     Aos.init();
-    this.favouriteList = this.prod.getFav();
-    console.log(this.favouriteList);
-    // this.getFavourites();
+
+    this.filterForm = this.fb.group({
+      size: [],
+      color: [],
+      price: [],
+      category: [],
+    });
   }
   addToCart(productItem: Prod) {
     this.cart.addToCart(productItem);
   }
-  addToFav(newProd: Prod, event) {
-    this.prod.addToFav(newProd, event);
-    // this.getFavourites();
-  }
+
   // getFavourites() {
   //   var favs = document.getElementsByClassName('favs');
   //   if (this.favouriteList.length == 0) {
@@ -55,8 +59,14 @@ export class ShopComponent implements OnInit {
   clearAllFilters() {
     $(document).ready(() => {
       $('#uncheck').click(() => {
-        $('[type=radio]').prop('checked', false);
+        $('[type=radio], [type=checkbox').prop('checked', false);
       });
     });
+  }
+
+  onSubmit() {
+    const filters = this.filterForm.value;
+    console.log(filters);
+    // do something with the selected filters
   }
 }
