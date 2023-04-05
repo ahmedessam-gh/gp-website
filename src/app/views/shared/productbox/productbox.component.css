@@ -37,7 +37,7 @@
   color: #ffa800;
   }
   .product-box .product-img img{
-    height: 400px;
+    height: 300px;
 
   }
    .product-img .product-hover {
@@ -122,7 +122,8 @@
     right: 0px;
     color: white;
     z-index: 2;
-    background: #e52727;
+    /* background: #e52727; */
+    background-color: #EB5160;
   }
 .card{
   border: none;

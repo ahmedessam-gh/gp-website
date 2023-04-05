@@ -10,6 +10,7 @@ export class MainButtonComponent implements OnInit {
   @Input() color?: string;
   @Input() width: string = '100%';
   @Input() icon: any;
+  @Input() backGroundColor?: string;
   @Input() borderRadius: string = '10px';
   @Input() padding: string = '';
   @Input() type: string;
@@ -25,6 +26,11 @@ export class MainButtonComponent implements OnInit {
       width: this.width,
       'border-radius': this.borderRadius,
       padding: this.padding,
+      'background-color':this.backGroundColor,
     };
+    
   }
+  // colorChange() {
+  //   this.backGroundColor = 'red';
+  // }
 }

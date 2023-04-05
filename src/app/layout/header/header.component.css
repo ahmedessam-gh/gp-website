@@ -26,7 +26,8 @@
 }
 
 .header-cart {
-    color: var(--main-color);
+    /* color: var(--main-color); */
+    color:#258EA6;
 }
 .dropdown-list  .navbar-nav{
     display: grid;

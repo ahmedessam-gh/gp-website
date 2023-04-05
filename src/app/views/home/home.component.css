@@ -10,21 +10,6 @@
   height: 100vh;
 }
 
-.background2 {
-  background-image: url(../../../assets/images/formal.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
-
-.background3 {
-  background-image: url(../../../assets/images/casual.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
 
 .background4 {
   background-image: url(../../../assets/images/1920x1080-503178-formal-hand.jpg);
@@ -128,11 +113,34 @@
   }
 }
 
-.btn-custom {
+/* .btn-custom {
   background-color: var(--main-color);
   color: #ffffff;
   font-size: 1.2rem;
+} */
+.heading a.continue:link,
+.heading a.continue:visited {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.015em;
+  font-size: 1em;
+  padding: 0.6em 1em;
+  color: #fff;
+  background: var(--main-color);
+  font-weight: bold;
+  border-radius: 50px;
+  text-align: right;
+  transition: 0.1s all ease-in-out;
 }
+
+
+
+/* .heading a.continue:hover,
+.heading a.continue:focus,
+.heading a.continue:active {
+  background: var(--main-color);
+  
+} */
 
 .btn-custom:hover {
   background-color: transparent;

@@ -1,11 +1,12 @@
 :root{
-    /* --main-color:#7155b5; */
-    --main-color:#5A4196;
+    /* --main-color:#258EA6; */
+    /* --main-color:#5A4196; */
     /* --main-color:#99B555; */
-    /* --main-color-rgb:rgba(117,91,180,255); */
-    --secondary-color:#7459b4;
-    --tertiary-color:#8b67df;
-    --main-font:Righteous, cursive;
+    --hover-color:#82ca9c;
+    --main-color:#368F8B;
+    /* --main-font:Righteous, cursive; */
+    /* --main-font:'Patua One', cursive; */
+    --main-font:'Bellota', cursive;
     --secondary-font:'Segoe UI', Tahoma, Geneva, Verdana;
 }
 *{
