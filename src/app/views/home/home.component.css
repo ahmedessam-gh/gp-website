@@ -139,7 +139,7 @@
 .heading a.continue:focus,
 .heading a.continue:active {
   background: var(--main-color);
-  
+
 } */
 
 .btn-custom:hover {
@@ -192,7 +192,7 @@
   text-align: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  color: var(--secondary-color);
+  color: var(--main-color);
 
 }
 
