@@ -4,6 +4,10 @@
     /* --main-color:#99B555; */
     --hover-color:#82ca9c;
     --main-color:#368F8B;
+    --red-color:#EB5160;
+    --button-font: "Montserrat", sans-serif;
+--gray-color: #999999e5;
+
     /* --main-font:Righteous, cursive; */
     /* --main-font:'Patua One', cursive; */
     --main-font:'Bellota', cursive;
@@ -18,7 +22,7 @@
     border: 0;
 }
 .favIcon{
-    background-color: red !important;
+    background-color: var(--main-color) !important;
     color: #ffffff !important;
 }
 html,body{
@@ -32,16 +36,16 @@ html,body{
     width: 100vw;
     z-index: 99999;
 }
-.form-control{  
+.form-control{
     background-color: transparent;
     border-width: 0 0 1px 0;
-    box-shadow: none;  
-    border-radius: 0; 
-    text-shadow: none; 
-    outline: 0;    
+    box-shadow: none;
+    border-radius: 0;
+    text-shadow: none;
+    outline: 0;
 }
 
-.form-control:focus{  
+.form-control:focus{
     border-color: var(--main-color);
     box-shadow: none;
 }

@@ -27,7 +27,7 @@
 
 .header-cart {
     /* color: var(--main-color); */
-    color:#258EA6;
+    color:var(--main-color);
 }
 .dropdown-list  .navbar-nav{
     display: grid;
@@ -170,6 +170,7 @@
 
 }
 
+
 .inputBox fa-icon {
 
 
@@ -263,6 +264,10 @@
     flex-direction: row;
 
 
+}
+.header-profile, .header-search{
+
+  color: var(--main-color);
 }
 .search-container .search-results a{
   color: black;

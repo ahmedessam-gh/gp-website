@@ -29,27 +29,56 @@
 }
 
 .orderstitle h1 {
+font-family: var(--main-font);
+  font-weight: bold;
 
-  font-family: var(--main-font);
-  color: var(--main-color);
   text-align: center;
+  font-size: 2em;
+  letter-spacing: 3px;
+  text-transform: uppercase;
   animation: bounceIn 1s ease-in-out;
 }
 
 .card {
 
-  border-radius: 15px;
   box-shadow: 3px;
-  cursor: pointer;
+  border-radius: 0;
   overflow: hidden;
   animation: fadeInLeft 1s ease-in-out;
 
 }
+.card-title{
+  width: 150px;
+}
+
+.card-title label{
+  letter-spacing: -0.015em;
+  font-size: 0.75em;
+  font-weight: 700;
+text-transform: uppercase;
+  color: var(--gray-color);
+  font-family: var(--button-font);
+
+}
+.card-title span{
+  font-family: var(--main-font) !important;
 
 
+}
+.delivered-class{
+  color: var(--hover-color);
 
 
+}
 
+.ongoing-class{
+
+  color: darkorange;
+}
+.failed-class{
+color: var(--red-color);
+
+}
 
 .card span {
 
@@ -76,16 +105,19 @@
   color: white;
 }
 
-.traceButton {
-  width: 150px;
-  margin: auto
-}
+
 
 
 
 @media screen and (max-width:974px) {
   .card {
     width: 90% !important;
+  }
+
+  .card-title{
+    width:
+    21vw
+    ;
   }
 
 }

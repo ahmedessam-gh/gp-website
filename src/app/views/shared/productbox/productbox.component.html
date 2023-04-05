@@ -5,14 +5,25 @@
       <div class="ribbon-success" *ngIf="product.status == 'Sale'">
         {{ product.status }}
       </div>
-      <img class="img-fluid position-relative" height="70px" src="{{ product.img }}" alt="" />
+      <img
+        class="img-fluid position-relative"
+        height="70px"
+        src="{{ product.img }}"
+        alt=""
+      />
       <div class="product-hover position-absolute">
         <ul>
           <li
             (click)="addToFav(product, $event)"
             [ngClass]="{ favIcon: favouriteList.includes(product) }"
           >
-            <a><fa-icon id="{{ product.id }}" icon="heart"></fa-icon></a>
+            <a
+              ><fa-icon
+                id="{{ product.id }}"
+                [ngClass]="{ favIcon: favouriteList.includes(product) }"
+                icon="heart"
+              ></fa-icon
+            ></a>
           </li>
         </ul>
       </div>

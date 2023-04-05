@@ -4,4 +4,6 @@ export class order {
   totalPrice: number;
   status: string;
   orderArrival: string;
+  paymentMethod: string;
+  quantity: number;
 }

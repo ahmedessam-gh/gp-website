@@ -8,10 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MainButtonComponent implements OnInit {
   @Input() content: string = 'button';
   @Input() color?: string;
-  @Input() width: string = '100%';
+  @Input() width: string = '';
   @Input() icon: any;
   @Input() backGroundColor?: string;
-  @Input() borderRadius: string = '10px';
+  @Input() borderRadius: string = '';
   @Input() padding: string = '';
   @Input() type: string;
   @Input() myClass: string;
@@ -26,9 +26,8 @@ export class MainButtonComponent implements OnInit {
       width: this.width,
       'border-radius': this.borderRadius,
       padding: this.padding,
-      'background-color':this.backGroundColor,
+      'background-color': this.backGroundColor,
     };
-    
   }
   // colorChange() {
   //   this.backGroundColor = 'red';

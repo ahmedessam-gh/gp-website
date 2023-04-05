@@ -1,5 +1,5 @@
 <div *ngIf="myOrders.length > 0" class="orderstitle pad-sections px-3">
-  <h1>My Orders</h1>
+  <h1>My Shopping History</h1>
 </div>
 
 <div
@@ -7,7 +7,7 @@
   class="g-0 position-relative"
   id="ordersContainer"
 >
-  <ng-container
+  <div
     *ngFor="
       let order of myOrders | paginate : { itemsPerPage: 3, currentPage: p };
       let i = index
@@ -16,31 +16,67 @@
     <div class="card w-75 g-0 my-5 mx-lg-auto mx-auto shadow">
       <div class="card-body">
         <div class="d-flex justify-content-between">
-          <h4 class="card-title">Price : {{ order.totalPrice }}$</h4>
-          <p class="">
-            Status : <span> {{ order.status }}</span>
+          <p class="card-title d-flex flex-column">
+            <label> Total Price </label
+            ><span class="py-1"> {{ order.totalPrice }} EGP </span>
+          </p>
+
+          <p class="card-title d-flex flex-column">
+            <label> Order Units </label
+            ><span class="py-1"> {{ order.quantity }} </span>
+          </p>
+          <p class="card-title d-flex flex-column">
+            <label> Status</label>
+            <span
+              class="py-1 delivered-class"
+              *ngIf="order.status == 'delivered'"
+            >
+              {{ order.status }}</span
+            >
+            <span
+              class="py-1 ongoing-class"
+              *ngIf="
+                order.status == 'Order Placed' ||
+                order.status === 'preparing order' ||
+                order.status === 'out for delivery'
+              "
+            >
+              {{ order.status }}</span
+            >
+
+            <span class="py-1 failed-class" *ngIf="order.status == 'failed'">
+              {{ order.status }}</span
+            >
           </p>
         </div>
         <br />
         <div class="d-flex justify-content-between">
-          <p>
-            order number :<span> {{ order.orderNumber }}</span>
-          </p>
-          <div class="traceButton">
-            <app-main-button
-              content="Track Order"
-              id="app-button"
-              width="150px"
-              [routerLink]="['/trace-order', order.orderNumber]"
-            ></app-main-button>
+          <div class="d-flex flex-start">
+            <p class="card-title d-flex flex-column">
+              <label> order No.</label
+              ><span class="py-1"> #{{ order.orderNumber }}</span>
+            </p>
           </div>
-          <p class="card-text">
-            Delivery Date :<span> {{ order.orderDate }}</span>
+          <p class="card-title d-flex flex-column">
+            <label> Payment Method </label>
+            <span class="py-1"> {{ order.paymentMethod }}</span>
+          </p>
+          <p class="card-title d-flex flex-column">
+            <label> Ordered On </label>
+            <span class="py-1"> {{ order.orderDate }}</span>
           </p>
         </div>
+
+        <app-main-button
+          content="Track Order"
+          icon="shipping-fast"
+          class="traceB"
+          id="app-button"
+          [routerLink]="['/trace-order', order.orderNumber]"
+        ></app-main-button>
       </div>
     </div>
-  </ng-container>
+  </div>
   <div class="d-flex justify-content-center p-0">
     <pagination-controls
       class="my-pagination"
