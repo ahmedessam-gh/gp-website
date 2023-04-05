@@ -6,7 +6,15 @@
 }
 
 .card-body {
+
   font-family: var(--main-font);
+}
+
+.card-body strong{
+  text-transform: uppercase;
+
+  font-family: var(--button-font);
+  color: var(--gray-color);
 }
 .track {
   background-color: #878788;
@@ -56,8 +64,8 @@
 }
 
 .img-sm {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 170px;
 }
 ul.row,
 ul.row-sm {
@@ -85,3 +93,5 @@ ul.row-sm {
 .slick-prev:before {
   transform: rotate(180deg);
 }
+
+

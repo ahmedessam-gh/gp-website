@@ -9,7 +9,7 @@
 >
   <div
     *ngFor="
-      let order of myOrders | paginate : { itemsPerPage: 3, currentPage: p };
+      let order of myOrders | paginate : { itemsPerPage: 4, currentPage: p };
       let i = index
     "
   >
@@ -29,7 +29,7 @@
             <label> Status</label>
             <span
               class="py-1 delivered-class"
-              *ngIf="order.status == 'delivered'"
+              *ngIf="order.status == 'Delivered'"
             >
               {{ order.status }}</span
             >
@@ -37,14 +37,14 @@
               class="py-1 ongoing-class"
               *ngIf="
                 order.status == 'Order Placed' ||
-                order.status === 'preparing order' ||
-                order.status === 'out for delivery'
+                order.status === 'Preparing Order' ||
+                order.status === 'Out for delivery'
               "
             >
               {{ order.status }}</span
             >
 
-            <span class="py-1 failed-class" *ngIf="order.status == 'failed'">
+            <span class="py-1 failed-class" *ngIf="order.status == 'Failed'">
               {{ order.status }}</span
             >
           </p>

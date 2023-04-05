@@ -10,6 +10,7 @@ import {
   FaIconLibrary,
 } from '@fortawesome/angular-fontawesome';
 import 'slick-carousel';
+import 'owl.carousel';
 
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
