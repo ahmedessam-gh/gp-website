@@ -11,7 +11,7 @@ export class ProdService {
     this.product = [
       {
         id: 1,
-        ProdName: 'Dress',
+        ProdName: ' White Fashioned Dress',
         Category: 'Women',
         Price: 100,
         img: 'assets/images/01.jpg',
@@ -36,6 +36,8 @@ export class ProdService {
         note: 'Solid Polo Collar T-shirt',
         rating: 5,
         quantity: 1,
+        details:
+          'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
       },
 
       {
@@ -66,6 +68,8 @@ export class ProdService {
         note: 'Solid Polo Collar T-shirt',
         rating: 5,
         quantity: 1,
+        details:
+          'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
       },
       {
         id: 3,
@@ -94,6 +98,8 @@ export class ProdService {
         rent: false,
 
         quantity: 1,
+        details:
+          'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
       },
       {
         id: 4,
@@ -123,6 +129,8 @@ export class ProdService {
         status: 'Sale',
 
         quantity: 1,
+        details:
+          'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
       },
       {
         id: 5,
@@ -152,6 +160,8 @@ export class ProdService {
         status: 'Sale',
 
         quantity: 1,
+        details:
+          'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
       },
       {
         id: 6,
@@ -181,6 +191,8 @@ export class ProdService {
         colorChosen: ' ',
 
         quantity: 1,
+        details:
+          'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
       },
       {
         id: 7,
@@ -210,6 +222,8 @@ export class ProdService {
         colorChosen: ' ',
 
         quantity: 1,
+        details:
+          'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
       },
       {
         id: 8,
@@ -239,6 +253,8 @@ export class ProdService {
         colorChosen: ' ',
 
         quantity: 1,
+        details:
+          'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
       },
     ];
   }

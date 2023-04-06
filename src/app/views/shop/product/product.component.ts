@@ -35,6 +35,14 @@ export class ProductComponent implements OnInit {
       nextArrow: null,
       dots: true,
     });
+
+    $('.owl-carousel').owlCarousel({
+      items: 1,
+      loop: true,
+      margin: 10,
+      autoplay: true,
+      autoplayTimeout: 5000,
+    });
   }
 
   addToCart(productItem: Prod) {

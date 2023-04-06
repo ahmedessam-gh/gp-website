@@ -16,6 +16,7 @@ export class Prod {
   rating: number;
   rent: boolean;
   note: string;
+  details: string;
 }
 export interface prodDetails {
   value: string;

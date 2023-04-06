@@ -1,6 +1,6 @@
 <div class="container pad-sections">
   <div class="row">
-    <div class="productImg col-xl-7 col-6">
+    <div class="productImg col-xl-6 col-6">
       <div class="productBigImg py-2">
         <img src="{{ myprod.img }}" alt="sss" width="100%" />
       </div>
@@ -26,11 +26,19 @@
         />
       </div>
     </div>
-    <div class="productDetails col-xl-5 col-6">
+    <div class="productDetails col-xl-6 col-6">
       <h1 class="productName">{{ myprod.ProdName }}</h1>
-      <h5 class="productCategory py-2">{{ myprod.note }}</h5>
-      <label class="productPrice py-2">${{ myprod.Price }}</label>
-
+      <label class="productRent" *ngIf="myprod.rent">
+        <fa-icon class="px-1" icon="circle-check"></fa-icon> Avaliable for
+        rent</label
+      >
+      <hr />
+      <div class="productCategory py-2">{{ myprod.details }}</div>
+      <hr />
+      <div class="productPriceDiscount">
+        <label class="productPrice">{{ myprod.Price }} EGP</label>
+        <del class="productDiscount py-2">{{ myprod.discount }} EGP</del>
+      </div>
       <div class="productSize py-2">
         <label class="productLabel">Select your Size</label>
         <ul class="productSizes py-3 list-unstyled">
@@ -140,18 +148,22 @@
           </li>
         </ul>
       </div>
-      <div class="productButtons d-flex">
-        <button
-          (click)="addToCart(myprod)"
-          class="addtoCartButton btn btn-custom py-2"
-        >
-          <fa-icon icon="shopping-cart" class="favoriteIcon"></fa-icon>
-          Add to Cart
-        </button>
-        <button class="favoriteButton btn btn-custom mx-2">
-          <fa-icon icon="heart" class="favoriteIcon mx-1"></fa-icon>Favorite
-        </button>
-      </div>
+
+      <app-main-button
+        (click)="addToCart(myprod)"
+        class="buttons"
+        class="orderButton"
+        iconLeft="cart-shopping"
+        content="Add To Cart"
+      ></app-main-button>
+
+      <app-main-button
+        class="buttons"
+        (click)="addToCart(myprod)"
+        iconLeft="heart"
+        content="Favorite"
+      ></app-main-button>
+
       <div class="py-4">
         <label class="productLabel px-2"> Select Your Quantity : </label>
         <input
@@ -174,11 +186,13 @@
     <h3 class="similarProductsHeader">Similar Products</h3>
 
     <div class="row">
-      <div
-        class="card col-xl-4 col-6 d-flex"
-        *ngFor="let newProd of prods | slice : 0 : 3"
-      >
-        <app-productbox class="w-75" [product]="newProd"></app-productbox>
+      <div class="owl-carousel owl-theme">
+        <div
+          class="card col-xl-4 col-6 d-flex"
+          *ngFor="let newProd of prods | slice : 0 : 3"
+        >
+          <app-productbox class="w-75" [product]="newProd"></app-productbox>
+        </div>
       </div>
     </div>
   </div>

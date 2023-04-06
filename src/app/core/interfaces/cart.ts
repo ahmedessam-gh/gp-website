@@ -14,6 +14,7 @@ export class cart implements Prod {
   rating: number;
   rent: boolean;
   note: string;
+  details: string;
 
   quantity: Number = 1;
 }
