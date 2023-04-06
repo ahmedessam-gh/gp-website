@@ -7,6 +7,7 @@
 .productSizes input{
   display: none;
 }
+
 .productSizes .productsingelSize{
 
   color: var(--main-color);
@@ -20,6 +21,39 @@
     margin-right: 5px;
     cursor: pointer;
 
+
+
+  }
+
+  .productCategory{
+
+    color: var(--gray-color);
+    font-family: var(--button-font);
+    font-weight: 700;
+    line-height: 1.5;
+
+
+
+
+  }
+
+.productDiscount{
+
+  font-family: var(--button-font);
+  color: var(--gray-color);
+}
+
+
+
+  .productRent fa-icon{
+    color: var(--hover-color);
+  }
+  .productRent{
+
+    font-family: var(--button-font);
+    color: var(--hover-color);
+    font-weight: bold;
+    font-size: 15px;
 
 
   }
@@ -60,12 +94,14 @@
   color: grey;
   text-transform: uppercase;
   font-family: var(--main-font);
+
 }
 
 .productDetails .productName{
 margin: 0;
 font-family: var(--main-font);
 color: var(--main-color);
+text-transform: capitalize;
 }
 
 .productDetails .productPrice{
@@ -123,65 +159,17 @@ color: var(--main-color);
 text-transform: uppercase;
 }
 
-.card p {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: large;
-  margin-top: 1rem;
-}
-
- .card-design {
-  box-shadow: 0 0 2px rgba(33, 33, 33, .2)
-}
-
- .card-design:hover {
-  box-shadow: 0 0 7px rgba(33, 33, 33, .2)
-}
 
 
 
- .card-fav-cart img{
-  height: 300px;
-  /*object-fit: contain;*/
-}
-.fav-cart {
-  margin: 0 5px;
-  top: 80%;
-  right: 0;
-  margin-right: 20px;
-  display: none;
-
-}
-
-.card-fav-cart:hover .fav-cart {
-  display: block;
-  animation: slideInRight 0.3s;
-
-}
-
-.fav-cart .favIcons{
-  margin: 0px 5px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  padding: 8px;
-  color: var(--main-color);
-  transition: all 0.1s ease-in-out;
-  cursor:pointer
-}
-.card {
-  cursor:pointer;
-
-  border: transparent;
-  align-items: center;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-
-
-
-}
 .prodDetails p:first-child{
   color: var(--main-color);
   font-family: var(--main-font);
+}
+.buttons{
+
+  margin: 0 0 0 0;
+  padding: 0 0 0 0 !important;
 }
 @media screen and (min-width:740px) {
   .btn-w{
