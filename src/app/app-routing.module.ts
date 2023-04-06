@@ -3,11 +3,8 @@ import { HomeComponent } from './views/home/home.component';
 import { Router, Routes, RouterModule } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginModule } from './views/login/login.module';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { CheckoutComponent } from './views/cart/checkout/checkout.component';
-import { ProfileModule } from './views/profile/profile.module';
-import { ProfileDetailsComponent } from './views/profile/profile-details/profile-details.component';
 const routes: Routes = [
   {
     path: '',
@@ -64,9 +61,9 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'login',
+    path: 'welcome',
     loadChildren: () =>
-      import('./views/login/login.module').then((m) => m.LoginModule),
+      import('./views/welcome/welcome.module').then((m) => m.WelcomeModule),
   },
 
   {

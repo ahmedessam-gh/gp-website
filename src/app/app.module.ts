@@ -19,19 +19,19 @@ import { CommonModule } from '@angular/common';
 import { Ng2SearchPipe } from 'ng2-search-filter/src/ng2-filter.pipe';
 import { Router } from '@angular/router';
 import { MainButtonModule } from './shared/main-button/main-button.module';
-import { LoginComponent } from './views/login/login.component';
+import { WelcomeComponent } from './views/welcome/welcome.component';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainCategoriesComponent } from './shared/main-categories/main-categories.component';
 import { ProfileModule } from './views/profile/profile.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent,
     HeadFootComponent,
   ],
   imports: [
@@ -47,6 +47,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FeaturesSectionModule,
     ProfileModule,
     NgxPaginationModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent],

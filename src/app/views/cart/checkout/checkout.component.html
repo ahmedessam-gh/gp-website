@@ -56,10 +56,13 @@
                                 <h5>STEP 2 : Choose your payment method</h5>
                             </div>
                             <div>
-                                <div class="paymentCont p-3 mb-3">
-                                    <input type="radio" > <span class="ms-2">Credit Card</span>
+                                <div class="paymentCont p-3 mb-3 d-flex justify-content-between">
+                                    <div>
+                                        <input type="radio" [(ngModel)]="currenMethod" name="method" value="credit" [checked]="!isChecked"> <span class="ms-2">Credit Card</span>
+                                    </div>
+                                    <fa-icon style="color:#024b7c;" [icon]="['fas','credit-card']"></fa-icon>
                                 </div>
-                                <div class="row">
+                                <div *ngIf="currenMethod == 'credit'" [@slideInOut] class="row" id="creditInfo">
                                     <div>
                                         <label for="">Credit Card Details</label>
                                         <input type="email" name="email" #name="ngModel" ngModel
@@ -74,8 +77,26 @@
                                             class="form-control col-md-6 my-3" placeholder="expire" required>
                                     </div>
                                 </div>
-                                <div class="paymentCont p-3 mb-3">
-                                    <input type="radio" > <span class="ms-2">Paypal</span>
+                                <div class="paymentCont p-3 mb-3 d-flex justify-content-between">
+                                    <div>
+                                        <input type="radio" [(ngModel)]="currenMethod" name="method" value="paypal" [checked]="!isChecked"> <span class="ms-2">Paypal</span>
+                                    </div>
+                                    <fa-icon style="color:#0070ba;" [icon]="['fab','paypal']"></fa-icon>
+                                </div>
+                                <div *ngIf="currenMethod == 'paypal'" class="row" id="creditInfo">
+                                    <div>
+                                        <label for="">Credit Card Details</label>
+                                        <input type="email" name="email" #name="ngModel" ngModel
+                                        class="form-control col-md-6 my-3" placeholder="Credit Card Number" required>
+                                    </div>
+                                    <div class="pe-2 col-6">
+                                        <input type="email" name="email" #name="ngModel" ngModel
+                                            class="form-control col-md-6 my-3" placeholder="security code" required>
+                                    </div>
+                                    <div class="ps-2 col-6">
+                                        <input type="date" name="zip" #name="ngModel" ngModel
+                                            class="form-control col-md-6 my-3" placeholder="expire" required>
+                                    </div>
                                 </div>
                             </div>
                         </div>

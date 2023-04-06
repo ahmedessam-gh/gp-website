@@ -1,0 +1,18 @@
+<div class="animate__animated animate__backInDown mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
+    <h5 style="color:var(--main-color)">Sign Up</h5>
+    <div class="w-50 form-content">
+      <form (ngSubmit)="login(registerForm)" #registerForm="ngForm">
+        <input type="text" name="fullName" #name ngModel class="d-block form-control my-3"
+          placeholder="Enter Your Name ..." required>
+          <input type="email" name="fullName" #name ngModel class="d-block form-control my-3"
+          placeholder="Enter Your Name ..." required>
+          <input type="password" name="fullName" #name ngModel class="d-block form-control my-3"
+          placeholder="Enter Your Name ..." required>
+        <div>
+          <app-main-button (click)="addShake(registerForm)" id="app-button" width="100%" 
+            content="register"></app-main-button>
+        </div>
+      </form>
+    </div>
+    <button class="btn" [routerLink]="['/welcome/loginn']" routerLinkActive="router-link-active" >Sign Up</button>
+  </div>

@@ -1,12 +1,26 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css']
+  styleUrls: ['./checkout.component.css'],
+  animations: [
+    // trigger('slideInOut', [
+    //   state('void', style({
+    //     transform: 'translateY(-100%)'
+    //   })),
+    //   state('*', style({
+    //     transform: 'translateY(0%)'
+    //   })),
+    //   transition(':enter', animate('0.3s ease-in-out')),
+    //   transition(':leave', animate('0.3s ease'))
+    // ])
+  ],
 })
 export class CheckoutComponent implements OnInit {
   activeIndex = 1;
+  isChecked:boolean;
+  currenMethod:any;
   constructor() { }
 
   ngOnInit(): void {
@@ -39,4 +53,6 @@ export class CheckoutComponent implements OnInit {
     }
     this.setActive();
   }
+
+  
 }

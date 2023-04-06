@@ -184,52 +184,8 @@
       <!-- <p>login to Continue shopping</p> -->
     </div>
   </div>
-  <div class="col-md-6  my-md-0 d-block animate__animated animate__backInDown" id="loginFrom">
-    <div class="mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
-      <h5 style="color:var(--main-color)">Login</h5>
-      <div class="w-50 form-content">
-
-        <input type="email" name="email" #email ngModel class="d-block form-control my-3"
-          placeholder="Enter Your Email ..." required>
-        <input type="password" name="password" #password ngModel class="d-block form-control my-3"
-          placeholder="Enter Your password ..." required>
-        <a href="#" class="text-decoration-none" style="color:grey; font-size: 0.8rem;">Forgot Password ?</a>
-        <div class="loginBtn">
-          <app-main-button width="100%" content="Login"></app-main-button>
-        </div>
-      </div>
-      <button class="btn" (click)="showRegister()">Create Account?</button>
-    </div>
-  </div>
-  <div class="col-md-6 my-md-0 d-none animate__animated animate__backInDown" id="registerForm">
-    <div class="mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
-      <h5 style="color:var(--main-color)">Sign Up</h5>
-      <div class="w-50 form-content">
-        <form (ngSubmit)="login(registerForm)" #registerForm="ngForm">
-          <input type="text" name="fullName" #name ngModel class="d-block form-control my-3"
-            placeholder="Enter Your Name ..." required>
-          <div [hidden]="!errorName">
-            <p>please enter name ..</p>
-          </div>
-          <input type="email" email="true" name="email" ngModel #email class="d-block form-control my-3"
-            placeholder="Enter Your Email ..." required>
-          <div [hidden]="!errorEmail">
-            <p>please enter a valid email ..</p>
-          </div>
-          <input type="password" name="password" #password ngModel class="d-block form-control my-3"
-            placeholder="Enter Your Password ..." required>
-          <div [hidden]="!errorPass">
-            <p>please enter password ..</p>
-          </div>
-          <div>
-            <app-main-button (click)="addShake(registerForm)" id="app-button" width="100%" 
-              content="register"></app-main-button>
-          </div>
-        </form>
-      </div>
-      <button class="btn" (click)="showLogin()">Sign Up</button>
-    </div>
-
+  <div class="col-md-6 my-md-0 "> 
+    <router-outlet></router-outlet>
   </div>
   <div class="offset-lg-6 text-center col-md-6 loginRegisterBrand">
 
