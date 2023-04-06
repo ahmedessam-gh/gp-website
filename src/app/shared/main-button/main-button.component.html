@@ -5,6 +5,7 @@
   [ngStyle]="buttonStyle"
   [disabled]="disabledBtn"
 >
-  <fa-icon *ngIf="icon" [icon]="icon"></fa-icon>
-  {{ content }}
+<fa-icon *ngIf="iconLeft" [icon]="iconLeft"></fa-icon>
+{{ content }}
+<fa-icon *ngIf="iconRight" [icon]="iconRight"></fa-icon>
 </button>

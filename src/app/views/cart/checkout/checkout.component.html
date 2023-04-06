@@ -1,12 +1,17 @@
 <div class="pad-sections ">
-    <div class="container">
+    <div class="container ">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-7 ">
 
-                <form action="">
-                    <fieldset style="color:var(--main-color);">
+                <form action="" >
+                    <fieldset class="" style="color:var(--main-color);">
                         <legend>Billing Details</legend>
-                        <div class="w-75 row g-0 mx-auto my-3">
+                        
+                       <div id="billingContainer" class="billingDetails w-75 m-auto my-3">
+                        <div class="step active row g-0">
+                            <div class="steps">
+                                <h5>STEP 1 : Enter your personal details</h5>
+                            </div>
                             <div class="pe-2 col-6">
                                 <label for="">First Name</label>
                                 <input type="text" name="First" #name="ngModel" ngModel
@@ -45,6 +50,43 @@
                                 <input type="number" name="zip" #name="ngModel" ngModel
                                     class="form-control col-md-6 my-3" placeholder="" required>
                             </div>
+                        </div> 
+                        <div class="step">
+                            <div class="steps">
+                                <h5>STEP 2 : Choose your payment method</h5>
+                            </div>
+                            <div>
+                                <div class="paymentCont p-3 mb-3">
+                                    <input type="radio" > <span class="ms-2">Credit Card</span>
+                                </div>
+                                <div class="row">
+                                    <div>
+                                        <label for="">Credit Card Details</label>
+                                        <input type="email" name="email" #name="ngModel" ngModel
+                                        class="form-control col-md-6 my-3" placeholder="Credit Card Number" required>
+                                    </div>
+                                    <div class="pe-2 col-6">
+                                        <input type="email" name="email" #name="ngModel" ngModel
+                                            class="form-control col-md-6 my-3" placeholder="security code" required>
+                                    </div>
+                                    <div class="ps-2 col-6">
+                                        <input type="date" name="zip" #name="ngModel" ngModel
+                                            class="form-control col-md-6 my-3" placeholder="expire" required>
+                                    </div>
+                                </div>
+                                <div class="paymentCont p-3 mb-3">
+                                    <input type="radio" > <span class="ms-2">Paypal</span>
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                        <div class="d-flex justify-content-between mx-4" >
+                            <div id="prevBtn" (click)="prevDiv()">
+                                <app-main-button iconLeft="arrow-left" content="Back" backGroundColor="gray"></app-main-button>
+                            </div>
+                            <div id="nextBtn" (click)="nextDiv()">
+                                <app-main-button iconRight="arrow-right" content="next"></app-main-button>
+                            </div>
                         </div>
                     </fieldset>
                 </form>
@@ -53,7 +95,7 @@
                 <h5 style="color: var(--main-color);font-size: 1.6rem;" class="my-3 text-center">Your Order</h5>
                 <table class="table w-75 m-auto">
                     <thead>
-                        <tr>
+                        <tr style="color:var(--main-color);font-size: 1.2em;">
                             <th>Product</th>
                             <th>Price</th>
                         </tr>
@@ -75,10 +117,14 @@
                             <td>prod5</td>
                             <td>100$</td>
                         </tr>
+                        <tr style="color:var(--main-color);font-size: 1.2em;">
+                            <td>Total</td>
+                            <td>500$</td>
+                        </tr>
                     </tbody>
                 </table>
-                <div class="placeOrderBtn m-0">
-                    <app-main-button class="mx-auto" borderRadius="0%" width="100%" content="Place Order"></app-main-button>
+                <div class="placeOrderBtn">
+                    <app-main-button borderRadius="0%" width="100%" content="Place Order"></app-main-button>
                 </div>
                 
             </div>

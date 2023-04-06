@@ -221,6 +221,10 @@ input::-webkit-inner-spin-button {
   background: var(--main-color);
 }
 
+
+.noItems{
+  height: 80vh;
+}
 @media screen and (max-width:992px) {
   .padCheckout{
     width: 100%;
