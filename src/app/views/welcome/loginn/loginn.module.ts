@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LoginnRoutingModule } from './loginn-routing.module';
 import { LoginnComponent } from './loginn.component';
-import { MainButtonModule } from "../../../shared/main-button/main-button.module";
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { MainButtonModule } from "../../../shared/main-button/main-button.module
     imports: [
         CommonModule,
         LoginnRoutingModule,
-        MainButtonModule
+        SharedModule
     ]
 })
 export class LoginnModule { }

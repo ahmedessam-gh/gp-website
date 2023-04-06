@@ -1,6 +1,4 @@
-import { FeaturesSectionModule } from './../../shared/features-section/features-section.module';
-import { MainCategoriesModule } from 'src/app/shared/main-categories/main-categories.module';
-import { MainButtonModule } from './../../shared/main-button/main-button.module';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TraceOrderRoutingModule } from './trace-order-routing.module';
@@ -15,6 +13,7 @@ import 'owl.carousel';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [TraceOrderComponent],
@@ -22,9 +21,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
     CommonModule,
     TraceOrderRoutingModule,
     FontAwesomeModule,
-    MainButtonModule,
-    MainCategoriesModule,
-    FeaturesSectionModule,
+    SharedModule
   ],
 })
 export class TraceOrderModule {}

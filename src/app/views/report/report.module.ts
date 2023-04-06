@@ -1,6 +1,3 @@
-import { FeaturesSectionModule } from './../../shared/features-section/features-section.module';
-import { MainCategoriesModule } from 'src/app/shared/main-categories/main-categories.module';
-import { MainButtonModule } from './../../shared/main-button/main-button.module';
 import { BrowserModule } from '@angular/platform-browser';
 import {
   FormsModule,
@@ -13,6 +10,7 @@ import { CommonModule, FormStyle } from '@angular/common';
 
 import { ReportRoutingModule } from './report-routing.module';
 import { ReportComponent } from './report.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -22,10 +20,8 @@ import { ReportComponent } from './report.component';
     imports: [
         CommonModule,
         ReportRoutingModule,
-        MainButtonModule,
-        MainCategoriesModule,
-        FeaturesSectionModule,
-        FormsModule
+        FormsModule,
+        SharedModule
     ]
 })
 export class ReportModule { }

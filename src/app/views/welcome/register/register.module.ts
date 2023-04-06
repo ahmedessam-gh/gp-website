@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainButtonModule } from 'src/app/shared/main-button/main-button.module';
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
 import { FormsModule } from '@angular/forms';
-
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RegisterRoutingModule,
-    MainButtonModule,
+    SharedModule,
     FormsModule
   ]
 })

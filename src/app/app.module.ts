@@ -1,5 +1,3 @@
-import { FeaturesSectionModule } from './shared/features-section/features-section.module';
-import { MainCategoriesModule } from 'src/app/shared/main-categories/main-categories.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -18,7 +16,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CommonModule } from '@angular/common';
 import { Ng2SearchPipe } from 'ng2-search-filter/src/ng2-filter.pipe';
 import { Router } from '@angular/router';
-import { MainButtonModule } from './shared/main-button/main-button.module';
 import { WelcomeComponent } from './views/welcome/welcome.component';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -41,11 +38,8 @@ import { RouterModule, Routes } from '@angular/router';
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    MainButtonModule,
-    MainCategoriesModule,
     ReactiveFormsModule,
-    FeaturesSectionModule,
-    ProfileModule,
+    // ProfileModule,
     NgxPaginationModule,
     RouterModule
   ],
