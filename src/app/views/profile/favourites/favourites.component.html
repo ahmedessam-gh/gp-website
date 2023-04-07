@@ -1,57 +1,96 @@
-<div id="tableContainer2">
-  <div class="container">
-    <table class="table text-center">
-      <thead>
-        <tr>
-          <th>Details</th>
-          <th>Price</th>
-          <th>status</th>
-          <th>.</th>
-        </tr>
-      </thead>
-      <tbody class="tableContent">
-        <ng-container *ngFor="let fav of favouriteList; let i = index">
-          <tr>
-            <td class="row">
-              <div class="col-4">
-                <img
-                  src="{{ fav.img }}"
-                  width="170px"
-                  class="img-fluid"
-                  alt=""
-                />
-              </div>
-              <div class="col-8 text-start">
-                <h6>{{ fav.ProdName }}</h6>
-                <p>{{ fav.Category }}</p>
-                <button (click)="removeItem(i)" class="btn btn-outline-danger">
-                  remove
-                </button>
-              </div>
-            </td>
-            <td>
-              {{ fav.Price }}
-            </td>
-            <td>
-              <span>in stock</span
-              ><!--<span>in stock</span>-->
-            </td>
-            <td class="text-end">
-              <app-main-button
-                width="50%"
-                content="Add To Cart"
-              ></app-main-button>
-            </td>
-          </tr>
-        </ng-container>
-      </tbody>
-    </table>
-    <div class="btnsCart row">
-      <div class="col-12 col-md-6" (click)="clearCart()">
-        <app-main-button width="30%" content="Clear Cart"></app-main-button>
-      </div>
-    </div>
+<div>
+  <div class="orderstitle pad-sections px-3">
+    <h1>Wish List</h1>
   </div>
+  <div class="">
+      <table class="table table-borderless tableContent">
+          <thead>
+              <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody >
+            <tr class="tableInfoCell">
+              <td class="d-flex ">
+                  <div>
+                      <img src="assets\images\02.jpg" width="150px" height="150px" alt="">
+                  </div>
+                  <div class="prodInfo ms-3">
+                      <h6>item2</h6>
+                      <p>dress</p>
+                      <p>$100</p>
+                  </div>
+              </td>
+              <td class="inStock">IN STOCK</td>
+              <td>
+                  <div class="tableBtnRemove">
+                      <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
+                  </div>
+              </td>
+          </tr>
+              <tr class="tableInfoCell">
+                  <td class="d-flex ">
+                      <div>
+                          <img src="assets\images\01.jpg" width="150px" height="150px" alt="">
+                      </div>
+                      <div class="prodInfo ms-3">
+                          <h6>item2</h6>
+                          <p>dress</p>
+                          <p>$100</p>
+                      </div>
+                  </td>
+                  <td class="inStock">IN STOCK</td>
+                  <td>
+                      <div class="tableBtnRemove">
+                          <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
+                      </div>
+                  </td>
+              </tr>
+              <tr class="tableInfoCell">
+                <td class="d-flex">
+                    <div>
+                        <img src="assets\images\04.jpg" width="150px" height="150px" alt="">
+                    </div>
+                    <div class="prodInfo ms-3">
+                        <h6>item2</h6>
+                        <p>dress</p>
+                        <p>$100</p>
+                    </div>
+                </td>
+                <td class="outOfStock">OUT OF STOCK</td>
+                <td>
+                    <div class="tableBtnRemove">
+                        <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
+                    </div>
+                </td>
+            </tr>
+            <tr class="tableInfoCell">
+              <td class="d-flex">
+                  <div>
+                      <img src="assets\images\02.jpg" width="150px" height="150px" alt="">
+                  </div>
+                  <div class="prodInfo ms-3">
+                      <h6>item2</h6>
+                      <p>dress</p>
+                      <p>$100</p>
+                  </div>
+              </td>
+              <td class="inStock">IN STOCK</td>
+              <td>
+                  <div class="tableBtnRemove">
+                      <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
+                  </div>
+              </td>
+          </tr>
+          </tbody>
+
+      </table>
+  </div>
+
+
+
 </div>
 <div id="noFavsDiv" style="cursor: pointer" class="nofavs">
   <p>
