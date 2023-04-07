@@ -23,6 +23,7 @@ import { MainCategoriesComponent } from './shared/main-categories/main-categorie
 import { ProfileModule } from './views/profile/profile.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { RouterModule, Routes } from '@angular/router';
     ReactiveFormsModule,
     // ProfileModule,
     NgxPaginationModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
