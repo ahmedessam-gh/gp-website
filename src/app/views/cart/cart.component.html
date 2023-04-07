@@ -1,9 +1,12 @@
-<div>
+<div *ngIf="cartProducts.length != 0">
     <div class="wrap cf">
         <h1 class="projTitle">Add To Your Cart<span>-&</span> Start Buying </h1>
-        <div class="heading cf">
+        <div class="heading cf ">
             <h1>My Cart</h1>
-            <a [routerLink]="['/shop']" class="continue">Continue Shopping</a>
+            <div class="d-flex justify-content-end">
+                <app-main-button [routerLink]="['/shop']" content="Continue Shopping" iconRight="caret-right"></app-main-button>
+
+            </div>
         </div>
     </div>
     <div class="tableContainer">
@@ -16,9 +19,34 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
-                
-                <tr>
+            <tbody >
+                <tr *ngFor="let cartProd of cartProducts">
+                    <td class="d-flex tableInfoCell">
+                        <div>
+                            <img src="{{cartProd.items.img}}" width="150px" height="150px" alt="">
+                        </div>
+                        <div class="prodInfo ms-3">
+                            <h6>{{cartProd.items.ProdName}}</h6>
+                            <p>{{cartProd.items.Category}}</p>
+                            <p>${{cartProd.items.Price}}</p>
+                            <p>{{cartProd.items.size}}</p>
+                        </div>
+                    </td>
+                    <td class="inStock">IN STOCK</td>
+                    <td>
+                        <div class="input-number">
+                            <button class="minus" (click)="minus(cartProd.items)">-</button>
+                            <input type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.items.quantity"  value="cartProd.items.quantity" min="1" max="20">
+                            <button class="plus" (click)="plus(cartProd.items)">+</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="tableBtnRemove" (click)="removeItem($event)">
+                            <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
+                        </div>
+                    </td>
+                </tr>
+                <!-- <tr>
                     <td class="d-flex tableInfoCell">
                         <div>
                             <img src="assets\images\01.jpg" width="150px" height="150px" alt="">
@@ -68,7 +96,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr class="bgOutOfStock">
+                <tr>
                     <td class="d-flex tableInfoCell">
                         <div>
                             <img src="assets\images\04.jpg" width="150px" height="150px" alt="">
@@ -117,35 +145,44 @@
                             <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
                         </div>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
-            
+
         </table>
         <div class="d-lg-flex justify-content-between pad-sections">
-            <div class="clearLink checkoutLink mt-3 mb-3 mb-md-0">
-                <a [routerLink]="['/checkout']">Clear Cart</a>
+            <div class="clearLink checkoutLink mt-3 mb-3 mb-md-0" (click)="clearCart()">
+                <app-main-button  content="Clear Cart"></app-main-button>
             </div>
             <div class="padCheckout d-flex flex-column me-0 align-items-center">
                 <div class="checkoutContent">
-                    <ul class="list-group list-unstyled">
-                        <li><span>Subtotal </span>$80</li>
-                        <li><span>Shipping </span>$180</li>
-                        <li><span>Taxes</span>$30</li>
-                    </ul>
+                    <table>
+                        <tr>
+                            <td><span>Subtotal</span></td>
+                            <td>${{total}}</td>
+                        </tr>
+                        <tr>
+                            <td><span>Shipping</span></td>
+                            <td>$80</td>
+                        </tr>
+                        <tr>
+                            <td><span>Taxes</span></td>
+                            <td>$20</td>
+                        </tr> 
+                    </table>
                 </div>
-                <div class="checkoutLink mt-3">
-                    <a [routerLink]="['/checkout']">Checkout</a>
+                <div class="checkoutLink mt-3" [routerLink]="['/checkout']">
+                    <app-main-button content="Checkout" iconRight="caret-right"></app-main-button>
                 </div>
             </div>
         </div>
     </div>
 
-   
+
 
 </div>
-<div id="noItemsDiv" style="cursor: pointer;"
-    class="pad-sections d-none noItems d-flex align-content-center flex-column justify-content-center align-items-center">
-    <p><svg class='fontawesomesvg' xmlns="http://www.w3.org/2000/svg"
+<div *ngIf="cartProducts.length == 0" [routerLink]="['/shop']" id="noItemsDiv" style="cursor: pointer;"
+    class="pad-sections noItems d-flex align-content-center flex-column justify-content-center align-items-center">
+    <p style="color:aquamarine;"><svg class='fontawesomesvg' xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
             <path
                 d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM252 160c0-11 9-20 20-20h44V96c0-11 9-20 20-20s20 9 20 20v44h44c11 0 20 9 20 20s-9 20-20 20H356v44c0 11-9 20-20 20s-20-9-20-20V180H272c-11 0-20-9-20-20z" />

@@ -1,6 +1,7 @@
 <div class="card">
   <div class="product-box">
-    <div class="product-img position-relative">
+    <div class="product-img position-relative"
+    (click)="addToCart()">
       <div class="ribbon-danger" *ngIf="product.rent">Rent</div>
       <div class="ribbon-success" *ngIf="product.status == 'Sale'">
         {{ product.status }}

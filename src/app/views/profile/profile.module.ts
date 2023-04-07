@@ -10,7 +10,9 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
     declarations: [
         ProfileComponent,
@@ -19,14 +21,16 @@ import { SharedModule } from 'src/app/shared/shared.module';
         FavouriteComponent,
         BottomBarComponent,
         MyOrdersComponent,
+        EditProfileComponent,
     ],
     imports: [
         CommonModule,
         ProfileRoutingModule,
         FontAwesomeModule,
         NgxPaginationModule,
-        SharedModule
-        
+        SharedModule,
+        ReactiveFormsModule,
+       
     ]
 })
 export class ProfileModule {}

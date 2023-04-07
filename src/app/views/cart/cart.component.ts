@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { event } from 'jquery';
 import { Observable } from 'rxjs';
+import { cart } from 'src/app/core/interfaces/cart';
 import { CartService } from 'src/app/core/services/cart.service';
 import { ProdService } from 'src/app/core/services/prod.service';
 
@@ -15,10 +16,11 @@ import { ProdService } from 'src/app/core/services/prod.service';
 
 export class CartComponent implements OnInit {
 
-  cartProducts: any;
-  totalForItem:Number;
+  cartProducts: cart[]=[];
+  total:number = 0;
+  // totalForItem:Number;
   constructor(private cart: CartService) {
-
+    
   }
 
 
@@ -27,12 +29,14 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartProducts = this.cart.getCart();
     console.log(this.cartProducts);
+   this.totalPrices();
   }
   minus(obj) {
     if (obj.quantity <= 1) {
       obj.quantity;
     } else {
       obj.quantity--;
+      this.totalPrices();
     }
   }
   plus(obj) {
@@ -40,12 +44,17 @@ export class CartComponent implements OnInit {
       obj.quantity;
     } else {
       obj.quantity++;
+      this.totalPrices();
     }
   }
+  totalPrices(){
+    this.total = this.cart.totalPrice();
+    console.log(this.total);
+  }
+
   clearCart() {
-    
-    this.cartProducts = []
-    
+    this.cartProducts.length = 0;  
+    // this.totalPrices();
   }
 
   /*remove clicked item from cart*/

@@ -27,9 +27,7 @@ export class HomeComponent implements OnInit {
     console.log(this.favouriteList);
     // this.getFavourites();
   }
-  addToCart(productItem: Prod) {
-    this.cart.addToCart(productItem);
-  }
+  
   addToFav(newProd: Prod, event) {
     this.prod.addToFav(newProd, event);
     // this.getFavourites();

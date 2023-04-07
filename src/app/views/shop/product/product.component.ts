@@ -46,7 +46,7 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(productItem: Prod) {
-    this.cart.addToCart(productItem);
+    
   }
   changePhoto(photo: any) {
     const smallPhotos = document.querySelectorAll(
