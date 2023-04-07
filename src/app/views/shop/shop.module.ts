@@ -7,7 +7,7 @@ import { faBootstrap } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from 'src/app/shared/shared.module';
-SharedModule
+SharedModule;
 @NgModule({
   declarations: [ShopComponent],
   imports: [

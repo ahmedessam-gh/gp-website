@@ -2,7 +2,7 @@
   <div class="row">
     <div class="productImg col-xl-6 col-6">
       <div class="productBigImg py-2">
-        <img src="{{ myprod.img }}" alt="sss" width="100%" />
+        <img src="{{ myprod.img }}" alt="sss" width="450px" />
       </div>
       <div class="productSmallimgs">
         <img
@@ -13,16 +13,16 @@
         />
         <img
           class="px-2"
-          src="assets\images\contactus.jpg"
+          src="assets\images\02.jpg"
           alt=""
           width="15%"
-          (click)="changePhoto('assets/images/contactus.jpg')"
+          (click)="changePhoto('assets/images/02.jpg')"
         />
         <img
-          src="assets\images\formal.jpg"
+          src="assets\images\04.jpg"
           alt=""
           width="15%"
-          (click)="changePhoto('assets/images/formal.jpg')"
+          (click)="changePhoto('assets/images/04.jpg')"
         />
       </div>
     </div>
@@ -188,9 +188,39 @@
     <div class="row"></div>
   </div>
 </div>
-<div class="owl-carousel owl-theme">
-  <app-productbox class="w-75" [product]="myprod"></app-productbox>
-  <app-productbox class="w-75" [product]="myprod"></app-productbox>
-  <app-productbox class="w-75" [product]="myprod"></app-productbox>
-  <app-productbox class="w-75" [product]="myprod"></app-productbox>
+<div class="carousel-wrap">
+  <div class="owl-carousel owl-theme">
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+  </div>
+</div>
+<hr />
+
+<div class="prodQA">
+  <div class="container pad-sections">
+    <h3 class="similarProductsHeader">Product Questions & Answers</h3>
+    <div *ngFor="let question of questions">
+      <strong> Question:</strong>
+      <label> {{ question.question }}</label>
+      <br />
+
+      <label for="question"
+        ><strong> Answer:</strong>
+        <label> {{ question.answer }}</label>
+      </label>
+    </div>
+    <input name="question" [(ngModel)]="newQuestion" type="text" />
+
+    <app-main-button (click)="addQuestion()">Add Question</app-main-button>
+  </div>
 </div>
