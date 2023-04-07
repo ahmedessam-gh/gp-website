@@ -45,8 +45,11 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  addToCart(productItem: Prod) {
-    
+  addToCart(prod :Prod) {
+    this.cart.addToCart({
+      items:prod,
+      total:0,
+    })
   }
   changePhoto(photo: any) {
     const smallPhotos = document.querySelectorAll(

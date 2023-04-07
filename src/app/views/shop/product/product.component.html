@@ -159,7 +159,6 @@
 
       <app-main-button
         class="buttons"
-        (click)="addToCart(myprod)"
         iconLeft="heart"
         content="Favorite"
       ></app-main-button>
@@ -185,15 +184,12 @@
   <div class="container pad-sections">
     <h3 class="similarProductsHeader">Similar Products</h3>
 
-    <div class="row">
-      <div class="owl-carousel owl-theme">
-        <div
-          class="card col-xl-4 col-6 d-flex"
-          *ngFor="let newProd of prods | slice : 0 : 3"
-        >
-          <app-productbox class="w-75" [product]="newProd"></app-productbox>
-        </div>
-      </div>
-    </div>
+    <div class="row"></div>
   </div>
+</div>
+<div class="owl-carousel owl-theme">
+  <app-productbox class="w-75" [product]="myprod"></app-productbox>
+  <app-productbox class="w-75" [product]="myprod"></app-productbox>
+  <app-productbox class="w-75" [product]="myprod"></app-productbox>
+  <app-productbox class="w-75" [product]="myprod"></app-productbox>
 </div>
