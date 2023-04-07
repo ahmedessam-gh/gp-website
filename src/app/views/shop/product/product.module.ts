@@ -7,6 +7,9 @@ import { ProductComponent } from './product.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import * as slick from 'slick-carousel';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import 'owl.carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
 
 @NgModule({
   declarations: [ProductComponent],
@@ -16,6 +19,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     SharedModule,
   ],
 })

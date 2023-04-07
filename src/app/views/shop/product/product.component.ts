@@ -3,6 +3,9 @@ import { Prod } from 'src/app/core/interfaces/Prod';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ProdService } from 'src/app/core/services/prod.service';
+import 'owl.carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+
 declare var $: any;
 import 'slick-carousel';
 @Component({
@@ -14,6 +17,14 @@ export class ProductComponent implements OnInit {
   myprod: any;
   prods: Prod[] = [];
   myprodColor: any;
+
+  questions = [
+    { question: 'Question 1', answer: 'Answer 1' },
+    { question: 'Question 2', answer: 'Answer 2' },
+    { question: 'Question 3', answer: 'Answer 3' },
+  ];
+  newQuestion = '';
+
   selectedValue: string;
   constructor(
     private cart: CartService,
@@ -28,25 +39,32 @@ export class ProductComponent implements OnInit {
     this.myprod = this.prod.product.find((prod) => prod.id === prodid);
     this.myprodColor = this.prod.product[this.myprod.id].color;
 
-    (<any>$('.slider-nav')).slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      prevArrow: null,
-      nextArrow: null,
-      dots: true,
-    });
-
     $('.owl-carousel').owlCarousel({
-      items: 1,
-      loop: true,
-      margin: 10,
-      autoplay: true,
-      autoplayTimeout: 5000,
+      nav: true,
+      margin: 30,
+      dots: false,
+
+      responsive: {
+        0: {
+          items: 2,
+        },
+        600: {
+          items: 3,
+        },
+        1000: {
+          items: 4,
+        },
+      },
     });
   }
 
   addToCart(productItem: Prod) {
     this.cart.addToCart(productItem);
+  }
+
+  addQuestion() {
+    this.questions.push({ question: this.newQuestion, answer: '' });
+    this.newQuestion = '';
   }
   changePhoto(photo: any) {
     const smallPhotos = document.querySelectorAll(

@@ -60,7 +60,9 @@
   .custom-radios input[type=radio] {
     display: none;
   }
+  .productBigImg img{
 
+  }
   .custom-radios input[type=radio] + label span {
     display: inline-block;
     width: 40px;
@@ -151,7 +153,12 @@ color:white;
 
 
 }
+.prodQA h3{
+  font-family: var(--main-font);
+  color: var(--main-color);
+  text-transform: uppercase;
 
+}
 .similarProducts h3{
 
   font-family: var(--main-font);
@@ -171,6 +178,134 @@ text-transform: uppercase;
   margin: 0 0 0 0;
   padding: 0 0 0 0 !important;
 }
+
+.carousel-wrap {
+  margin: 90px auto;
+  padding: 0 5%;
+  width: 80%;
+  position: relative;
+}
+
+/* fix blank or flashing items on carousel */
+.owl-carousel .item {
+  position: relative;
+  z-index: 100;
+  width: 300px !important ;
+}
+
+
+
+.owl-theme::ng-deep .owl-nav button.owl-next {
+  background: 0 0 !important;
+  color:  inherit !important;
+  border: none !important;
+  padding: 0!important;
+  font: inherit;
+  position: absolute;
+  top: 40% !important;
+  transform: translateY(-50%);
+  color: var(--main-color) !important;
+
+  right: -40px !important;
+  font-size: 62px;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16'  height='15' viewBox='0 0 30 30'%3e%3cpath fill='darkcyan'  stroke='darkcyan' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e") !important;
+
+
+}
+
+
+
+
+.owl-theme::ng-deep .owl-nav button.owl-prev {
+  background: 0 0 !important;
+  color: inherit !important;
+  border: none !important;
+  padding: 0!important;
+  font: inherit;
+  position: absolute;
+  top: 40% !important;
+  transform: translateY(-50%);
+  color: var(--main-color) !important;
+
+  left: -40px !important;
+  font-size: 62px;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16'  height='15' viewBox='0 0 30 30'%3e%3cpath fill='none'  stroke='darkcyan' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e") !important;
+
+
+}
+
+.qa-section {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.qa-section h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.qa-list {
+  margin-bottom: 20px;
+}
+
+.qa-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.qa-item .question {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.qa-item .answer {
+  margin-top: 5px;
+}
+
+.edit-answer {
+  margin-top: 10px;
+}
+
+.edit-answer label {
+  margin-right: 10px;
+}
+
+.add-qa {
+  text-align: center;
+}
+
+.add-qa h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.add-qa input {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  margin-right: 10px;
+}
+
+.add-qa input:focus {
+  outline: none;
+}
+
+.add-qa button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0099ff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.add-qa button:hover {
+  background-color: #0077cc;
+}
+
 @media screen and (min-width:740px) {
   .btn-w{
       width: 35% !important;
