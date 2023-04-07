@@ -12,3 +12,75 @@
     align-content: center;
     height: 100%;
 }
+:host{
+    font-family: var(--main-font);
+}
+
+.orderstitle h1 {
+    font-family: var(--main-font);
+      font-weight: bold;
+    
+      text-align: center;
+      font-size: 2em;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      animation: bounceIn 1s ease-in-out;
+    }
+.fontawesomesvg {
+    width: 100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Droid Serif", serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*table content*/
+.tableContent{
+  vertical-align: middle;
+  width: 85%;
+  margin: auto;
+}
+
+.tableContainer{
+  width: 70%;
+  margin: auto;
+}
+.tableBtnRemove{
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+}
+.tableBtnRemove fa-icon{
+  color: red;
+  font-size: 24px;
+}
+.prodInfo h6{
+  color: var(--main-color);
+  font-size: 20px;
+}
+.prodInfo p{
+  color: #9e9c9c;
+  font-size: 14px;
+}
+
+.inStock{
+  color: rgb(152, 195, 88);
+}
+.outOfStock{
+  color: rgb(235, 37, 30);
+}
+
+
+
+
+

@@ -13,6 +13,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+
 @NgModule({
     declarations: [
         ProfileComponent,
@@ -30,6 +34,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         NgxPaginationModule,
         SharedModule,
         ReactiveFormsModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatIconModule,
+        
        
     ]
 })
