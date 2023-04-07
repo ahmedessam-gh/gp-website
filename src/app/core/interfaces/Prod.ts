@@ -1,7 +1,4 @@
-import { Interface } from 'readline';
-import { cart } from './cart';
-
-export class Prod {
+export interface Prod {
   id: number;
   ProdName: string;
   Price: number;
@@ -11,7 +8,7 @@ export class Prod {
   color: prodDetails[];
   colorChosen: string;
   discount: number;
-  quantity: Number = 1;
+  quantity: number;
   status: string;
   rating: number;
   rent: boolean;

@@ -1,11 +1,11 @@
 <button
-  class="btn btn-custom my-3"
+  class="btn btn-custom"
   [class]="myClass"
   type="{{ type }}"
   [ngStyle]="buttonStyle"
   [disabled]="disabledBtn"
 >
-<fa-icon *ngIf="iconLeft" [icon]="iconLeft"></fa-icon>
+<fa-icon *ngIf="iconLeft" class="me-1" [icon]="iconLeft"></fa-icon>
 {{ content }}
-<fa-icon *ngIf="iconRight" [icon]="iconRight"></fa-icon>
+<fa-icon *ngIf="iconRight" class="ms-1" [icon]="iconRight"></fa-icon>
 </button>

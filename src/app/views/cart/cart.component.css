@@ -140,10 +140,10 @@ img {
 }
 
 
-input::-webkit-outer-spin-button,
+/* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none; 
-}
+} */
 
 
 .input-number input {
@@ -193,7 +193,7 @@ input::-webkit-inner-spin-button {
   margin-right: 20px;
   text-transform: uppercase;
 }
-.checkoutLink a{
+/* .checkoutLink a{
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
   letter-spacing: -0.015em;
@@ -205,7 +205,7 @@ input::-webkit-inner-spin-button {
   border-radius: 50px;
   text-align: right;
   transition: 0.1s all ease-in-out;
-  
+  cursor: pointer;
 }
 
 .checkoutLink a:after {
@@ -219,7 +219,7 @@ input::-webkit-inner-spin-button {
 .checkoutLink a:focus,
 .checkoutLink a:active {
   background: var(--main-color);
-}
+} */
 
 
 .noItems{

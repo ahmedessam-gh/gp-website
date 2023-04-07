@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Prod } from 'src/app/core/interfaces/Prod';
+import { CartService } from 'src/app/core/services/cart.service';
 import { ProdService } from 'src/app/core/services/prod.service';
 
 @Component({
@@ -14,17 +15,26 @@ export class ProductboxComponent implements OnInit {
   public form: FormGroup;
   favouriteList: any = [];
 
-  constructor(private prod: ProdService, private fb: FormBuilder) {
+  constructor(private prod: ProdService,private cart :CartService, private fb: FormBuilder) {
     this.form = this.fb.group({
       rating: [5],
     });
     this.favouriteList = this.prod.getFav();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
+  
   addToFav(product: Prod, event) {
     this.prod.addToFav(product, event);
     // this.getFavourites();
+  }
+  addToCart(productItem: Prod) {
+    this.cart.addToCart({
+      items: this.product,
+      total: 0
+    } );
   }
 }

@@ -37,24 +37,9 @@ export class ShopComponent implements OnInit {
       category: [],
     });
   }
-  addToCart(productItem: Prod) {
-    this.cart.addToCart(productItem);
-  }
+ 
 
-  // getFavourites() {
-  //   var favs = document.getElementsByClassName('favs');
-  //   if (this.favouriteList.length == 0) {
-  //     console.log('no items');
-  //   } else {
-  //     for (var i = 0; i < favs.length; i++) {
-  //       for (var j = 0; j < this.favouriteList.length; j++) {
-  //         if (Number(favs[i].id) == this.favouriteList[j].id) {
-  //           favs[i].classList.add('favIcon');
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+  
 
   clearAllFilters() {
     $(document).ready(() => {
