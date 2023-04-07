@@ -29,22 +29,24 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartProducts = this.cart.getCart();
     console.log(this.cartProducts);
-   
+   this.totalPrices();
   }
-  // minus(obj) {
-  //   if (obj.quantity <= 1) {
-  //     obj.quantity;
-  //   } else {
-  //     obj.quantity--;
-  //   }
-  // }
-  // plus(obj) {
-  //   if (obj.quantity >= 10) {
-  //     obj.quantity;
-  //   } else {
-  //     obj.quantity++;
-  //   }
-  // }
+  minus(obj) {
+    if (obj.quantity <= 1) {
+      obj.quantity;
+    } else {
+      obj.quantity--;
+      this.totalPrices();
+    }
+  }
+  plus(obj) {
+    if (obj.quantity >= 10) {
+      obj.quantity;
+    } else {
+      obj.quantity++;
+      this.totalPrices();
+    }
+  }
   totalPrices(){
     this.total = this.cart.totalPrice();
     console.log(this.total);

@@ -35,9 +35,9 @@
                     <td class="inStock">IN STOCK</td>
                     <td>
                         <div class="input-number">
-                            <!-- <button class="minus" (click)="minus()">-</button> -->
-                            <input type="number" id="quantity" (ngModelChange)="totalPrices()" [(ngModel)]="cartProd.items.quantity"  value="cartProd.items.quantity" min="1" max="10">
-                            <!-- <button class="plus" (click)="plus(cartProd.items)">+</button> -->
+                            <button class="minus" (click)="minus(cartProd.items)">-</button>
+                            <input type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.items.quantity"  value="cartProd.items.quantity" min="1" max="20">
+                            <button class="plus" (click)="plus(cartProd.items)">+</button>
                         </div>
                     </td>
                     <td>
@@ -155,11 +155,20 @@
             </div>
             <div class="padCheckout d-flex flex-column me-0 align-items-center">
                 <div class="checkoutContent">
-                    <ul class="list-group list-unstyled">
-                        <li><span>Subtotal </span>${{total}}</li>
-                        <li><span>Shipping </span>$180</li>
-                        <li><span>Taxes</span>$30</li>
-                    </ul>
+                    <table>
+                        <tr>
+                            <td><span>Subtotal</span></td>
+                            <td>${{total}}</td>
+                        </tr>
+                        <tr>
+                            <td><span>Shipping</span></td>
+                            <td>$80</td>
+                        </tr>
+                        <tr>
+                            <td><span>Taxes</span></td>
+                            <td>$20</td>
+                        </tr> 
+                    </table>
                 </div>
                 <div class="checkoutLink mt-3" [routerLink]="['/checkout']">
                     <app-main-button content="Checkout" iconRight="caret-right"></app-main-button>

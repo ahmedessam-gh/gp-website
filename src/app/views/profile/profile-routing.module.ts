@@ -4,6 +4,7 @@ import { FavouriteComponent } from './favourites/favourites.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { ProfileComponent } from './profile.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 export const routes: Routes = [
   {
     path: '',
@@ -12,6 +13,7 @@ export const routes: Routes = [
       { path: 'details', component: ProfileDetailsComponent },
       { path: 'fav', component: FavouriteComponent },
       { path: 'myorders', component: MyOrdersComponent },
+      { path: 'edit', component: EditProfileComponent },
     ],
   },
 ];

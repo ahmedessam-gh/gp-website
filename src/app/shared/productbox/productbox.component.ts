@@ -31,7 +31,7 @@ export class ProductboxComponent implements OnInit {
     this.prod.addToFav(product, event);
     // this.getFavourites();
   }
-  addToCart(productItem: Prod) {
+  addToCart() {
     this.cart.addToCart({
       items: this.product,
       total: 0
