@@ -2,10 +2,11 @@
   class="btn btn-custom"
   [class]="myClass"
   type="{{ type }}"
+  backgroundColor="backGroundColor"
   [ngStyle]="buttonStyle"
   [disabled]="disabledBtn"
 >
-<fa-icon *ngIf="iconLeft" class="me-1" [icon]="iconLeft"></fa-icon>
-{{ content }}
-<fa-icon *ngIf="iconRight" class="ms-1" [icon]="iconRight"></fa-icon>
+  <fa-icon *ngIf="iconLeft" class="me-1" [icon]="iconLeft"></fa-icon>
+  {{ content }}
+  <fa-icon *ngIf="iconRight" class="ms-1" [icon]="iconRight"></fa-icon>
 </button>

@@ -60,7 +60,8 @@
   .custom-radios input[type=radio] {
     display: none;
   }
-  .productBigImg img{
+  .bigImg.fadeInLeft{
+    animation: fadeIn 0.5s !important;
 
   }
   .custom-radios input[type=radio] + label span {
@@ -84,8 +85,22 @@
 
     color: var(--main-color);
   }
+.productSmallimgs:hover{
+border: 2px solid var(--main-color);
+transition: 0.5s ease-in-out;
 
+}
 
+.productSmallimgs.selected {
+
+  border: 2px solid var(--main-color);
+
+}
+.productSmallimgs{
+
+  border: 2px solid rgba(0, 0, 0, 0.6);
+cursor: pointer;
+}
 
   .custom-radios input[type=radio]:checked + label span  fa-icon{
     opacity: 1;
@@ -99,6 +114,18 @@
 
 }
 
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number]{
+
+  outline: none;
+
+}
 .productDetails .productName{
 margin: 0;
 font-family: var(--main-font);
@@ -113,13 +140,7 @@ text-transform: capitalize;
 }
 
 
-.slider-nav .slick-dots {
-  position: absolute;
-  bottom: 9px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
+
 .addtoCartButton {
   background-color: var(--main-color);
   font-size: 1.1rem;
@@ -214,7 +235,10 @@ text-transform: uppercase;
 }
 
 
+.owl-theme.owl-drag::ng-deep  .owl-item{
 
+background: dodgerblue !important;
+}
 
 .owl-theme::ng-deep .owl-nav button.owl-prev {
   background: 0 0 !important;
@@ -234,77 +258,113 @@ text-transform: uppercase;
 
 }
 
-.qa-section {
-  font-family: Arial, sans-serif;
-  padding: 20px;
+.questionsection label{
+
+color: var(--main-color);
+font-family: var(--main-font);
+
+}
+.answer-container{
+
+  width: 40%;
+}
+.questionsection strong{
+
+
+  color: var(--gray-color);
+  font-family: var(--button-font);
+}
+.questionsection {
+
+  border-bottom: 1px solid #ccc;
 }
 
-.qa-section h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 20px;
+.adding-question .addlabel{
+
+  color: var(--main-color);
+  font-family: var(--main-font);
 }
 
-.qa-list {
-  margin-bottom: 20px;
-}
-
-.qa-item {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.qa-item .question {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.qa-item .answer {
-  margin-top: 5px;
-}
-
-.edit-answer {
-  margin-top: 10px;
-}
-
-.edit-answer label {
-  margin-right: 10px;
-}
-
-.add-qa {
-  text-align: center;
-}
-
-.add-qa h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.add-qa input {
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  border-bottom: 2px solid #ddd;
-  margin-right: 10px;
-}
-
-.add-qa input:focus {
-  outline: none;
-}
-
-.add-qa button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #0099ff;
-  color: #fff;
-  border: none;
+.adding-question a{
+color: default;
+  text-decoration: none;
   cursor: pointer;
 }
 
-.add-qa button:hover {
-  background-color: #0077cc;
+.error-note {
+  margin-top: 0.5rem;
 }
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  display: block;
+}
+fieldset {
+  margin-bottom: 1em !important;
+  border: 1px solid black !important;
+  padding:1px !important;
+}
+.questionform{
+
+  border: 1px var(--hover-color) solid;
+  width:50%;
+
+}
+form label{
+
+  color: var(--main-color);
+  font-family: var(--main-font);
+}
+
+.inStock{
+
+color: var();
+  font-family: var(--main-font);
+  color: var(--hover-color);
+}
+.outOfStock{
+  color:var(--red-color);
+  font-family: var(--main-font);
+}
+
+.input-number input {
+  border: none;
+  text-align: center;
+  background-color: transparent;
+}
+
+.input-number button {
+  width: 5%;
+  font-size: 18px;
+  background: var(--main-color);
+  color: #ffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.input-number button:hover {
+  background-color: #ddd;
+  color: var(--main-color);
+}
+
+
+.minus{
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.plus{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.productBigImg{
+
+
+}
+
 
 @media screen and (min-width:740px) {
   .btn-w{

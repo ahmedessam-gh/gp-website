@@ -10,7 +10,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import 'owl.carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
-
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [ProductComponent],
   imports: [
@@ -21,6 +23,9 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
     ReactiveFormsModule,
     MatFormFieldModule,
     SharedModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
   ],
 })
 export class ProductModule {}

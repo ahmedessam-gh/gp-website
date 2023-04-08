@@ -102,13 +102,13 @@ img {
 .heading a.continue:focus,
 .heading a.continue:active {
   background: var(--main-color);
-  
+
 }
 
 /*table content*/
 .tableContent{
   vertical-align: middle;
-  
+
 }
 .tableContainer{
   width: 70%;
@@ -142,12 +142,14 @@ img {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none; 
+  -webkit-appearance: none;
 }
 
 
 .input-number input {
   border: none;
+  outline: none;
+
   text-align: center;
   background-color: transparent;
 }

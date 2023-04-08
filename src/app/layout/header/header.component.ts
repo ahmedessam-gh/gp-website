@@ -25,11 +25,6 @@ export class HeaderComponent implements OnInit {
   constructor(private prod: ProdService, private router: Router) {}
   ngOnInit(): void {
     this.myProd = this.prod.product;
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.showSearch = false;
-      }
-    });
   }
 
   searchContainer() {
@@ -42,6 +37,9 @@ export class HeaderComponent implements OnInit {
       const search_container = document.querySelector('.search-container');
 
       search_container?.classList.remove('activeSearchcontainer');
+      this.searchText = '';
+      this.showSuggetions = true;
+      this.showResults = false;
     }
   }
 

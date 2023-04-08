@@ -1,32 +1,44 @@
 <div class="container pad-sections">
   <div class="row">
-    <div class="productImg col-xl-6 col-6">
+    <div class="productImg col-xl-6 col-12">
       <div class="productBigImg py-2">
-        <img src="{{ myprod.img }}" alt="sss" width="450px" />
-      </div>
-      <div class="productSmallimgs">
         <img
+          class="bigImg"
           src="{{ myprod.img }}"
+          alt="sss"
+          width="80%"
+          [ngClass]="{ fadeInLeft: isBigPhotoUpdated }"
+          (load)="isBigPhotoUpdated = true"
+        />
+      </div>
+      <div>
+        <img
+          class="productSmallimgs mx-2"
+          src="{{ myprod.img }}"
+          [ngClass]="{ selected: selectedPhoto === myprod.img }"
           alt=""
           width="15%"
           (click)="changePhoto(myprod.img)"
         />
         <img
-          class="px-2"
+          class="productSmallimgs mx-2"
           src="assets\images\02.jpg"
+          [ngClass]="{ selected: selectedPhoto === 'assets/images/02.jpg' }"
           alt=""
           width="15%"
           (click)="changePhoto('assets/images/02.jpg')"
         />
         <img
+          class="productSmallimgs mx-2"
           src="assets\images\04.jpg"
           alt=""
+          [ngClass]="{ selected: selectedPhoto === 'assets/images/04.jpg' }"
           width="15%"
           (click)="changePhoto('assets/images/04.jpg')"
         />
       </div>
     </div>
-    <div class="productDetails col-xl-6 col-6">
+    <div class="productDetails col-xl-6 col-12 mt-lg-0 mt-3">
       <h1 class="productName">{{ myprod.ProdName }}</h1>
       <label class="productRent" *ngIf="myprod.rent">
         <fa-icon class="px-1" icon="circle-check"></fa-icon> Avaliable for
@@ -100,28 +112,6 @@
               value="xxl"
               [(ngModel)]="myprod.size"
             />
-
-            <label for="xxl" class="productsingelSize">XXL </label>
-
-            <input
-              type="radio"
-              id="xxxl"
-              name="size"
-              value="xxxl"
-              [(ngModel)]="myprod.size"
-            />
-
-            <label for="xxxl" class="productsingelSize">xxxl </label>
-
-            <input
-              type="radio"
-              id="xxxxl"
-              name="size"
-              value="xxxxl"
-              [(ngModel)]="myprod.size"
-            />
-
-            <label for="xxxxl" class="productsingelSize">XxxxL </label>
           </li>
         </ul>
       </div>
@@ -151,29 +141,38 @@
 
       <app-main-button
         (click)="addToCart(myprod)"
-        class="buttons"
+        class="buttons mx-3"
         class="orderButton"
         iconLeft="cart-shopping"
         content="Add To Cart"
       ></app-main-button>
 
       <app-main-button
-        class="buttons"
+        (click)="addToFav(myprod, 0)"
+        class="buttons mx-2"
         iconLeft="heart"
         content="Favorite"
+        backGroundColor="grey"
       ></app-main-button>
 
       <div class="py-4">
-        <label class="productLabel px-2"> Select Your Quantity : </label>
-        <input
-          type="number"
-          class="text-center productQuantity"
-          min="1"
-          max="10"
-          value="1"
-          [(ngModel)]="myprod.quantity"
-        />
+        <label class="productLabel py-3"> Select Your Quantity : </label>
+        <div class="input-number">
+          <button class="minus" (click)="minus(myprod)">-</button>
+          <input
+            readonly
+            type="number"
+            id="quantity"
+            [(ngModel)]="myprod.quantity"
+            value="1"
+            min="1"
+            max="20"
+          />
+          <button class="plus" (click)="plus(myprod)">+</button>
+        </div>
       </div>
+      <div *ngIf="myprod.isStock == true" class="inStock">IN STOCK</div>
+      <div *ngIf="myprod.isStock == false" class="outOfStock">OUT OF STOCK</div>
     </div>
   </div>
 </div>
@@ -207,19 +206,58 @@
 
 <div class="prodQA">
   <div class="container pad-sections">
-    <h3 class="similarProductsHeader">Product Questions & Answers</h3>
-    <div *ngFor="let question of questions">
-      <strong> Question:</strong>
-      <label> {{ question.question }}</label>
-      <br />
-
-      <label for="question"
-        ><strong> Answer:</strong>
-        <label> {{ question.answer }}</label>
-      </label>
+    <h3 class="similarProductsHeader pad-sections">
+      Product Questions & Answers
+    </h3>
+    <div class="py-3" *ngFor="let question of questions">
+      <div class="questionsection py-3">
+        <strong class="px-3"> Question: </strong>
+        <label> {{ question.question }}</label>
+        <br />
+        <div class="d-flex py-1">
+          <strong class="px-3"> Answer: </strong>
+          <div class="answer-container">
+            <span> {{ question.answer }}</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <input name="question" [(ngModel)]="newQuestion" type="text" />
+    <div class="adding-question">
+      <div class="addinglabela pad-sections">
+        <label class="addlabel">
+          Do you have a question about the product? </label
+        ><br />
+        <a class="add-question" (click)="showNewQuestionForm = true">
+          Click here to ask us a question!
+        </a>
+      </div>
 
-    <app-main-button (click)="addQuestion()">Add Question</app-main-button>
+      <div class="questionform px-4 py-3" *ngIf="showNewQuestionForm">
+        <form [formGroup]="question" (ngSubmit)="addQuestion()">
+          <label for="question"> Enter a new question :</label>
+          <input
+            class="form-control"
+            placeholder="Enter your Question"
+            formControlName="newQuestion"
+            required
+          />
+          <div
+            class="error-note"
+            *ngIf="
+              question.controls['newQuestion'].invalid &&
+              question.controls['newQuestion'].touched
+            "
+          >
+            <span class="error-message px-2">{{ getErrorMessage() }}</span>
+          </div>
+          <br />
+        </form>
+        <app-main-button
+          disabled="!newQuestion.valid"
+          content="Submit Question"
+          (click)="addQuestion()"
+        ></app-main-button>
+      </div>
+    </div>
   </div>
 </div>

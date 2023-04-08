@@ -14,6 +14,7 @@ export interface Prod {
   rent: boolean;
   note: string;
   details: string;
+  isStock: boolean;
 }
 export interface prodDetails {
   value: string;
