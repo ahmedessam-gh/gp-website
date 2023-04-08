@@ -1,15 +1,23 @@
-<div class=" animate__animated animate__backInDown mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
-    <h5 style="color:var(--main-color)">Login</h5>
-    <div class="w-50 form-content">
+<div class="loginError error animate__animated animate__fadeInDown" *ngIf="submitted && loginForm.invalid ">
+  <p>Email or Password is not valid</p>
+</div>
 
-      <input type="email" name="email" #email ngModel class="d-block form-control my-3"
+<div class=" animate__animated animate__backInDown mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
+  <h5 style="color:var(--main-color)">Login</h5>
+    
+   <form  class="w-50" [formGroup]="loginForm" >
+    <div class="form-content">
+
+      <input type="email" name="email" formControlName="email" class="d-block form-control my-3"
         placeholder="Enter Your Email ..." required>
-      <input type="password" name="password" #password ngModel class="d-block form-control my-3"
+       
+      <input type="password" name="password" formControlName="password" class="d-block form-control my-3"
         placeholder="Enter Your password ..." required>
       <a href="#" class="text-decoration-none" style="color:grey; font-size: 0.8rem;">Forgot Password ?</a>
       <div class="loginBtn my-3">
-        <app-main-button width="100%" content="Login"></app-main-button>
+        <app-main-button (click)="login()" width="100%" content="Login"></app-main-button>
       </div>
     </div>
+   </form>
     <button class="btn" [routerLink]="['/welcome/register']">Create Account?</button>
   </div>

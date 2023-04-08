@@ -1,18 +1,51 @@
 <div class="animate__animated animate__backInDown mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
     <h5 style="color:var(--main-color)">Sign Up</h5>
     <div class="w-50 form-content">
-      <form (ngSubmit)="login(registerForm)" #registerForm="ngForm">
-        <input type="text" name="fullName" #name ngModel class="d-block form-control my-3"
-          placeholder="Enter Your Name ..." required>
-          <input type="email" name="fullName" #name ngModel class="d-block form-control my-3"
-          placeholder="Enter Your Name ..." required>
-          <input type="password" name="fullName" #name ngModel class="d-block form-control my-3"
-          placeholder="Enter Your Name ..." required>
-        <div class="my-3">
-          <app-main-button (click)="addShake(registerForm)" id="app-button" width="100%" 
-            content="register"></app-main-button>
+      <form [formGroup]="registerForm">
+        <div class="registerForm">
+          <div class="row">
+            <div class="col-6 p-0">
+              <input type="text" formControlName="fname" class="d-block form-control"
+              placeholder="Enter your first name ...">
+            </div>
+            <div class="col-6">
+              <input type="text" formControlName="lname" class="d-block form-control"
+              placeholder="Enter your last name ...">
+            </div>
+            
+          </div>
+            <div>
+              <input type="email" formControlName="email" class="d-block form-control"
+                placeholder="Enter your email ...">
+            </div>
+            <div *ngIf="submitted && registerForm.get('email').invalid"  class="error col-12 ">
+              <p>enter a valid email</p>
+            </div>
+            <div>
+              <input type="password" formControlName="password" class="d-block form-control"
+                placeholder="Enter your password ...">
+            </div>
+            <div *ngIf="submitted && registerForm.get('password').invalid" class="error">
+              <p>password is invalid</p>
+            </div>
+            <div>
+              <input type="password" formControlName="confirmPassword" class="d-block form-control"
+                placeholder="Re enter your password ...">
+            </div>
+            <div class="error" *ngIf="registerForm.get('confirmPassword').hasError('passNotMatching')"> 
+              <p>password is not matching </p>
+            </div>
+            
+            <div>
+              <input type="radio" formControlName="user" value="customer"> <span class="mx-3">Customer</span>
+              <input type="radio" formControlName="user" value="vendor"> <span class="ms-3">Vendor</span>
+            </div>
+          <div>
+            <app-main-button id="app-button" width="100%" 
+              content="register" (click)="register()"></app-main-button>
+          </div>
         </div>
       </form>
     </div>
-    <button class="btn" [routerLink]="['/welcome/loginn']" routerLinkActive="router-link-active" >Sign Up</button>
+    <button class="btn" [routerLink]="['/welcome/loginn']">Sign Up</button>
   </div>
