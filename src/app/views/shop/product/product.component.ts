@@ -20,9 +20,10 @@ import 'slick-carousel';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
+  submitted = false;
   myprod: any;
   prods: Prod[] = [];
-  myprodColor: any;
+  
   question: FormGroup;
   selectedPhoto: string;
   isBigPhotoUpdated: boolean;
@@ -61,7 +62,6 @@ export class ProductComponent implements OnInit {
     this.selectedPhoto = this.myprod.img;
     this.isBigPhotoUpdated = false;
 
-    this.myprodColor = this.prod.product[this.myprod.id].color;
 
     $('.owl-carousel').owlCarousel({
       nav: true,
@@ -82,7 +82,7 @@ export class ProductComponent implements OnInit {
     });
 
     this.question = this.fb.group({
-      newQuestion: ['', Validators.required],
+      newQuestion: ['', [Validators.required,Validators.minLength(6)]],
     });
   }
 
@@ -99,11 +99,12 @@ export class ProductComponent implements OnInit {
     return ' ';
   }
   addQuestion() {
+    this.submitted = true;
     if (this.question.valid) {
       const newQuestionValue = this.question.controls['newQuestion'].value;
       this.questions.push({ question: newQuestionValue, answer: '' });
-
-      this.question.reset(); // Clear the form control after adding the new question
+      this.question.reset();  // Clear the form control after adding the new question
+      this.submitted = false;
     }
   }
   changePhoto(photo: any) {

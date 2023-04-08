@@ -24,29 +24,31 @@ import { ProfileModule } from './views/profile/profile.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { Error404Component } from './views/error404/error404.component';
+import { SharedModule } from "./shared/shared.module";
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HeadFootComponent,
-  ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    Ng2SearchPipeModule,
-    AppRoutingModule,
-    FontAwesomeModule,
-    FormsModule,
-    ReactiveFormsModule,
-    // ProfileModule,
-    NgxPaginationModule,
-    RouterModule,
-    BrowserAnimationsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        HeadFootComponent,
+        Error404Component
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        Ng2SearchPipeModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgxPaginationModule,
+        RouterModule,
+        BrowserAnimationsModule,
+        SharedModule
+    ]
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
