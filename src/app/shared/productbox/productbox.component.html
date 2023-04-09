@@ -1,7 +1,6 @@
 <div class="card">
   <div class="product-box">
-    <div class="product-img position-relative"
-    (click)="addToCart()">
+    <div class="product-img position-relative">
       <div class="ribbon-danger" *ngIf="product.rent">Rent</div>
       <div class="ribbon-success" *ngIf="product.status == 'Sale'">
         {{ product.status }}
@@ -26,11 +25,19 @@
               ></fa-icon
             ></a>
           </li>
+          <li [routerLink]="['/shop/product', product.id]">
+            <a
+              ><fa-icon
+                [routerLink]="['/shop/product', product.id]"
+                icon="shopping-cart"
+              ></fa-icon
+            ></a>
+          </li>
         </ul>
       </div>
     </div>
 
-    <div class="product-details" [routerLink]="['/shop/product', product.id]">
+    <div class="product-details">
       <div class="rating"></div>
       <h4>
         {{ product.ProdName }}

@@ -61,7 +61,7 @@
     display: none;
   }
   .bigImg.fadeInLeft{
-    animation: fadeIn 0.5s !important;
+    animation: fadeIn 0.7s !important;
 
   }
   .custom-radios input[type=radio] + label span {
@@ -94,6 +94,9 @@ transition: 0.5s ease-in-out;
 .productSmallimgs.selected {
 
   border: 2px solid var(--main-color);
+    transform: scale(1.06) ;
+    transition: 0.5s ease-in-out;
+
 
 }
 .productSmallimgs{
@@ -219,7 +222,6 @@ text-transform: uppercase;
 .owl-theme::ng-deep .owl-nav button.owl-next {
   background: 0 0 !important;
   color:  inherit !important;
-  border: none !important;
   padding: 0!important;
   font: inherit;
   position: absolute;
