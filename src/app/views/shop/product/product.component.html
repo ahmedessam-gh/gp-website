@@ -61,6 +61,7 @@
               name="size"
               value="xs"
               [(ngModel)]="myprod.size"
+              (change)="onSizeChanged()"
             />
 
             <label for="xs" class="productsingelSize">XS </label>
@@ -71,6 +72,7 @@
               name="size"
               value="s"
               [(ngModel)]="myprod.size"
+              (change)="onSizeChanged()"
             />
 
             <label for="s" class="productsingelSize">s </label>
@@ -81,6 +83,7 @@
               name="size"
               value="m"
               [(ngModel)]="myprod.size"
+              (change)="onSizeChanged()"
             />
 
             <label for="m" class="productsingelSize">M </label>
@@ -91,6 +94,7 @@
               name="size"
               value="l"
               [(ngModel)]="myprod.size"
+              (change)="onSizeChanged()"
             />
 
             <label for="l" class="productsingelSize">L </label>
@@ -101,6 +105,7 @@
               name="size"
               value="xl"
               [(ngModel)]="myprod.size"
+              (change)="onSizeChanged()"
             />
 
             <label for="xl" class="productsingelSize">XL </label>
@@ -111,6 +116,7 @@
               name="size"
               value="xxl"
               [(ngModel)]="myprod.size"
+              (change)="onSizeChanged()"
             />
           </li>
         </ul>
@@ -230,7 +236,6 @@
         <a class="add-question" (click)="showNewQuestionForm = true">
           Click here to ask us a question!
         </a>
-        
       </div>
 
       <div class="questionform px-4 py-3" *ngIf="showNewQuestionForm">
@@ -244,12 +249,11 @@
           />
           <div
             class="error-note"
-            *ngIf="
-              submitted &&
-              question.controls['newQuestion'].invalid
-            "
+            *ngIf="submitted && question.controls['newQuestion'].invalid"
           >
-            <span class="error-message px-2">enter a valid question with min 6 letters</span>
+            <span class="error-message px-2"
+              >enter a valid question with min 6 letters</span
+            >
           </div>
           <br />
         </form>

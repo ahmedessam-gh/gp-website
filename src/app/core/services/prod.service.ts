@@ -15,7 +15,7 @@ export class ProdService {
         Category: 'Women',
         Price: 100,
         img: 'assets/images/01.jpg',
-        size: 's ',
+        size: 's',
         discount: 30,
         isStock: true,
         rent: true,
@@ -64,7 +64,7 @@ export class ProdService {
         ],
         colorChosen: ' ',
 
-        size: ' ',
+        size: 's',
 
         discount: 30,
         status: 'Sale',
@@ -83,7 +83,7 @@ export class ProdService {
         discount: 50,
         note: 'Solid Polo Collar T-shirt',
         rating: 5,
-        size: ' ',
+        size: 's',
         color: [
           {
             value: 'black',

@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
   submitted = false;
   myprod: any;
   prods: Prod[] = [];
-  
+
   question: FormGroup;
   selectedPhoto: string;
   isBigPhotoUpdated: boolean;
@@ -62,12 +62,12 @@ export class ProductComponent implements OnInit {
     this.selectedPhoto = this.myprod.img;
     this.isBigPhotoUpdated = false;
 
-
     $('.owl-carousel').owlCarousel({
       nav: true,
       margin: 10,
       dots: false,
-
+      loop: false,
+      rewind: true,
       responsive: {
         0: {
           items: 2,
@@ -82,7 +82,7 @@ export class ProductComponent implements OnInit {
     });
 
     this.question = this.fb.group({
-      newQuestion: ['', [Validators.required,Validators.minLength(6)]],
+      newQuestion: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -103,7 +103,7 @@ export class ProductComponent implements OnInit {
     if (this.question.valid) {
       const newQuestionValue = this.question.controls['newQuestion'].value;
       this.questions.push({ question: newQuestionValue, answer: '' });
-      this.question.reset();  // Clear the form control after adding the new question
+      this.question.reset(); // Clear the form control after adding the new question
       this.submitted = false;
     }
   }
@@ -139,5 +139,11 @@ export class ProductComponent implements OnInit {
   addToFav(product: Prod, event) {
     this.prod.addToFav(product, event);
     // this.getFavourites();
+  }
+
+  onSizeChanged() {
+    const newProduct = { ...this.myprod }; // Create a new object with the same properties as myprod
+    newProduct.size = this.myprod.size; // Update the size property with the new size
+    this.addToCart(newProduct); // Add the new product to the cart
   }
 }
