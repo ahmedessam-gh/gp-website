@@ -3,7 +3,21 @@
 	display: flex;
 	flex-direction: column;
 }
+.navSticky{
+	position: sticky;
+	top: 0;
+	z-index: 9999;
+	background-color: #ffffff;
+	
+}
+.navFixed{
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+	width: 100%;
 
+	
+}
 main {
 	flex-grow: 1;
 	

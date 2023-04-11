@@ -1,7 +1,6 @@
 * {
   font-family: var(--main-font);
 }
-
 .background1 {
   background-image: url(../../../assets/images/1920x1080-503178-formal-hand.jpg);
   background-position: center;
@@ -25,7 +24,28 @@
 }
 
 /*slideShow*/
-.slider-home {
+.slider-imgs{
+  background-image: url('../../../assets/images/1913844.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  /* background-color: rgb(191, 174, 238);
+  background-blend-mode:luminosity;
+z-index: -9999;  */
+
+}
+.headerContent{
+  position: absolute;
+  bottom: 15%;
+  left:10%;
+  width: 30%;
+  color: #ffffff;
+  
+}
+/* .slider-home {
   position: relative;
   overflow: hidden;
 }
@@ -42,8 +62,7 @@
   height: 100vh;
   width: 100%;
   float: left;
-  width: 25%;
-}
+} */
 
 @keyframes slideShow {
   0% {
@@ -96,14 +115,14 @@
 }
 
 
-.rent {
+/* .rent {
   position: relative;
   display: inline-block;
   color: var(--main-color);
   animation: flip 2s infinite;
   animation-delay: calc(.2s * var(--i));
   font-size: 3rem;
-}
+} */
 
 @keyframes flip {
 
@@ -414,5 +433,9 @@
   }
   .categories-section .card{
     height: 220px;
+  }
+  .headerContent{
+
+    width: 80%;
   }
 }
