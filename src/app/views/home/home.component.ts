@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit,OnDestroy,AfterViewInit{
   removeScroll = false;
   constructor(private elementRef: ElementRef,private renderer:Renderer2,private prod: ProdService, private cart: CartService ,private router:Router , public headerHome:HeaderService) {
     this.headerHome.navPosition = "fixed";
-    
+
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit,OnDestroy,AfterViewInit{
       this.renderer.setStyle(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'background','white');
 
     }
-    
+
   }
   ngAfterViewInit(){
     console.log(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'));
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit,OnDestroy,AfterViewInit{
     // this.getFavourites();
     this.onWindowScroll();
   }
-  
+
   addToFav(newProd: Prod, event) {
     this.prod.addToFav(newProd, event);
     // this.getFavourites();
@@ -80,6 +80,8 @@ export class HomeComponent implements OnInit,OnDestroy,AfterViewInit{
 
   ngOnDestroy(){
     this.headerHome.navPosition = "sticky";
-    // this.headerHome.getApplyScrollStyling();
+    this.headerHome.setApplyScrollStyling(true);
+    this.renderer.removeClass(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'returnPad');
+    this.renderer.setStyle(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'background','white');
   }
 }

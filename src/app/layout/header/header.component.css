@@ -1,22 +1,22 @@
-:host { 
+:host {
     /* position: sticky;
     top: 0;
     z-index: 9999; */
-    
+
 }
   .returnPad{
     padding:0.5rem 0rem !important;
-    
+
   }
-  
+
 .navScrollColor{
     /* background-color: #ffffff !important; */
     /* padding: 0 !important; */
-    
+
 }
 
 .navColorScrollLink{
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0) !important;
 }
 
 .nav-line{
@@ -70,7 +70,7 @@
 
 .dropdown-text li {
     padding: 2px 50px;
-    
+
 }
 
 
