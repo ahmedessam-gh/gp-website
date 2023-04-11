@@ -1,6 +1,6 @@
 .btn-custom {
     background-color: var(--main-color);
-    font-size: 1.1rem;
+    
     font-family: var(--button-font);
     text-decoration: none;
     letter-spacing: -0.015em;
