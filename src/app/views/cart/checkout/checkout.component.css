@@ -58,7 +58,7 @@ legend {
 }
 .step.active{
     opacity: 1;
-    z-index: 99999;
+    z-index: 9999;
 }
 /* .slideInOut {
     display: block;

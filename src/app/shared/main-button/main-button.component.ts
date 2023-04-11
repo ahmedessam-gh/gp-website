@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MainButtonComponent implements OnInit {
   @Input() content: string = 'button';
   @Input() color?: string;
+  @Input() fontSize: string;
   @Input() width: string = '';
   @Input() iconRight: any;
   @Input() iconLeft: any;
@@ -28,6 +29,7 @@ export class MainButtonComponent implements OnInit {
       'border-radius': this.borderRadius,
       padding: this.padding,
       'background-color': this.backGroundColor,
+      'font-size':this.fontSize || '0.75em',
     };
   }
   

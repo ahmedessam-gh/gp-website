@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [ngClass]="{'navFixed': header.navPosition === 'fixed', 'navSticky': header.navPosition === 'sticky'}"></app-header>
 <main>
     <!-- <h1><fa-icon icon="mug-saucer"></fa-icon>
         <i class="fa-light fa-magnifying-glass"></i>
