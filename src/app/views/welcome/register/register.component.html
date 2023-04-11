@@ -14,26 +14,41 @@
             </div>
             
           </div>
+          <div *ngIf="submitted && registerForm.get('fname').invalid && registerForm.get('lname').invalid"  class="error animate__animated col-12 ">
+            <ul>
+              <li>enter your name</li>
+            </ul> 
+          </div>
             <div>
               <input type="email" formControlName="email" class="d-block form-control"
                 placeholder="Enter your email ...">
             </div>
             <div *ngIf="submitted && registerForm.get('email').invalid"  class="error col-12 ">
-              <p>enter a valid email</p>
+              <ul>
+                <li>enter a valid email</li>
+              </ul> 
             </div>
             <div>
               <input type="password" formControlName="password" class="d-block form-control"
                 placeholder="Enter your password ...">
             </div>
             <div *ngIf="submitted && registerForm.get('password').invalid" class="error">
-              <p>password is invalid</p>
+              <ul>
+                <li>must contain at least 6 characters</li>
+                <li>
+                  must ontain only letters and numbers 
+                </li>
+              </ul>          
+              
             </div>
             <div>
               <input type="password" formControlName="confirmPassword" class="d-block form-control"
                 placeholder="Re enter your password ...">
             </div>
             <div class="error" *ngIf="registerForm.get('confirmPassword').hasError('passNotMatching')"> 
-              <p>password is not matching </p>
+              <ul>
+                <li>password is not matching</li>
+              </ul> 
             </div>
             
             <div>

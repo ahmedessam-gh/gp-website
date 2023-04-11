@@ -57,7 +57,7 @@ input::placeholder{
     font-family: var(--secondary-font);
 }
 
-.error p{
+.error p , ul,li{
     color: rgba(255,0,0,0.9);
     font-size: 0.75rem;
 }

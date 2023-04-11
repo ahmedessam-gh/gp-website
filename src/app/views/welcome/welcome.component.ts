@@ -18,14 +18,14 @@ export class WelcomeComponent implements OnInit {
 
 
 
-  login(form: any) {
+  // login(form: any) {
 
-    if (!form.valid) {
-      form.stopPropagation();
-    }
-    console.log(form.value);
+  //   if (!form.valid) {
+  //     form.stopPropagation();
+  //   }
+  //   console.log(form.value);
 
-  }
+  // }
 
 
   // showRegister(){
