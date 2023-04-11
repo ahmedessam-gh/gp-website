@@ -6,14 +6,14 @@
 .navSticky{
 	position: sticky;
 	top: 0;
-	z-index: 9999;
+	z-index: 99999;
 	background-color: #ffffff;
 	
 }
 .navFixed{
 	position: fixed;
 	top: 0;
-	z-index: 9999;
+	z-index: 99999;
 	width: 100%;
 
 	
