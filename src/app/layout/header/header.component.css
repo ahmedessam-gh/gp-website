@@ -19,9 +19,11 @@
 .navColorScrollLink {
     color: rgb(95, 95, 95) !important;
 }
-
+.link-white{
+    color:#ffffff !important;
+}
 .nav-line {
-    color: rgb(255, 255, 255);
+    color:rgb(95, 95, 95) ;
 }
 
 .navbar {
@@ -110,10 +112,12 @@
 .header-profile ul>* {
     font-size: 1rem;
 }
-
+.header-icons-no-scroll{
+    color: #ffffff !important;
+}
 .header-icons fa-icon {
-    /* color: var(--main-color); */
-    color: #ffffff;
+    color: var(--main-color);
+    
 }
 
 .user-dropdown {

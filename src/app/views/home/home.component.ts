@@ -33,16 +33,29 @@ export class HomeComponent implements OnInit,OnDestroy,AfterViewInit{
     if(!applyScrollStyling){
       this.renderer.addClass(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'returnPad');
       this.renderer.setStyle(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'background','transparent');
-
+      this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('a.nav-line').forEach(element => {
+        element.classList.add('link-white');
+      });
+      this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('.end-nav .header-icons fa-icon').forEach(elem => {
+        elem.classList.add('header-icons-no-scroll');
+      });
     }else{
       this.renderer.removeClass(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'returnPad');
       this.renderer.setStyle(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'background','white');
-
+      this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('a.nav-line').forEach(element => {
+        element.classList.remove('link-white');
+      });
+      this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('.end-nav .header-icons fa-icon').forEach(elem => {
+        elem.classList.remove('header-icons-no-scroll');
+      });
     }
 
   }
   ngAfterViewInit(){
-    console.log(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'));
+    // console.log(this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('.end-nav .header-icons fa-icon'));
+  
+        
+      
   }
   ngOnInit(): void {
     this.newProds = this.prod.product;
@@ -83,5 +96,11 @@ export class HomeComponent implements OnInit,OnDestroy,AfterViewInit{
     this.headerHome.setApplyScrollStyling(true);
     this.renderer.removeClass(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'returnPad');
     this.renderer.setStyle(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'background','white');
+    this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('a.nav-line').forEach(element => {
+      element.classList.remove('link-white');
+    });
+    this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('.end-nav .header-icons fa-icon').forEach(elem => {
+      elem.classList.remove('header-icons-no-scroll');
+    });
   }
 }
