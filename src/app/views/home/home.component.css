@@ -26,6 +26,8 @@
 /*slideShow*/
 .slider-imgs{
   background-image: url('../../../assets/images/1913844.jpg');
+  /* background-image: url('src\assets\images\1448057.jpg'); */
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
