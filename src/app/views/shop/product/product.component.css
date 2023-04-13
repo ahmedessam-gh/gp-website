@@ -372,4 +372,10 @@ color: var();
   .btn-w{
       width: 35% !important;
   }
+  
+}
+@media screen and (max-width:992px) {
+  .bigImg{
+    width: 100% !important;
+  }
 }

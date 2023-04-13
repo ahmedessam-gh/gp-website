@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import {MatIconModule} from '@angular/material/icon';
         BottomBarComponent,
         MyOrdersComponent,
         EditProfileComponent,
+        DashboardComponent,
     ],
     imports: [
         CommonModule,

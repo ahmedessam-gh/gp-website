@@ -106,6 +106,7 @@
 
 .dropdown-list li a {
     font-family: var(--main-font);
+    font-size: 1rem;
 }
 
 /*dropdown list for user icon*/

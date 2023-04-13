@@ -5,6 +5,7 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
 import { ProfileComponent } from './profile.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 export const routes: Routes = [
   {
     path: '',
@@ -14,6 +15,7 @@ export const routes: Routes = [
       { path: 'fav', component: FavouriteComponent },
       { path: 'myorders', component: MyOrdersComponent },
       { path: 'edit', component: EditProfileComponent },
+      { path: 'dashboard', component:DashboardComponent },
     ],
   },
 ];

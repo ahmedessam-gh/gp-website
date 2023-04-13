@@ -14,7 +14,7 @@ export class CartService {
     for (var i = 0; i < this.cartProduct.length; i++) {
       if (this.cartProduct[i]?.items.id == cart.items.id) {
         index = i;
-        this.cartProduct.splice(i, 1);
+        // this.cartProduct.splice(i, 1);
         break;
       } else {
         index = 0.1;
