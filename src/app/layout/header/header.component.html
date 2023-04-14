@@ -70,7 +70,10 @@
       <div class="header-icons">
         <fa-icon icon="magnifying-glass" (click)="searchContainer()"></fa-icon>
         <fa-icon icon="user" [routerLink]="['profile/details']"></fa-icon>
-        <fa-icon icon="cart-shopping" [routerLink]="['/cart']" routerLinkActive="router-link-active"></fa-icon>
+        <span class="position-relative">
+          <fa-icon icon="cart-shopping" [routerLink]="['/cart']" routerLinkActive="router-link-active"></fa-icon>
+          <span *ngIf="cartProducts.length != 0" class="badge custom-badge">{{ cartProducts.length }}</span>
+        </span>
       </div>
     </div>
     <div class="collapse navbar-collapse position-relative" [ngClass]="{ collapse: collapsed }">
@@ -181,7 +184,7 @@
         <div class="head-end-icons position-relative">
           <fa-icon [ngClass]="{'header-icons-scroll': header.applyScrollStyling$ | async}" icon="cart-shopping"
             [routerLink]="['/cart']" routerLinkActive="router-link-active"></fa-icon>
-          <span class="badge custom-badge">5</span>
+          <span *ngIf="cartProducts.length != 0" class="badge custom-badge">{{ cartProducts.length }}</span>
         </div>
       </div>
     </div>

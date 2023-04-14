@@ -163,15 +163,22 @@
     opacity: 1;
 }
 
-.head-end-icons .custom-badge{
-    position: absolute;
+.header-icons .custom-badge {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  display: grid;
+  place-content: center;
+  left: 55%;
+  top: -55%;
+  background: #eb5160;
+}
+
+.head-end-icons .custom-badge {
     width: 20px;
     height: 20px;
-    display: grid;
-    place-content: center;
     left: 55%;
     top: -24%;
-    background: #eb5160;
 }
 
 /*search*/
