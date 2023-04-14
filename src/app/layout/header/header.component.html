@@ -147,21 +147,33 @@
             <ul class="list-group">
               <li class="list-group-item d-flex justify-content-between" [routerLink]="['/welcome/loginn']">
                 <button style="border: none; background-color: white" class="nav-link ">
-                  Login</button><fa-icon [icon]="['fas', 'right-to-bracket']"></fa-icon>
+                  Login</button>
+                <div class="d-grid icon-container">
+                  <fa-icon [icon]="['fas', 'right-to-bracket']"></fa-icon>
+                </div>
               </li>
               <!-- <li class="list-group-item d-flex justify-content-between"><a class="nav-link" href="#">My Orders</a></li>
               <li class="list-group-item d-flex justify-content-between"><a class="nav-link" href="#">Favourites</a></li> -->
               <li class="list-group-item d-flex justify-content-between" [routerLink]="['profile/dashboard']">
                 <button style="border: none; background-color: white" class="nav-link">
-                  Account Details</button><fa-icon [icon]="['fas', 'file-invoice']"></fa-icon>
+                  Account Details</button>
+                <div class="d-grid icon-container">
+                  <fa-icon [icon]="['fas', 'file-invoice']"></fa-icon>
+                </div>
               </li>
               <li class="list-group-item d-flex justify-content-between" [routerLink]="['/welcome/register']">
                 <button style="border: none; background-color: white" class="nav-link">
-                  Sign Up</button><fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
+                  Sign Up</button>
+                <div class="d-grid icon-container">
+                  <fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
+                </div>
               </li>
               <li class="list-group-item d-flex justify-content-between">
                 <button style="border: none; background-color: white" class="nav-link">
-                  Sign Out</button><fa-icon [icon]="['fas', 'right-from-bracket']"></fa-icon>
+                  Sign Out</button>
+                <div class="d-grid icon-container">
+                  <fa-icon [icon]="['fas', 'right-from-bracket']"></fa-icon>
+                </div>
               </li>
             </ul>
           </div>

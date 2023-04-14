@@ -118,7 +118,7 @@
 }
 .header-icons fa-icon {
     color: var(--main-color);
-    
+
 }
 
 .user-dropdown {
@@ -143,6 +143,11 @@
 
 .list-group-item:hover fa-icon {
     color: var(--main-color) !important;
+}
+
+.list-group-item .icon-container {
+  place-content: center;
+  width: 25px;
 }
 
 .list-group-item:hover .nav-link {
