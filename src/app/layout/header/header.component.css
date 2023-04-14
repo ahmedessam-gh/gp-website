@@ -104,6 +104,10 @@
     color: var(--main-color);
 }
 
+.nav-item .dropdown-list{
+  border-radius: 1px 1px 5px 5px;
+}
+
 .dropdown-list li a {
     font-family: var(--main-font);
     font-size: 1rem;
