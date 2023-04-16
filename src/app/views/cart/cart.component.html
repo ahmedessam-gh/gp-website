@@ -85,13 +85,18 @@
     </div>
   </div>
 </div>
-<div *ngIf="cartProducts.length == 0" [routerLink]="['/shop']" id="noItemsDiv" style="cursor: pointer"
-  class="pad-sections noItems d-flex align-content-center flex-column justify-content-center align-items-center">
+<div
+  *ngIf="cartProducts.length == 0"
+  [routerLink]="['/shop']"
+  id="noItemsDiv"
+  style="cursor: pointer"
+  class="pad-sections noItems d-flex align-content-center flex-column justify-content-center align-items-center"
+>
   <p class="cartPlus">
     <fa-icon [icon]="['fas','cart-plus']"></fa-icon>
   </p>
   <p style="color:var(--main-color);">
-    It Seems that your cart is Empty ..<br />
-    go to the shop to add more products
+    It Seems that your cat is Empty ..<br />
+    got to shop to add more products
   </p>
 </div>
