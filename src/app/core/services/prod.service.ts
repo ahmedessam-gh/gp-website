@@ -10,7 +10,7 @@ export class ProdService {
   constructor() {
     this.product = [
       {
-        id: 1,
+        id: '1',
         ProdName: ' White Fashioned Dress',
         Category: 'Women',
         Price: 100,
@@ -39,10 +39,26 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
 
       {
-        id: 2,
+        id: '2',
         ProdName: 'jeans',
         Category: 'Women',
         Price: 100,
@@ -73,9 +89,25 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Garen Demacia and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
+
       {
-        id: 3,
+        id: '3',
         ProdName: 'Dress',
         Category: 'Women',
         Price: 100,
@@ -103,9 +135,24 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
       {
-        id: 4,
+        id: '4',
         ProdName: 'Dress Kids',
         Category: 'Women',
         Price: 100,
@@ -134,9 +181,24 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
       {
-        id: 5,
+        id: '5',
         ProdName: 'Dress',
         Category: 'Women',
         Price: 100,
@@ -165,9 +227,24 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
       {
-        id: 6,
+        id: '6',
         ProdName: 'Casual Wear',
         Price: 100,
         Category: 'Women',
@@ -196,9 +273,24 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
       {
-        id: 7,
+        id: '7',
         ProdName: 'Kids Wear',
         Price: 100,
         Category: 'Women',
@@ -227,9 +319,24 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
       {
-        id: 8,
+        id: '8',
         ProdName: 'accessory',
         Category: 'Women',
         Price: 100,
@@ -259,6 +366,21 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
     ];
   }

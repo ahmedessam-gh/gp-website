@@ -30,21 +30,7 @@ export class ProductComponent implements OnInit {
 
   showNewQuestionForm: boolean;
 
-  questions = [
-    {
-      question: 'What are the available sizes of the product?',
-      answer:
-        'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
-    },
-    {
-      question: 'What are the colors here bro',
-      answer: 'Mordekaiser and Darius also morgana',
-    },
-    {
-      question: 'Who is the best Terminator member',
-      answer: 'i think TRM Gluibert is the best one there',
-    },
-  ];
+  questions: { question: string; answer: string }[];
 
   selectedValue: string;
   constructor(
@@ -56,11 +42,12 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     const ordersrouting = this.ActivatedRoute.snapshot.paramMap;
-    const prodid = Number(ordersrouting.get('prodid'));
+    const prodid = ordersrouting.get('prodid');
     this.prods = this.prod.product;
     this.myprod = this.prod.product.find((prod) => prod.id === prodid);
     this.selectedPhoto = this.myprod.img;
     this.isBigPhotoUpdated = false;
+    this.questions = this.myprod.questions;
 
     $('.owl-carousel').owlCarousel({
       nav: true,
@@ -87,17 +74,14 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(prod: Prod) {
+    this.onSizeChanged(prod);
     this.cart.addToCart({
       items: prod,
       total: 0,
     });
+    console.log(prod);
   }
-  getErrorMessage() {
-    if (this.question.controls['newQuestion'].hasError('required')) {
-      return 'You must enter a value';
-    }
-    return ' ';
-  }
+
   addQuestion() {
     this.submitted = true;
     if (this.question.valid) {
@@ -141,9 +125,9 @@ export class ProductComponent implements OnInit {
     // this.getFavourites();
   }
 
-  onSizeChanged() {
-    const newProduct = { ...this.myprod }; // Create a new object with the same properties as myprod
-    newProduct.size = this.myprod.size; // Update the size property with the new size
-    this.addToCart(newProduct); // Add the new product to the cart
+  onSizeChanged(prod: Prod) {
+    const newProd = { ...prod };
+    newProd.size = prod.size;
+    newProd.id = `${prod.id}_${prod.size}`;
   }
 }
