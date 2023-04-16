@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-expand-lg shadow-sm p-0" [ngClass]="{'':header.applyScrollStyling$ | async}" id="lower-nav">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggler()">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -70,13 +70,10 @@
       <div class="header-icons">
         <fa-icon icon="magnifying-glass" (click)="searchContainer()"></fa-icon>
         <fa-icon icon="user" [routerLink]="['profile/details']"></fa-icon>
-        <span class="position-relative">
-          <fa-icon icon="cart-shopping" [routerLink]="['/cart']" routerLinkActive="router-link-active"></fa-icon>
-          <span *ngIf="cartProducts.length != 0" class="badge custom-badge">{{ cartProducts.length }}</span>
-        </span>
+        <fa-icon icon="cart-shopping" [routerLink]="['/cart']" routerLinkActive="router-link-active"></fa-icon>
       </div>
     </div>
-    <div class="collapse navbar-collapse position-relative" [ngClass]="{ collapse: collapsed }">
+    <div class="collapse collapsed navbar-collapse position-relative" [ngClass]="{ collapse: collapsed }">
       <ul class="navbar-nav navbar-ul">
         <li class="nav-item nav-li-dropdown">
           <a href="#" class="nav-link nav-line"
@@ -91,7 +88,7 @@
               <li class=""><a href="" class="nav-link">Shoes</a></li>
               <li class=""><a href="" class="nav-link">Shirt</a></li>
             </ul>
-          </div>
+          </div>     
         </li>
         <li class="nav-item nav-li-dropdown">
           <a href="" class="nav-link nav-line"
@@ -150,41 +147,28 @@
             <ul class="list-group">
               <li class="list-group-item d-flex justify-content-between" [routerLink]="['/welcome/loginn']">
                 <button style="border: none; background-color: white" class="nav-link ">
-                  Login</button>
-                <div class="d-grid icon-container">
-                  <fa-icon [icon]="['fas', 'right-to-bracket']"></fa-icon>
-                </div>
+                  Login</button><fa-icon [icon]="['fas', 'right-to-bracket']"></fa-icon>
               </li>
               <!-- <li class="list-group-item d-flex justify-content-between"><a class="nav-link" href="#">My Orders</a></li>
               <li class="list-group-item d-flex justify-content-between"><a class="nav-link" href="#">Favourites</a></li> -->
               <li class="list-group-item d-flex justify-content-between" [routerLink]="['profile/dashboard']">
                 <button style="border: none; background-color: white" class="nav-link">
-                  Account Details</button>
-                <div class="d-grid icon-container">
-                  <fa-icon [icon]="['fas', 'file-invoice']"></fa-icon>
-                </div>
+                  Account Details</button><fa-icon [icon]="['fas', 'file-invoice']"></fa-icon>
               </li>
               <li class="list-group-item d-flex justify-content-between" [routerLink]="['/welcome/register']">
                 <button style="border: none; background-color: white" class="nav-link">
-                  Sign Up</button>
-                <div class="d-grid icon-container">
-                  <fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
-                </div>
+                  Sign Up</button><fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
               </li>
               <li class="list-group-item d-flex justify-content-between">
                 <button style="border: none; background-color: white" class="nav-link">
-                  Sign Out</button>
-                <div class="d-grid icon-container">
-                  <fa-icon [icon]="['fas', 'right-from-bracket']"></fa-icon>
-                </div>
+                  Sign Out</button><fa-icon [icon]="['fas', 'right-from-bracket']"></fa-icon>
               </li>
             </ul>
           </div>
         </div>
-        <div class="head-end-icons position-relative">
+        <div class="">
           <fa-icon [ngClass]="{'header-icons-scroll': header.applyScrollStyling$ | async}" icon="cart-shopping"
             [routerLink]="['/cart']" routerLinkActive="router-link-active"></fa-icon>
-          <span *ngIf="cartProducts.length != 0" class="badge custom-badge">{{ cartProducts.length }}</span>
         </div>
       </div>
     </div>

@@ -2,8 +2,9 @@
     font-family: var(--main-font);
 }
 
-.fontawesomesvg {
-    width: 100px;
+.cartPlus fa-icon{
+    font-size: 6rem;
+    color: var(--main-color);
 }
 
 * {
