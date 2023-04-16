@@ -5,7 +5,10 @@
 .fontawesomesvg {
     width: 100px;
 }
-
+.cartPlus{
+  font-size: 6rem;
+  color: var(--main-color);
+}
 * {
   box-sizing: border-box;
 }
