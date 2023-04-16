@@ -4,177 +4,61 @@
     <div class="heading cf">
       <h1>My Cart</h1>
       <div class="d-flex justify-content-end">
-        <app-main-button
-          [routerLink]="['/shop']"
-          content="Continue Shopping"
-          iconRight="caret-right"
-        ></app-main-button>
+        <app-main-button [routerLink]="['/shop']" content="Continue Shopping" iconRight="caret-right"></app-main-button>
       </div>
     </div>
   </div>
   <div class="tableContainer">
-    <table class="table table-borderless tableContent">
-      <thead>
-        <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let cartProd of cartProducts">
-          <td class="d-flex tableInfoCell">
-            <div>
-              <img
-                src="{{ cartProd.items.img }}"
-                width="150px"
-                height="150px"
-                alt=""
-              />
-            </div>
-            <div class="prodInfo ms-3">
-              <h6>{{ cartProd.items.ProdName }}</h6>
-              <p>{{ cartProd.items.Category }}</p>
-              <p>${{ cartProd.items.Price }}</p>
-              <p>{{ cartProd.items.size }}</p>
-            </div>
-          </td>
-          <td *ngIf="cartProd.items.isStock == true" class="inStock">
+    <div class="row g-0" *ngFor="let cartProd of cartProducts">
+
+
+      <div class="prodInfo d-flex col-12 col-lg-6 mb-5 mb-lg-0">
+        <img src="{{ cartProd.items.img }}" class="img-fluid" width="150px" height="150px" alt="" />
+
+        <div class="content-cart ms-4">
+          <h6>{{ cartProd.items.ProdName }}</h6>
+          <p>{{ cartProd.items.Category }}</p>
+          <p>${{ cartProd.items.Price }}</p>
+          <p>{{ cartProd.items.size }}</p>
+          <div *ngIf="cartProd.items.isStock == true" class="inStock col-lg-3 my-lg-auto d-block d-lg-none">
             IN STOCK
-          </td>
-          <td *ngIf="cartProd.items.isStock == false" class="outOfStock">
+          </div>
+          <div *ngIf="cartProd.items.isStock == false" class="outOfStock col-lg-3 my-lg-auto d-block d-lg-none">
             OUT OF STOCK
-          </td>
-          <td>
+          </div>
+          <div class="d-block d-lg-none d-flex mt-2">
             <div class="input-number">
               <button class="minus" (click)="minus(cartProd.items)">-</button>
-              <input
-                readonly
-                type="number"
-                id="quantity"
-                (input)="totalPrices()"
-                [(ngModel)]="cartProd.items.quantity"
-                value="cartProd.items.quantity"
-                min="1"
-                max="20"
-              />
+              <input readonly type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.items.quantity"
+                value="cartProd.items.quantity" min="1" max="20" />
               <button class="plus" (click)="plus(cartProd.items)">+</button>
             </div>
-          </td>
-          <td>
-            <div class="tableBtnRemove" (click)="removeItem($event)">
-              <fa-icon [icon]="['fas', 'circle-xmark']"></fa-icon>
+            <div class="ms-4">
+              <button class="btn-remove-respons " (click)="removeItem($event)">remove</button>
             </div>
-          </td>
-        </tr>
-        <!-- <tr>
-                    <td class="d-flex tableInfoCell">
-                        <div>
-                            <img src="assets\images\01.jpg" width="150px" height="150px" alt="">
-                        </div>
-                        <div class="prodInfo ms-3">
-                            <h6>item1</h6>
-                            <p>dress</p>
-                            <p>$100</p>
-                        </div>
-                    </td>
-                    <td class="inStock">IN STOCK</td>
-                    <td>
-                        <div class="input-number">
-                            <button class="minus">-</button>
-                            <input type="number" value="1" min="0" max="10">
-                            <button class="plus">+</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="tableBtnRemove">
-                            <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="d-flex tableInfoCell">
-                        <div>
-                            <img src="assets\images\02.jpg" width="150px" height="150px" alt="">
-                        </div>
-                        <div class="prodInfo ms-3">
-                            <h6>item2</h6>
-                            <p>dress</p>
-                            <p>$100</p>
-                        </div>
-                    </td>
-                    <td class="inStock">IN STOCK</td>
-                    <td>
-                        <div class="input-number">
-                            <button class="minus">-</button>
-                            <input type="number" value="1" min="0" max="10">
-                            <button class="plus">+</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="tableBtnRemove">
-                            <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="d-flex tableInfoCell">
-                        <div>
-                            <img src="assets\images\04.jpg" width="150px" height="150px" alt="">
-                        </div>
-                        <div class="prodInfo ms-3">
-                            <h6>item3</h6>
-                            <p>dress</p>
-                            <p>$100</p>
-                        </div>
-                    </td>
-                    <td class="outOfStock">OUT OF STOCK</td>
-                    <td>
-                        <div class="input-number">
-                            <button class="minus">-</button>
-                            <input type="number" value="1" min="0" max="10">
-                            <button class="plus">+</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="tableBtnRemove">
-                            <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="d-flex tableInfoCell">
-                        <div>
-                            <img src="assets\images\08.jpg" width="150px" height="150px" alt="">
-                        </div>
-                        <div class="prodInfo ms-3">
-                            <h6>item4</h6>
-                            <p>dress</p>
-                            <p>$100</p>
-                        </div>
-                    </td>
-                    <td class="inStock">IN STOCK</td>
-                    <td>
-                        <div class="input-number">
-                            <button class="minus">-</button>
-                            <input type="number" value="1" min="0" max="10">
-                            <button class="plus">+</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="tableBtnRemove">
-                            <fa-icon [icon]="['fas','circle-xmark']"></fa-icon>
-                        </div>
-                    </td>
-                </tr> -->
-      </tbody>
-    </table>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="cartProd.items.isStock == true" class="inStock col-lg-3 my-lg-auto d-none d-lg-block">
+        IN STOCK
+      </div>
+      <div *ngIf="cartProd.items.isStock == false" class="outOfStock col-lg-3 my-lg-auto d-none d-lg-block">
+        OUT OF STOCK
+      </div>
+
+      <div class="input-number col-6 col-lg-2 my-auto d-none d-lg-block">
+        <button class="minus" (click)="minus(cartProd.items)">-</button>
+        <input readonly type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.items.quantity"
+          value="cartProd.items.quantity" min="1" max="20" />
+        <button class="plus" (click)="plus(cartProd.items)">+</button>
+      </div>
+
+      <div class="tableBtnRemove col-6 col-lg-1 my-lg-auto d-none d-lg-block" (click)="removeItem($event)">
+        <fa-icon [icon]="['fas', 'circle-xmark']"></fa-icon>
+      </div>
+    </div>
     <div class="d-lg-flex justify-content-between pad-sections">
-      <div
-        class="clearLink checkoutLink mt-3 mb-3 mb-md-0"
-        (click)="clearCart()"
-      >
+      <div class="clearLink checkoutLink mt-3 mb-3 mb-md-0" (click)="clearCart()">
         <app-main-button content="Clear Cart"></app-main-button>
       </div>
       <div class="padCheckout d-flex flex-column me-0 align-items-center">
@@ -195,27 +79,19 @@
           </table>
         </div>
         <div class="checkoutLink mt-3" [routerLink]="['/checkout']">
-          <app-main-button
-            content="Checkout"
-            iconRight="caret-right"
-          ></app-main-button>
+          <app-main-button content="Checkout" iconRight="caret-right"></app-main-button>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div
-  *ngIf="cartProducts.length == 0"
-  [routerLink]="['/shop']"
-  id="noItemsDiv"
-  style="cursor: pointer"
-  class="pad-sections noItems d-flex align-content-center flex-column justify-content-center align-items-center"
->
+<div *ngIf="cartProducts.length == 0" [routerLink]="['/shop']" id="noItemsDiv" style="cursor: pointer"
+  class="pad-sections noItems d-flex align-content-center flex-column justify-content-center align-items-center">
   <p class="cartPlus">
     <fa-icon [icon]="['fas','cart-plus']"></fa-icon>
   </p>
   <p style="color:var(--main-color);">
-    It Seems that your cat is Empty ..<br />
-    got to shop to add more products
+    It Seems that your cart is Empty ..<br />
+    go to the shop to add more products
   </p>
 </div>

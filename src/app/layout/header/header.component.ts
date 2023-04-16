@@ -38,7 +38,10 @@ export class HeaderComponent implements OnInit {
     this.cartProducts = this.cart.getCart();
   }
 
-
+  changeColor(){
+    const nav = document.getElementById('lower-nav');
+    nav.classList.toggle('white-nav');
+  }
 
   // styling() {
   //   const para = this.elementrf.nativeElement.querySelector('nav');
