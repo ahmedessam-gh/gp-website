@@ -31,6 +31,8 @@ export class HeaderComponent implements OnInit {
 
   toggler(): void {
     this.collapsed = !this.collapsed;
+    const nav = document.getElementById('lower-nav');
+    nav.classList.toggle('white-nav');
   }
 
   constructor(private prod: ProdService,private route:ActivatedRoute, private router: Router, public header: HeaderService,private renderer:Renderer2,private elementrf:ElementRef,private cart: CartService) { }
@@ -38,11 +40,7 @@ export class HeaderComponent implements OnInit {
     this.cartProducts = this.cart.getCart();
   }
 
-  changeColor(){
-    const nav = document.getElementById('lower-nav');
-    nav.classList.toggle('white-nav');
-  }
-
+ 
   // styling() {
   //   const para = this.elementrf.nativeElement.querySelector('nav');
   //   this.renderer.addClass(para,'navbar');
