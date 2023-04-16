@@ -104,6 +104,10 @@
     color: var(--main-color);
 }
 
+.nav-item .dropdown-list{
+  border-radius: 1px 1px 5px 5px;
+}
+
 .dropdown-list li a {
     font-family: var(--main-font);
     font-size: 1rem;
@@ -118,7 +122,7 @@
 }
 .header-icons fa-icon {
     color: var(--main-color);
-    
+
 }
 
 .user-dropdown {
@@ -145,6 +149,11 @@
     color: var(--main-color) !important;
 }
 
+.list-group-item .icon-container {
+  place-content: center;
+  width: 25px;
+}
+
 .list-group-item:hover .nav-link {
     color: var(--main-color) !important;
 }
@@ -152,6 +161,24 @@
 .header-profile:hover .user-dropdown {
     max-height: 500px;
     opacity: 1;
+}
+
+.header-icons .custom-badge {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  display: grid;
+  place-content: center;
+  left: 55%;
+  top: -55%;
+  background: #eb5160;
+}
+
+.head-end-icons .custom-badge {
+    width: 20px;
+    height: 20px;
+    left: 55%;
+    top: -24%;
 }
 
 /*search*/
@@ -437,7 +464,10 @@
 
 }
 
-@media screen and (max-width:990px) {
+@media screen and (max-width:991px) {
+    .white-nav{
+        background-color: #ffffff !important;
+    }
     .small-screen-end {
         display: block;
     }
@@ -461,6 +491,7 @@
 
     .nav-line {
         border-bottom: none;
+        color: #000000 !important;
     }
 
     .nav-line:hover {
@@ -477,10 +508,20 @@
         display: none;
 
     }
-
-    .navbar {
+    .navbar{
+        --bs-navbar-toggler-padding-y: 0.35rem;
+        --bs-navbar-toggler-padding-x: 0.35rem;
+        --bs-navbar-toggler-font-size: 1.25rem;
+        --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(54, 143, 139,1), 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        --bs-navbar-toggler-border-color:none;
+        --bs-navbar-toggler-border-radius: 50%;
+        --bs-navbar-toggler-focus-width: 1rem;
+       
+        --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
         padding: 10px 20px !important;
+    
     }
+    
 
     .nav-li-dropdown {
         margin-top: 15px;
@@ -488,8 +529,11 @@
 
     .nav-end {
         margin: 0 0 0 0;
+        
     }
-
+.nav-end fa-icon{
+    color: var(--main-color) !important;
+}
     .start-nav {
         margin: 0 auto 0 15px !important;
 

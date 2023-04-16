@@ -4,6 +4,8 @@ import { ProdService } from 'src/app/core/services/prod.service';
 import { Prod } from 'src/app/core/interfaces/Prod';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { HeaderService } from 'src/app/core/services/header.service';
+import {cart} from "../../core/interfaces/cart";
+import {CartService} from "../../core/services/cart.service";
 
 @Component({
   selector: 'app-header',
@@ -20,6 +22,7 @@ export class HeaderComponent implements OnInit {
   showSuggetions = true;
   showResults = false;
   searchQuery = '';
+  cartProducts: cart[]=[];
   myProd: Prod[];
   newProd:any;
   collapsed = true;
@@ -30,12 +33,15 @@ export class HeaderComponent implements OnInit {
     this.collapsed = !this.collapsed;
   }
 
-  constructor(private prod: ProdService,private route:ActivatedRoute, private router: Router, public header: HeaderService,private renderer:Renderer2,private elementrf:ElementRef) { }
+  constructor(private prod: ProdService,private route:ActivatedRoute, private router: Router, public header: HeaderService,private renderer:Renderer2,private elementrf:ElementRef,private cart: CartService) { }
   ngOnInit(): void {
+    this.cartProducts = this.cart.getCart();
+  }
 
-    }
-
-  
+  changeColor(){
+    const nav = document.getElementById('lower-nav');
+    nav.classList.toggle('white-nav');
+  }
 
   // styling() {
   //   const para = this.elementrf.nativeElement.querySelector('nav');
@@ -47,7 +53,7 @@ export class HeaderComponent implements OnInit {
     search_container?.classList.add('activeSearchcontainer');
   }
    changeProd(product:Prod){
-    
+
     // this.router.navigate(['/shop/product',product.id]);
 }
   removeContainer() {
