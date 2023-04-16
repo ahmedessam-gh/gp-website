@@ -15,26 +15,34 @@ export class ProductboxComponent implements OnInit {
   public form: FormGroup;
   favouriteList: any = [];
 
-  constructor(private prod: ProdService,private cart :CartService, private fb: FormBuilder) {
+  constructor(
+    private prod: ProdService,
+    private cart: CartService,
+    private fb: FormBuilder
+  ) {
     this.form = this.fb.group({
       rating: [5],
     });
     this.favouriteList = this.prod.getFav();
   }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
-  
   addToFav(product: Prod, event) {
+    this.disableLink(event);
     this.prod.addToFav(product, event);
     // this.getFavourites();
   }
   addToCart() {
     this.cart.addToCart({
       items: this.product,
-      total: 0
-    } );
+      total: 0,
+    });
+  }
+
+  disableLink(event: MouseEvent) {
+    event.stopPropagation();
+
+    event.preventDefault();
   }
 }

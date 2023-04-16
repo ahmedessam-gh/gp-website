@@ -5,13 +5,18 @@
       <div class="ribbon-success" *ngIf="product.status == 'Sale'">
         {{ product.status }}
       </div>
-      <img
-        class="img-fluid position-relative"
-        height="70px"
-        src="{{ product.img }}"
-        alt=""
-      />
-      <div class="product-hover position-absolute">
+      <a>
+        <img
+          class="img-fluid position-relative"
+          height="70px"
+          src="{{ product.img }}"
+          alt=""
+        />
+      </a>
+      <div
+        class="product-hover position-absolute"
+        [routerLink]="['/shop/product', product.id]"
+      >
         <ul>
           <li
             (click)="addToFav(product, $event)"
@@ -25,14 +30,14 @@
               ></fa-icon
             ></a>
           </li>
-          <li [routerLink]="['/shop/product', product.id]">
+          <!-- <li [routerLink]="['/shop/product', product.id]">
             <a
               ><fa-icon
                 [routerLink]="['/shop/product', product.id]"
                 icon="shopping-cart"
               ></fa-icon
             ></a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>

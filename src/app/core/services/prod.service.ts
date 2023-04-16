@@ -39,6 +39,22 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
 
       {
@@ -73,7 +89,23 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Garen Demacia and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
+
       {
         id: 3,
         ProdName: 'Dress',
@@ -103,6 +135,21 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
       {
         id: 4,
@@ -134,6 +181,21 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
       {
         id: 5,
@@ -165,6 +227,21 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
       {
         id: 6,
@@ -196,6 +273,21 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
       {
         id: 7,
@@ -227,6 +319,21 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
       {
         id: 8,
@@ -259,6 +366,21 @@ export class ProdService {
         quantity: 1,
         details:
           'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo.',
+        questions: [
+          {
+            question: 'What are the available sizes of the product?',
+            answer:
+              'This product has 4 sizes (xl , m , s ,l) andsij doiasj iodjasio jdoisaj dioj asiodj osaijd ioasjdioasj',
+          },
+          {
+            question: 'What are the colors here bro',
+            answer: 'Mordekaiser and Darius also morgana',
+          },
+          {
+            question: 'Who is the best Terminator member',
+            answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
       },
     ];
   }

@@ -75,7 +75,7 @@
               (change)="onSizeChanged()"
             />
 
-            <label for="s" class="productsingelSize">s </label>
+            <label for="s" class="productsingelSize">S </label>
 
             <input
               type="radio"
@@ -215,7 +215,7 @@
     <h3 class="similarProductsHeader pad-sections">
       Product Questions & Answers
     </h3>
-    <div class="py-3" *ngFor="let question of questions">
+    <div class="py-3" *ngFor="let question of myprod.questions">
       <div class="questionsection py-3">
         <strong class="px-3"> Question: </strong>
         <label> {{ question.question }}</label>

@@ -15,6 +15,10 @@ export interface Prod {
   note: string;
   details: string;
   isStock: boolean;
+  questions: {
+    question: string;
+    answer: string;
+  }[];
 }
 export interface prodDetails {
   value: string;
