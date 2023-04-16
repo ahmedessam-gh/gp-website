@@ -42,7 +42,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     const ordersrouting = this.ActivatedRoute.snapshot.paramMap;
-    const prodid = Number(ordersrouting.get('prodid'));
+    const prodid = ordersrouting.get('prodid');
     this.prods = this.prod.product;
     this.myprod = this.prod.product.find((prod) => prod.id === prodid);
     this.selectedPhoto = this.myprod.img;
@@ -74,10 +74,12 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(prod: Prod) {
+    this.onSizeChanged(prod);
     this.cart.addToCart({
       items: prod,
       total: 0,
     });
+    console.log(prod);
   }
 
   addQuestion() {
@@ -123,9 +125,9 @@ export class ProductComponent implements OnInit {
     // this.getFavourites();
   }
 
-  onSizeChanged() {
-    const newProduct = { ...this.myprod };
-    newProduct.size = this.myprod.size;
-    newProduct.id = `${this.myprod.id}_${newProduct.size}`; // generate unique id
+  onSizeChanged(prod: Prod) {
+    const newProd = { ...prod };
+    newProd.size = prod.size;
+    newProd.id = `${prod.id}_${prod.size}`;
   }
 }

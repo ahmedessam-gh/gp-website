@@ -10,7 +10,7 @@ export class ProdService {
   constructor() {
     this.product = [
       {
-        id: 1,
+        id: '1',
         ProdName: ' White Fashioned Dress',
         Category: 'Women',
         Price: 100,
@@ -58,7 +58,7 @@ export class ProdService {
       },
 
       {
-        id: 2,
+        id: '2',
         ProdName: 'jeans',
         Category: 'Women',
         Price: 100,
@@ -107,7 +107,7 @@ export class ProdService {
       },
 
       {
-        id: 3,
+        id: '3',
         ProdName: 'Dress',
         Category: 'Women',
         Price: 100,
@@ -152,7 +152,7 @@ export class ProdService {
         ],
       },
       {
-        id: 4,
+        id: '4',
         ProdName: 'Dress Kids',
         Category: 'Women',
         Price: 100,
@@ -198,7 +198,7 @@ export class ProdService {
         ],
       },
       {
-        id: 5,
+        id: '5',
         ProdName: 'Dress',
         Category: 'Women',
         Price: 100,
@@ -244,7 +244,7 @@ export class ProdService {
         ],
       },
       {
-        id: 6,
+        id: '6',
         ProdName: 'Casual Wear',
         Price: 100,
         Category: 'Women',
@@ -290,7 +290,7 @@ export class ProdService {
         ],
       },
       {
-        id: 7,
+        id: '7',
         ProdName: 'Kids Wear',
         Price: 100,
         Category: 'Women',
@@ -336,7 +336,7 @@ export class ProdService {
         ],
       },
       {
-        id: 8,
+        id: '8',
         ProdName: 'accessory',
         Category: 'Women',
         Price: 100,
