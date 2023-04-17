@@ -315,7 +315,7 @@
     text-decoration: none;
     font-weight: 100;
     font-family: var(--main-font);
-
+cursor: pointer;
 }
 
 .search-results {
@@ -516,12 +516,12 @@
         --bs-navbar-toggler-border-color:none;
         --bs-navbar-toggler-border-radius: 50%;
         --bs-navbar-toggler-focus-width: 1rem;
-       
+
         --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
         padding: 10px 20px !important;
-    
+
     }
-    
+
 
     .nav-li-dropdown {
         margin-top: 15px;
@@ -529,7 +529,7 @@
 
     .nav-end {
         margin: 0 0 0 0;
-        
+
     }
 .nav-end fa-icon{
     color: var(--main-color) !important;

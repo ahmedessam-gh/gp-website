@@ -38,12 +38,14 @@ export class ShopComponent implements OnInit {
     });
   }
  
+
   
 
   clearAllFilters() {
     $(document).ready(() => {
       $('#uncheck').click(() => {
         $('[type=radio], [type=checkbox').prop('checked', false);
+        this.filterForm.reset;
       });
     });
   }

@@ -30,22 +30,5 @@ export class TraceOrderComponent implements OnInit {
       (order) => order.orderNumber === orderid
     );
     Aos.init();
-
-    $('.owl-carousel').owlCarousel({
-      loop: true,
-      margin: 10,
-      nav: true,
-      responsive: {
-        0: {
-          items: 1,
-        },
-        600: {
-          items: 3,
-        },
-        1000: {
-          items: 5,
-        },
-      },
-    });
   }
 }
