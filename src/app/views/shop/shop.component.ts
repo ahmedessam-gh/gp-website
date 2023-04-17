@@ -38,7 +38,6 @@ export class ShopComponent implements OnInit {
     });
   }
  
-
   
 
   clearAllFilters() {
