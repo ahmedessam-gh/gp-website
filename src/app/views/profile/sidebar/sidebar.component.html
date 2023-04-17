@@ -2,13 +2,13 @@
   class="d-flex flex-column flex-shrink-0 pt-4 vh-100 animate__animated animate__slideInLeft animate__faster sidebar"
 >
 
-  <ul class="nav nav-pills flex-column mb-auto">
+  <ul class="nav nav-pills flex-column mb-auto d-flex justify-content-center align-content-center" >
 
-    <li class="nav-item">
-
+    <li class="">
+      
       <a
         href="#"
-        class="nav-link text-dark"
+        class="nav-link text-dark "
         [routerLink]="['details']"
         [routerLinkActive]="['active', 'text-white']"
         aria-current="page"
@@ -17,8 +17,9 @@
 <!--          <use xlink:href="#profile"></use>-->
 <!--        </svg>-->
         <fa-icon [icon]="['fas','user']"></fa-icon>
-        Profile
+        <span>Profile</span>
       </a>
+
     </li>
     <li>
       <a
@@ -30,7 +31,7 @@
 <!--          <use xlink:href=""></use>-->
 <!--        </svg>-->
         <fa-icon [icon]="['fas','basket-shopping']"></fa-icon>
-        My Orders
+        <span>My Orders</span>
       </a>
     </li>
     <li>
@@ -44,10 +45,10 @@
 <!--          <use xlink:href="#"></use>-->
 <!--        </svg>-->
         <fa-icon [icon]="['fas','heart']"></fa-icon>
-        Favourites
+        <span>Favourites</span>
       </a>
     </li>
-    <li>
+    <li >
       <a
         href="#"
         class="nav-link text-dark"
@@ -58,7 +59,7 @@
 <!--        </svg>-->
         <fa-icon [icon]="['fab','sellsy']"></fa-icon>
 
-        Products
+        <span>Products</span>
       </a>
     </li>
     <!-- <li>

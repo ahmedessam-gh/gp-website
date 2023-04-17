@@ -12,8 +12,8 @@
     <div class="row g-0" *ngFor="let cartProd of cartProducts">
 
 
-      <div class="prodInfo d-flex col-12 col-lg-6 mb-5 mb-lg-0">
-        <img src="{{ cartProd.items.img }}" class="img-fluid" width="150px" height="150px" alt="" />
+      <div class="prodInfo d-flex col-12 col-lg-6 mb-5 my-3">
+        <img src="{{ cartProd.items.img }}" width="150px" height="150px" alt="" />
 
         <div class="content-cart ms-4">
           <h6>{{ cartProd.items.ProdName }}</h6>
@@ -27,14 +27,14 @@
             OUT OF STOCK
           </div>
           <div class="d-block d-lg-none d-flex mt-2">
-            <div class="input-number">
+            <div class="input-number d-flex">
               <button class="minus" (click)="minus(cartProd.items)">-</button>
               <input readonly type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.items.quantity"
                 value="cartProd.items.quantity" min="1" max="20" />
               <button class="plus" (click)="plus(cartProd.items)">+</button>
             </div>
             <div class="ms-4">
-              <button class="btn-remove-respons " (click)="removeItem($event)">remove</button>
+              <button class="btn-remove-respons" (click)="removeItem($event)">remove</button>
             </div>
           </div>
         </div>

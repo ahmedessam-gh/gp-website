@@ -165,9 +165,8 @@ input::-webkit-inner-spin-button {
 }
 
 .input-number button {
-  /* width: 100%; */
   padding: 0 7px;
-  font-size: 18px;
+  font-size: 16px;
   background: var(--main-color);
   color: #ffff;
   border: none;
