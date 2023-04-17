@@ -1,11 +1,22 @@
 import { style } from '@angular/animations';
-import { Component, OnInit, Input, Output, EventEmitter, HostListener, HostBinding,ViewChild, Renderer2, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  HostListener,
+  HostBinding,
+  ViewChild,
+  Renderer2,
+  ElementRef,
+} from '@angular/core';
 import { ProdService } from 'src/app/core/services/prod.service';
 import { Prod } from 'src/app/core/interfaces/Prod';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { HeaderService } from 'src/app/core/services/header.service';
-import {cart} from "../../core/interfaces/cart";
-import {CartService} from "../../core/services/cart.service";
+import { cart } from '../../core/interfaces/cart';
+import { CartService } from '../../core/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +24,7 @@ import {CartService} from "../../core/services/cart.service";
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-
-  productid:string;
+  productid: string;
   isScrolled = false;
   searchText = '';
   showSearch = false;
@@ -22,9 +32,9 @@ export class HeaderComponent implements OnInit {
   showSuggetions = true;
   showResults = false;
   searchQuery = '';
-  cartProducts: cart[]=[];
+  cartProducts: cart[] = [];
   myProd: Prod[];
-  newProd:any;
+  newProd: any;
   collapsed = true;
   nativeElement: any;
   ActivatedRoute: any;
@@ -33,12 +43,21 @@ export class HeaderComponent implements OnInit {
     this.collapsed = !this.collapsed;
   }
 
-  constructor(private prod: ProdService,private route:ActivatedRoute, private router: Router, public header: HeaderService,private renderer:Renderer2,private elementrf:ElementRef,private cart: CartService) { }
+  constructor(
+    private prod: ProdService,
+    private route: ActivatedRoute,
+    private router: Router,
+    public header: HeaderService,
+    private renderer: Renderer2,
+    private elementrf: ElementRef,
+    private cart: CartService
+  ) {}
   ngOnInit(): void {
     this.cartProducts = this.cart.getCart();
+    this.myProd = this.prod.product;
   }
 
-  changeColor(){
+  changeColor() {
     const nav = document.getElementById('lower-nav');
     nav.classList.toggle('white-nav');
   }
@@ -52,10 +71,9 @@ export class HeaderComponent implements OnInit {
     const search_container = document.querySelector('.search-container');
     search_container?.classList.add('activeSearchcontainer');
   }
-   changeProd(product:Prod){
-
+  changeProd(product: Prod) {
     // this.router.navigate(['/shop/product',product.id]);
-}
+  }
   removeContainer() {
     if (!this.showSearch) {
       const search_container = document.querySelector('.search-container');
@@ -77,6 +95,5 @@ export class HeaderComponent implements OnInit {
       this.showResults = true;
     }
   }
-  ngOnDestroy() {
-  }
+  ngOnDestroy() {}
 }
