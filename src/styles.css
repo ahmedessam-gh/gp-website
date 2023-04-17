@@ -27,6 +27,7 @@
 .favIcon{
     background-color: var(--main-color) !important;
     color: #ffffff !important;
+    border-radius: 50%;
 }
 html,body{
     height: 100%;
