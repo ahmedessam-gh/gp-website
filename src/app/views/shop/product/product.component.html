@@ -1,6 +1,6 @@
 <div class="container pad-sections">
   <div class="row">
-    <div class="productImg col-xl-6 col-12">
+    <div class="productImg col-xl-6 col-md-6 col-12 mb-lg-0 mb-5">
       <div class="productBigImg py-2">
         <img
           class="bigImg"
@@ -11,13 +11,13 @@
           (load)="isBigPhotoUpdated = true"
         />
       </div>
-      <div>
+      <div class="smallImgDiv mt-3">
         <img
           class="productSmallimgs mx-2"
           src="{{ myprod.img }}"
           [ngClass]="{ selected: selectedPhoto === myprod.img }"
           alt=""
-          width="15%"
+          width="17%"
           (click)="changePhoto(myprod.img)"
         />
         <img
@@ -25,7 +25,7 @@
           src="assets\images\02.jpg"
           [ngClass]="{ selected: selectedPhoto === 'assets/images/02.jpg' }"
           alt=""
-          width="15%"
+          width="17%"
           (click)="changePhoto('assets/images/02.jpg')"
         />
         <img
@@ -33,12 +33,13 @@
           src="assets\images\04.jpg"
           alt=""
           [ngClass]="{ selected: selectedPhoto === 'assets/images/04.jpg' }"
-          width="15%"
+          width="17%"
           (click)="changePhoto('assets/images/04.jpg')"
         />
       </div>
     </div>
-    <div class="productDetails col-xl-6 col-12 mt-lg-0 mt-3">
+    <hr class="d-lg-none d-md-none d-xl-none d-block" />
+    <div class="productDetails col-xl-6 col-12 col-md-6 mt-lg-0 mt-4">
       <h1 class="productName">{{ myprod.ProdName }}</h1>
       <label class="productRent" *ngIf="myprod.rent">
         <fa-icon class="px-1" icon="circle-check"></fa-icon> Avaliable for
