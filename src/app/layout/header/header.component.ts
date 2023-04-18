@@ -41,6 +41,8 @@ export class HeaderComponent implements OnInit {
 
   toggler(): void {
     this.collapsed = !this.collapsed;
+    const nav = document.getElementById('lower-nav');
+    nav.classList.toggle('white-nav');
   }
 
   constructor(
