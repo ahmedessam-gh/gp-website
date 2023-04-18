@@ -112,18 +112,17 @@ color: white;
 }
 
 .size-filter{
-
+font-family: var(--main-font);
 color: var(--main-color);
   font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;
   display: inline-block;
   border: 1px solid #e5e5e5;
-  padding: 6px 25px;
+  padding: 6px 8px;
   margin-bottom: 10px;
   margin-right: 5px;
   cursor: pointer;
-
 
 
 }
@@ -145,7 +144,7 @@ color: var(--main-color);
 
 .custom-radios input[type=radio] + label span {
   display: inline-block;
-  width: 40px;
+  width: 35px;
   height: 40px;
   margin: -1px 4px 0 0;
   vertical-align: middle;
@@ -164,27 +163,27 @@ color: var(--main-color);
 
   color: var(--main-color);
 }
-.custom-radios input[type="radio"]#color-1 + label span {
+.custom-radios input[type="radio"]#color-1 + label span, .custom-radios input[type="radio"]#color1 + label span {
   background-color: #1e1e1e;
 }
 
-.custom-radios input[type="radio"]#color-2 + label span {
+.custom-radios input[type="radio"]#color-2 + label span , .custom-radios input[type="radio"]#color2 + label span {
   background-color: #ec0303;
 }
 
-.custom-radios input[type="radio"]#color-3 + label span {
+.custom-radios input[type="radio"]#color-3 + label span , .custom-radios input[type="radio"]#color3 + label span {
   background-color: Blue;
 }
 
-.custom-radios input[type="radio"]#color-4 + label span {
+.custom-radios input[type="radio"]#color-4 + label span , .custom-radios input[type="radio"]#color4 + label span {
   background-color: white;
 }
 
-.custom-radios input[type="radio"]#color-5 + label span {
+.custom-radios input[type="radio"]#color-5 + label span , .custom-radios input[type="radio"]#color5 + label span {
   background-color: brown;
 }
 
-.custom-radios input[type="radio"]#color-6 + label span {
+.custom-radios input[type="radio"]#color-6 + label span, .custom-radios input[type="radio"]#color6 + label span {
   background-color: green;
 }
 .custom-radios input[type=radio]:checked + label span  fa-icon{
@@ -199,3 +198,122 @@ input[type="checkbox"] {
 position: absolute;
   right: 0;
 }
+.inputBox {
+  outline: 0;
+  border: transparent;
+
+
+
+}
+
+.search-items {
+  padding: 0.5em;
+  background: white;
+  display: flex;
+  align-items: center;
+  border-radius: 10em;
+  animation: slideInRight 0.9s ease-in-out;
+
+
+
+}
+
+
+
+.inputBox .searchBar {
+
+  display: flex;
+}
+
+.inputBox input {
+  background: none;
+  width: 100%;
+  outline: 0;
+  animation-direction: normal;
+  border: 0;
+  padding: 0.5rem;
+  font-family: var(--main-font);
+
+
+
+}
+
+
+.inputBox fa-icon {
+
+
+  font-size: 1.5em;
+  padding: 0.5em;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.search-items input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  margin-left: .4em;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+  cursor: pointer;
+}
+
+.inputBox input::placeholder {
+  color: rgb(207, 207, 207);
+  font-family: var(--main-font);
+}
+
+.inputBox input:hover::placeholder {
+  color: rgb(139, 129, 117);
+}
+
+.inputBox .search-items:hover {
+
+  background: rgb(229, 229, 229);
+}
+
+.searchbox{
+
+  width:51% !important;
+}
+.filterBox{
+cursor: pointer;
+width: 100%;
+border: 1px solid #ccc;
+
+}
+.filterBox P{
+font-family: var(--main-font);
+
+}
+
+.filterBox P fa-icon{
+
+  opacity: 0.8;
+float: right;
+  }
+  .smallFilterDiv{
+
+    width: 35%;
+  }
+.smallFilter ul{
+
+  width: 100%;
+}
+.smallFilter label:hover{
+
+  color: var(--main-color);
+}
+
+.smallFilter{
+  padding-top: 15px;
+width: 100%;
+  z-index: 3;
+  background: white;
+}
+.filterName{
+
+  color: var(--main-color);
+  font-family: var(--main-font);
+}
+

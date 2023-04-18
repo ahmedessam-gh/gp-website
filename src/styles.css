@@ -26,8 +26,8 @@
 }
 .favIcon{
     background-color: var(--main-color) !important;
-    color: #ffffff !important;
-    border-radius: 50%;
+    color: #ffffff !important;     border-radius: 50%;
+
 }
 html,body{
     height: 100%;
@@ -58,7 +58,7 @@ input::placeholder{
     font-family: var(--secondary-font);
 }
 
-.error p , ul,li{
+.error{
     color: rgba(255,0,0,0.9);
     font-size: 0.75rem;
 }

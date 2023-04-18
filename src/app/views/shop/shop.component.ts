@@ -18,6 +18,7 @@ export class ShopComponent implements OnInit {
   newProds: Prod[] = [];
   p: number = 1;
   filterForm: FormGroup;
+  showFilter: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -37,9 +38,6 @@ export class ShopComponent implements OnInit {
       category: [],
     });
   }
- 
-
-  
 
   clearAllFilters() {
     $(document).ready(() => {
@@ -54,5 +52,8 @@ export class ShopComponent implements OnInit {
     const filters = this.filterForm.value;
     console.log(filters);
     // do something with the selected filters
+  }
+  openFilter() {
+    this.showFilter = !this.showFilter;
   }
 }
