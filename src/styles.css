@@ -73,24 +73,26 @@ input::placeholder {
     font-size: 0.8rem;
     font-family: var(--secondary-font);
 }
+
 .tooltip-container {
     position: relative;
 }
-.error{
+
+.error {
     position: absolute;
     right: 0;
     top: 0;
     transform: translateY(50%);
-    
 }
+
 .tooltip-icon {
     position: relative;
-    
 }
-.error .tooltip-icon:hover ~ .error-message{
+
+.error .tooltip-icon:hover~.error-message {
     display: block;
-  }
- 
+}
+
 .error-message {
     display: none;
     position: absolute;
@@ -111,6 +113,7 @@ input::placeholder {
 .error-message p {
     margin-bottom: 0 !important;
 }
+
 /* .error-border{
     border-color:rgb(255, 162, 162) !important; 
 } */
