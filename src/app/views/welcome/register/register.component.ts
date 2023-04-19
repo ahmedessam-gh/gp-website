@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
         Validators.minLength(6),
       ])],
       confirmPassword :['',Validators.required],
-      user:[''],
+      user:['',Validators.required],
 
     });
    

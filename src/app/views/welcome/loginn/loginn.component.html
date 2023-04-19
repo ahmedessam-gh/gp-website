@@ -1,18 +1,17 @@
 <div class="loginError error animate__animated animate__fadeInDown" *ngIf="submitted && loginForm.invalid ">
-  <p>Email or Password is not valid</p>
+  <p style="font-size: 0.8rem; color: red;">Email or Password is not valid</p>
 </div>
 
-<div class=" animate__animated animate__backInDown mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
-  <h5 style="color:var(--main-color)">Login</h5>
-    
+<div class="animate__animated animate__backInDown mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
+    <h5>Login</h5>
    <form  class="w-50" [formGroup]="loginForm" >
     <div class="form-content">
 
       <input type="email" name="email" formControlName="email" class="d-block form-control my-3"
-        placeholder="Enter Your Email ..." required>
+        placeholder="Email..." required>
        
       <input type="password" name="password" formControlName="password" class="d-block form-control my-3"
-        placeholder="Enter Your password ..." required>
+        placeholder="Password..." required>
       <a href="#" class="text-decoration-none" style="color:grey; font-size: 0.8rem;">Forgot Password ?</a>
       <div class="loginBtn my-3">
         <app-main-button (click)="login()" width="100%" content="Login"></app-main-button>

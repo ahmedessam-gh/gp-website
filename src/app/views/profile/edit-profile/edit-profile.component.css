@@ -3,19 +3,24 @@
 }
 .accountCont{
     box-sizing: border-box;
-}
-.accountEditDetails{
-    border:1px solid rgba(0, 0, 0, 0.175);
-    border-radius: 0.375rem;
-    padding: 20px 30px;
-    
-    
+
 }
 
+
 .accountEditDetails label{
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    font-family: var(--secondary-font); 
+    font-weight: 500;
     color: var(--main-color);
 }
 input::placeholder{
     font-family: var(--button-font);
+}
+
+@media screen and (max-width:600px) {
+    .accountCont{
+        width: 75%;
+    
+    }
 }
