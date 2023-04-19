@@ -110,9 +110,9 @@ input::placeholder {
 .error-message p {
     margin-bottom: 0 !important;
 }
-.error-border{
+/* .error-border{
     border-color:rgb(255, 162, 162) !important; 
-}
+} */
 .input-group h5 {
     font-size: 1.5rem;
 
