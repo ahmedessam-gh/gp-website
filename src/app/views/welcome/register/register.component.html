@@ -1,66 +1,75 @@
-<div class="animate__animated animate__backInDown mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
-    <h5 style="color:var(--main-color)">Sign Up</h5>
-    <div class="w-50 form-content">
-      <form [formGroup]="registerForm">
-        <div class="registerForm">
-          <div class="row">
-            <div class="col-6 p-0">
-              <input type="text" formControlName="fname" class="d-block form-control"
-              placeholder="Enter your first name ...">
-            </div>
-            <div class="col-6">
-              <input type="text" formControlName="lname" class="d-block form-control"
-              placeholder="Enter your last name ...">
-            </div>
-            
+<div
+  class="animate__animated animate__backInDown mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
+  <h5 style="color:var(--main-color)">Sign Up</h5>
+  <div class="w-50 form-content">
+    <form [formGroup]="registerForm">
+      <div class="registerForm">
+        <div class="row">
+          <div class="tooltip-container col-6 ps-0">
+            <input type="text" formControlName="fname" class="d-block form-control" placeholder="first name ...">
+
           </div>
-          <div *ngIf="submitted && registerForm.get('fname').invalid && registerForm.get('lname').invalid"  class="error animate__animated col-12 ">
-            <ul>
-              <li>enter your name</li>
-            </ul> 
-          </div>
-            <div>
-              <input type="email" formControlName="email" class="d-block form-control"
-                placeholder="Enter your email ...">
+          <div class="tooltip-container col-6 pe-0">
+            <input type="text" formControlName="lname" class="d-block form-control" placeholder="last name ...">
+            <div class="error"
+              *ngIf="submitted && registerForm.get('fname').invalid && registerForm.get('lname').invalid">
+              <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
+              <div class="error-message">
+                <p>enter your name</p>
+              </div>
             </div>
-            <div *ngIf="submitted && registerForm.get('email').invalid"  class="error col-12 ">
-              <ul>
-                <li>enter a valid email</li>
-              </ul> 
-            </div>
-            <div>
-              <input type="password" formControlName="password" class="d-block form-control"
-                placeholder="Enter your password ...">
-            </div>
-            <div *ngIf="submitted && registerForm.get('password').invalid" class="error">
-              <ul>
-                <li>must contain at least 6 characters</li>
-                <li>
-                  must contain only letters and numbers 
-                </li>
-              </ul>          
-              
-            </div>
-            <div>
-              <input type="password" formControlName="confirmPassword" class="d-block form-control"
-                placeholder="Re enter your password ...">
-            </div>
-            <div class="error" *ngIf="registerForm.get('confirmPassword').hasError('passNotMatching')"> 
-              <ul>
-                <li>password is not matching</li>
-              </ul> 
-            </div>
-            
-            <div>
-              <input type="radio" formControlName="user" value="customer"> <span class="mx-3">Customer</span>
-              <input type="radio" formControlName="user" value="vendor"> <span class="ms-3">Vendor</span>
-            </div>
-          <div>
-            <app-main-button id="app-button" width="100%" 
-              content="register" (click)="register()"></app-main-button>
           </div>
         </div>
-      </form>
-    </div>
-    <button class="btn" [routerLink]="['/welcome/loginn']">Sign Up</button>
+
+        <div class="tooltip-container">
+          <input type="email" formControlName="email" class="d-block form-control" placeholder="Enter your email ...">
+          <div class="error" 
+          *ngIf="submitted && registerForm.get('email').invalid">
+            <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
+            <div class="error-message">
+              <p>enter your email</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tooltip-container">
+          <input type="password" formControlName="password" class="d-block form-control"
+            placeholder="Enter your password ...">
+          <div class="error" *ngIf="submitted && registerForm.get('password').invalid">
+            <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
+            <div class="error-message error-pass">
+              <p>must contain 6 letters or more.</p>
+              <p>must contain letters and numbers only.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tooltip-container">
+          <input type="password" formControlName="confirmPassword" class="d-block form-control"
+            placeholder="Re enter your password ...">
+          <div class="error" *ngIf="registerForm.get('confirmPassword').hasError('passNotMatching')">
+            <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
+            <div class="error-message">
+              <p>password is not matching</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tooltip-container">
+          <input type="radio" formControlName="user" value="customer"> <span class="mx-3">Customer</span>
+          <input type="radio" formControlName="user" value="vendor"> <span class="ms-3">Vendor</span>
+          <div class="error" *ngIf="submitted && registerForm.get('user').invalid">
+            <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
+            <div class="error-message">
+              <p>please choose one of the following</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <app-main-button id="app-button" width="100%" content="register" (click)="register()"></app-main-button>
+        </div>
+      </div>
+    </form>
   </div>
+  <button class="btn" [routerLink]="['/welcome/loginn']">Sign Up</button>
+</div>

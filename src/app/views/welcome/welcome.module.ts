@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RegisterComponent } from './register/register.component';
 import { LoginnComponent } from './loginn/loginn.component'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
       WelcomeComponent , RegisterComponent , LoginnComponent,
@@ -16,7 +17,8 @@ import { LoginnComponent } from './loginn/loginn.component'
     WelcomeRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    FontAwesomeModule
   ]
 })
 export class WelcomeModule { }
