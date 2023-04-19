@@ -340,6 +340,7 @@
         <br />
         <li>
           <app-main-button
+            type="reset"
             id="uncheck"
             iconLeft="eraser"
             content=" Clear All Filters"
@@ -654,29 +655,33 @@
                     </label>
                   </li>
                 </ul>
+                <hr />
+                <ul class="list-unstyled">
+                  <li>
+                    <app-main-button
+                      type="submit"
+                      [iconLeft]="'filter'"
+                      content=" Filter"
+                      width="150px"
+                      fontSize="0.8rem"
+                    >
+                    </app-main-button>
+                  </li>
+                  <br />
+
+                  <li>
+                    <app-main-button
+                      type="reset"
+                      id="uncheck"
+                      iconLeft="eraser"
+                      content=" Clear All Filters"
+                      fontSize="0.7rem"
+                      width="160px"
+                      (click)="clearAllFilters()"
+                    ></app-main-button>
+                  </li>
+                </ul>
               </form>
-              <hr />
-              <ul class="list-unstyled">
-                <li>
-                  <app-main-button
-                    [iconLeft]="'filter'"
-                    content=" Filter"
-                    width="150px"
-                    fontSize="0.8rem"
-                  >
-                  </app-main-button>
-                </li>
-                <br />
-                <li>
-                  <app-main-button
-                    id="uncheck"
-                    iconLeft="eraser"
-                    content=" Clear All Filters"
-                    fontSize="0.8rem"
-                    (click)="clearAllFilters()"
-                  ></app-main-button>
-                </li>
-              </ul>
             </div>
           </div>
 
