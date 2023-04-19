@@ -1,7 +1,22 @@
 import { style } from '@angular/animations';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  HostListener,
+  HostBinding,
+  ViewChild,
+  Renderer2,
+  ElementRef,
+} from '@angular/core';
 import { ProdService } from 'src/app/core/services/prod.service';
 import { Prod } from 'src/app/core/interfaces/Prod';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { HeaderService } from 'src/app/core/services/header.service';
+import { cart } from '../../core/interfaces/cart';
+import { CartService } from '../../core/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -9,39 +24,78 @@ import { Prod } from 'src/app/core/interfaces/Prod';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  searchText: any;
-  myProd?: Prod[];
+  productid: string;
+  isScrolled = false;
+  searchText = '';
+  showSearch = false;
+  isFixed: boolean;
+  showSuggetions = true;
+  showResults = false;
+  searchQuery = '';
+  cartProducts: cart[] = [];
+  myProd: Prod[];
+  newProd: any;
   collapsed = true;
+  nativeElement: any;
+  ActivatedRoute: any;
+
   toggler(): void {
     this.collapsed = !this.collapsed;
+    const nav = document.getElementById('lower-nav');
+    nav.classList.toggle('white-nav');
   }
 
-  constructor(private prod: ProdService) {}
+  constructor(
+    private prod: ProdService,
+    private route: ActivatedRoute,
+    private router: Router,
+    public header: HeaderService,
+    private renderer: Renderer2,
+    private elementrf: ElementRef,
+    private cart: CartService
+  ) {}
   ngOnInit(): void {
+    this.cartProducts = this.cart.getCart();
     this.myProd = this.prod.product;
   }
 
+  changeColor() {
+    const nav = document.getElementById('lower-nav');
+    nav.classList.toggle('white-nav');
+  }
+
+  // styling() {
+  //   const para = this.elementrf.nativeElement.querySelector('nav');
+  //   this.renderer.addClass(para,'navbar');
+  //   console.log(para);
+  // }
   searchContainer() {
     const search_container = document.querySelector('.search-container');
     search_container?.classList.add('activeSearchcontainer');
   }
-
+  changeProd(product: Prod) {
+    // this.router.navigate(['/shop/product',product.id]);
+  }
   removeContainer() {
-    const search_container = document.querySelector('.search-container');
-    const search_add = document.querySelector('searh-suggesions');
-    const search_remove = document.querySelector('search-results');
-    search_container?.classList.remove('activeSearchcontainer');
+    if (!this.showSearch) {
+      const search_container = document.querySelector('.search-container');
 
-    search_add?.classList.remove('activeSearch-suggesions');
-    search_remove?.classList.remove('activeSearchresults');
+      search_container?.classList.remove('activeSearchcontainer');
+      this.searchText = '';
+      this.showSuggetions = true;
+      this.showResults = false;
+    }
+    // this.router.navigate(['/shop/product',prod.id])
   }
 
-  searchResults() {
-    const search_suggestions = document.querySelector('.search-suggesions');
-    const search_results = document.querySelector('.search-results');
-    search_suggestions?.classList.add('activeSearch-suggesions');
-    search_results?.classList.add('activeSearchresults');
+  onSearchInput() {
+    if (this.searchText === '') {
+      this.showSuggetions = true;
+      this.showResults = false;
+    } else {
+      this.showSuggetions = false;
+      this.showResults = true;
+    }
   }
-
-  searchRemove() {}
+  ngOnDestroy() {}
 }

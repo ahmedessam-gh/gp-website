@@ -1,5 +1,3 @@
-import { FeaturesSectionModule } from './shared/features-section/features-section.module';
-import { MainCategoriesModule } from 'src/app/shared/main-categories/main-categories.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -14,27 +12,31 @@ import {
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { HomeComponent } from './views/home/home.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CommonModule } from '@angular/common';
 import { Ng2SearchPipe } from 'ng2-search-filter/src/ng2-filter.pipe';
 import { Router } from '@angular/router';
-import { MainButtonModule } from './shared/main-button/main-button.module';
-import { LoginComponent } from './views/login/login.component';
+import { WelcomeComponent } from './views/welcome/welcome.component';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainCategoriesComponent } from './shared/main-categories/main-categories.component';
 import { ProfileModule } from './views/profile/profile.module';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Error404Component } from './views/error404/error404.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
-    LoginComponent,
     HeadFootComponent,
+    Error404Component,
   ],
+  providers: [],
+  bootstrap: [AppComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -42,14 +44,12 @@ import { ProfileModule } from './views/profile/profile.module';
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    MainButtonModule,
-    MainCategoriesModule,
     ReactiveFormsModule,
-    FeaturesSectionModule,
-    ProfileModule,
+    NgxPaginationModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    SharedModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {

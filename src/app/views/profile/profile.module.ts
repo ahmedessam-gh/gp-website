@@ -5,11 +5,18 @@ import { ProfileComponent } from './profile.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FavouriteComponent } from './favourites/favourites.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
-import {
-  FontAwesomeModule,
-} from '@fortawesome/angular-fontawesome';
-import { MainButtonModule } from "../../shared/main-button/main-button.module";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
     declarations: [
@@ -18,14 +25,22 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
         ProfileDetailsComponent,
         FavouriteComponent,
         BottomBarComponent,
-        
+        MyOrdersComponent,
+        EditProfileComponent,
+        DashboardComponent,
     ],
     imports: [
         CommonModule,
         ProfileRoutingModule,
         FontAwesomeModule,
-        MainButtonModule,
+        NgxPaginationModule,
+        SharedModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatIconModule,
         
-    ],
+       
+    ]
 })
-export class ProfileModule { }
+export class ProfileModule {}

@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="product-box">
+    <div class="product-img position-relative">
+      <div class="ribbon-danger" *ngIf="product.rent">Rent</div>
+      <div class="ribbon-success" *ngIf="product.status == 'Sale'">
+        {{ product.status }}
+      </div>
+      <a>
+        <img
+          class="img-fluid position-relative"
+          height="70px"
+          src="{{ product.img }}"
+          alt=""
+        />
+      </a>
+      <div
+        class="product-hover position-absolute"
+        [routerLink]="['/shop/product', product.id]"
+      >
+        <ul>
+          <li
+            (click)="addToFav(product, $event)"
+            [ngClass]="{ favIcon: favouriteList.includes(product) }"
+          >
+            <a
+              ><fa-icon
+                id="{{ product.id }}"
+                [ngClass]="{ favIcon: favouriteList.includes(product) }"
+                icon="heart"
+              ></fa-icon
+            ></a>
+          </li>
+          <!-- <li [routerLink]="['/shop/product', product.id]">
+            <a
+              ><fa-icon
+                [routerLink]="['/shop/product', product.id]"
+                icon="shopping-cart"
+              ></fa-icon
+            ></a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-details">
+      <div class="rating"></div>
+      <h4>
+        {{ product.ProdName }}
+      </h4>
+
+      <p>{{ product.note }}</p>
+      <div class="product-price">
+        ${{ product.Price }}
+        <del *ngIf="product.discount > 0">${{ product.discount }}</del>
+      </div>
+    </div>
+  </div>
+</div>

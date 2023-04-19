@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-details',
@@ -11,5 +12,7 @@ export class ProfileDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  
 
 }

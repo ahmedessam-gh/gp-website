@@ -1,0 +1,186 @@
+<div class="container pad-sections">
+  <article class="card">
+    <h1 class="card-header">Your Order Status</h1>
+    <div class="card-body" *ngIf="myOrders">
+      <h6>Order Number : {{ myOrders.orderNumber }}</h6>
+      <article class="card">
+        <div class="card-body row">
+          <div class="col-6 col-xl-3 py-2">
+            <strong> <fa-icon icon="calendar"></fa-icon> Order Date: </strong>
+            <br />
+            <p>{{ myOrders.orderDate }}</p>
+          </div>
+          <div class="col-6 col-xl-3 py-2">
+            <strong>
+              <fa-icon icon="dollar"> </fa-icon>
+              Total Price:</strong
+            >
+            <br />
+
+            <p>{{ myOrders.totalPrice }} EGP</p>
+          </div>
+          <div class="col-6 col-xl-3 py-2">
+            <strong> <fa-icon icon="check"> </fa-icon> Status:</strong> <br />
+            <p>{{ myOrders.status }}</p>
+          </div>
+          <div class="col-6 col-xl-3 py-2">
+            <strong>
+              <fa-icon icon="truck"> </fa-icon>
+              Expected Arrival Date:</strong
+            >
+            <br />
+            <p>{{ myOrders.orderArrival }}</p>
+          </div>
+        </div>
+      </article>
+      <div class="track">
+        <div class="step active">
+          <span class="icon"><fa-icon icon="user"> </fa-icon> </span>
+          <span class="text">Order Placed </span>
+        </div>
+
+        <div class="step" *ngIf="myOrders.status == 'Order Placed'">
+          <span class="icon"> <fa-icon icon="bread-slice"></fa-icon> </span>
+          <span class="text"> Preparing Order</span>
+        </div>
+        <div
+          class="step active"
+          *ngIf="
+            myOrders.status == 'Preparing Order' ||
+            myOrders.status == 'Out for delivery' ||
+            myOrders.status == 'Delivered'
+          "
+        >
+          <span class="icon"> <fa-icon icon="bread-slice"></fa-icon> </span>
+          <span class="text"> Preparing Order</span>
+        </div>
+        <div
+          class="step"
+          *ngIf="
+            myOrders.status == 'Preparing Order' ||
+            myOrders.status == 'Order Placed'
+          "
+        >
+          <span class="icon"><fa-icon icon="truck"> </fa-icon></span>
+          <span class="text"> Out for delivery </span>
+        </div>
+        <div
+          class="step active"
+          *ngIf="
+            myOrders.status == 'Out for delivery' ||
+            myOrders.status == 'Delivered'
+          "
+        >
+          <span class="icon"><fa-icon icon="truck"> </fa-icon></span>
+          <span class="text"> Out for delivery </span>
+        </div>
+        <div
+          class="step"
+          *ngIf="
+            myOrders.status == 'Preparing Order' ||
+            myOrders.status == 'Order Placed' ||
+            myOrders.status == 'Out for delivery'
+          "
+        >
+          <span class="icon">
+            <div>
+              <fa-icon icon="birthday-cake"></fa-icon></div
+          ></span>
+          <span class="text">Delivered</span>
+        </div>
+        <div class="step active" *ngIf="myOrders.status == 'Delivered'">
+          <span class="icon">
+            <div>
+              <fa-icon icon="birthday-cake"></fa-icon></div
+          ></span>
+          <span class="text">Delivered</span>
+        </div>
+      </div>
+      <hr />
+      <ul class="row">
+        <li class="col-md-6 col-xl-4">
+          <figure class="itemside mb-5">
+            <div class="aside mx-3">
+              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
+            </div>
+            <figcaption class="info align-self-center">
+              <p class="title">Solid Polo Collar T-shirt</p>
+              <p class="title">Size: XL</p>
+              <p class="title">Quantity : X 3</p>
+
+              <span class="text-muted">$100 </span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="col-md-6 col-xl-4">
+          <figure class="itemside mb-5">
+            <div class="aside mx-3">
+              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
+            </div>
+            <figcaption class="info align-self-center">
+              <p class="title">Solid Polo Collar T-shirt</p>
+              <p class="title">Size: XL</p>
+              <p class="title">Quantity : X 3</p>
+
+              <span class="text-muted">$100 </span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="col-md-6 col-xl-4">
+          <figure class="itemside mb-5">
+            <div class="aside mx-3">
+              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
+            </div>
+            <figcaption class="info align-self-center">
+              <p class="title">Solid Polo Collar T-shirt</p>
+              <p class="title">Size: XL</p>
+              <p class="title">Quantity : X 3</p>
+
+              <span class="text-muted">$100 </span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="col-md-6 col-xl-4">
+          <figure class="itemside mb-5">
+            <div class="aside mx-3">
+              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
+            </div>
+            <figcaption class="info align-self-center">
+              <p class="title">Solid Polo Collar T-shirt</p>
+              <p class="title">Size: XL</p>
+              <p class="title">Quantity : X 3</p>
+
+              <span class="text-muted">$100 </span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="col-md-6 col-xl-4">
+          <figure class="itemside mb-5">
+            <div class="aside mx-3">
+              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
+            </div>
+            <figcaption class="info align-self-center">
+              <p class="title">Solid Polo Collar T-shirt</p>
+              <p class="title">Size: XL</p>
+              <p class="title">Quantity : X 3</p>
+
+              <span class="text-muted">$100 </span>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+      <hr />
+      <a [routerLink]="['/profile/myorders']">
+        <app-main-button
+          class="orderButton"
+          icon="arrow-left"
+          content="Back to orders"
+        ></app-main-button>
+      </a>
+    </div>
+  </article>
+</div>
+<div class="pad-sections">
+  <app-main-categories></app-main-categories>
+  <app-features-section></app-features-section>
+</div>

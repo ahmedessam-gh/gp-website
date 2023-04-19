@@ -1,0 +1,269 @@
+<div class="container pad-sections">
+  <div class="row">
+    <div class="productImg col-xl-6 col-md-6 col-12 mb-lg-0 mb-5">
+      <div class="productBigImg py-2">
+        <img
+          class="bigImg"
+          src="{{ myprod.img }}"
+          alt="sss"
+          width="80%"
+          [ngClass]="{ fadeInLeft: isBigPhotoUpdated }"
+          (load)="isBigPhotoUpdated = true"
+        />
+      </div>
+      <div class="smallImgDiv mt-3">
+        <img
+          class="productSmallimgs mx-2"
+          src="{{ myprod.img }}"
+          [ngClass]="{ selected: selectedPhoto === myprod.img }"
+          alt=""
+          width="17%"
+          (click)="changePhoto(myprod.img)"
+        />
+        <img
+          class="productSmallimgs mx-2"
+          src="assets\images\02.jpg"
+          [ngClass]="{ selected: selectedPhoto === 'assets/images/02.jpg' }"
+          alt=""
+          width="17%"
+          (click)="changePhoto('assets/images/02.jpg')"
+        />
+        <img
+          class="productSmallimgs mx-2"
+          src="assets\images\04.jpg"
+          alt=""
+          [ngClass]="{ selected: selectedPhoto === 'assets/images/04.jpg' }"
+          width="17%"
+          (click)="changePhoto('assets/images/04.jpg')"
+        />
+      </div>
+    </div>
+    <hr class="d-lg-none d-md-none d-xl-none d-block" />
+    <div class="productDetails col-xl-6 col-12 col-md-6 mt-lg-0 mt-4">
+      <h1 class="productName">{{ myprod.ProdName }}</h1>
+      <label class="productRent" *ngIf="myprod.rent">
+        <fa-icon class="px-1" icon="circle-check"></fa-icon> Avaliable for
+        rent</label
+      >
+      <hr />
+      <div class="productCategory py-2">{{ myprod.details }}</div>
+      <hr />
+      <div class="productPriceDiscount">
+        <label class="productPrice">{{ myprod.Price }} EGP</label>
+        <del class="productDiscount py-2">{{ myprod.discount }} EGP</del>
+      </div>
+      <div class="productSize py-2">
+        <label class="productLabel">Select your Size</label>
+        <ul class="productSizes py-3 list-unstyled">
+          <li>
+            <input
+              type="radio"
+              id="xs"
+              name="size"
+              value="xs"
+              [(ngModel)]="myprod.size"
+              (change)="onSizeChanged(myprod)"
+            />
+
+            <label for="xs" class="productsingelSize">XS </label>
+
+            <input
+              type="radio"
+              id="s"
+              name="size"
+              value="s"
+              [(ngModel)]="myprod.size"
+              (change)="onSizeChanged(myprod)"
+            />
+
+            <label for="s" class="productsingelSize">S </label>
+
+            <input
+              type="radio"
+              id="m"
+              name="size"
+              value="m"
+              [(ngModel)]="myprod.size"
+              (change)="onSizeChanged(myprod)"
+            />
+
+            <label for="m" class="productsingelSize">M </label>
+
+            <input
+              type="radio"
+              id="l"
+              name="size"
+              value="l"
+              [(ngModel)]="myprod.size"
+              (change)="onSizeChanged(myprod)"
+            />
+
+            <label for="l" class="productsingelSize">L </label>
+
+            <input
+              type="radio"
+              id="xl"
+              name="size"
+              value="xl"
+              [(ngModel)]="myprod.size"
+              (change)="onSizeChanged(myprod)"
+            />
+
+            <label for="xl" class="productsingelSize">XL </label>
+
+            <input
+              type="radio"
+              id="xxl"
+              name="size"
+              value="xxl"
+              [(ngModel)]="myprod.size"
+              (change)="onSizeChanged(myprod)"
+            />
+          </li>
+        </ul>
+      </div>
+
+      <div class="productColors">
+        <label class="productLabel">Select Your Color</label>
+
+        <ul
+          class="custom-radios btn-toggle-nav list-unstyled fw-normal small d-flex py-3"
+        >
+          <li *ngFor="let col of myprod.color">
+            <input
+              type="radio"
+              id="{{ col.value }}"
+              name="color"
+              value="{{ col.value }}"
+              [(ngModel)]="myprod.colorChosen"
+            />
+            <label for="{{ col.value }}">
+              <span style="background-color: {{ col.label }}">
+                <fa-icon icon="check"></fa-icon>
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <app-main-button
+        (click)="addToCart(myprod)"
+        class="buttons mx-3"
+        class="orderButton"
+        iconLeft="cart-shopping"
+        content="Add To Cart"
+      ></app-main-button>
+
+      <app-main-button
+        (click)="addToFav(myprod, 0)"
+        class="buttons mx-2"
+        iconLeft="heart"
+        content="Favorite"
+        backGroundColor="grey"
+      ></app-main-button>
+
+      <div class="py-4">
+        <label class="productLabel py-3"> Select Your Quantity : </label>
+        <div class="input-number">
+          <button class="minus" (click)="minus(myprod)">-</button>
+          <input
+            readonly
+            type="number"
+            id="quantity"
+            [(ngModel)]="myprod.quantity"
+            value="1"
+            min="1"
+            max="20"
+          />
+          <button class="plus" (click)="plus(myprod)">+</button>
+        </div>
+      </div>
+      <div *ngIf="myprod.isStock == true" class="inStock">IN STOCK</div>
+      <div *ngIf="myprod.isStock == false" class="outOfStock">OUT OF STOCK</div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<div class="similarProducts">
+  <div class="container pad-sections">
+    <h3 class="similarProductsHeader">Similar Products</h3>
+
+    <div class="row"></div>
+  </div>
+</div>
+<div class="carousel-wrap">
+  <div class="owl-carousel owl-theme">
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+
+    <app-productbox class="item" [product]="myprod"></app-productbox>
+  </div>
+</div>
+<hr />
+
+<div class="prodQA">
+  <div class="container pad-sections">
+    <h3 class="similarProductsHeader pad-sections">
+      Product Questions & Answers
+    </h3>
+    <div class="py-3" *ngFor="let question of myprod.questions">
+      <div class="questionsection py-3">
+        <strong class="px-3"> Question: </strong>
+        <label> {{ question.question }}</label>
+        <br />
+        <div class="d-flex py-1">
+          <strong class="px-3"> Answer: </strong>
+          <div class="answer-container">
+            <span> {{ question.answer }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="adding-question">
+      <div class="addinglabela pad-sections">
+        <label class="addlabel">
+          Do you have a question about the product? </label
+        ><br />
+        <a class="add-question" (click)="showNewQuestionForm = true">
+          Click here to ask us a question!
+        </a>
+      </div>
+
+      <div class="questionform px-4 py-3" *ngIf="showNewQuestionForm">
+        <form [formGroup]="question" (ngSubmit)="addQuestion()">
+          <label for="question"> Enter a new question :</label>
+          <input
+            class="form-control"
+            placeholder="Enter your Question"
+            formControlName="newQuestion"
+            required
+          />
+          <div
+            class="error-note"
+            *ngIf="submitted && question.controls['newQuestion'].invalid"
+          >
+            <span class="error-message px-2"
+              >enter a valid question with min 6 letters</span
+            >
+          </div>
+          <br />
+        </form>
+        <app-main-button
+          disabled="!newQuestion.valid"
+          content="Submit Question"
+          (click)="addQuestion()"
+        ></app-main-button>
+      </div>
+    </div>
+  </div>
+</div>

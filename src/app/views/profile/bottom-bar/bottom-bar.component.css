@@ -1,24 +1,27 @@
-.bot-bar{
+
+.side-bar-repons{
     position: fixed;
-    left: 0;
+    right: 0;
+    top: 0;
     background-color: white;
-    width: 100%;
-    bottom: 0;
-    z-index: 9999;
+    width: 60%;
+    height: 100vh;
+    z-index: 99999;
 }
-.nav-item button{
-    width: 25%;
-    float: left;
-    border-radius: 0;
-}
-span{
-    display: block;
-    font-size:0.8rem ;
-}
-.navbar-nav{
-    display: block;
-}
+
 .bot-bar-active{
     background-color: var(--main-color) !important;
     color: white !important;
+    border-radius: 0%;
+    width: 100%;
+}
+.menu-sidebar-btn button{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 20px;
+    color: #ffffff !important;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    z-index: 9999;
 }

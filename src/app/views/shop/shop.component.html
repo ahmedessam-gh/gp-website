@@ -1,0 +1,728 @@
+<div class="container pad-sections">
+  <div class="row">
+    <div
+      class="shopSidebar col-xl-3 col-lg-3 py-1 d-none d-lg-block d-xl-block"
+    >
+      <ul class="list-unstyled">
+        <li>
+          <button
+            class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
+            data-bs-toggle="collapse"
+            data-bs-target="#categories-collapse"
+            aria-expanded="true"
+          >
+            <h5>Categories</h5>
+          </button>
+
+          <div class="collapse show" id="categories-collapse">
+            <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+              <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
+                <li class="position-relative">
+                  <label
+                    for="men"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >Men</label
+                  >
+                  <input
+                    type="checkbox"
+                    id="men"
+                    formControlName="category"
+                    value="men"
+                  />
+                </li>
+                <li class="position-relative">
+                  <label
+                    for="women"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >Women</label
+                  >
+                  <input
+                    type="checkbox"
+                    id="women"
+                    formControlName="category"
+                    value="women"
+                  />
+                </li>
+                <li class="position-relative">
+                  <label
+                    for="accessories"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >Accessories</label
+                  >
+                  <input
+                    type="checkbox"
+                    id="accessories"
+                    formControlName="category"
+                    value="accessories"
+                  />
+                </li>
+                <li class="position-relative">
+                  <label
+                    for="shoes"
+                    href="#"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >Shoes</label
+                  >
+                  <input
+                    type="checkbox"
+                    id="shoes"
+                    formControlName="category"
+                    value="shoes"
+                  />
+                </li>
+              </ul>
+            </form>
+          </div>
+        </li>
+        <li>
+          <button
+            class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
+            data-bs-toggle="collapse"
+            data-bs-target="#filterPrice-collapse"
+            aria-expanded="true"
+          >
+            <h5>Filter Price</h5>
+          </button>
+          <div class="collapse show" id="filterPrice-collapse">
+            <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+              <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
+                <li class="position-relative">
+                  <label
+                    for="p1"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >$0-$50</label
+                  >
+                  <input
+                    type="checkbox"
+                    id="p1"
+                    formControlName="price"
+                    value="150"
+                  />
+                </li>
+                <li class="position-relative">
+                  <input
+                    type="checkbox"
+                    id="p2"
+                    formControlName="price"
+                    value="p2"
+                  />
+
+                  <label
+                    for="p2"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >$50-$100</label
+                  >
+                </li>
+                <li class="position-relative">
+                  <input
+                    type="checkbox"
+                    id="p3"
+                    formControlName="price"
+                    value="p3"
+                  />
+
+                  <label
+                    for="p3"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >$100-$150</label
+                  >
+                </li>
+                <li class="position-relative">
+                  <label
+                    for="p4"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >$150-$200</label
+                  >
+                  <input
+                    type="checkbox"
+                    id="p4"
+                    formControlName="price"
+                    value="$150-200"
+                  />
+                </li>
+                <li class="position-relative">
+                  <label
+                    for="p5"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >$200+</label
+                  >
+                  <input
+                    type="checkbox"
+                    id="p5"
+                    formControlName="price"
+                    value="p5"
+                  />
+                </li>
+              </ul>
+            </form>
+          </div>
+        </li>
+        <li>
+          <button
+            class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
+            data-bs-toggle="collapse"
+            data-bs-target="#size-collapse"
+            aria-expanded="true"
+          >
+            <h5>Size</h5>
+          </button>
+          <div class="collapse show" id="size-collapse">
+            <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+              <ul
+                class="custom-sizes btn-toggle-nav list-unstyled fw-normal small px-3"
+              >
+                <li>
+                  <input
+                    type="radio"
+                    id="xs"
+                    formControlName="size"
+                    value="xs"
+                  />
+
+                  <label for="xs" class="size-filter">XS </label>
+
+                  <input type="radio" id="s" formControlName="size" value="s" />
+
+                  <label for="s" class="size-filter">s </label>
+
+                  <input type="radio" id="m" formControlName="size" value="m" />
+
+                  <label for="m" class="size-filter">M </label>
+                </li>
+                <li>
+                  <input type="radio" id="l" formControlName="size" value="l" />
+
+                  <label for="l" class="size-filter">L </label>
+
+                  <input
+                    type="radio"
+                    id="xl"
+                    formControlName="size"
+                    value="xl"
+                  />
+
+                  <label for="xl" class="size-filter">XL </label>
+
+                  <input
+                    type="radio"
+                    id="xxl"
+                    formControlName="size"
+                    value="xxl"
+                  />
+
+                  <label for="xxl" class="size-filter">XXL </label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    id="xxxl"
+                    formControlName="size"
+                    value="xxxl"
+                  />
+
+                  <label for="xxxl" class="size-filter">xxxl </label>
+
+                  <input
+                    type="radio"
+                    id="xxxxl"
+                    formControlName="size"
+                    value="xxxxl"
+                  />
+
+                  <label for="xxxxl" class="size-filter">XxxxL </label>
+                </li>
+              </ul>
+            </form>
+          </div>
+        </li>
+
+        <li>
+          <button
+            class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
+            data-bs-toggle="collapse"
+            data-bs-target="#color-collapse"
+            aria-expanded="true"
+          >
+            <h5>Color</h5>
+          </button>
+          <div class="collapse show" id="color-collapse">
+            <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+              <ul
+                class="custom-radios btn-toggle-nav list-unstyled fw-normal small px-3"
+              >
+                <li class="py-3">
+                  <input
+                    type="radio"
+                    id="color-1"
+                    formControlName="color"
+                    value="color-1"
+                  />
+                  <label for="color-1">
+                    <span>
+                      <fa-icon icon="check"></fa-icon>
+                    </span>
+                  </label>
+                  <input
+                    type="radio"
+                    id="color-2"
+                    formControlName="color"
+                    value="color-2"
+                  />
+                  <label for="color-2">
+                    <span>
+                      <fa-icon icon="check"></fa-icon>
+                    </span>
+                  </label>
+                  <input
+                    type="radio"
+                    id="color-3"
+                    formControlName="color"
+                    value="color-3"
+                  />
+                  <label for="color-3">
+                    <span>
+                      <fa-icon icon="check"></fa-icon>
+                    </span>
+                  </label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    id="color-4"
+                    formControlName="color"
+                    value="color-4"
+                  />
+                  <label for="color-4">
+                    <span>
+                      <fa-icon icon="check"></fa-icon>
+                    </span>
+                  </label>
+                  <input
+                    type="radio"
+                    id="color-5"
+                    formControlName="color"
+                    value="color-5"
+                  />
+                  <label for="color-5">
+                    <span>
+                      <fa-icon icon="check"></fa-icon>
+                    </span>
+                  </label>
+                  <input
+                    type="radio"
+                    id="color-6"
+                    formControlName="color"
+                    value="color-6"
+                  />
+                  <label for="color-6">
+                    <span>
+                      <fa-icon icon="check"></fa-icon>
+                    </span>
+                  </label>
+                </li>
+              </ul>
+            </form>
+          </div>
+        </li>
+      </ul>
+      <hr />
+      <ul class="list-unstyled">
+        <li>
+          <app-main-button
+            [iconLeft]="'filter'"
+            (click)="onSubmit()"
+            content=" Filter"
+            width="150px"
+            fontSize="0.8rem"
+          >
+          </app-main-button>
+        </li>
+        <br />
+        <li>
+          <app-main-button
+            type="reset"
+            id="uncheck"
+            iconLeft="eraser"
+            content=" Clear All Filters"
+            width="200px"
+            fontSize="0.8rem"
+            (click)="clearAllFilters()"
+          ></app-main-button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="ShopProducts col-xl-9 col-lg-9">
+      <div class="row">
+        <div class="d-flex justify-content-between">
+          <div
+            class="smallFilterDiv col-6 d-block d-xl-none d-md-block d-lg-none position-relative"
+          >
+            <div
+              class="filterBox px-3 bg-light d-block d-xl-none d-md-block d-lg-none"
+              (click)="openFilter()"
+            >
+              <p class="mt-3 ml-3">
+                Filter <fa-icon icon="arrow-down"></fa-icon>
+              </p>
+            </div>
+            <div class="smallFilter position-absolute" *ngIf="showFilter">
+              <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+                <ul
+                  class="btn-toggle-nav list-unstyled fw-normal small px-3 d-block d-lg-none d-xl-none"
+                >
+                  <h5 class="filterName px-0">Category</h5>
+                  <li class="position-relative">
+                    <label
+                      for="man"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >Men</label
+                    >
+                    <input
+                      type="checkbox"
+                      id="man"
+                      formControlName="category"
+                      value="men"
+                    />
+                  </li>
+                  <li class="position-relative">
+                    <label
+                      for="women"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >Women</label
+                    >
+                    <input
+                      type="checkbox"
+                      id="woman"
+                      formControlName="category"
+                      value="women"
+                    />
+                  </li>
+                  <li class="position-relative">
+                    <label
+                      for="accessorie"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >Accessories</label
+                    >
+                    <input
+                      type="checkbox"
+                      id="accessorie"
+                      formControlName="category"
+                      value="accessories"
+                    />
+                  </li>
+                  <li class="position-relative">
+                    <label
+                      for="shoe"
+                      href="#"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >Shoes</label
+                    >
+                    <input
+                      type="checkbox"
+                      id="shoe"
+                      formControlName="category"
+                      value="shoes"
+                    />
+                  </li>
+                  <hr />
+                </ul>
+
+                <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
+                  <li class="position-relative">
+                    <h5 class="filterName">Price</h5>
+                    <label
+                      for="price1"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >$0-$50</label
+                    >
+                    <input
+                      type="checkbox"
+                      id="price1"
+                      formControlName="price"
+                      value="p1"
+                    />
+                  </li>
+                  <li class="position-relative">
+                    <input
+                      type="checkbox"
+                      id="price2"
+                      formControlName="price"
+                      value="p2"
+                    />
+
+                    <label
+                      for="price2"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >$50-$100</label
+                    >
+                  </li>
+                  <li class="position-relative">
+                    <input
+                      type="checkbox"
+                      id="price3"
+                      formControlName="price"
+                      value="p3"
+                    />
+
+                    <label
+                      for="price3"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >$100-$150</label
+                    >
+                  </li>
+                  <li class="position-relative">
+                    <label
+                      for="price4"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >$150-$200</label
+                    >
+                    <input
+                      type="checkbox"
+                      id="price4"
+                      formControlName="price"
+                      value="p4"
+                    />
+                  </li>
+                  <li class="position-relative">
+                    <label
+                      for="price5"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >$200+</label
+                    >
+                    <input
+                      type="checkbox"
+                      id="price5"
+                      formControlName="price"
+                      value="p5"
+                    />
+                  </li>
+                </ul>
+
+                <hr />
+                <ul
+                  class="custom-sizes btn-toggle-nav list-unstyled fw-normal small px-3"
+                >
+                  <h5 class="filterName">Size</h5>
+                  <li>
+                    <input
+                      type="radio"
+                      id="xsmall"
+                      formControlName="size"
+                      value="xs"
+                    />
+
+                    <label for="xsmall" class="size-filter">XS </label>
+
+                    <input
+                      type="radio"
+                      id="small"
+                      formControlName="size"
+                      value="s"
+                    />
+
+                    <label for="small" class="size-filter">s </label>
+
+                    <input
+                      type="radio"
+                      id="medium"
+                      formControlName="size"
+                      value="m"
+                    />
+
+                    <label for="medium" class="size-filter">M </label>
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      id="large"
+                      formControlName="size"
+                      value="l"
+                    />
+
+                    <label for="large" class="size-filter">L </label>
+
+                    <input
+                      type="radio"
+                      id="xlarge"
+                      formControlName="size"
+                      value="xl"
+                    />
+
+                    <label for="xlarge" class="size-filter">XL </label>
+
+                    <input
+                      type="radio"
+                      id="xxlarge"
+                      formControlName="size"
+                      value="xxl"
+                    />
+
+                    <label for="xxlarge" class="size-filter">XXL </label>
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      id="xxxlarge"
+                      formControlName="size"
+                      value="xxxl"
+                    />
+
+                    <label for="xxxlarge" class="size-filter">xxxl </label>
+
+                    <input
+                      type="radio"
+                      id="xxxxlarge"
+                      formControlName="size"
+                      value="xxxxl"
+                    />
+
+                    <label for="xxxxlarge" class="size-filter">XxxxL </label>
+                  </li>
+                </ul>
+                <hr />
+                <ul
+                  class="custom-radios btn-toggle-nav list-unstyled fw-normal small px-3"
+                >
+                  <li class="py-3">
+                    <input
+                      type="radio"
+                      id="color1"
+                      formControlName="color"
+                      value="color-1"
+                    />
+                    <label for="color1">
+                      <span>
+                        <fa-icon icon="check"></fa-icon>
+                      </span>
+                    </label>
+                    <input
+                      type="radio"
+                      id="color2"
+                      formControlName="color"
+                      value="color-2"
+                    />
+                    <label for="color2">
+                      <span>
+                        <fa-icon icon="check"></fa-icon>
+                      </span>
+                    </label>
+                    <input
+                      type="radio"
+                      id="color3"
+                      formControlName="color"
+                      value="color-3"
+                    />
+                    <label for="color3">
+                      <span>
+                        <fa-icon icon="check"></fa-icon>
+                      </span>
+                    </label>
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      id="color4"
+                      formControlName="color"
+                      value="color-4"
+                    />
+                    <label for="color4">
+                      <span>
+                        <fa-icon icon="check"></fa-icon>
+                      </span>
+                    </label>
+                    <input
+                      type="radio"
+                      id="color5"
+                      formControlName="color"
+                      value="color-5"
+                    />
+                    <label for="color5">
+                      <span>
+                        <fa-icon icon="check"></fa-icon>
+                      </span>
+                    </label>
+                    <input
+                      type="radio"
+                      id="color6"
+                      formControlName="color"
+                      value="color-6"
+                    />
+                    <label for="color6">
+                      <span>
+                        <fa-icon icon="check"></fa-icon>
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+                <hr />
+                <ul class="list-unstyled">
+                  <li>
+                    <app-main-button
+                      type="submit"
+                      [iconLeft]="'filter'"
+                      content=" Filter"
+                      width="150px"
+                      fontSize="0.8rem"
+                    >
+                    </app-main-button>
+                  </li>
+                  <br />
+
+                  <li>
+                    <app-main-button
+                      type="reset"
+                      id="uncheck"
+                      iconLeft="eraser"
+                      content=" Clear All Filters"
+                      fontSize="0.7rem"
+                      width="160px"
+                      (click)="clearAllFilters()"
+                    ></app-main-button>
+                  </li>
+                </ul>
+              </form>
+            </div>
+          </div>
+
+          <div class="searchbox col-6 col-xl-12 col-lg-6 col-lg-12">
+            <div class="inputBox">
+              <div class="search-items bg-light">
+                <span> <fa-icon icon="magnifying-glass"></fa-icon></span>
+                <input
+                  type="search"
+                  name="search"
+                  placeholder="Search by category"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card col-xl-4 col-md-4 col-6"
+          *ngFor="
+            let newProd of newProds
+              | paginate : { itemsPerPage: 9, currentPage: p };
+            let i = index
+          "
+          data-aos="fade-up"
+          data-aos-once="true"
+          data-aos-duration="100"
+        >
+          <app-productbox [product]="newProd"></app-productbox>
+        </div>
+        <pagination-controls
+          class="my-pagination"
+          (pageChange)="p = $event"
+          previousLabel="Previous"
+          nextLabel="Next"
+          screenReaderPaginationLabel="Pagination"
+          screenReaderPageLabel="page"
+          screenReaderCurrentLabel="You're on page"
+        >
+        </pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

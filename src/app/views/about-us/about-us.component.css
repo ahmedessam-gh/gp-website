@@ -10,6 +10,11 @@
   line-height: 1.7;
   font-family: var(--main-font);
 }
+.aboutus-photo img{
+  animation: fadeInDown 0.5s ease-in-out;
+    height: 50vh;
+    background-size: cover;
+  }
 
 
 

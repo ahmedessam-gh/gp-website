@@ -1,11 +1,19 @@
 :host{
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
+    top:60px;
 }
 .active{
-    background-color: var(--main-color) !important;
+    color: var(--main-color) !important;
+    background-color: transparent !important;
 }
 .sidebar{
     box-shadow: 0px 1px 1px;
+}
+.nav-pills a{
+    color: rgb(159, 0, 0);
+    font-size: 1rem;
+}
+.nav-pills fa-icon{
+    margin-right: 10px;
 }

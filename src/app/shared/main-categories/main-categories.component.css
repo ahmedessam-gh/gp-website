@@ -1,11 +1,21 @@
+:host{
+  font-family: var(--main-font);
+}
 .card {
   cursor: pointer;
   /* border-radius: 50%;   */
   border-radius: 0%;
   /* border-radius: 30px; */
 }
+.categories-section h1 {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: var(--main-color);
+
+}
 @media screen and (max-width:990px) {
-    .card-layout{ 
+    .card-layout{
       transform: translateY(0%) !important;
       height: 20% !important;
       bottom: 0;
@@ -19,7 +29,7 @@
       text-align: center;
       top: 50%;
       transform: translateY(-50%);
-      
+
     }
 }
 .btnCategories{
@@ -32,7 +42,7 @@
   justify-content: center;
   height: 100%;
   z-index: 999;
-  background-color: rgba(117, 91, 180, 0.5);
+  background-color: rgba(91, 180, 147, 0.5);
   width: 100%;
   text-align: center;
   color: #ffffff;

@@ -1,0 +1,123 @@
+* {
+
+  font-family: var(--main-font);
+}
+
+.noOrders {
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-size: 10vh;
+  height: 100%;
+  color: var(--main-color);
+
+}
+
+.noOrders p {
+
+  font-family: var(--main-font);
+}
+
+
+.removeorders {
+
+  background-color: black;
+
+}
+
+.orderstitle h1 {
+font-family: var(--main-font);
+  font-weight: bold;
+
+  text-align: center;
+  font-size: 2em;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  animation: bounceIn 1s ease-in-out;
+}
+
+.card {
+
+  box-shadow: 3px;
+  border-radius: 0;
+  overflow: hidden;
+  animation: fadeInLeft 1s ease-in-out;
+
+}
+.card-title{
+  width: 150px;
+}
+
+.card-title label{
+  letter-spacing: -0.015em;
+  font-size: 0.75em;
+  font-weight: 700;
+text-transform: uppercase;
+  color: var(--gray-color);
+  font-family: var(--button-font);
+
+}
+.card-title span{
+  font-family: var(--main-font) !important;
+
+
+}
+.delivered-class{
+  color: var(--hover-color);
+
+
+}
+
+.ongoing-class{
+
+  color: darkorange;
+}
+.failed-class{
+color: var(--red-color);
+
+}
+
+.card span {
+
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.card h4 {
+
+  color: var(--main-color);
+}
+
+.my-pagination ::ng-deep .ngx-pagination {
+  margin-top: 100%;
+  padding-left: 0px;
+  color: var(--main-color);
+}
+
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background-color: var(--main-color);
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current span {
+  color: white;
+}
+
+
+
+
+
+@media screen and (max-width:974px) {
+  .card {
+    width: 90% !important;
+  }
+
+  .card-title{
+    width:
+    21vw
+    ;
+  }
+
+}

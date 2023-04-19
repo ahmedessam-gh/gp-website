@@ -1,0 +1,319 @@
+
+.btn-toggle::after {
+
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16'  height='15' viewBox='0 0 16 16'%3e%3cpath fill='none'  stroke='darkcyan' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transform-origin: .5em 50%;
+  position: absolute;
+
+right: 0;
+  line-height: 20px;
+}
+.btn-toggle[aria-expanded="true"]::after {
+  transform: rotate(90deg);
+}
+.btn-toggle{
+
+  width: 100%;
+}
+.shopSidebar h5{
+font-family: var(--main-font);
+text-transform: uppercase;
+color: var(--main-color);
+
+}
+
+.shopSidebar label{
+
+  font-family: var(--main-font);
+  cursor: pointer;
+}
+
+
+
+ .card p {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: large;
+  margin-top: 1rem;
+}
+
+ .card-design {
+  box-shadow: 0 0 2px rgba(33, 33, 33, .2)
+}
+
+ .card-design:hover {
+  box-shadow: 0 0 7px rgba(33, 33, 33, .2)
+}
+
+
+
+ .card-fav-cart img{
+  height: 300px;
+  /*object-fit: contain;*/
+}
+.fav-cart {
+  margin: 0 5px;
+  top: 80%;
+  right: 0;
+  margin-right: 20px;
+  display: none;
+
+}
+
+.card-fav-cart:hover .fav-cart {
+  display: block;
+  animation: slideInRight 0.3s;
+
+}
+
+.fav-cart .favIcons{
+  margin: 0px 5px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 8px;
+  color: var(--main-color);
+  transition: all 0.1s ease-in-out;
+  cursor:pointer
+}
+.card {
+  cursor:pointer;
+
+  border: transparent;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+
+
+
+}
+.prodDetails p:first-child{
+
+  color: var(--main-color);
+  font-family: var(--main-font);
+}
+.my-pagination ::ng-deep .ngx-pagination {
+  margin: auto;
+  width: 50%;
+color: var(--main-color);
+}
+
+.my-pagination ::ng-deep  li{
+
+}
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background-color: var(--main-color);
+}
+
+
+
+.my-pagination ::ng-deep .ngx-pagination .current span{
+
+color: white;
+}
+
+.size-filter{
+font-family: var(--main-font);
+color: var(--main-color);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  border: 1px solid #e5e5e5;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+
+
+}
+
+.custom-sizes input[type=radio]:checked + .size-filter{
+  background-color: var(--main-color);
+  color: white;
+
+}
+
+.custom-sizes input{
+  display: none;
+}
+
+
+.custom-radios input[type=radio] {
+  display: none;
+}
+
+.custom-radios input[type=radio] + label span {
+  display: inline-block;
+  width: 35px;
+  height: 40px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  line-height: 44px;
+}
+.custom-radios input[type=radio] + label span fa-icon {
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  color: var(--main-color);
+}
+.custom-radios input[type="radio"]#color-1 + label span, .custom-radios input[type="radio"]#color1 + label span {
+  background-color: #1e1e1e;
+}
+
+.custom-radios input[type="radio"]#color-2 + label span , .custom-radios input[type="radio"]#color2 + label span {
+  background-color: #ec0303;
+}
+
+.custom-radios input[type="radio"]#color-3 + label span , .custom-radios input[type="radio"]#color3 + label span {
+  background-color: Blue;
+}
+
+.custom-radios input[type="radio"]#color-4 + label span , .custom-radios input[type="radio"]#color4 + label span {
+  background-color: white;
+}
+
+.custom-radios input[type="radio"]#color-5 + label span , .custom-radios input[type="radio"]#color5 + label span {
+  background-color: brown;
+}
+
+.custom-radios input[type="radio"]#color-6 + label span, .custom-radios input[type="radio"]#color6 + label span {
+  background-color: green;
+}
+.custom-radios input[type=radio]:checked + label span  fa-icon{
+  opacity: 1;
+
+}
+app-main-button{
+
+  font-family: var(--main-font);
+}
+input[type="checkbox"] {
+position: absolute;
+  right: 0;
+}
+.inputBox {
+  outline: 0;
+  border: transparent;
+
+
+
+}
+
+.search-items {
+  padding: 0.5em;
+  background: white;
+  display: flex;
+  align-items: center;
+  border-radius: 10em;
+  animation: slideInRight 0.9s ease-in-out;
+
+
+
+}
+
+
+
+.inputBox .searchBar {
+
+  display: flex;
+}
+
+.inputBox input {
+  background: none;
+  width: 100%;
+  outline: 0;
+  animation-direction: normal;
+  border: 0;
+  padding: 0.5rem;
+  font-family: var(--main-font);
+
+
+
+}
+
+
+.inputBox fa-icon {
+
+
+  font-size: 1.5em;
+  padding: 0.5em;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.search-items input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  margin-left: .4em;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+  cursor: pointer;
+}
+
+.inputBox input::placeholder {
+  color: rgb(207, 207, 207);
+  font-family: var(--main-font);
+}
+
+.inputBox input:hover::placeholder {
+  color: rgb(139, 129, 117);
+}
+
+.inputBox .search-items:hover {
+
+  background: rgb(229, 229, 229);
+}
+
+.searchbox{
+
+  width:51% !important;
+}
+.filterBox{
+cursor: pointer;
+width: 100%;
+border: 1px solid #ccc;
+
+}
+.filterBox P{
+font-family: var(--main-font);
+
+}
+
+.filterBox P fa-icon{
+
+  opacity: 0.8;
+float: right;
+  }
+  .smallFilterDiv{
+
+    width: 35%;
+  }
+.smallFilter ul{
+
+  width: 100%;
+}
+.smallFilter label:hover{
+
+  color: var(--main-color);
+}
+
+.smallFilter{
+  padding-top: 15px;
+width: 100%;
+  z-index: 3;
+  background: white;
+}
+.filterName{
+
+  color: var(--main-color);
+  font-family: var(--main-font);
+}
+

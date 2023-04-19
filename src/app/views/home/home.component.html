@@ -3,12 +3,21 @@
   <!-- Slideshow and header -->
   <div class="slider-home mb-5">
     <div class="slider-imgs">
+      <div class="headerContent">
+        <h1 class="animate__animated animate__fadeInDown">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, officiis.</h1>
+        <div class="mt-4">
+          <app-main-button padding="10px 20px" fontSize="0.8em" content="Shop Now" [routerLink]="['shop']"></app-main-button>
+        </div>
+      </div>
+
+    </div>
+    <!-- <div class="slider-imgs">
       <img src="assets/images/1920x1080-503178-formal-hand.jpg" alt="" />
       <img src="assets/images/img2.jpg" alt="" />
-      <img src="assets/images/img3.jpg" alt="" />
+      <img src="assets/images/img4.jpg" alt="" />
       <img src="assets/images/1920x1080-503178-formal-hand.jpg" alt="" />
     </div>
-    <div class="home-content">
+   <div class="home-content">
       <h1>
         <span class="rent" style="--i: 1">R</span
         ><span class="rent" style="--i: 2">E</span
@@ -17,11 +26,14 @@
         you are
       </h1>
       <div class="head-btn-custom mt-2 mt-md-4 mt-lg-5">
-        <button class="btn btn-custom" [routerLink]="['/favourite']">
+         <button class="btn btn-custom" [routerLink]="['/shop']">
           Shop now
         </button>
+        <div class="heading cf">
+          <a [routerLink]="['/shop']" class="continue">Shop Now</a>
+        </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <!-- categories section -->
   <app-main-categories></app-main-categories>
@@ -39,32 +51,13 @@
     <div class="container">
       <div class="row">
         <div
-          class="card col-xl-3 col-lg-4 col-6"
+          class="card col-xl-3 col-lg-4 col-sm-6"
           *ngFor="let newProd of newProds; let i = index"
           data-aos="fade-up"
           data-aos-once="true"
-          data-aos-duration="100"
+          data-aos-duration="1000"
         >
-          <div class="card-design">
-            <div class="card-fav-cart position-relative bg-danger">
-              <img src="{{ newProd.img }}" class="img-fluid" alt="" (click)="addToCart(newProd)"/>
-              <div class="position-absolute fav-cart">
-                <!-- <div class="d-inline" (click)="addToCart(newProd)" >
-                  <span ><fa-icon icon="cart-shopping" class="favCartIcons" (click)="cartClicked($event)"></fa-icon></span>
-                </div> -->
-                <div class="d-inline">
-                  <span><fa-icon id="{{newProd.id}}" icon="heart"  (click)="addToFav(newProd,$event)" class="favIcons favs"></fa-icon></span>
-                </div>
-              </div>
-            </div>
-            <p style="color: rgba(117, 91, 180, 255)">{{ newProd.ProdName }}</p>
-            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana">
-              {{ newProd.Category }}
-            </p>
-            <p style="font-family: 'Courier New', Courier, monospace">
-              $ {{ newProd.Price }}
-            </p>
-          </div>
+          <app-productbox [product]="newProd"></app-productbox>
         </div>
       </div>
     </div>
@@ -83,18 +76,18 @@
     <div
       class="homeBg-2-content d-flex flex-column justify-content-center align-items-center h-100 card-body w-100"
     >
-      <h2 data-aos="fade-up" data-aos-once="true">
+      <h2 style="color:var(--main-color);" data-aos="fade-up" data-aos-once="true">
         Collection houses our first-ever
       </h2>
       <div class="btn-respon mt-0 mt-md-3">
-        <button class="btn btn-custom">Shop now</button>
+        <app-main-button content="Shop Now"></app-main-button>
       </div>
     </div>
   </div>
   <!-- 3rd & 4th Background in home page starts here-->
   <div class="container pad-sections">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-md-6">
         <div class="homeBgs position-relative">
           <img src="assets/images/section-img1.jpg " alt="" />
 
@@ -105,12 +98,12 @@
               Collection houses our first-ever
             </h2>
             <div class="btn-respon mb-3">
-              <button class="btn btn-custom">Shop now</button>
+              <app-main-button padding="8px 20px" content="Shop Now"></app-main-button>
             </div>
           </div>
         </div>
       </div>
-      <div class="mt-4 mt-lg-0 col-lg-6">
+      <div class="mt-4 mt-md-0 col-md-6">
         <div class="homeBgs position-relative">
           <img src="assets/images/section-img2.jpg " alt="" />
 
@@ -121,7 +114,7 @@
               Collection houses our first-ever
             </h2>
             <div class="btn-respon mb-3">
-              <button class="btn btn-custom">Shop now</button>
+              <app-main-button padding="8px 20px" content="Shop Now"></app-main-button>
             </div>
           </div>
         </div>

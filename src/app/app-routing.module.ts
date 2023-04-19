@@ -1,19 +1,21 @@
+import { Error404Component } from './views/error404/error404.component';
 import { HomeComponent } from './views/home/home.component';
 import { Router, Routes, RouterModule } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginModule } from './views/login/login.module';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { CheckoutComponent } from './views/cart/checkout/checkout.component';
-import { ProfileModule } from './views/profile/profile.module';
-import { ProfileDetailsComponent } from './views/profile/profile-details/profile-details.component';
 const routes: Routes = [
   {
     path: '',
     component: HeadFootComponent,
     children: [
-      { path: '', component: HomeComponent },
-      { path: 'home', component: HomeComponent },
+      {
+        path: '',
+        loadChildren: () =>
+          import('./views/home/home.module').then((m) => m.HomeModule),
+      },
+      { path: 'home', redirectTo: '', pathMatch: 'full' },
       { path: 'checkout', component: CheckoutComponent },
       {
         path: 'cart',
@@ -35,23 +37,42 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'report',
+        loadChildren: () =>
+          import('./views/report/report.module').then((m) => m.ReportModule),
+      },
+      {
         path: 'profile',
         loadChildren: () =>
           import('./views/profile/profile.module').then((m) => m.ProfileModule),
       },
+      {
+        path: 'trace-order/:orderNumber',
+        loadChildren: () =>
+          import('./views/trace-order/trace-order.module').then(
+            (m) => m.TraceOrderModule
+          ),
+      },
+      {
+        path: 'shop',
+        loadChildren: () =>
+          import('./views/shop/shop.module').then((m) => m.ShopModule),
+      },
     ],
   },
   {
-    path: 'login',
+    path: 'welcome',
     loadChildren: () =>
-      import('./views/login/login.module').then((m) => m.LoginModule),
+      import('./views/welcome/welcome.module').then((m) => m.WelcomeModule),
   },
 
   {
     path: 'error-404',
-    loadChildren: () =>
-      import('./views/error404/error404.module').then((m) => m.Error404Module),
+    component:Error404Component
   },
+  { path: 'shared', loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule) },
+
+  { path: '**', component: Error404Component },
 ];
 
 @NgModule({

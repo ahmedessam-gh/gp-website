@@ -1,0 +1,7 @@
+.loginError{
+    position: absolute;
+    top: 20%;
+    width: 50%;
+    
+    text-align: center;
+}
