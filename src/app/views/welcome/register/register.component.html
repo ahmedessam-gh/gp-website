@@ -6,11 +6,11 @@
       <div class="registerForm">
         <div class="row">
           <div class="tooltip-container col-6 ps-0">
-            <input type="text" formControlName="fname" class="d-block form-control" placeholder="first name ...">
+            <input [ngClass]="{'error-border': submitted && registerForm.get('fname').invalid && registerForm.get('lname').invalid}" type="text" formControlName="fname" class="d-block form-control" placeholder="first name ...">
 
           </div>
           <div class="tooltip-container col-6 pe-0">
-            <input type="text" formControlName="lname" class="d-block form-control" placeholder="last name ...">
+            <input [ngClass]="{'error-border': submitted && registerForm.get('fname').invalid && registerForm.get('lname').invalid}" type="text" formControlName="lname" class="d-block form-control" placeholder="last name ...">
             <div class="error"
               *ngIf="submitted && registerForm.get('fname').invalid && registerForm.get('lname').invalid">
               <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="tooltip-container">
-          <input type="email" formControlName="email" class="d-block form-control" placeholder="Enter your email ...">
+          <input [ngClass]="{'error-border': submitted && registerForm.get('email').invalid}" type="email" formControlName="email" class="d-block form-control" placeholder="Enter your email ...">
           <div class="error" 
           *ngIf="submitted && registerForm.get('email').invalid">
             <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="tooltip-container">
-          <input type="password" formControlName="password" class="d-block form-control"
+          <input [ngClass]="{'error-border': submitted && registerForm.get('password').invalid}" type="password" formControlName="password" class="d-block form-control"
             placeholder="Enter your password ...">
           <div class="error" *ngIf="submitted && registerForm.get('password').invalid">
             <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="tooltip-container">
-          <input type="password" formControlName="confirmPassword" class="d-block form-control"
+          <input [ngClass]="{'error-border': registerForm.get('confirmPassword').hasError('passNotMatching')}" type="password" formControlName="confirmPassword" class="d-block form-control"
             placeholder="Re enter your password ...">
           <div class="error" *ngIf="registerForm.get('confirmPassword').hasError('passNotMatching')">
             <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
