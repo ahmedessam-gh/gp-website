@@ -87,9 +87,10 @@ input::placeholder {
     position: relative;
     
 }
-.error:hover .error-message{
+.error .tooltip-icon:hover ~ .error-message{
     display: block;
   }
+ 
 .error-message {
     display: none;
     position: absolute;
@@ -103,7 +104,8 @@ input::placeholder {
     border-radius: 5px;
     color: rgba(255, 0, 0, 0.9);
     font-size: 0.75rem;
-    z-index: 999;
+    z-index: 9999;
+    transition: all 0.2s ease-in !important;
 }
 
 .error-message p {
