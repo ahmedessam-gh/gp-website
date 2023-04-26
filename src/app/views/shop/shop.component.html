@@ -4,18 +4,18 @@
       class="shopSidebar col-xl-3 col-lg-3 py-1 d-none d-lg-block d-xl-block"
     >
       <ul class="list-unstyled">
-        <li>
-          <button
-            class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
-            data-bs-toggle="collapse"
-            data-bs-target="#categories-collapse"
-            aria-expanded="true"
-          >
-            <h5>Categories</h5>
-          </button>
+        <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+          <li>
+            <button
+              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
+              data-bs-toggle="collapse"
+              data-bs-target="#categories-collapse"
+              aria-expanded="true"
+            >
+              <h5>Categories</h5>
+            </button>
 
-          <div class="collapse show" id="categories-collapse">
-            <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+            <div class="collapse show" id="categories-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
                 <li class="position-relative">
                   <label
@@ -71,20 +71,18 @@
                   />
                 </li>
               </ul>
-            </form>
-          </div>
-        </li>
-        <li>
-          <button
-            class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
-            data-bs-toggle="collapse"
-            data-bs-target="#filterPrice-collapse"
-            aria-expanded="true"
-          >
-            <h5>Filter Price</h5>
-          </button>
-          <div class="collapse show" id="filterPrice-collapse">
-            <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+            </div>
+          </li>
+          <li>
+            <button
+              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
+              data-bs-toggle="collapse"
+              data-bs-target="#filterPrice-collapse"
+              aria-expanded="true"
+            >
+              <h5>Filter Price</h5>
+            </button>
+            <div class="collapse show" id="filterPrice-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
                 <li class="position-relative">
                   <label
@@ -154,20 +152,18 @@
                   />
                 </li>
               </ul>
-            </form>
-          </div>
-        </li>
-        <li>
-          <button
-            class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
-            data-bs-toggle="collapse"
-            data-bs-target="#size-collapse"
-            aria-expanded="true"
-          >
-            <h5>Size</h5>
-          </button>
-          <div class="collapse show" id="size-collapse">
-            <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+            </div>
+          </li>
+          <li>
+            <button
+              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
+              data-bs-toggle="collapse"
+              data-bs-target="#size-collapse"
+              aria-expanded="true"
+            >
+              <h5>Size</h5>
+            </button>
+            <div class="collapse show" id="size-collapse">
               <ul
                 class="custom-sizes btn-toggle-nav list-unstyled fw-normal small px-3"
               >
@@ -232,21 +228,19 @@
                   <label for="xxxxl" class="size-filter">XxxxL </label>
                 </li>
               </ul>
-            </form>
-          </div>
-        </li>
+            </div>
+          </li>
 
-        <li>
-          <button
-            class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
-            data-bs-toggle="collapse"
-            data-bs-target="#color-collapse"
-            aria-expanded="true"
-          >
-            <h5>Color</h5>
-          </button>
-          <div class="collapse show" id="color-collapse">
-            <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+          <li>
+            <button
+              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
+              data-bs-toggle="collapse"
+              data-bs-target="#color-collapse"
+              aria-expanded="true"
+            >
+              <h5>Color</h5>
+            </button>
+            <div class="collapse show" id="color-collapse">
               <ul
                 class="custom-radios btn-toggle-nav list-unstyled fw-normal small px-3"
               >
@@ -321,34 +315,35 @@
                   </label>
                 </li>
               </ul>
-            </form>
-          </div>
-        </li>
-      </ul>
-      <hr />
-      <ul class="list-unstyled">
-        <li>
-          <app-main-button
-            [iconLeft]="'filter'"
-            (click)="onSubmit()"
-            content=" Filter"
-            width="150px"
-            fontSize="0.8rem"
-          >
-          </app-main-button>
-        </li>
-        <br />
-        <li>
-          <app-main-button
-            type="reset"
-            id="uncheck"
-            iconLeft="eraser"
-            content=" Clear All Filters"
-            width="200px"
-            fontSize="0.8rem"
-            (click)="clearAllFilters()"
-          ></app-main-button>
-        </li>
+            </div>
+          </li>
+
+          <hr />
+          <ul class="list-unstyled">
+            <li>
+              <app-main-button
+                [iconLeft]="'filter'"
+                (click)="onSubmit()"
+                content=" Filter"
+                width="150px"
+                fontSize="0.8rem"
+              >
+              </app-main-button>
+            </li>
+            <br />
+            <li>
+              <app-main-button
+                type="reset"
+                id="uncheck"
+                iconLeft="eraser"
+                content=" Clear All Filters"
+                width="200px"
+                fontSize="0.8rem"
+                (click)="clearAllFilters()"
+              ></app-main-button>
+            </li>
+          </ul>
+        </form>
       </ul>
     </div>
 
