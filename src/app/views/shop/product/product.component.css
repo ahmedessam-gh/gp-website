@@ -386,3 +386,13 @@ width: 20%;
 }
 
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+    
+}
+input[type=number]{
+    -moz-appearance: textfield;
+    width: 40px;
+}

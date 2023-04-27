@@ -1,65 +1,50 @@
 <div
-  class="d-flex flex-column flex-shrink-0 pt-4 vh-100 animate__animated animate__slideInLeft animate__faster sidebar"
->
+  class="d-flex flex-column flex-shrink-0 pt-4 vh-100 animate__animated animate__slideInLeft animate__faster sidebar">
 
-  <ul class="nav nav-pills flex-column mb-auto d-flex justify-content-center align-content-center" >
-
+  <ul class="nav nav-pills flex-column mb-auto">
     <li class="">
-      
-      <a
-        href="#"
-        class="nav-link text-dark "
-        [routerLink]="['details']"
-        [routerLinkActive]="['active', 'text-white']"
-        aria-current="page"
-      >
-<!--        <svg class="bi me-2" width="16" height="16">-->
-<!--          <use xlink:href="#profile"></use>-->
-<!--        </svg>-->
-        <fa-icon [icon]="['fas','user']"></fa-icon>
+
+      <a href="#" class="nav-link text-dark d-flex justify-content-between" [routerLink]="['details']"
+        [routerLinkActive]="['active']" aria-current="page">
+        <!--        <svg class="bi me-2" width="16" height="16">-->
+        <!--          <use xlink:href="#profile"></use>-->
+        <!--        </svg>-->
         <span>Profile</span>
+        <fa-icon [icon]="['fas','user']"></fa-icon>
+
       </a>
 
     </li>
     <li>
-      <a
-        class="nav-link text-dark"
-        [routerLink]="['myorders']"
-        [routerLinkActive]="['active', 'text-white']"
-      >
-<!--        <svg class="bi me-2" width="16" height="16">-->
-<!--          <use xlink:href=""></use>-->
-<!--        </svg>-->
-        <fa-icon [icon]="['fas','basket-shopping']"></fa-icon>
+      <a class="nav-link nav-link-side text-dark d-flex justify-content-between" [routerLink]="['myorders']"
+        [routerLinkActive]="['active', 'text-white']">
+        <!--        <svg class="bi me-2" width="16" height="16">-->
+        <!--          <use xlink:href=""></use>-->
+        <!--        </svg>-->
         <span>My Orders</span>
+        <fa-icon [icon]="['fas','basket-shopping']"></fa-icon>
+        
       </a>
     </li>
     <li>
-      <a
-        href="#"
-        class="nav-link text-dark"
-        [routerLink]="['fav']"
-        [routerLinkActive]="['active', 'text-white']"
-      >
-<!--        <svg class="bi me-2" width="16" height="16">-->
-<!--          <use xlink:href="#"></use>-->
-<!--        </svg>-->
-        <fa-icon [icon]="['fas','heart']"></fa-icon>
+      <a href="#" class="nav-link nav-link-side text-dark d-flex justify-content-between" [routerLink]="['fav']"
+        [routerLinkActive]="['active', 'text-white']">
+        <!--        <svg class="bi me-2" width="16" height="16">-->
+        <!--          <use xlink:href="#"></use>-->
+        <!--        </svg>-->
         <span>Favourites</span>
+        <fa-icon [icon]="['fas','heart']"></fa-icon>
+        
       </a>
     </li>
-    <li >
-      <a
-        href="#"
-        class="nav-link text-dark"
-        [routerLinkActive]="['active', 'text-white']"
-      >
-<!--        <svg class="bi me-2" width="16" height="16">-->
-<!--          <use xlink:href="#"></use>-->
-<!--        </svg>-->
-        <fa-icon [icon]="['fab','sellsy']"></fa-icon>
-
+    <li>
+      <a href="#" class="nav-link nav-link-side text-dark d-flex justify-content-between"
+        [routerLinkActive]="['active', 'text-white']">
+        <!--        <svg class="bi me-2" width="16" height="16">-->
+        <!--          <use xlink:href="#"></use>-->
+        <!--        </svg>-->
         <span>Products</span>
+        <fa-icon [icon]="['fab','sellsy']"></fa-icon>
       </a>
     </li>
     <!-- <li>
