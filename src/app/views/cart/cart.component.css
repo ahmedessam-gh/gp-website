@@ -189,7 +189,16 @@ input::-webkit-inner-spin-button {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+    
+}
+input[type=number]{
+    -moz-appearance: textfield;
+    width: 40px;
+}
 /*checkout styling*/
 .padCheckout{
   width: 30%;
@@ -200,6 +209,7 @@ input::-webkit-inner-spin-button {
 .checkoutContent{
   line-height:30px;
 }
+
 .checkoutContent span{
   color: #979595;
   margin-right: 20px;
@@ -239,6 +249,6 @@ input::-webkit-inner-spin-button {
 }
 @media screen and (max-width:992px) {
   .padCheckout{
-    width: 60%;
+    width: 100%;
   }
 }
