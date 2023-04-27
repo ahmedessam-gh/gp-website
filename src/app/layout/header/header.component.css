@@ -567,3 +567,9 @@
     }
 
 }
+
+@media screen and (min-width:991px) {
+    .auth-small{
+        display: none;
+    }
+}
