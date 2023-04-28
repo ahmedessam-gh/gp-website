@@ -14,6 +14,7 @@ import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [ProductComponent],
@@ -28,6 +29,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
+    NgbRatingModule,
     CarouselModule,
   ],
 })

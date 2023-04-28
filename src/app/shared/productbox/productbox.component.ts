@@ -14,7 +14,7 @@ export class ProductboxComponent implements OnInit {
   @Input() product: Prod;
   public form: FormGroup;
   favouriteList: any = [];
-
+  currentRate: number = 3.14;
   constructor(
     private prod: ProdService,
     private cart: CartService,

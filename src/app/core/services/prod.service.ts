@@ -345,7 +345,7 @@ export class ProdService {
         discount: 0,
         status: 'Sale',
         note: 'Solid Polo Collar T-shirt',
-        rating: 5,
+        rating: 4.5,
         rent: false,
         isStock: false,
 

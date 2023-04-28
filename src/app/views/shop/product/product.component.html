@@ -44,7 +44,13 @@
       <label class="productRent" *ngIf="myprod.rent">
         <fa-icon class="px-1" icon="circle-check"></fa-icon> Avaliable for
         rent</label
-      >
+      ><br />
+      <ngb-rating
+        [rate]="myprod.rating"
+        [readonly]="true"
+        [max]="5"
+      ></ngb-rating>
+
       <hr />
       <div class="productCategory py-2">{{ myprod.details }}</div>
       <hr />
