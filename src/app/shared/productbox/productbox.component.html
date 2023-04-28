@@ -44,22 +44,7 @@
 
     <div class="product-details">
       <div>
-        <ng-template #t let-fill="fill">
-          <i class="bi-star-fill pb-1">
-            <i
-              *ngIf="fill > 0"
-              class="bi-star-fill filled pb-1"
-              [style.width.%]="fill"
-            ></i>
-          </i>
-        </ng-template>
-
-        <ngb-rating
-          [starTemplate]="t"
-          [(rate)]="product.rating"
-          [readonly]="true"
-          [max]="5"
-        ></ngb-rating>
+        <app-rating [product]="product"></app-rating>
       </div>
       <h4>
         {{ product.ProdName }}

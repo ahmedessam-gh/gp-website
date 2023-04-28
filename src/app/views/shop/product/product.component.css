@@ -59,6 +59,14 @@
 
 }
 
+.productNoRent{
+  font-family: var(--button-font);
+  color: var(--red-color);
+  font-weight: bold;
+  font-size: 15px;
+
+}
+
 .custom-radios input[type=radio] {
   display: none;
 }
@@ -223,82 +231,6 @@ input[type=number] {
   background: none;
 }
 
-/* fix blank or flashing items on carousel */
-.owl-carousel .item {
-  position: relative;
-  z-index: 100;
-  width: 300px !important;
-}
-
-
-
-.owl-theme::ng-deep .owl-nav button.owl-next {
-  background: 0 0 !important;
-  color: inherit !important;
-  padding: 0 !important;
-  font: inherit;
-  position: absolute;
-  top: 40% !important;
-  transform: translateY(-50%);
-  color: var(--main-color) !important;
-
-  right: -40px !important;
-  font-size: 62px;
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16'  height='15' viewBox='0 0 30 30'%3e%3cpath fill='darkcyan'  stroke='darkcyan' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e") !important;
-
-
-}
-
-
-.owl-theme.owl-drag::ng-deep .owl-item {
-
-  background: dodgerblue !important;
-}
-
-.owl-carousel::ng-deep {
-
-  background: black !important;
-}
-
-.owl-nav::ng-deep .ng-star-inserted .owl-next {
-  background: 0 0 !important;
-  color: inherit !important;
-  border: none !important;
-  padding: 0 !important;
-  font: inherit;
-  position: absolute;
-  top: 40% !important;
-  transform: translateY(-50%);
-  color: var(--main-color) !important;
-
-  left: -40px !important;
-  font-size: 62px;
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16'  height='15' viewBox='0 0 30 30'%3e%3cpath fill='none'  stroke='darkcyan' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e") !important;
-
-
-}
-
-.owl-theme::ng-deep .owl-nav{
-  color: rgb(255, 255, 255);
-  font-size: 14px;
-  margin: 5px;
-  padding: 4px 7px;
-  background: rgb(159 68 68);
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 3px;
-}
- .owl-carousel::ng-deep .owl-item{
-
-  background: black !important;
-}
-.questionsection label {
-
-  color: var(--main-color);
-  font-family: var(--main-font);
-
-}
-
 .answer-container {
 
   width: 40%;
@@ -400,8 +332,6 @@ form label {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-
-.productBigImg {}
 
 
 @media screen and (min-width:740px) {

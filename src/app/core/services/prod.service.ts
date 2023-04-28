@@ -253,7 +253,7 @@ export class ProdService {
         discount: 50,
         status: 'Sale',
         note: 'Solid Polo Collar T-shirt',
-        rating: 5,
+        rating: 3.14,
         rent: true,
         isStock: false,
         color: [
@@ -299,7 +299,7 @@ export class ProdService {
         discount: 50,
         status: 'Sale',
         note: 'Solid Polo Collar T-shirt',
-        rating: 5,
+        rating: 4,
         rent: true,
         isStock: false,
         color: [
