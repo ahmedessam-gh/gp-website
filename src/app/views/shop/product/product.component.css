@@ -1,43 +1,43 @@
-.productSizes input[type=radio]:checked + .productsingelSize{
+.productSizes input[type=radio]:checked+.productsingelSize {
   background-color: var(--main-color);
   color: white;
 
 }
 
-.productSizes input{
+.productSizes input {
   display: none;
 }
 
-.productSizes .productsingelSize{
+.productSizes .productsingelSize {
 
   color: var(--main-color);
-    font-size: 15px;
-    font-weight: 700;
-    text-transform: uppercase;
-    display: inline-block;
-    border: 1px solid #e5e5e5;
-    padding: 6px 25px;
-    margin-bottom: 9px;
-    margin-right: 5px;
-    cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  border: 1px solid #e5e5e5;
+  padding: 6px 25px;
+  margin-bottom: 9px;
+  margin-right: 5px;
+  cursor: pointer;
 
 
 
-  }
+}
 
-  .productCategory{
+.productCategory {
 
-    color: var(--gray-color);
-    font-family: var(--button-font);
-    font-weight: 700;
-    line-height: 1.5;
-
-
+  color: var(--gray-color);
+  font-family: var(--button-font);
+  font-weight: 700;
+  line-height: 1.5;
 
 
-  }
 
-.productDiscount{
+
+}
+
+.productDiscount {
 
   font-family: var(--button-font);
   color: var(--gray-color);
@@ -45,71 +45,79 @@
 
 
 
-  .productRent fa-icon{
-    color: var(--hover-color);
-  }
-  .productRent{
+.productRent fa-icon {
+  color: var(--hover-color);
+}
 
-    font-family: var(--button-font);
-    color: var(--hover-color);
-    font-weight: bold;
-    font-size: 15px;
+.productRent {
+
+  font-family: var(--button-font);
+  color: var(--hover-color);
+  font-weight: bold;
+  font-size: 15px;
 
 
-  }
-  .custom-radios input[type=radio] {
-    display: none;
-  }
-  .bigImg.fadeInLeft{
-    animation: fadeIn 0.7s !important;
+}
 
-  }
-  .custom-radios input[type=radio] + label span {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    margin: -1px 4px 0 0;
-    vertical-align: middle;
-    cursor: pointer;
-    border-radius: 50%;
-    border: 2px solid #FFFFFF;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
-    background-repeat: no-repeat;
-    background-position: center;
-    text-align: center;
-    line-height: 44px;
-  }
-  .custom-radios input[type=radio] + label span fa-icon {
-    opacity: 0;
-    transition: all 0.3s ease;
+.custom-radios input[type=radio] {
+  display: none;
+}
 
-    color: var(--main-color);
-  }
-.productSmallimgs:hover{
-border: 2px solid var(--main-color);
-transition: 0.5s ease-in-out;
+.bigImg.fadeInLeft {
+  animation: fadeIn 0.7s !important;
+
+}
+
+.custom-radios input[type=radio]+label span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  line-height: 44px;
+}
+
+.custom-radios input[type=radio]+label span fa-icon {
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  color: var(--main-color);
+}
+
+.productSmallimgs:hover {
+  border: 2px solid var(--main-color);
+  transition: 0.5s ease-in-out;
 
 }
 
 .productSmallimgs.selected {
 
   border: 2px solid var(--main-color);
-    transform: scale(1.06) ;
-    transition: 0.5s ease-in-out;
+  transform: scale(1.06);
+  transition: 0.5s ease-in-out;
 
 
 }
-.productSmallimgs{
+
+.productSmallimgs {
 
   border: 2px solid rgba(0, 0, 0, 0.6);
-cursor: pointer;
+  cursor: pointer;
 }
 
-  .custom-radios input[type=radio]:checked + label span  fa-icon{
-    opacity: 1;
+.custom-radios input[type=radio]:checked+label span fa-icon {
+  opacity: 1;
 
-  }
-.productLabel{
+}
+
+.productLabel {
 
   color: grey;
   text-transform: uppercase;
@@ -124,19 +132,20 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-input[type=number]{
+input[type=number] {
 
   outline: none;
 
 }
-.productDetails .productName{
-margin: 0;
-font-family: var(--main-font);
-color: var(--main-color);
-text-transform: capitalize;
+
+.productDetails .productName {
+  margin: 0;
+  font-family: var(--main-font);
+  color: var(--main-color);
+  text-transform: capitalize;
 }
 
-.productDetails .productPrice{
+.productDetails .productPrice {
 
   font-family: var(--main-font);
   font-size: 50px;
@@ -152,52 +161,55 @@ text-transform: capitalize;
 }
 
 .addtoCartButton:hover {
-color:white;
+  color: white;
   background-color: var(--tertiary-color);
   border: 1px solid var(--main-color);
 }
 
 .favoriteButton {
-  background-color:rgb(152, 152, 152);
+  background-color: rgb(152, 152, 152);
   font-size: 1.1rem;
   color: aliceblue;
   font-family: var(--main-font);
 }
 
 .favoriteButton:hover {
-background-color: rgb(70, 69, 69);
-color:white;
+  background-color: rgb(70, 69, 69);
+  color: white;
 }
 
 
-.productQuantity{
+.productQuantity {
   outline: none;
   border-color: var(--main-color);
   border-radius: 9px 9px 9px 9px;
 
 
 }
-.prodQA h3{
+
+.prodQA h3 {
   font-family: var(--main-font);
   color: var(--main-color);
   text-transform: uppercase;
 
 }
-.similarProducts h3{
+
+.similarProducts h3 {
 
   font-family: var(--main-font);
-color: var(--main-color);
-text-transform: uppercase;
+  color: var(--main-color);
+  text-transform: uppercase;
 }
 
 
 
 
-.prodDetails p:first-child{
+.prodDetails p:first-child {
   color: var(--main-color);
   font-family: var(--main-font);
 }
-.buttons{
+
+.buttons {
 
   margin: 0 0 0 0;
   padding: 0 0 0 0 !important;
@@ -206,23 +218,24 @@ text-transform: uppercase;
 .carousel-wrap {
   margin: 90px auto;
   padding: 0 5%;
-  width: 80%;
+  width: 85%;
   position: relative;
+  background: none;
 }
 
 /* fix blank or flashing items on carousel */
 .owl-carousel .item {
   position: relative;
   z-index: 100;
-  width: 300px !important ;
+  width: 300px !important;
 }
 
 
 
 .owl-theme::ng-deep .owl-nav button.owl-next {
   background: 0 0 !important;
-  color:  inherit !important;
-  padding: 0!important;
+  color: inherit !important;
+  padding: 0 !important;
   font: inherit;
   position: absolute;
   top: 40% !important;
@@ -237,16 +250,21 @@ text-transform: uppercase;
 }
 
 
-.owl-theme.owl-drag::ng-deep  .owl-item{
+.owl-theme.owl-drag::ng-deep .owl-item {
 
-background: dodgerblue !important;
+  background: dodgerblue !important;
 }
 
-.owl-theme::ng-deep .owl-nav button.owl-prev {
+.owl-carousel::ng-deep {
+
+  background: black !important;
+}
+
+.owl-nav::ng-deep .ng-star-inserted .owl-next {
   background: 0 0 !important;
   color: inherit !important;
   border: none !important;
-  padding: 0!important;
+  padding: 0 !important;
   font: inherit;
   position: absolute;
   top: 40% !important;
@@ -260,35 +278,52 @@ background: dodgerblue !important;
 
 }
 
-.questionsection label{
+.owl-theme::ng-deep .owl-nav{
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  margin: 5px;
+  padding: 4px 7px;
+  background: rgb(159 68 68);
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 3px;
+}
+ .owl-carousel::ng-deep .owl-item{
 
-color: var(--main-color);
-font-family: var(--main-font);
+  background: black !important;
+}
+.questionsection label {
+
+  color: var(--main-color);
+  font-family: var(--main-font);
 
 }
-.answer-container{
+
+.answer-container {
 
   width: 40%;
 }
-.questionsection strong{
+
+.questionsection strong {
 
 
   color: var(--gray-color);
   font-family: var(--button-font);
 }
+
 .questionsection {
 
   border-bottom: 1px solid #ccc;
 }
 
-.adding-question .addlabel{
+.adding-question .addlabel {
 
   color: var(--main-color);
   font-family: var(--main-font);
 }
 
-.adding-question a{
-color: default;
+.adding-question a {
+  color: default;
   text-decoration: none;
   cursor: pointer;
 }
@@ -302,31 +337,35 @@ color: default;
   font-size: 0.8rem;
   display: block;
 }
+
 fieldset {
   margin-bottom: 1em !important;
   border: 1px solid black !important;
-  padding:1px !important;
+  padding: 1px !important;
 }
-.questionform{
+
+.questionform {
 
   border: 1px var(--hover-color) solid;
-  width:50%;
+  width: 50%;
 
 }
-form label{
+
+form label {
 
   color: var(--main-color);
   font-family: var(--main-font);
 }
 
-.inStock{
+.inStock {
 
-color: var();
+  color: var();
   font-family: var(--main-font);
   color: var(--hover-color);
 }
-.outOfStock{
-  color:var(--red-color);
+
+.outOfStock {
+  color: var(--red-color);
   font-family: var(--main-font);
 }
 
@@ -352,34 +391,32 @@ color: var();
 }
 
 
-.minus{
+.minus {
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
 }
 
-.plus{
+.plus {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
-.productBigImg{
-
-
-}
+.productBigImg {}
 
 
 @media screen and (min-width:740px) {
-  .btn-w{
-      width: 35% !important;
+  .btn-w {
+    width: 35% !important;
   }
 
 }
+
 @media screen and (min-width:768px) and (max-width:995px) {
-  .productSmallimgs{
-width: 20%;
+  .productSmallimgs {
+    width: 20%;
   }
 
-  .bigImg{
+  .bigImg {
     width: 100%;
     height: 500px;
   }
@@ -387,12 +424,68 @@ width: 20%;
 
 
 input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-inner-spin-button{
-    -webkit-appearance: none;
-    margin: 0;
-    
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+
 }
-input[type=number]{
-    -moz-appearance: textfield;
-    width: 40px;
+
+input[type=number] {
+  -moz-appearance: textfield;
+  width: 40px;
+}
+.carouselitem{
+
+  padding-right: 20px !important;
+}
+.carousel::ng-deep .owl-nav  .owl-next {
+  background: 0 0 !important;
+  color: inherit !important;
+  border: none !important;
+  padding: 0 !important;
+  font: inherit;
+  position: absolute;
+  top: 40% !important;
+  transform: translateY(-50%);
+  color: var(--main-color) !important;
+  right: -80px !important;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='60'  height='80' viewBox='0 0 30 30'%3e%3cpath fill='none'  stroke='darkcyan' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e") !important;
+
+
+}
+
+.carousel::ng-deep .owl-nav  .owl-prev {
+  background: 0 0 !important;
+  color: inherit !important;
+  border: none !important;
+  padding: 0 !important;
+  font: inherit;
+  position: absolute;
+  top: 40% !important;
+  transform: translateY(-50%) rotateY(180deg);
+  color: var(--main-color) !important;
+  left: -80px !important;
+  /* transform: rotate(180deg); */
+
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='70'  height='80' viewBox='0 0 30 30'%3e%3cpath fill='none'  stroke='darkcyan' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e") !important;
+
+}
+.carousel::ng-deep .owl-item{
+
+padding-right:30px;
+cursor:pointer ;
+height: 500px !important;
+
+}
+.carousel::ng-deep .owl-theme {
+background-color: transparent !important
+}
+@media screen and (min-width:0px) and (max-width:590px) {
+
+  .carousel::ng-deep .owl-item{
+
+    padding: 0 0 0 0 ;
+
+  }
+
 }

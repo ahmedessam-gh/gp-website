@@ -13,6 +13,8 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 @NgModule({
   declarations: [ProductComponent],
   imports: [
@@ -26,6 +28,7 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
+    CarouselModule,
   ],
 })
 export class ProductModule {}

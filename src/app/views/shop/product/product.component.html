@@ -194,20 +194,13 @@
   </div>
 </div>
 <div class="carousel-wrap">
-  <div class="owl-carousel owl-theme">
-    <app-productbox class="item" [product]="myprod"></app-productbox>
-    <app-productbox class="item" [product]="myprod"></app-productbox>
-    <app-productbox class="item" [product]="myprod"></app-productbox>
-    <app-productbox class="item" [product]="myprod"></app-productbox>
-    <app-productbox class="item" [product]="myprod"></app-productbox>
-    <app-productbox class="item" [product]="myprod"></app-productbox>
-    <app-productbox class="item" [product]="myprod"></app-productbox>
-    <app-productbox class="item" [product]="myprod"></app-productbox>
-    <app-productbox class="item" [product]="myprod"></app-productbox>
-    <app-productbox class="item" [product]="myprod"></app-productbox>
-
-    <app-productbox class="item" [product]="myprod"></app-productbox>
-  </div>
+  <owl-carousel-o [options]="customOptions" class="carousel">
+    <ng-container *ngFor="let prod of prods">
+      <ng-template carouselSlide class="carousel-slide">
+        <app-productbox [product]="prod"></app-productbox>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
 </div>
 <hr />
 

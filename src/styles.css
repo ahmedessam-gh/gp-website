@@ -115,7 +115,7 @@ input::placeholder {
 }
 
 .error-border{
-    border-color:rgb(255, 162, 162) !important; 
+    border-color:rgb(255, 162, 162) !important;
 }
 .input-group h5 {
     font-size: 1.5rem;

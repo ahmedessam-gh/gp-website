@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import 'owl.carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 declare var $: any;
 import 'slick-carousel';
@@ -23,7 +24,33 @@ export class ProductComponent implements OnInit {
   submitted = false;
   myprod: any;
   prods: Prod[] = [];
-
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      400: {
+        items: 1.5,
+      },
+      550: {
+        items: 2,
+      },
+      740: {
+        items: 2.5,
+      },
+      940: {
+        items: 3.5,
+      },
+    },
+    nav: true,
+  };
   question: FormGroup;
   selectedPhoto: string;
   isBigPhotoUpdated: boolean;
