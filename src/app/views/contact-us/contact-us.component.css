@@ -1,61 +1,63 @@
-
-body{
-  font-family: var(--main-font); ;
+body {
+  font-family: var(--main-font);
+  ;
 }
-.contactusform h1{
+
+h2 {
   text-transform: uppercase;
-color: var(--main-color);
-
-
+  color: var(--main-color);
 }
 
 
-.contactus-photo img{
-animation: fadeInDown 0.5s ease-in-out;
+.contactus-photo img {
+  animation: fadeInDown 0.5s ease-in-out;
   height: 50vh;
   background-size: cover;
 }
-.contactusform{
-animation: bounceInLeft 1s ease-in-out;
-  padding-left: 15vh;
-}
 
-.form-control {
-  width: 50vh;
-  background-color: transparent;
-  border-width: 1px 1px 1px 1px;
-  box-shadow: none;
-  border-radius: 0;
-  text-shadow: none;
+.contactusform {
+  animation: bounceInLeft 1s ease-in-out;
+}
+.contactusform label{
+  margin-bottom: 5px;
+  color: var(--main-color);
 }
 
 
-textarea{
-  height: 20vh;
-}
 
 
-.form-control:focus{
-  border-color: var(--main-color);
-}
-.form-control::placeholder{
-  font-size: 0.8rem;
-  font-family: var(--secondary-font);
-}
-.contactusform P{
-position: relative;
+.contactusform P {
+  position: relative;
   color: red;
   font-size: 0.7rem;
 
 }
-.app-button{
-   animation: shake 0.15s forwards;
+
+.app-button {
+  animation: shake 0.15s forwards;
 }
+
 @keyframes shake {
-  0%,100%{transform: translateX(0px);}
-  20%{transform: translateX(5px);}
-  40%{transform: translateX(5px);}
-  60%{transform: translateX(-5px);}
-  80%{transform: translateX(-5px);}
+
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+
+  20% {
+    transform: translateX(5px);
+  }
+
+  40% {
+    transform: translateX(5px);
+  }
+
+  60% {
+    transform: translateX(-5px);
+  }
+
+  80% {
+    transform: translateX(-5px);
+  }
 
 }

@@ -4,67 +4,68 @@
     <img src="../../../assets/images/contact (2).png" class="img-fluid" alt="" width="100%" height="50%" />
   </div>
   <!--contact us form section-->
-  <div class="contactusform pad-sections">
-    <h1 class="headertext">Get in touch</h1>
-    <div class="pad-sections">
-      <form (ngSubmit)="submitEmail(sendForm)" #sendForm="ngForm">
-        <input
-          class="form-control mb-4"
-          type="text"
-          name="name"
-          title="name"
-          [(ngModel)]="userName"
-          #name
-          placeholder="Enter your name...."
-          required
-          minlength="3"
-        />
-        <!-- <div *ngIf="name.invalid && name.touched">
-          <p>please enter name</p>
-        </div> -->
-        <div [hidden]="!errorName">
-          <p>please enter name</p>
-        </div>
-
-        <input
-          class="form-control mb-4"
-          ngModel
-          type="email"
-          name="email"
-          email="true"
-          [(ngModel)]="userEmail"
-          #email
-          title="name"
-          placeholder="Enter your email...."
-          required
-        />
-        <div [hidden]="!errorEmail">
-          <p class="px-6">please enter valid email</p>
-        </div>
-        <textarea
-          class="form-control mb-3 w-50"
-          ngModel
-          name="subject"
-          title="textarea"
-          #subject
-          [(ngModel)]="userSubject"
-          placeholder="Enter your subject"
-          required
-          minlength="12"
-        ></textarea>
-        <div [hidden]="!errorSubject">
-          <p>please enter valid subject</p>
-        </div>
-        <div>
-          <!-- calling shared component (main-button) to use it in form submission-->
-          <app-main-button
-            (click)="addShake(sendForm)"
-            type="submit"
-            content="Submit"
-            id="app-button"
-          ></app-main-button>
-        </div>
-      </form>
+  <div class="row  pad-sections">
+    <div class="col-md-6">
+      <h2 class="headertext">Get in touch</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, amet? Ex nam atque corporis aliquid omnis amet veritatis. Excepturi dicta cupiditate dolores repudiandae quisquam aliquid rerum neque. Ducimus doloremque placeat earum quam, sit assumenda quae nobis aspernatur harum veniam architecto fugit atque ipsa magnam ad porro laudantium fuga nihil cupiditate voluptates. Labore numquam sapiente iure? Eius veritatis ipsum impedit atque inventore possimus reprehenderit, facilis suscipit illo, ea sunt tempore libero aliquam rem quasi dicta quia molestiae, sed iusto officia totam nam alias! Veniam commodi excepturi iure esse a, sequi deleniti odio error, voluptate ad quae asperiores architecto. Culpa, alias atque.</p>
+    </div>
+    <div class="contactusform col-md-6">
+      
+      <div class="pad-sections w-75">
+        <form (ngSubmit)="submitEmail(sendForm)" #sendForm="ngForm">
+          <label for="">Full Name</label>
+          <input
+            class="form-control mb-4"
+            type="text"
+            name="name"
+            title="name"
+  
+            #name
+            placeholder="Enter your name...."
+            required
+            minlength="3"
+          />
+          <!-- <div *ngIf="name.invalid && name.touched">
+            <p>please enter name</p>
+          </div> -->
+          
+          <label>Email</label>
+          <input
+            class="form-control mb-4"
+            ngModel
+            type="email"
+            name="email"
+            email="true"
+          
+            #email
+            title="name"
+            placeholder="Enter your email...."
+            required
+          />
+          <label for="">Subject</label>
+          <textarea
+            class="form-control mb-3"
+            ngModel
+            name="subject"
+            title="textarea"
+            #subject
+          
+            placeholder="Enter your subject"
+            required
+            minlength="12"
+          ></textarea>
+         
+          <div>
+            <!-- calling shared component (main-button) to use it in form submission-->
+            <app-main-button
+              (click)="addShake(sendForm)"
+              type="submit"
+              content="Submit"
+              id="app-button"
+            ></app-main-button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
   <!-- calling shared component (main-categories)-->
