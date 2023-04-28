@@ -16,21 +16,23 @@ h2 {
 }
 
 .contactusform {
-  animation: bounceInLeft 1s ease-in-out;
+  animation: bounceInRight 1s ease-in-out;
 }
 .contactusform label{
   margin-bottom: 5px;
+
   color: var(--main-color);
 }
 
+.contact-container{
+  width:80%;
+  margin: 100px auto;
+}
 
 
-
-.contactusform P {
-  position: relative;
+.error-contact p{
+  font-size: 0.8rem;
   color: red;
-  font-size: 0.7rem;
-
 }
 
 .app-button {
@@ -60,4 +62,11 @@ h2 {
     transform: translateX(-5px);
   }
 
+}
+
+
+@media screen and (max-width:767px) {
+  .contactusform{
+    width: 100% !important;
+  }
 }

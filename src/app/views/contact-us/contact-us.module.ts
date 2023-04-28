@@ -7,10 +7,11 @@ import {
 } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ContactUsRoutingModule } from './contact-us-routing.module';
 import { ContactUsComponent } from './contact-us.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+
 
 @NgModule({
   declarations: [ContactUsComponent],
@@ -18,7 +19,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     CommonModule,
     ContactUsRoutingModule,
-    SharedModule
+    SharedModule,
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
 })
 export class ContactUsModule {}
