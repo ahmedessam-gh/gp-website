@@ -1,62 +1,96 @@
+body {
+  font-family: var(--main-font);
+  ;
+}
 
-body{
-    font-family: var(--main-font); ;
-  }
-  .contactusform h1{
-    text-transform: uppercase;
+h2 {
+  text-transform: uppercase;
   color: var(--main-color);
-  
-  
-  }
-  
-  
-  .contactus-photo img{
+}
+
+
+.contactus-photo img {
   animation: fadeInDown 0.5s ease-in-out;
-    height: 50vh;
-    background-size: cover;
+  height: 50vh;
+  background-size: cover;
+}
+
+.contactusform {
+  animation: bounceInRight 1s ease-in-out;
+}
+.contactusform label{
+  margin-bottom: 5px;
+
+  color: var(--main-color);
+}
+
+.contact-container{
+  width:80%;
+  margin: 80px auto;
+}
+
+
+.error-contact p{
+  font-size: 0.8rem;
+  color: red;
+}
+
+.app-button {
+  animation: shake 0.15s forwards;
+}
+.form-select{
+  border-radius: 10px !important;
+  box-shadow: 0 !important;
+}
+select option{
+  font-size: 0.9rem;
+  color:gray ;
+}
+select{
+  font-size: 0.8rem;
+  color:gray ;
+}
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0px);
   }
+
+  20% {
+    transform: translateX(5px);
+  }
+
+  40% {
+    transform: translateX(5px);
+  }
+
+  60% {
+    transform: translateX(-5px);
+  }
+
+  80% {
+    transform: translateX(-5px);
+  }
+
+}
+
+
+@media screen and (max-width:767px) {
   .contactusform{
-  animation: bounceInLeft 1s ease-in-out;
-    padding-left: 15vh;
+    width: 100% !important;
   }
-  
-  .form-control {
-    width: 50vh;
-    background-color: transparent;
-    border-width: 1px 1px 1px 1px;
-    box-shadow: none;
-    border-radius: 0;
-    text-shadow: none;
-  }
-  
-  
-  textarea{
-    height: 20vh;
-  }
-  
-  
-  .form-control:focus{
-    border-color: var(--main-color);
-  }
-  .form-control::placeholder{
-    font-size: 0.8rem;
-    font-family: var(--secondary-font);
-  }
-  .contactusform P{
-  position: relative;
-    color: red;
-    font-size: 0.7rem;
-  
-  }
-  .app-button{
-     animation: shake 0.15s forwards;
-  }
-  @keyframes shake {
-    0%,100%{transform: translateX(0px);}
-    20%{transform: translateX(5px);}
-    40%{transform: translateX(5px);}
-    60%{transform: translateX(-5px);}
-    80%{transform: translateX(-5px);}
-  
-  }
-  
+}
+
+
+.report-policies span{
+  display: block;
+  font-size: 1.2rem;
+  color: var(--main-color);
+
+}
+.report-policies li{
+  margin: 10px 0;
+  font-size: 1rem;
+  color: gray;
+}

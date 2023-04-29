@@ -1,67 +1,59 @@
 <!--contact us form section-->
-    <div class="contactusform pad-sections">
-      <h1 class="headertext">Report Page</h1>
-      <div class="pad-sections">
-        <form (ngSubmit)="submitEmail(sendForm)" #sendForm="ngForm">
-          <input
-            class="form-control mb-4"
-            type="text"
-            name="name"
-            title="name"
-            [(ngModel)]="userName"
-            #name
-            placeholder="Enter your name...."
-            required
-            minlength="3"
-          />
-          <!-- <div *ngIf="name.invalid && name.touched">
-            <p>please enter name</p>
-          </div> -->
-          <div [hidden]="!errorName">
-            <p>please enter name</p>
-          </div>
-  
-          <input
-            class="form-control mb-4"
-            ngModel
-            type="email"
-            name="email"
-            email="true"
-            [(ngModel)]="userEmail"
-            #email
-            title="name"
-            placeholder="Enter your email...."
-            required
-          />
-          <div [hidden]="!errorEmail">
-            <p class="px-6">please enter valid email</p>
-          </div>
-          <textarea
-            class="form-control mb-3 w-50"
-            ngModel
-            name="subject"
-            title="textarea"
-            #subject
-            [(ngModel)]="userSubject"
-            placeholder="Enter your subject"
-            required
-            minlength="12"
-          ></textarea>
-          <div [hidden]="!errorSubject">
-            <p>please enter valid subject</p>
-          </div>
-          <div>
-            <!-- calling shared component (main-button) to use it in form submission-->
-            <app-main-button
-              (click)="addShake(sendForm)"
-              type="submit"
-              content="Submit"
-              id="app-button"
-            ></app-main-button>
-          </div>
-        </form>
-      </div>
+<div class="row contact-container">
+  <div class="col-md-6 report-policies">
+    <h2 class="headertext">Report</h2>
+    <h6>Before submiting your problem please read the following.</h6>
+    <ul class="list-unstyled">
+      <li><span>Return Policy:</span> return policy allows for returns within a specific time frame, with specific conditions that must be met.</li>
+      <li><span>Terms and Conditions:</span> terms and conditions cover payment options, warranty information, and liability limitations.</li>
+      <li><span>Descriptions:</span> that product descriptions are accurate and comprehensive, including details such as size, color, and material.</li>
+      <li><span>Images:</span>Provide high-quality images of our product or your receipt from a good angle.</li>
+      <li><span>Contact Information:</span> a valid contact information, such as an email address or phone number, so that we can get in touch with you.</li>
+      <li class="mt-5"><fa-icon [icon]="['fas','phone']" class="me-2" style="color: var(--main-color);"></fa-icon>0121823781</li>
+    </ul>
+  </div>
+  <div class="col-md-6 mt-4 mt-md-0">
+
+    <div class="contactusform m-auto w-75">
+      <form>
+        <label for="">Full Name</label>
+        <input class="form-control mb-4"  type="text" title="name"
+          placeholder="Enter your name...."/>
+
+        <label>Email</label>
+        <input class="form-control mb-4" type="email" title="name"
+          placeholder="Enter your email...." />
+
+        <div class="">
+          <label>Problem</label>
+          <select class="w-100 mb-4 py-2 form-select form-control" name="" id="">
+            <option disabled selected class="py-3">Your Problem ...</option>
+            <option value="order">I have a problem with my order</option>
+            <option value="product">I have a problem with my product</option>
+            <option value="website">I have a problem with the interface</option>
+          </select>
+        </div>
+
+
+        <label for="">Subject</label>
+        <textarea class="form-control mb-3" title="textarea"
+          placeholder="Enter your subject"></textarea>
+
+        <label for="">Upload</label>
+        <input type="file" class="form-control" accept="image/*">
+        
+        <label for=""></label>
+        <div class="error-contact">
+          <p>Please fill the form</p>
+        </div>
+        <div>
+          <!-- calling shared component (main-button) to use it in form submission-->
+          <app-main-button (click)="addShake()" content="Submit" id="app-button"></app-main-button>
+        </div>
+      </form>
     </div>
+  </div>
+</div>
     <!-- calling shared component (main-categories)-->
     <div>
       <app-main-categories class="main-categories-class"></app-main-categories>
