@@ -15,40 +15,40 @@
   <div class="col-md-6 mt-4 mt-md-0">
 
     <div class="contactusform m-auto w-75">
-      <form>
+      <form [formGroup]="reportForm">
         <label for="">Full Name</label>
-        <input class="form-control mb-4"  type="text" title="name"
+        <input class="form-control mb-4" formControlName="fullName"  type="text" title="name"
           placeholder="Enter your name...."/>
 
         <label>Email</label>
-        <input class="form-control mb-4" type="email" title="name"
+        <input class="form-control mb-4" formControlName="email" type="email" title="name"
           placeholder="Enter your email...." />
 
         <div class="">
           <label>Problem</label>
-          <select class="w-100 mb-4 py-2 form-select form-control" name="" id="">
-            <option disabled selected class="py-3">Your Problem ...</option>
-            <option value="order">I have a problem with my order</option>
-            <option value="product">I have a problem with my product</option>
-            <option value="website">I have a problem with the interface</option>
+          <select class="w-100 mb-4 py-2 form-select form-control" formControlName="problem" id="">
+            <option value="" disabled selected class="py-3">Your Problem ...</option>
+            <option value="order-issue">I have a problem with my order</option>
+            <option value="product-issue">I have a problem with my product</option>
+            <option value="website-issue">I have a problem with the interface</option>
           </select>
         </div>
 
 
-        <label for="">Subject</label>
-        <textarea class="form-control mb-3" title="textarea"
+        <label for="">Description</label>
+        <textarea class="form-control mb-3" formControlName="description" title="textarea"
           placeholder="Enter your subject"></textarea>
 
         <label for="">Upload</label>
-        <input type="file" class="form-control" accept="image/*">
+        <input type="file" class="form-control" formControlName="upload" accept="image/*">
         
         <label for=""></label>
-        <div class="error-contact">
+        <div *ngIf="submitted && reportForm.invalid" class="error-contact">
           <p>Please fill the form</p>
         </div>
         <div>
           <!-- calling shared component (main-button) to use it in form submission-->
-          <app-main-button (click)="addShake()" content="Submit" id="app-button"></app-main-button>
+          <app-main-button (click)="addShake()" type="submit" content="Submit" id="app-button"></app-main-button>
         </div>
       </form>
     </div>

@@ -35,9 +35,6 @@ h2 {
   color: red;
 }
 
-.app-button {
-  animation: shake 0.15s forwards;
-}
 .form-select{
   border-radius: 10px !important;
   box-shadow: 0 !important;
@@ -50,30 +47,7 @@ select{
   font-size: 0.8rem;
   color:gray ;
 }
-@keyframes shake {
 
-  0%,
-  100% {
-    transform: translateX(0px);
-  }
-
-  20% {
-    transform: translateX(5px);
-  }
-
-  40% {
-    transform: translateX(5px);
-  }
-
-  60% {
-    transform: translateX(-5px);
-  }
-
-  80% {
-    transform: translateX(-5px);
-  }
-
-}
 
 
 @media screen and (max-width:767px) {
