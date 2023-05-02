@@ -12,6 +12,7 @@ import {
 import 'owl.carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { NgbProgressbar } from '@ng-bootstrap/ng-bootstrap';
 
 declare var $: any;
 import 'slick-carousel';
@@ -21,8 +22,11 @@ import 'slick-carousel';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  submitted = false;
+  submitted: boolean = false;
+  ratingSub = false;
   myprod: any;
+  p: any;
+
   prods: Prod[] = [];
   customOptions: OwlOptions = {
     loop: true,
@@ -37,7 +41,7 @@ export class ProductComponent implements OnInit {
         items: 1,
       },
       400: {
-        items: 1.5,
+        items: 1,
       },
       550: {
         items: 2,
@@ -54,11 +58,15 @@ export class ProductComponent implements OnInit {
   question: FormGroup;
   selectedPhoto: string;
   isBigPhotoUpdated: boolean;
-
-  showNewQuestionForm: boolean;
-
+  myratings: {
+    rating: Number;
+    name: string;
+    review: string;
+  }[];
+  showNewQuestionForm: boolean = false;
+  showRatingForm: boolean = false;
   questions: { question: string; answer: string }[];
-
+  ratings: FormGroup;
   selectedValue: string;
   constructor(
     private cart: CartService,
@@ -75,28 +83,17 @@ export class ProductComponent implements OnInit {
     this.selectedPhoto = this.myprod.img;
     this.isBigPhotoUpdated = false;
     this.questions = this.myprod.questions;
-
-    $('.owl-carousel').owlCarousel({
-      nav: true,
-      margin: 10,
-      dots: false,
-      loop: false,
-      rewind: true,
-      responsive: {
-        0: {
-          items: 2,
-        },
-        600: {
-          items: 3,
-        },
-        1000: {
-          items: 4,
-        },
-      },
-    });
+    this.myratings = this.myprod.ratings;
+    this.submitted = true;
 
     this.question = this.fb.group({
       newQuestion: ['', [Validators.required, Validators.minLength(6)]],
+    });
+
+    this.ratings = this.fb.group({
+      newRating: [0, [Validators.required]],
+      newName: ['', [Validators.required]],
+      newReview: [''],
     });
   }
 
@@ -112,11 +109,27 @@ export class ProductComponent implements OnInit {
   addQuestion() {
     this.submitted = true;
     if (this.question.valid) {
+      this.submitted = false;
       const newQuestionValue = this.question.controls['newQuestion'].value;
       this.questions.push({ question: newQuestionValue, answer: '' });
-      this.question.reset(); // Clear the form control after adding the new question
-      this.submitted = false;
+      this.question.reset();
+      // Clear the form control after adding the new question
     }
+  }
+
+  addRating() {
+    if (this.ratings.valid) {
+      const newRatingValue = this.ratings.controls['newRating'].value;
+      const newNameValue = this.ratings.controls['newName'].value;
+      const newReviewValue = this.ratings.controls['newReview'].value;
+
+      this.myratings.push({
+        rating: newRatingValue,
+        name: newNameValue,
+        review: newReviewValue,
+      });
+      this.ratings.reset();
+    } // Clear the form control after adding the new question
   }
   changePhoto(photo: any) {
     const smallPhotos = document.querySelectorAll(

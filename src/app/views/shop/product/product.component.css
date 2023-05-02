@@ -195,19 +195,14 @@ input[type=number] {
 
 }
 
-.prodQA h3 {
+.prodh3 {
   font-family: var(--main-font);
   color: var(--main-color);
   text-transform: uppercase;
 
 }
 
-.similarProducts h3 {
 
-  font-family: var(--main-font);
-  color: var(--main-color);
-  text-transform: uppercase;
-}
 
 
 
@@ -244,6 +239,7 @@ input[type=number] {
 }
 
 .questionsection {
+  animation: fadeInUp 0.5s ease-in-out;
 
   border-bottom: 1px solid #ccc;
 }
@@ -264,11 +260,7 @@ input[type=number] {
   margin-top: 0.5rem;
 }
 
-.error-message {
-  color: red;
-  font-size: 0.8rem;
-  display: block;
-}
+
 
 fieldset {
   margin-bottom: 1em !important;
@@ -417,5 +409,79 @@ background-color: transparent !important
     padding: 0 0 0 0 ;
 
   }
+
+}
+
+.prodRating .prodratingheader{
+
+  font-family: var(--main-font);
+  color: var(--main-color);
+  font-size: 125px;
+}
+.prodRating .prodratingheader span{
+
+  font-family: var(--main-font);
+  color: var(--gray-color);
+font-size :50px
+}
+.totalrating {
+
+  width: 100%;
+}
+i {
+  position: relative;
+  display: inline-block;
+  font-size: 1rem;
+  padding-right: 0.1rem;
+  color: #d3d3d3;
+}
+
+.filled {
+  color: #ffa800;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.my-pagination ::ng-deep .ngx-pagination {
+  color: var(--main-color);
+  padding-top: 10px;
+  margin-left: 20px;
+}
+
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background-color: var(--main-color);
+  text-decoration: none;
+
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current span {
+  color: white;
+}
+
+.my-pagination ::ng-deep .ngx-pagination  a {
+  text-decoration: none;
+  font-family: var(--main-font);
+}
+.prodRating .card{
+  box-shadow: 3px solid white;
+  border-radius: 0;
+
+  animation: fadeInRight 0.5s ease-in-out;}
+
+
+  .card label{
+
+    font-family: var(--main-font);
+    color: var(--main-color);
+  }
+.error{
+color: red;
+left: 0;
+padding-left: 10px;
+font-size: 0.7rem;
+position: absolute;
+
 
 }

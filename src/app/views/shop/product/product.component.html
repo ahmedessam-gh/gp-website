@@ -199,7 +199,7 @@
 
 <div class="similarProducts">
   <div class="container pad-sections">
-    <h3 class="similarProductsHeader">Similar Products</h3>
+    <h3 class="prodh3">Similar Products</h3>
 
     <div class="row"></div>
   </div>
@@ -215,11 +215,9 @@
 </div>
 <hr />
 
-<div class="prodQA">
+<div class="prodHeaders">
   <div class="container pad-sections">
-    <h3 class="similarProductsHeader pad-sections">
-      Product Questions & Answers
-    </h3>
+    <h3 class="prodh3 pad-sections">Product Questions & Answers</h3>
     <div class="py-3" *ngFor="let question of myprod.questions">
       <div class="questionsection py-3">
         <strong class="px-3"> Question: </strong>
@@ -247,27 +245,115 @@
         <form [formGroup]="question" (ngSubmit)="addQuestion()">
           <label for="question"> Enter a new question :</label>
           <input
-            class="form-control"
+            class="form-control my-2"
             placeholder="Enter your Question"
             formControlName="newQuestion"
-            required
           />
           <div
-            class="error-note"
+            class="error-note position-relative"
             *ngIf="submitted && question.controls['newQuestion'].invalid"
           >
-            <span class="error-message px-2"
-              >enter a valid question with min 6 letters</span
-            >
+            <span class="error">enter a valid question with min 6 letters</span>
           </div>
           <br />
         </form>
         <app-main-button
-          disabled="!newQuestion.valid"
           content="Submit Question"
           (click)="addQuestion()"
         ></app-main-button>
       </div>
     </div>
   </div>
+</div>
+<hr />
+<div class="prodRating pad-sections">
+  <div class="container">
+    <h3 class="prodh3 pad-sections">Reviews & Ratings</h3>
+    <h3 class="prodratingheader">
+      {{ myprod.rating }}<span class="px-1">out of 5</span>
+    </h3>
+    <hr />
+    <br />
+    <div
+      class="card w-50 py-3 px-2 my-2 userRatings"
+      *ngFor="
+        let rating of myprod.ratings
+          | paginate : { itemsPerPage: 1, currentPage: p }
+      "
+    >
+      <label> {{ rating.name }} </label>
+      <app-rating class="py-1" [product]="rating"></app-rating>
+
+      <p *ngIf="rating.review">{{ rating.review }}</p>
+    </div>
+    <div class="p-0">
+      <pagination-controls
+        class="my-pagination"
+        (pageChange)="p = $event"
+        previousLabel="Previous"
+        nextLabel="Next"
+      >
+      </pagination-controls>
+    </div>
+    <div class="adding-question">
+      <div class="addinglabela pad-sections">
+        <label class="addlabel">
+          Do you want to submit a review about the product? </label
+        ><br />
+        <a class="add-question" (click)="showRatingForm = true">
+          Click here to review it!
+        </a>
+      </div>
+
+      <div class="questionform px-4 py-3" *ngIf="showRatingForm">
+        <form [formGroup]="ratings" (ngSubmit)="addRating()">
+          <div class="d-flex">
+            <label> Enter your Rating: </label>
+            <ng-template #t let-fill="fill">
+              <i class="bi-star-fill pb-1">
+                <i
+                  *ngIf="fill > 0"
+                  class="bi-star-fill filled pb-1"
+                  [style.width.%]="fill"
+                ></i>
+              </i>
+            </ng-template>
+            <ngb-rating
+              class="px-2"
+              [starTemplate]="t"
+              formControlName="newRating"
+              [resettable]="true"
+              [max]="5"
+            ></ngb-rating>
+            <br />
+          </div>
+          <label class="pt-3"> Enter your name :</label>
+
+          <input
+            class="form-control my-2"
+            placeholder="Enter your name"
+            formControlName="newName"
+          />
+          <br />
+          <label> Enter your review :</label>
+
+          <input
+            class="form-control my-2"
+            placeholder="Enter your review (Optional)"
+            formControlName="newReview"
+          />
+          <br />
+
+          <div
+            class="error-note"
+            *ngIf="ratingSub && ratings.controls['newQuestion'].invalid"
+          >
+            <span class="error">You must enter your name</span>
+          </div>
+          <app-main-button content="Submit Review"></app-main-button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <p></p>
 </div>
