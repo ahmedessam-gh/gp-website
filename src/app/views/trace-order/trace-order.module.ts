@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TraceOrderRoutingModule } from './trace-order-routing.module';
@@ -14,14 +13,15 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [TraceOrderComponent],
   imports: [
     CommonModule,
     TraceOrderRoutingModule,
     FontAwesomeModule,
-    SharedModule
+    NgbProgressbarModule,
+    SharedModule,
   ],
 })
 export class TraceOrderModule {}

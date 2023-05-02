@@ -307,7 +307,7 @@ float: right;
 
 .smallFilter{
   padding-top: 15px;
-width: 100%;
+  width: 250px;
   z-index: 3;
   background: white;
 }
@@ -317,3 +317,12 @@ width: 100%;
   font-family: var(--main-font);
 }
 
+@media screen and (min-width:1000px) {
+
+  .size-filter{
+
+    padding: 6px 20px;
+
+  }
+
+}

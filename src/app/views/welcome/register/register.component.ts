@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
         Validators.minLength(6),
       ])],
       confirmPassword :['',Validators.required],
-      user:[''],
+      user:['',Validators.required],
 
     });
    
@@ -37,7 +37,8 @@ export class RegisterComponent implements OnInit {
     if(pass.value !== confirm.value){
       confirm.setErrors({'passNotMatching':true})
     }
-    console.log(this.registerForm);
+    console.log(this.registerForm.value);
+    console.log('validity : ' + this.registerForm.valid);
   }
 
   // addShake(form:NgForm){

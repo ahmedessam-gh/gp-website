@@ -55,6 +55,37 @@ export class ProdService {
             answer: 'i think TRM Gluibert is the best one there',
           },
         ],
+        ratings: [
+          {
+            rating: 4,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 3,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 5,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 1,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr yes test ahmed essam ram el din hussein hazem lorem lorem lorem lorem ',
+          },
+          {
+            rating: 0,
+            name: 'Ahmed Essam',
+            review: '',
+          },
+        ],
       },
 
       {
@@ -104,6 +135,38 @@ export class ProdService {
             answer: 'i think TRM Gluibert is the best one there',
           },
         ],
+        ratings: [
+          {
+            rating: 4,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 3,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 5,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 1,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 0,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+        ],
       },
 
       {
@@ -148,6 +211,38 @@ export class ProdService {
           {
             question: 'Who is the best Terminator member',
             answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
+        ratings: [
+          {
+            rating: 4,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 3,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 5,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 1,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 0,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
           },
         ],
       },
@@ -196,7 +291,40 @@ export class ProdService {
             answer: 'i think TRM Gluibert is the best one there',
           },
         ],
+        ratings: [
+          {
+            rating: 4,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 3,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 5,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 1,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 0,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+        ],
       },
+
       {
         id: '5',
         ProdName: 'Dress',
@@ -242,7 +370,40 @@ export class ProdService {
             answer: 'i think TRM Gluibert is the best one there',
           },
         ],
+        ratings: [
+          {
+            rating: 4,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 3,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 5,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 1,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 0,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+        ],
       },
+
       {
         id: '6',
         ProdName: 'Casual Wear',
@@ -253,7 +414,7 @@ export class ProdService {
         discount: 50,
         status: 'Sale',
         note: 'Solid Polo Collar T-shirt',
-        rating: 5,
+        rating: 3.14,
         rent: true,
         isStock: false,
         color: [
@@ -286,6 +447,38 @@ export class ProdService {
           {
             question: 'Who is the best Terminator member',
             answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
+        ratings: [
+          {
+            rating: 4,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 3,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 5,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 1,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 0,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
           },
         ],
       },
@@ -299,7 +492,7 @@ export class ProdService {
         discount: 50,
         status: 'Sale',
         note: 'Solid Polo Collar T-shirt',
-        rating: 5,
+        rating: 4,
         rent: true,
         isStock: false,
         color: [
@@ -334,6 +527,38 @@ export class ProdService {
             answer: 'i think TRM Gluibert is the best one there',
           },
         ],
+        ratings: [
+          {
+            rating: 4,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 3,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 5,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 1,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 0,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+        ],
       },
       {
         id: '8',
@@ -345,7 +570,7 @@ export class ProdService {
         discount: 0,
         status: 'Sale',
         note: 'Solid Polo Collar T-shirt',
-        rating: 5,
+        rating: 4.5,
         rent: false,
         isStock: false,
 
@@ -379,6 +604,38 @@ export class ProdService {
           {
             question: 'Who is the best Terminator member',
             answer: 'i think TRM Gluibert is the best one there',
+          },
+        ],
+        ratings: [
+          {
+            rating: 4,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 3,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 5,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 1,
+            name: 'Ahmed Essam',
+            review:
+              'This is a cool product with only bad color I give it fourrrrrr',
+          },
+          {
+            rating: 0,
+            name: 'Ahmed Essam',
+            review:
+              ' ectronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
           },
         ],
       },

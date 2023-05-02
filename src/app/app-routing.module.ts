@@ -1,6 +1,6 @@
 import { Error404Component } from './views/error404/error404.component';
 import { HomeComponent } from './views/home/home.component';
-import { Router, Routes, RouterModule } from '@angular/router';
+import { Router, Routes, RouterModule,Scroll } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
@@ -79,7 +79,7 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, { enableTracing: true }),
+    RouterModule.forRoot(routes, { enableTracing: true ,scrollPositionRestoration: 'enabled'}),
   ],
   exports: [RouterModule],
 })

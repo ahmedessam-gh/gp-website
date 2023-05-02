@@ -9,24 +9,29 @@ import { FeaturesSectionComponent } from './features-section/features-section.co
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { ReactiveFormsModule } from '@angular/forms';
-import {RouterModule} from "@angular/router";
+import { RouterModule } from '@angular/router';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { RatingComponent } from './rating/rating.component';
+import { Rating } from 'ngx-rating';
 
-  const sharedComponents = [
-    ProductboxComponent,
-    MainButtonComponent,
-    MainCategoriesComponent,
-    FeaturesSectionComponent
-  ]
+const sharedComponents = [
+  ProductboxComponent,
+  MainButtonComponent,
+  MainCategoriesComponent,
+  FeaturesSectionComponent,
+  RatingComponent,
+];
 
 @NgModule({
-  declarations: [ sharedComponents ],
+  declarations: [sharedComponents, RatingComponent],
   imports: [
     CommonModule,
     RouterModule,
     FontAwesomeModule,
     ReactiveFormsModule,
     NgxStarRatingModule,
+    NgbRatingModule,
   ],
-  exports: [ sharedComponents ],
+  exports: [sharedComponents],
 })
-export class SharedModule { }
+export class SharedModule {}

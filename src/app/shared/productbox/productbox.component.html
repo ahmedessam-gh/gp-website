@@ -43,7 +43,9 @@
     </div>
 
     <div class="product-details">
-      <div class="rating"></div>
+      <div>
+        <app-rating [product]="product"></app-rating>
+      </div>
       <h4>
         {{ product.ProdName }}
       </h4>

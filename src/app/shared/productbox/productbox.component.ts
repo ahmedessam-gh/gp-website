@@ -14,15 +14,11 @@ export class ProductboxComponent implements OnInit {
   @Input() product: Prod;
   public form: FormGroup;
   favouriteList: any = [];
-
   constructor(
     private prod: ProdService,
     private cart: CartService,
     private fb: FormBuilder
   ) {
-    this.form = this.fb.group({
-      rating: [5],
-    });
     this.favouriteList = this.prod.getFav();
   }
 

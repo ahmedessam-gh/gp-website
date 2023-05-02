@@ -5,9 +5,9 @@ import {
   FormGroup,
   FormControl,
 } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { CommonModule, FormStyle } from '@angular/common';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReportRoutingModule } from './report-routing.module';
 import { ReportComponent } from './report.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -21,7 +21,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
         CommonModule,
         ReportRoutingModule,
         FormsModule,
-        SharedModule
+        SharedModule,
+        FontAwesomeModule,
+        ReactiveFormsModule
     ]
 })
 export class ReportModule { }

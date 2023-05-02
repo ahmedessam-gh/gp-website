@@ -1,7 +1,6 @@
-
 <section>
-    <div class="container py-5">
-      <!-- <div class="row">
+  <div class="container py-5">
+    <!-- <div class="row">
         <div class="col">
           <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
             <ol class="breadcrumb mb-0">
@@ -12,119 +11,80 @@
           </nav>
         </div>
       </div> -->
-  
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="card mb-4">
-            <div class="card-body text-center">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                class="rounded-circle img-fluid" style="width: 150px;">
-              <h5 class="my-3">Ahmed essam</h5>
-              <p class="text-muted mb-4">6 october</p>
-              <div class="d-flex justify-content-center mb-2">
-                <app-main-button borderRadius="10px" [routerLink]="['/profile/edit']" content="Edit Profile"></app-main-button>
-            </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">Ahmed essam</h5>
+            <p class="text-muted mb-4">Customer</p>
+            <div class="d-flex justify-content-center mb-2">
+              <app-main-button borderRadius="10px" [routerLink]="['/profile/edit']"
+                content="Edit Profile"></app-main-button>
             </div>
           </div>
         </div>
-        <div class="col-lg-8">
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Full Name</p>
-                </div>
-                <div class="col-sm-8" id="nameField">
-                  <p class="text-muted mb-0">ahmed essam</p>
-                </div>
-                
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Email</p>
-                </div>
-                <div class="col-sm-8" >
-                  <p class="text-muted mb-0">example@gmail.com</p>
-                </div>
-                
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Phone</p>
-                </div>
-                <div class="col-sm-8" >
-                  <p class="text-muted mb-0">123123123</p>
-                </div>
-
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Mobile</p>
-                </div>
-                <div class="col-sm-8">
-                  <p class="text-muted mb-0">123123124124</p>
-                </div>
-                
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Address</p>
-                </div>
-                <div class="col-sm-8">
-                  <p class="text-muted mb-0">6 october</p>
-                </div>
-                
-            
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Address</p>
-                </div>
-                <div class="col-sm-8">
-                  <p class="text-muted mb-0">6 october</p>
-                </div>
-               
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Address</p>
-                </div>
-                <div class="col-sm-8">
-                  <p class="text-muted mb-0">6 october</p>
-                </div>
-                
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Address</p>
-                </div>
-                <div class="col-sm-8">
-                  <p class="text-muted mb-0">6 october</p>
-                </div>
-               
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Address</p>
-                </div>
-                <div class="col-sm-8">
-                  <p class="text-muted mb-0">6 october</p>
-                </div>
-                
-              </div>
-              
-            </div>
-          </div>
-        </div>
-
       </div>
+      <div class="col-lg-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <label class="info-p mb-3">Full Name</label>
+                <input type="text" class="form-control" placeholder="ahmed essam" disabled>
+              </div>
+              <div class="col-lg-6 mt-lg-0 mt-3">
+                <label class="info-p mb-3">Email</label>
+                <input type="text" class="form-control" placeholder="example@gmail.com" disabled>
+              </div>
+
+            </div>
+            <div class="row mt-3">
+              <div class="col-lg-12">
+                <label class="info-p mb-3">Address</label>
+                <input type="text" class="form-control" placeholder="6-october , 8th district" disabled>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-lg-6">
+                <label class="info-p mb-3">street</label>
+                <input type="text" class="form-control" placeholder="street 213adf" disabled>
+              </div>
+              <div class="col-lg-6 mt-lg-0 mt-3">
+                <label class="info-p mb-3">phone</label>
+                <input type="text" class="form-control" placeholder="01217712636" disabled>
+              </div>
+
+            </div>
+            <div class="row mt-3">
+              <div class="col-lg-6">
+                <label class="info-p mb-3">country</label>
+                <input type="text" class="form-control" placeholder="Egypt" disabled>
+              </div>
+              <div class="col-lg-6">
+                <label class="info-p mb-3 mt-lg-0 mt-3">city</label>
+                <input type="text" class="form-control" placeholder="giza" disabled>
+              </div>
+
+            </div>
+            <div class="row mt-3">
+              <div class="col-lg-12">
+                <label class="info-p mb-3">Address</label>
+                <input type="text" class="form-control" placeholder="6-october , 8th district" disabled>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-lg-12">
+                <label class="info-p mb-3">Address</label>
+                <input type="text" class="form-control" placeholder="6-october , 8th district" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>

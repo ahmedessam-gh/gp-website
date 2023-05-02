@@ -19,6 +19,12 @@ export interface Prod {
     question: string;
     answer: string;
   }[];
+
+  ratings: {
+    rating: Number;
+    name: string;
+    review: string;
+  }[];
 }
 export interface prodDetails {
   value: string;

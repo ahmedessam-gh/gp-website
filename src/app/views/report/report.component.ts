@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-
+import { NgForm, Validators } from '@angular/forms';
+import { FormBuilder,FormGroup } from '@angular/forms';
 import * as Aos from 'aos';
 
 @Component({
@@ -8,41 +8,27 @@ import * as Aos from 'aos';
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css']
 })
-export class ReportComponent implements OnInit {
 
-  @ViewChild('name') name: ElementRef<HTMLInputElement>;
-  @ViewChild('email') email: ElementRef<HTMLInputElement>;
-  @ViewChild('subject') subject: ElementRef<HTMLInputElement>;
-  constructor() {}
-  form: any;
-  userName: String = '';
-  userEmail: String = '';
-  userSubject: String = '';
-  errorName = false;
-  errorEmail = false;
-  errorSubject = false;
+export class ReportComponent implements OnInit {
+  submitted = false;
+  reportForm:FormGroup;
+  constructor(private fb:FormBuilder){}
+ 
   ngOnInit(): void {
     Aos.init({});
+    this.reportForm = this.fb.group({
+      fullName:['',Validators.required],
+      email:['',[Validators.required,Validators.email]],
+      problem:['',Validators.required],
+      description:['',Validators.required],
+      upload:['',Validators.required]
+    })
   }
 
-  submitEmail(form: any) {
-    this.errorName = !this.name.nativeElement.validity.valid;
-    this.errorEmail = !this.email.nativeElement.validity.valid;
-    this.errorSubject = !this.subject.nativeElement.validity.valid;
-    if (!form.valid) {
-      form.stopPropagation();
-    } else console.log(this.userName);
-    console.log(this.userEmail);
-    console.log(this.userSubject);
-  }
-  addShake(form: NgForm) {
-    const btn = document.getElementById('app-button');
-    if (!form.valid) {
-      btn.classList.add('app-button');
-      setTimeout(() => {
-        btn.classList.remove('app-button');
-      }, 500);
-    }
+  
+  addShake() {
+    this.submitted = true;
+    console.log(this.reportForm);
   }
 
 }
