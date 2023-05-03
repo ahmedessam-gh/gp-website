@@ -1,21 +1,23 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, transition, style, animate } from '@angular/animations';
+
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css'],
   animations: [
-    // trigger('slideInOut', [
-    //   state('void', style({
-    //     transform: 'translateY(-100%)'
-    //   })),
-    //   state('*', style({
-    //     transform: 'translateY(0%)'
-    //   })),
-    //   transition(':enter', animate('0.3s ease-in-out')),
-    //   transition(':leave', animate('0.3s ease'))
-    // ])
-  ],
+    trigger('slideDown', [
+      transition(':enter', [
+        style({ height: 0}),
+        animate('200ms', style({ height: '*', overflow:'hidden' })),
+      ]),
+      transition(':leave', [
+        style({ height: '*'}),
+        animate('50ms', style({ height: 0})),
+      ]),
+    ])
+ ]
 })
 export class CheckoutComponent implements OnInit {
   activeIndex = 1;
@@ -24,7 +26,7 @@ export class CheckoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // this.setActive();
+    
   }
   setActive(){
     const billingContainer = document.getElementById('billingContainer');
@@ -34,6 +36,7 @@ export class CheckoutComponent implements OnInit {
       divs[i].classList.remove('active');
     }
     divs[this.activeIndex].classList.add('active');
+    
   }
 
 
