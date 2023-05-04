@@ -1,6 +1,6 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgTemplateOutlet } from '@angular/common';
 
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductComponent } from './product.component';
@@ -17,8 +17,10 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import {
   NgbRatingModule,
   NgbProgressbarModule,
+  NgbToastModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ToasterComponent } from 'src/app/shared/toaster/toaster.component';
 @NgModule({
   declarations: [ProductComponent],
   imports: [
@@ -35,8 +37,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgbRatingModule,
     NgbProgressbarModule,
     NgxPaginationModule,
-
     CarouselModule,
+    NgbToastModule,
   ],
 })
 export class ProductModule {}

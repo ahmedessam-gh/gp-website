@@ -10,20 +10,27 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbRatingModule,
+  NgbTooltip,
+  NgbTooltipModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { RatingComponent } from './rating/rating.component';
 import { Rating } from 'ngx-rating';
-
+import { ToasterComponent } from './toaster/toaster.component';
+import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 const sharedComponents = [
   ProductboxComponent,
   MainButtonComponent,
   MainCategoriesComponent,
   FeaturesSectionComponent,
   RatingComponent,
+
+  ToasterComponent,
 ];
 
 @NgModule({
-  declarations: [sharedComponents, RatingComponent],
+  declarations: [sharedComponents, RatingComponent, ToasterComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -31,6 +38,8 @@ const sharedComponents = [
     ReactiveFormsModule,
     NgxStarRatingModule,
     NgbRatingModule,
+    NgbToastModule,
+    NgbTooltipModule,
   ],
   exports: [sharedComponents],
 })
