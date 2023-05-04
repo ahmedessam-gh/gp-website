@@ -7,20 +7,20 @@ import { NgbService } from 'src/app/core/services/ngb.service';
   styleUrls: ['./toaster.component.css'],
 })
 export class ToasterComponent implements OnInit {
-  @Input() toastMessage: any;
-  @Input() contentMessage: string;
+  // @Input() toastMessage: any;
+  // @Input() contentMessage: string;
   constructor(public ngbService: NgbService) {}
 
   ngOnInit(): void {
-    this.ngbService.show(this.toastMessage);
+    this.ngbService.show('this.toastMessage');
   }
   showStandard() {
-    this.ngbService.show(this.toastMessage);
+    this.ngbService.show('this.toastMessage');
   }
 
   showSuccess() {
-    this.ngbService.show(this.toastMessage, {
-      classname: 'bg-success text-light',
+    this.ngbService.show('this.toastMessage',{
+      classname:'bg-success text-light',
       delay: 10000,
     });
   }
@@ -32,11 +32,12 @@ export class ToasterComponent implements OnInit {
     });
   }
 
-  ngOnDestroy(): void {
-    this.ngbService.clear();
-  }
 
   isTemplate(toast) {
     return toast.textOrTpl instanceof TemplateRef;
+  }
+  
+  ngOnDestroy(): void {
+    this.ngbService.clear();
   }
 }

@@ -9,11 +9,11 @@ export class NgbService {
 
   constructor() {}
 
-  show(textOrTpl: string | TemplateRef<any>, options: any = {}) {
-    this.toasts.push({ textOrTpl, ...options });
+  show(textOrTpl:string | TemplateRef<any>, options: any = {}) {
+    this.toasts.push({textOrTpl, ...options});
   }
 
-  remove(toast) {
+  remove(toast: any) {
     this.toasts = this.toasts.filter((t) => t !== toast);
   }
 
