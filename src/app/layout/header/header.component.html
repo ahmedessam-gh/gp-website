@@ -169,7 +169,7 @@
             }"></fa-icon>
           <div class="user-dropdown">
             <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between" [routerLink]="['/welcome/loginn']">
+              <li *ngIf="!userList" class="list-group-item d-flex justify-content-between" [routerLink]="['/welcome/loginn']">
                 <button style="border: none; background-color: white" class="nav-link">
                   Login
                 </button>
@@ -179,7 +179,7 @@
               </li>
               <!-- <li class="list-group-item d-flex justify-content-between"><a class="nav-link" href="#">My Orders</a></li>
               <li class="list-group-item d-flex justify-content-between"><a class="nav-link" href="#">Favourites</a></li> -->
-              <li class="list-group-item d-flex justify-content-between" [routerLink]="['profile/dashboard']">
+              <li *ngIf="userList" class="list-group-item d-flex justify-content-between" [routerLink]="['profile/dashboard']">
                 <button style="border: none; background-color: white" class="nav-link">
                   Account Details
                 </button>
@@ -187,7 +187,7 @@
                   <fa-icon [icon]="['fas', 'file-invoice']"></fa-icon>
                 </div>
               </li>
-              <li class="list-group-item d-flex justify-content-between" [routerLink]="['/welcome/register']">
+              <li *ngIf="!userList" class="list-group-item d-flex justify-content-between" [routerLink]="['/welcome/register']">
                 <button style="border: none; background-color: white" class="nav-link">
                   Sign Up
                 </button>
@@ -195,7 +195,7 @@
                   <fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
                 </div>
               </li>
-              <li class="list-group-item d-flex justify-content-between">
+              <li (click)="logOut()" *ngIf="userList" class="list-group-item d-flex justify-content-between">
                 <button style="border: none; background-color: white" class="nav-link">
                   Sign Out
                 </button>

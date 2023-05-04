@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators ,FormGroup} from '@angular/forms';
+import { Router } from '@angular/router';
+import { error } from 'console';
+import { AuthService } from 'src/app/core/services/auth.service';
 @Component({
   selector: 'app-loginn',
   templateUrl: './loginn.component.html',
@@ -10,7 +13,7 @@ export class LoginnComponent implements OnInit {
 
   loginForm:FormGroup;
   submitted:boolean = false;
-  constructor(private fb : FormBuilder) { }
+  constructor(private fb : FormBuilder,private auth:AuthService,private router:Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -21,6 +24,15 @@ export class LoginnComponent implements OnInit {
   }
   login(){
     this.submitted = true;
-    console.log(this.loginForm);
+    if(this.loginForm.valid){
+      this.auth.login(this.loginForm.value).subscribe(next => {
+        console.log('success');
+        this.router.navigate(['/shop']);
+      },error => {
+        console.log('failed');
+      })
+    }else{
+      console.log('invalid');
+    }
   }
 }
