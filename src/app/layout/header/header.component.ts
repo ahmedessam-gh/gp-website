@@ -10,6 +10,7 @@ import {
   ViewChild,
   Renderer2,
   ElementRef,
+  OnChanges,
 } from '@angular/core';
 import { ProdService } from 'src/app/core/services/prod.service';
 import { Prod } from 'src/app/core/interfaces/Prod';
@@ -17,6 +18,8 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { HeaderService } from 'src/app/core/services/header.service';
 import { cart } from '../../core/interfaces/cart';
 import { CartService } from '../../core/services/cart.service';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -38,7 +41,7 @@ export class HeaderComponent implements OnInit {
   collapsed = true;
   nativeElement: any;
   ActivatedRoute: any;
-
+  userList = false;
   toggler(): void {
     this.collapsed = !this.collapsed;
     const nav = document.getElementById('lower-nav');
@@ -52,13 +55,27 @@ export class HeaderComponent implements OnInit {
     public header: HeaderService,
     private renderer: Renderer2,
     private elementrf: ElementRef,
-    private cart: CartService
+    private cart: CartService,
+    private auth:AuthService,
+    private location:Location
   ) {}
+  
   ngOnInit(): void {
     this.cartProducts = this.cart.getCart();
     this.myProd = this.prod.product;
-  }
+    this.showUserList();
 
+  }
+  showUserList(){
+    if(this.auth.getUser()){
+      this.userList = true;
+    }
+  }
+  logOut(){
+    this.auth.logOut();
+    this.router.navigate(['']);
+    this.userList = false;
+  }
   changeColor() {
     const nav = document.getElementById('lower-nav');
     nav.classList.toggle('white-nav');

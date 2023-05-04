@@ -7,6 +7,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { _getOptionScrollPosition } from '@angular/material/core';
+import { AuthGuard } from 'src/app/core/AuthGuard/auth.guard';
 export const routes: Routes = [
   {
     path: '',

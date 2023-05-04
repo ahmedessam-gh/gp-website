@@ -26,6 +26,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Error404Component } from './views/error404/error404.component';
 import { SharedModule } from './shared/shared.module';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -49,6 +50,8 @@ import { SharedModule } from './shared/shared.module';
     RouterModule,
     BrowserAnimationsModule,
     SharedModule,
+    HttpClientModule,
+    
   ],
 })
 export class AppModule {
