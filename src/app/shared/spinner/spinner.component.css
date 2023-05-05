@@ -1,0 +1,57 @@
+:host{
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999 ;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+}
+.custom-loader {
+    
+    
+    height: 50px;
+    --firstFill: linear-gradient(180deg, rgba(54, 143, 139, 1) , rgba(54, 143, 139, 1));
+    --secondFill: linear-gradient(180deg, rgba(54, 143, 139, 0.75) , rgba(54, 143, 139, 0.75));
+    --thirdFill: linear-gradient(180deg, rgba(54, 143, 139, 0.35) , rgba(54, 143, 139, 0.25));
+    background:
+        var(--firstFill) left,
+        var(--secondFill) center,
+        var(--thirdFill) right;
+    background-size: 16px 100%;
+    background-repeat: no-repeat;
+    animation:
+        sh3-1 1.5s infinite,
+        sh3-2 1.5s infinite;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    
+}
+
+@keyframes sh3-1 {
+
+    0%,
+    100% {
+        width: 45px
+    }
+
+    35%,
+    65% {
+        width: 65px
+    }
+}
+
+@keyframes sh3-2 {
+
+    0%,
+    40% {
+        transform: rotate(0)
+    }
+
+    60%,
+    100% {
+        transform: rotate(90deg) 
+    }
+}

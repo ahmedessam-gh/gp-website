@@ -1,19 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, map } from 'rxjs';
-// import { tap } from 'rxjs';
+import { Observable, map,delay } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   URL = 'https://localhost:7115/api/'
-
+  request = false;
   constructor(private http :HttpClient) { }
 
   login(credentials:any){
+    this.request = true;
     return this.http.post(`${this.URL}Auth/Login`,credentials).pipe(
+      delay(1000),
       map((res:any) => {
         console.log(res);
         sessionStorage.setItem('token',res.token);

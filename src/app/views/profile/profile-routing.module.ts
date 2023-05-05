@@ -12,6 +12,7 @@ export const routes: Routes = [
   {
     path: '',
     component: ProfileComponent,
+    canActivate:[AuthGuard],
     children: [
       { path: 'details', component: ProfileDetailsComponent},
       { path: 'fav', component: FavouriteComponent },

@@ -1,3 +1,7 @@
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+
 <div class="loginError error animate__animated animate__fadeInDown" *ngIf="submitted && loginForm.invalid ">
   <p style="font-size: 0.8rem; color: red;">Email or Password is not valid</p>
 </div>
@@ -20,3 +24,5 @@
    </form>
     <button class="btn" [routerLink]="['/welcome/register']">Create Account?</button>
   </div>
+
+  

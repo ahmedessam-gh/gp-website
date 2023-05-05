@@ -13,6 +13,7 @@ export class LoginnComponent implements OnInit {
 
   loginForm:FormGroup;
   submitted:boolean = false;
+  loading = false;
   constructor(private fb : FormBuilder,private auth:AuthService,private router:Router) { }
 
   ngOnInit(): void {
@@ -24,12 +25,13 @@ export class LoginnComponent implements OnInit {
   }
   login(){
     this.submitted = true;
+    this.loading = true;
     if(this.loginForm.valid){
       this.auth.login(this.loginForm.value).subscribe(next => {
-        console.log('success');
+        this.loading = false;
         this.router.navigate(['/shop']);
       },error => {
-        console.log('failed');
+        console.log(error);
       })
     }else{
       console.log('invalid');
