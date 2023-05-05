@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FormBuilder, Validators ,FormGroup} from '@angular/forms';
+import { Router } from '@angular/router';
+import { error } from 'console';
+import { AuthService } from 'src/app/core/services/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,20 +12,17 @@ import { FormBuilder, Validators ,FormGroup} from '@angular/forms';
 export class RegisterComponent implements OnInit {
   submitted:boolean = false;
   registerForm :FormGroup;
-  constructor(private fb :FormBuilder) { }
+  loading = false;
+  constructor(private fb :FormBuilder,private auth:AuthService,private router:Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
       fname :['',Validators.required],
       lname :['',Validators.required],
       email :['',[Validators.email,Validators.required]],
-      password :['',Validators.compose([
-        Validators.required,
-        Validators.pattern(/^[a-zA-Z0-9]*$/),
-        Validators.minLength(6),
-      ])],
-      confirmPassword :['',Validators.required],
-      user:['',Validators.required],
+      password :['',Validators.required],
+      username :['',Validators.required],
+      role:['',Validators.required],
 
     });
    
@@ -32,13 +32,18 @@ export class RegisterComponent implements OnInit {
 
   register(){
     this.submitted = true;
-    const pass = this.registerForm.get('password');
-    const confirm = this.registerForm.get('confirmPassword');
-    if(pass.value !== confirm.value){
-      confirm.setErrors({'passNotMatching':true})
+    this.loading = true;
+    if(this.registerForm.valid){
+      this.auth.register(this.registerForm.value).subscribe(response =>{
+        this.loading = false;
+        this.router.navigate(['/shop']);
+        console.log(response);
+      },error => {
+        console.log(error);
+      })
+    }else{
+      console.log('failed');
     }
-    console.log(this.registerForm.value);
-    console.log('validity : ' + this.registerForm.valid);
   }
 
   // addShake(form:NgForm){

@@ -10,11 +10,10 @@ import { Observable, map,delay } from 'rxjs';
 })
 export class AuthService {
   URL = 'https://localhost:7115/api/'
-  request = false;
+  
   constructor(private http :HttpClient) { }
 
   login(credentials:any){
-    this.request = true;
     return this.http.post(`${this.URL}Auth/Login`,credentials).pipe(
       delay(1000),
       map((res:any) => {
@@ -23,9 +22,18 @@ export class AuthService {
       })
     )
   }
-  secured(): Observable<any>{
-    return this.http.get(this.URL+ 'Secured')
+  register(registeration:any){
+    return this.http.post(`${this.URL}Auth/register`,registeration).pipe(
+      delay(1000),
+      map((res:any) => {
+        console.log(res);
+        sessionStorage.setItem('token',res.token);
+      })
+    )
   }
+  // secured(): Observable<any>{
+  //   return this.http.get(this.URL+ 'Secured')
+  // }
 
   logOut(){
     sessionStorage.removeItem('token');
@@ -33,4 +41,6 @@ export class AuthService {
   getUser(){
     return sessionStorage.getItem('token');
   }
+
+ 
 }

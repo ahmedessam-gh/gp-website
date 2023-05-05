@@ -1,3 +1,6 @@
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
 <div
   class="animate__animated animate__backInDown mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
   <h5 style="color:var(--main-color)">Sign Up</h5>
@@ -43,8 +46,17 @@
             </div>
           </div>
         </div>
-
         <div class="tooltip-container">
+          <input type="text" formControlName="username" class="d-block form-control"
+            placeholder="Re enter your password ...">
+          <div class="error" *ngIf="submitted && registerForm.get('username').invalid">
+            <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
+            <div class="error-message">
+              <p>password is not matching</p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="tooltip-container">
           <input [ngClass]="{'error-border': registerForm.get('confirmPassword').hasError('passNotMatching')}" type="password" formControlName="confirmPassword" class="d-block form-control"
             placeholder="Re enter your password ...">
           <div class="error" *ngIf="registerForm.get('confirmPassword').hasError('passNotMatching')">
@@ -53,12 +65,12 @@
               <p>password is not matching</p>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="tooltip-container">
-          <input type="radio" formControlName="user" value="customer"> <span class="mx-3">Customer</span>
-          <input type="radio" formControlName="user" value="vendor"> <span class="ms-3">Vendor</span>
-          <div class="error" *ngIf="submitted && registerForm.get('user').invalid">
+          <input type="radio" formControlName="role" value="customer"> <span class="mx-3">Customer</span>
+          <input type="radio" formControlName="role" value="vendor"> <span class="ms-3">Vendor</span>
+          <div class="error" *ngIf="submitted && registerForm.get('role').invalid">
             <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
             <div class="error-message">
               <p>please choose one of the following</p>
