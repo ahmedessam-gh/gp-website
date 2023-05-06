@@ -236,7 +236,7 @@
         <label class="addlabel">
           Do you have a question about the product? </label
         ><br />
-        <a class="add-question" (click)="showNewQuestionForm = true">
+        <a class="add-question" (click)="showNewQuestionForms()">
           Click here to ask us a question!
         </a>
       </div>
@@ -256,11 +256,14 @@
             <span class="error">enter a valid question with min 6 letters</span>
           </div>
           <br />
+          <app-main-button
+            type="submit"
+            content="Submit Question"
+            (click)="
+              showStandard(' Your question submitted successfully', question)
+            "
+          ></app-main-button>
         </form>
-        <app-main-button
-          content="Submit Question"
-          (click)="addQuestion()"
-        ></app-main-button>
       </div>
     </div>
   </div>
@@ -275,10 +278,10 @@
     <hr />
     <br />
     <div
-      class="card w-50 py-3 px-2 my-2 userRatings"
+      class="card py-3 px-2 my-2 userRatings"
       *ngFor="
         let rating of myprod.ratings
-          | paginate : { itemsPerPage: 1, currentPage: p }
+          | paginate : { itemsPerPage: 3, currentPage: p }
       "
     >
       <label> {{ rating.name }} </label>
@@ -300,7 +303,7 @@
         <label class="addlabel">
           Do you want to submit a review about the product? </label
         ><br />
-        <a class="add-question" (click)="showRatingForm = true">
+        <a class="add-question" (click)="showRatingForms()">
           Click here to review it!
         </a>
       </div>
@@ -350,9 +353,15 @@
           >
             <span class="error">You must enter your name</span>
           </div>
-          
+          <app-main-button
+            type="submit"
+            content="Submit Review"
+            (click)="showStandard('Review submitted successfully', ratings)"
+          >
+          </app-main-button>
+
+          <app-toaster></app-toaster>
         </form>
-        <app-toaster></app-toaster>
       </div>
     </div>
   </div>

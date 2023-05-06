@@ -485,3 +485,28 @@ position: absolute;
 
 
 }
+.userRatings{
+
+  width: 50%;
+}
+
+
+.questionform{
+
+  width: 50%;
+}
+
+@media screen  and (max-width:1000px){
+  .userRatings{
+  width: 100%;
+  }
+  .questionform{
+    width: 100%;
+    }
+}
+
+.test{
+
+  color: var(--main-color) !important;
+  background : black !important;
+}

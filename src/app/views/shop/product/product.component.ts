@@ -13,7 +13,7 @@ import 'owl.carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { NgbProgressbar } from '@ng-bootstrap/ng-bootstrap';
-
+import { NgbService } from 'src/app/core/services/ngb.service';
 declare var $: any;
 import 'slick-carousel';
 @Component({
@@ -72,7 +72,8 @@ export class ProductComponent implements OnInit {
     private cart: CartService,
     private prod: ProdService,
     private ActivatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private ngbService: NgbService
   ) {}
 
   ngOnInit(): void {
@@ -113,6 +114,7 @@ export class ProductComponent implements OnInit {
       const newQuestionValue = this.question.controls['newQuestion'].value;
       this.questions.push({ question: newQuestionValue, answer: '' });
       this.question.reset();
+      this.showNewQuestionForm = false;
       // Clear the form control after adding the new question
     }
   }
@@ -169,5 +171,18 @@ export class ProductComponent implements OnInit {
     const newProd = { ...prod };
     newProd.size = prod.size;
     newProd.id = `${prod.id}_${prod.size}`;
+  }
+
+  showRatingForms() {
+    this.showRatingForm = !this.showRatingForm;
+  }
+
+  showNewQuestionForms() {
+    this.showNewQuestionForm = !this.showNewQuestionForm;
+  }
+  showStandard(review, form) {
+    if (form.valid) {
+      this.ngbService.show(review, {});
+    }
   }
 }

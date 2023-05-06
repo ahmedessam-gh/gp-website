@@ -28,9 +28,9 @@ const sharedComponents = [
   RatingComponent,
 
   ToasterComponent,
-  RatingComponent, 
-  ToasterComponent, 
-  SpinnerComponent
+  RatingComponent,
+  ToasterComponent,
+  SpinnerComponent,
 ];
 
 @NgModule({

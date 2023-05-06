@@ -76,14 +76,14 @@ input::placeholder {
 
 .tooltip-container {
     position: relative;
-    
+
 }
 
 .error {
     position: absolute;
     top: 50%;
     right: 0;
-    transform: translateY(-50%);  
+    transform: translateY(-50%);
 }
 
 
@@ -91,7 +91,7 @@ input::placeholder {
 /* .error .tooltip-icon:hover~.error-message {
     display: block;
 } */
-/* 
+/*
 .error-message {
     display: none;
     position: absolute;
@@ -120,6 +120,52 @@ input::placeholder {
     font-size: 1.5rem;
 
     color: var(--main-color);
+}
+
+.toast:before{
+
+  color: var(--main-color) ;
+  font-family: var(--main-font);
+  content: '\2713';
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+
+
+}
+
+.toast{
+
+  color: var(--main-color) ;
+  font-family: var(--main-font);
+  margin-left:15px ;
+  padding-left: 20px;
+  position: relative;
+}
+
+.dangertoast{
+
+
+  color: var(--red-color) ;
+  font-family: var(--main-font);
+  margin-left:15px ;
+  padding-left: 20px;
+  position: relative;
+
+}
+
+.dangertoast:before{
+
+  color: var(--red-color) ;
+  font-family: var(--main-font);
+  content: '\2715';
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+
+
 }
 
 
