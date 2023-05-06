@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { RegisterComponent } from './register/register.component';
 import { LoginnComponent } from './loginn/loginn.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RouterModule,
     ReactiveFormsModule,
     SharedModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbTooltipModule
   ]
 })
 export class WelcomeModule { }

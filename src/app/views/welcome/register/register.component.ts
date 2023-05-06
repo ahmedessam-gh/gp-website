@@ -37,12 +37,11 @@ export class RegisterComponent implements OnInit {
       this.auth.register(this.registerForm.value).subscribe(response =>{
         this.loading = false;
         this.router.navigate(['/shop']);
-        console.log(response);
       },error => {
-        console.log(error);
+        this.loading = false;
       })
     }else{
-      console.log('failed');
+      this.loading = false;
     }
   }
 

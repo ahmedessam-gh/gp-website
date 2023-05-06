@@ -31,10 +31,11 @@ export class LoginnComponent implements OnInit {
         this.loading = false;
         this.router.navigate(['/shop']);
       },error => {
+        this.loading = false;
         console.log(error);
       })
     }else{
-      console.log('invalid');
+      this.loading = false;
     }
   }
 }

@@ -76,23 +76,22 @@ input::placeholder {
 
 .tooltip-container {
     position: relative;
+    
 }
 
 .error {
     position: absolute;
-    right: 0;
     top: 50%;
-    transform: translateY(-50%);
+    right: 0;
+    transform: translateY(-50%);  
 }
 
-.tooltip-icon {
-    position: relative;
-}
 
-.error .tooltip-icon:hover~.error-message {
+
+/* .error .tooltip-icon:hover~.error-message {
     display: block;
-}
-
+} */
+/* 
 .error-message {
     display: none;
     position: absolute;
@@ -108,7 +107,7 @@ input::placeholder {
     font-size: 0.75rem;
     z-index: 9999;
     transition: all 0.2s ease-in !important;
-}
+} */
 
 .error-message p {
     margin-bottom: 0 !important;

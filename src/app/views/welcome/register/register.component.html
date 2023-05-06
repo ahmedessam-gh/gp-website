@@ -16,22 +16,28 @@
             <input [ngClass]="{'error-border': submitted && registerForm.get('fname').invalid && registerForm.get('lname').invalid}" type="text" formControlName="lname" class="d-block form-control" placeholder="last name ...">
             <div class="error"
               *ngIf="submitted && registerForm.get('fname').invalid && registerForm.get('lname').invalid">
-              <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
-              <div class="error-message">
+              <fa-icon class="text-danger" ngbTooltip="enter your name" ngbtoo [icon]="['fas','circle-exclamation']"></fa-icon>
+              <!-- <div class="error-message">
                 <p>enter your name</p>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
-
+        <div class="tooltip-container">
+          <input type="text" [ngClass]="{'error-border': submitted && registerForm.get('username').invalid}" formControlName="username" class="d-block form-control"
+            placeholder="enter your username">
+          <div class="error" *ngIf="submitted && registerForm.get('username').invalid">
+            <fa-icon class="text-danger" ngbTooltip="enter a username" [icon]="['fas','circle-exclamation']"></fa-icon>
+          </div>
+        </div>
         <div class="tooltip-container">
           <input [ngClass]="{'error-border': submitted && registerForm.get('email').invalid}" type="email" formControlName="email" class="d-block form-control" placeholder="Enter your email ...">
           <div class="error" 
           *ngIf="submitted && registerForm.get('email').invalid">
-            <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
-            <div class="error-message">
+            <fa-icon class="text-danger" ngbTooltip="enter a valid email address" [icon]="['fas','circle-exclamation']"></fa-icon>
+            <!-- <div class="error-message">
               <p>enter your email</p>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -39,23 +45,14 @@
           <input [ngClass]="{'error-border': submitted && registerForm.get('password').invalid}" type="password" formControlName="password" class="d-block form-control"
             placeholder="Enter your password ...">
           <div class="error" *ngIf="submitted && registerForm.get('password').invalid">
-            <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
-            <div class="error-message error-pass">
+            <fa-icon class="tooltip-icon text-danger" ngbTooltip="must contain capital letter,special character and number." [icon]="['fas','circle-exclamation']"></fa-icon>
+            <!-- <div class="error-message error-pass">
               <p>must contain 6 letters or more.</p>
               <p>must contain letters and numbers only.</p>
-            </div>
+            </div> -->
           </div>
         </div>
-        <div class="tooltip-container">
-          <input type="text" formControlName="username" class="d-block form-control"
-            placeholder="Re enter your password ...">
-          <div class="error" *ngIf="submitted && registerForm.get('username').invalid">
-            <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
-            <div class="error-message">
-              <p>password is not matching</p>
-            </div>
-          </div>
-        </div>
+       
         <!-- <div class="tooltip-container">
           <input [ngClass]="{'error-border': registerForm.get('confirmPassword').hasError('passNotMatching')}" type="password" formControlName="confirmPassword" class="d-block form-control"
             placeholder="Re enter your password ...">
@@ -71,10 +68,10 @@
           <input type="radio" formControlName="role" value="customer"> <span class="mx-3">Customer</span>
           <input type="radio" formControlName="role" value="vendor"> <span class="ms-3">Vendor</span>
           <div class="error" *ngIf="submitted && registerForm.get('role').invalid">
-            <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
-            <div class="error-message">
+            <fa-icon class="text-danger" ngbTooltip="you must choose of of the following" [icon]="['fas','circle-exclamation']"></fa-icon>
+            <!-- <div class="error-message">
               <p>please choose one of the following</p>
-            </div>
+            </div> -->
           </div>
         </div>
         <div>
