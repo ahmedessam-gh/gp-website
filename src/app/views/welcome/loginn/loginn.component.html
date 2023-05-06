@@ -2,11 +2,8 @@
   <app-spinner></app-spinner>
 </div>
 
-<div class="loginError error animate__animated animate__fadeInDown" *ngIf="submitted && loginForm.invalid ">
+<div class="loginError error animate__animated animate__fadeInDown" *ngIf="submitted">
   <p style="font-size: 0.8rem; color: red;">{{errors}}</p>
-</div>
-<div class="loginError error animate__animated animate__fadeInDown" *ngIf="submitted && loginForm.invalid ">
-  <p style="font-size: 0.8rem; color: red;">{{errors1}}</p>
 </div>
 
 <div class="animate__animated animate__backInDown mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
