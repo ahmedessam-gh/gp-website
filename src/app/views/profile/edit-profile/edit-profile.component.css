@@ -24,3 +24,54 @@ input::placeholder{
     
     }
 }
+.imgPen{
+    background-color: aqua;
+}
+.imgPen::after{
+    content: '\270F\FE0F';
+    background-color: rgb(241, 241, 241,0.5);
+    padding: 5px;
+    border-radius: 50%;
+    cursor:pointer;
+    z-index: 9999;
+}
+/* input[type="file"] {
+  
+  display: none;
+}
+
+.custom-file-input {
+
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.custom-file-input::before {
+
+  content: "Choose File";
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.custom-file-input:hover::before {
+
+  background-color: #0069d9;
+}
+
+.custom-file-input input[type="file"] {
+ 
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+} */

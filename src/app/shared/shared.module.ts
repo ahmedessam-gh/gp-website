@@ -20,17 +20,18 @@ import { Rating } from 'ngx-rating';
 import { ToasterComponent } from './toaster/toaster.component';
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { PaymentComponent } from './payment/payment.component';
 const sharedComponents = [
   ProductboxComponent,
   MainButtonComponent,
   MainCategoriesComponent,
   FeaturesSectionComponent,
   RatingComponent,
-
   ToasterComponent,
   RatingComponent,
   ToasterComponent,
   SpinnerComponent,
+  PaymentComponent
 ];
 
 @NgModule({

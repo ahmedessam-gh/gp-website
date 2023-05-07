@@ -7,7 +7,7 @@
   <div class="w-50 form-content">
     <form [formGroup]="registerForm">
       <div class="registerForm">
-        <div class="row">
+        <!-- <div class="row">
           <div class="tooltip-container col-6 ps-0">
             <input [ngClass]="{'error-border': submitted && registerForm.get('fname').invalid && registerForm.get('lname').invalid}" type="text" formControlName="fname" class="d-block form-control" placeholder="first name ...">
 
@@ -17,12 +17,12 @@
             <div class="error"
               *ngIf="submitted && registerForm.get('fname').invalid && registerForm.get('lname').invalid">
               <fa-icon class="text-danger" ngbTooltip="enter your name" ngbtoo [icon]="['fas','circle-exclamation']"></fa-icon>
-              <!-- <div class="error-message">
+              <div class="error-message">
                 <p>enter your name</p>
-              </div> -->
+              </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="tooltip-container">
           <input type="text" [ngClass]="{'error-border': submitted && registerForm.get('username').invalid}" formControlName="username" class="d-block form-control"
             placeholder="enter your username">
@@ -64,16 +64,16 @@
           </div>
         </div> -->
 
-        <div class="tooltip-container">
+        <!-- <div class="tooltip-container">
           <input type="radio" formControlName="role" value="customer"> <span class="mx-3">Customer</span>
           <input type="radio" formControlName="role" value="vendor"> <span class="ms-3">Vendor</span>
           <div class="error" *ngIf="submitted && registerForm.get('role').invalid">
             <fa-icon class="text-danger" ngbTooltip="you must choose of of the following" [icon]="['fas','circle-exclamation']"></fa-icon>
-            <!-- <div class="error-message">
+            <div class="error-message">
               <p>please choose one of the following</p>
-            </div> -->
+            </div>
           </div>
-        </div>
+        </div> -->
         <div>
           <app-main-button id="app-button" width="100%" content="register" (click)="register()"></app-main-button>
         </div>

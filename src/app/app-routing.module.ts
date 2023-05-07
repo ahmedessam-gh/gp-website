@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { CheckoutComponent } from './views/cart/checkout/checkout.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { PaymentComponent } from './shared/payment/payment.component';
 const routes: Routes = [
   {
     path: '',
@@ -74,6 +75,7 @@ const routes: Routes = [
   { path: 'shared', loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule) },
   { path: 'spinner',component:SpinnerComponent},
   { path: '**', component: Error404Component },
+  
 ];
 
 @NgModule({
