@@ -9,13 +9,8 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
-import 'owl.carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import { OwlOptions } from 'ngx-owl-carousel-o';
-import { NgbProgressbar } from '@ng-bootstrap/ng-bootstrap';
+
 import { NgbService } from 'src/app/core/services/ngb.service';
-declare var $: any;
-import 'slick-carousel';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -28,33 +23,7 @@ export class ProductComponent implements OnInit {
   p: any;
 
   prods: Prod[] = [];
-  customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    dots: false,
-    navSpeed: 700,
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 1,
-      },
-      550: {
-        items: 2,
-      },
-      740: {
-        items: 2.5,
-      },
-      940: {
-        items: 3.5,
-      },
-    },
-    nav: true,
-  };
+
   question: FormGroup;
   selectedPhoto: string;
   isBigPhotoUpdated: boolean;
@@ -123,7 +92,7 @@ export class ProductComponent implements OnInit {
     this.ratingSub = true;
 
     if (this.ratings.valid) {
-      this.ratingSub=false;
+      this.ratingSub = false;
 
       const newRatingValue = this.ratings.controls['newRating'].value;
       const newNameValue = this.ratings.controls['newName'].value;

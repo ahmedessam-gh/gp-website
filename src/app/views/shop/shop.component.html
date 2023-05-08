@@ -7,6 +7,7 @@
         <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
           <li>
             <button
+              type="button"
               class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
               data-bs-toggle="collapse"
               data-bs-target="#categories-collapse"
@@ -26,7 +27,7 @@
                   <input
                     type="checkbox"
                     id="men"
-                    formControlName="category"
+                    (change)="getCategory($event)"
                     value="men"
                   />
                 </li>
@@ -39,7 +40,7 @@
                   <input
                     type="checkbox"
                     id="women"
-                    formControlName="category"
+                    (change)="getCategory($event)"
                     value="women"
                   />
                 </li>
@@ -52,7 +53,7 @@
                   <input
                     type="checkbox"
                     id="accessories"
-                    formControlName="category"
+                    (change)="getCategory($event)"
                     value="accessories"
                   />
                 </li>
@@ -66,7 +67,7 @@
                   <input
                     type="checkbox"
                     id="shoes"
-                    formControlName="category"
+                    (change)="getCategory($event)"
                     value="shoes"
                   />
                 </li>
@@ -75,6 +76,7 @@
           </li>
           <li>
             <button
+              type="button"
               class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
               data-bs-toggle="collapse"
               data-bs-target="#filterPrice-collapse"
@@ -93,7 +95,7 @@
                   <input
                     type="checkbox"
                     id="p1"
-                    formControlName="price"
+                    (change)="getPrice($event)"
                     value="150"
                   />
                 </li>
@@ -101,7 +103,7 @@
                   <input
                     type="checkbox"
                     id="p2"
-                    formControlName="price"
+                    (change)="getPrice($event)"
                     value="p2"
                   />
 
@@ -115,7 +117,7 @@
                   <input
                     type="checkbox"
                     id="p3"
-                    formControlName="price"
+                    (change)="getPrice($event)"
                     value="p3"
                   />
 
@@ -134,7 +136,7 @@
                   <input
                     type="checkbox"
                     id="p4"
-                    formControlName="price"
+                    (change)="getPrice($event)"
                     value="$150-200"
                   />
                 </li>
@@ -147,7 +149,7 @@
                   <input
                     type="checkbox"
                     id="p5"
-                    formControlName="price"
+                    (change)="getPrice($event)"
                     value="p5"
                   />
                 </li>
@@ -156,6 +158,7 @@
           </li>
           <li>
             <button
+              type="button"
               class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
               data-bs-toggle="collapse"
               data-bs-target="#size-collapse"
@@ -233,6 +236,7 @@
 
           <li>
             <button
+              type="button"
               class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
               data-bs-toggle="collapse"
               data-bs-target="#color-collapse"
@@ -323,7 +327,6 @@
             <li>
               <app-main-button
                 [iconLeft]="'filter'"
-                (click)="onSubmit()"
                 content=" Filter"
                 width="150px"
                 fontSize="0.8rem"
@@ -333,7 +336,7 @@
             <br />
             <li>
               <app-main-button
-                type="reset"
+                type="submit"
                 id="uncheck"
                 iconLeft="eraser"
                 content=" Clear All Filters"
@@ -361,7 +364,7 @@
                 Filter <fa-icon icon="arrow-down"></fa-icon>
               </p>
             </div>
-            <div class="smallFilter position-absolute" *ngIf="showFilter">
+            <!-- <div class="smallFilter position-absolute" *ngIf="showFilter">
               <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
                 <ul
                   class="btn-toggle-nav list-unstyled fw-normal small px-3 d-block d-lg-none d-xl-none"
@@ -376,7 +379,7 @@
                     <input
                       type="checkbox"
                       id="man"
-                      formControlName="category"
+                      (onChange)="getCategory($event)"
                       value="men"
                     />
                   </li>
@@ -389,7 +392,7 @@
                     <input
                       type="checkbox"
                       id="woman"
-                      formControlName="category"
+                      (onChange)="getCategory($event)"
                       value="women"
                     />
                   </li>
@@ -402,7 +405,7 @@
                     <input
                       type="checkbox"
                       id="accessorie"
-                      formControlName="category"
+                      (onChange)="getCategory($event)"
                       value="accessories"
                     />
                   </li>
@@ -416,7 +419,7 @@
                     <input
                       type="checkbox"
                       id="shoe"
-                      formControlName="category"
+                      (onChange)="getCategory($event)"
                       value="shoes"
                     />
                   </li>
@@ -434,16 +437,14 @@
                     <input
                       type="checkbox"
                       id="price1"
-                      formControlName="price"
-                      value="p1"
+                     (change)="getPrice()""                      value="p1"
                     />
                   </li>
                   <li class="position-relative">
                     <input
                       type="checkbox"
                       id="price2"
-                      formControlName="price"
-                      value="p2"
+                     (change)="getPrice()""                      value="p2"
                     />
 
                     <label
@@ -456,8 +457,7 @@
                     <input
                       type="checkbox"
                       id="price3"
-                      formControlName="price"
-                      value="p3"
+                     (change)="getPrice()""                      value="p3"
                     />
 
                     <label
@@ -475,8 +475,7 @@
                     <input
                       type="checkbox"
                       id="price4"
-                      formControlName="price"
-                      value="p4"
+                     (change)="getPrice()""                      value="p4"
                     />
                   </li>
                   <li class="position-relative">
@@ -488,8 +487,7 @@
                     <input
                       type="checkbox"
                       id="price5"
-                      formControlName="price"
-                      value="p5"
+                     (change)="getPrice()""                      value="p5"
                     />
                   </li>
                 </ul>
@@ -677,7 +675,7 @@
                   </li>
                 </ul>
               </form>
-            </div>
+            </div> -->
           </div>
 
           <div class="searchbox col-6 col-xl-12 col-lg-6 col-lg-12">

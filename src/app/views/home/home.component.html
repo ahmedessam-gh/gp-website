@@ -4,9 +4,17 @@
   <div class="slider-home mb-2">
     <div class="slider-imgs">
       <div class="headerContent">
-        <h1 class="animate__animated animate__fadeInDown">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, officiis.</h1>
+        <h1 class="animate__animated animate__fadeInDown">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
+          officiis.
+        </h1>
         <div class="mt-4">
-          <app-main-button padding="10px 20px" fontSize="0.8em" content="Shop Now" [routerLink]="['shop']"></app-main-button>
+          <app-main-button
+            padding="10px 20px"
+            fontSize="0.8em"
+            content="Shop Now"
+            [routerLink]="['shop']"
+          ></app-main-button>
         </div>
       </div>
     </div>
@@ -61,7 +69,12 @@
       </div>
     </div>
     <h1>
-      <button data-aos="fade-up" data-aos-once="true" class="btn btn-custom">
+      <button
+        data-aos="fade-up"
+        data-aos-once="true"
+        class="btn btn-custom"
+        routerLink="/shop"
+      >
         Browse More
       </button>
     </h1>
@@ -75,16 +88,23 @@
     <div
       class="homeBg-2-content d-flex flex-column justify-content-center align-items-center h-100 card-body w-100"
     >
-      <h2 style="color:var(--main-color);" data-aos="fade-up" data-aos-once="true">
+      <h2
+        style="color: var(--main-color)"
+        data-aos="fade-up"
+        data-aos-once="true"
+      >
         Collection houses our first-ever
       </h2>
       <div class="btn-respon mt-0 mt-md-3">
-        <app-main-button content="Shop Now"></app-main-button>
+        <app-main-button
+          routerLink="/shop"
+          content="Shop Now"
+        ></app-main-button>
       </div>
     </div>
   </div>
   <!-- 3rd & 4th Background in home page starts here-->
-  <div class="container pad-sections">
+  <!-- <div class="container pad-sections">
     <div class="row">
       <div class="col-md-6">
         <div class="homeBgs position-relative">
@@ -119,7 +139,31 @@
         </div>
       </div>
     </div>
+  </div> -->
+  <div
+    class="newArrivals-section pad-sections"
+    data-aos="fade-up"
+    data-aos-duration="2000"
+    data-aos-once="true"
+  >
+    <h1>
+      SUGGESTED FOR <br />
+      YOU
+    </h1>
+    <!-- <div class="container">
+      <div class="row">
+        <div
+          class="card col-xl-3 col-lg-4 col-sm-6"
+          *ngFor="let newProd of newProds; let i = index"
+          data-aos="fade-up"
+          data-aos-once="true"
+          data-aos-duration="1000"
+        >
+          <app-productbox [product]="newProd"></app-productbox>
+        </div>
+      </div>
+    </div> -->
+    <app-carousel [prods]="newProds"></app-carousel>
   </div>
-
   <div><app-features-section></app-features-section></div>
 </div>

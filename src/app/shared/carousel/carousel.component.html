@@ -1,0 +1,9 @@
+<div class="carousel-wrap">
+  <owl-carousel-o [options]="customOptions" class="carousel">
+    <ng-container *ngFor="let prod of prods">
+      <ng-template carouselSlide>
+        <app-productbox [product]="prod"></app-productbox>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>
