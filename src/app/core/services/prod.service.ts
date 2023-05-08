@@ -566,7 +566,7 @@ export class ProdService {
         Category: 'Women',
         Price: 100,
         img: 'assets/images/08.jpg',
-        size: ' s',
+        size: 's',
         discount: 0,
         status: 'Sale',
         note: 'Solid Polo Collar T-shirt',

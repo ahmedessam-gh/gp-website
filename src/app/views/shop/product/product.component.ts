@@ -120,7 +120,11 @@ export class ProductComponent implements OnInit {
   }
 
   addRating() {
+    this.ratingSub = true;
+
     if (this.ratings.valid) {
+      this.ratingSub=false;
+
       const newRatingValue = this.ratings.controls['newRating'].value;
       const newNameValue = this.ratings.controls['newName'].value;
       const newReviewValue = this.ratings.controls['newReview'].value;
