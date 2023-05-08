@@ -14,6 +14,9 @@ export class EditProfileComponent implements OnInit {
   constructor(private auth:AuthService,private fb:FormBuilder,private profile:ProfileDetailsService) { }
 
   ngOnInit(): void {
+    this.profile.getDetails().subscribe((data)=>{
+      this.userDetails = data;
+    });
     this.userInfo = this.fb.group({
       fName:[''],
       lName:[''],
@@ -21,17 +24,12 @@ export class EditProfileComponent implements OnInit {
       address:[''],
       phoneNumber:['']
     })
-  //  this.userDetails =  this.auth.user;
-  //  console.log(this.userDetails);
-  this.profile.getDetails().subscribe((data)=>{
-    this.userDetails = data;
-    // console.log(this.userDetails);
-  });
+ 
   console.log(this.userDetails);
+  // console.log(this.userInfo.value);
   }
 
   changeDetails(){
-   
     if(this.userInfo.valid){
       console.log(this.userInfo);
       this.profile.editDetails(this.userInfo.value).subscribe(next=>{
