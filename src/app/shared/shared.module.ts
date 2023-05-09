@@ -22,6 +22,7 @@ import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { PaymentComponent } from './payment/payment.component';
 const sharedComponents = [
   ProductboxComponent,
   MainButtonComponent,
@@ -30,8 +31,8 @@ const sharedComponents = [
   RatingComponent,
   CarouselComponent,
   ToasterComponent,
-
-  SpinnerComponent,
+  PaymentComponent,
+  SpinnerComponent
 ];
 
 @NgModule({
