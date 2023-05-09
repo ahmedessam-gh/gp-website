@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { error } from 'console';
+import { apiEndpoints } from "../api-endpoints";
 import { Observable, map,delay ,tap} from 'rxjs';
 
 
@@ -10,12 +11,12 @@ import { Observable, map,delay ,tap} from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  URL = 'https://localhost:7115/api/'
+  URL = apiEndpoints.baseUrl
   user;
   constructor(private http :HttpClient) { }
 
   login(credentials:any){
-    return this.http.post(`${this.URL}Auth/Login`,credentials).pipe(
+    return this.http.post(`${this.URL}${apiEndpoints.auth.login}`,credentials).pipe(
       delay(1000),
       map((res:any) => {
         console.log(res);
@@ -25,7 +26,7 @@ export class AuthService {
     )
   }
   register(registeration:any){
-    return this.http.post(`${this.URL}Auth/CustRegister`,registeration).pipe(
+    return this.http.post(`${this.URL}${apiEndpoints.auth.customerRegister}`,registeration).pipe(
       delay(1000),
       map((res:any) => {
         console.log(res);
@@ -45,7 +46,7 @@ export class AuthService {
   }
 
  changeImg(img){
-  
-  return this.http.put(`${this.URL}Auth/ModifyPhoto`,img);
+
+  return this.http.put(`${this.URL}${apiEndpoints.auth.modifyPhoto}`,img);
  }
 }
