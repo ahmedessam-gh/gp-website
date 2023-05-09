@@ -16,31 +16,31 @@
             <div class="row ">
               <div class="col-6 position-relative">
                 <label for="fname">First Name</label>
-                <input type="text" class="form-control" formControlName="fName" placeholder="first name">
+                <input type="text" class="form-control" value="{{userDetails?.fName}}" formControlName="fName" placeholder="first name">
               </div>
               <div class="col-6 ">
                 <label for="lname">Last Name</label>
-                <input type="text" class="form-control" formControlName="lName" placeholder="last name">
+                <input type="text" class="form-control"  value="{{userDetails?.lName}}" formControlName="lName" placeholder="last name">
               </div>
             </div>
             <div class="mt-4">
               <label for="Username">Username</label>
-              <input type="text" class="form-control" value="{{userDetails?.userName}}" disabled>
+              <input type="text" class="form-control" value="{{userDetails?.userName}}"  disabled>
   
             </div>
             <div class="mt-4">
               <label for="email">Email</label>
-              <input type="text" class="form-control" formControlName="email" placeholder="email">
+              <input type="text" class="form-control" value="{{userDetails?.email}}" formControlName="email" placeholder="email">
   
             </div>
             <div class="mt-4">
               <label for="address">Address</label>
-              <input type="text" class="form-control" formControlName="address" placeholder="address">
+              <input type="text" class="form-control"  value="{{userDetails?.address}}" formControlName="address" placeholder="address">
   
             </div>
             <div class="mt-4">
               <label for="Username">Phone</label>
-              <input type="text" class="form-control" formControlName="phoneNumber" placeholder="01233123323" >
+              <input type="text" class="form-control" value="{{userDetails?.phoneNumber}}" formControlName="phoneNumber" placeholder="01233123323" >
   
             </div>
             <!-- <div class="mt-4">
