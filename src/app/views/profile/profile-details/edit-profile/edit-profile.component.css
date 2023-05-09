@@ -1,0 +1,57 @@
+:host{
+   font-family: var(--main-font); 
+}
+.accountCont{
+    box-sizing: border-box;
+
+}
+
+
+.accountEditDetails label{
+    font-size: 1rem;
+    font-family: var(--secondary-font); 
+    font-weight: 500;
+    color: var(--main-color);
+}
+input::placeholder{
+    font-family: var(--button-font);
+}
+
+@media screen and (max-width:600px) {
+    .accountCont{
+        width: 75%;
+    
+    }
+}
+.imgPen{
+    background-color: aqua;
+}
+.imgPen::after{
+    content: '\270F\FE0F';
+    background-color: rgb(241, 241, 241,0.5);
+    padding: 5px;
+    border-radius: 50%;
+    cursor:pointer;
+    z-index: 9999;
+}
+#choose-file {
+  
+  display: none;
+}
+.choose-file-lable{
+  background-color: var(--main-color);
+   color: #ffffff;
+   border-radius: 10px;
+    font-size: 0.75em;
+    font-family: var(--button-font);
+    text-decoration: none;
+    letter-spacing: -0.015em;
+    padding: 0.8em 2.5em;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+.choose-file-lable:hover{
+  background-color: var(--hover-color);
+  cursor: pointer;
+}
+

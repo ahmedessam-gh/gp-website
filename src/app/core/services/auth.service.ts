@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { error } from 'console';
 import { Observable, map,delay ,tap} from 'rxjs';
 
 
@@ -10,7 +11,7 @@ import { Observable, map,delay ,tap} from 'rxjs';
 })
 export class AuthService {
   URL = 'https://localhost:7115/api/'
-  
+  user;
   constructor(private http :HttpClient) { }
 
   login(credentials:any){
@@ -19,11 +20,12 @@ export class AuthService {
       map((res:any) => {
         console.log(res);
         sessionStorage.setItem('token',res.token);
+        this.user = res;
       })
     )
   }
   register(registeration:any){
-    return this.http.post(`${this.URL}Auth/register`,registeration).pipe(
+    return this.http.post(`${this.URL}Auth/CustRegister`,registeration).pipe(
       delay(1000),
       map((res:any) => {
         console.log(res);
@@ -42,5 +44,8 @@ export class AuthService {
     return sessionStorage.getItem('token');
   }
 
- 
+ changeImg(img){
+  
+  return this.http.put(`${this.URL}Auth/ModifyPhoto`,img);
+ }
 }

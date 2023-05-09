@@ -1,90 +1,87 @@
 <section>
-  <div class="container py-5">
-    <!-- <div class="row">
-        <div class="col">
-          <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-            <ol class="breadcrumb mb-0">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">User</a></li>
-              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-            </ol>
-          </nav>
-        </div>
-      </div> -->
-
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="card mb-4">
-          <div class="card-body text-center">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-              class="rounded-circle img-fluid" style="width: 150px;">
-            <h5 class="my-3">Ahmed essam</h5>
-            <p class="text-muted mb-4">Customer</p>
-            <div class="d-flex justify-content-center mb-2">
-              <app-main-button borderRadius="10px" [routerLink]="['/profile/edit']"
-                content="Edit Profile"></app-main-button>
-            </div>
+    <div class="container py-5">
+      <!-- <div class="row">
+          <div class="col">
+            <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+              <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">User</a></li>
+                <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+              </ol>
+            </nav>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card mb-4">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-lg-6">
-                <label class="info-p mb-3">Full Name</label>
-                <input type="text" class="form-control" placeholder="ahmed essam" disabled>
-              </div>
-              <div class="col-lg-6 mt-lg-0 mt-3">
-                <label class="info-p mb-3">Email</label>
-                <input type="text" class="form-control" placeholder="example@gmail.com" disabled>
-              </div>
-
-            </div>
-            <div class="row mt-3">
-              <div class="col-lg-12">
-                <label class="info-p mb-3">Address</label>
-                <input type="text" class="form-control" placeholder="6-october , 8th district" disabled>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-lg-6">
-                <label class="info-p mb-3">street</label>
-                <input type="text" class="form-control" placeholder="street 213adf" disabled>
-              </div>
-              <div class="col-lg-6 mt-lg-0 mt-3">
-                <label class="info-p mb-3">phone</label>
-                <input type="text" class="form-control" placeholder="01217712636" disabled>
-              </div>
-
-            </div>
-            <div class="row mt-3">
-              <div class="col-lg-6">
-                <label class="info-p mb-3">country</label>
-                <input type="text" class="form-control" placeholder="Egypt" disabled>
-              </div>
-              <div class="col-lg-6">
-                <label class="info-p mb-3 mt-lg-0 mt-3">city</label>
-                <input type="text" class="form-control" placeholder="giza" disabled>
-              </div>
-
-            </div>
-            <div class="row mt-3">
-              <div class="col-lg-12">
-                <label class="info-p mb-3">Address</label>
-                <input type="text" class="form-control" placeholder="6-october , 8th district" disabled>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-lg-12">
-                <label class="info-p mb-3">Address</label>
-                <input type="text" class="form-control" placeholder="6-october , 8th district" disabled>
+        </div> -->
+  
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                class="rounded-circle imgPen" style="width: 150px;">
+              <h5 class="my-3">Ahmed essam</h5>
+              <p class="text-muted mb-4">Customer</p>
+              <div class="d-flex justify-content-center mb-2">
+                <app-main-button borderRadius="10px" [routerLink]="['editProfile']"
+                  content="Edit Profile"></app-main-button>
               </div>
             </div>
           </div>
         </div>
+        <div class="col-lg-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row mb-3">
+                <div class="col-lg-6">
+                  <label class="info-p mb-3">First Name</label>
+                  <input type="text" class="form-control" placeholder="Not assigned" disabled>
+                </div>
+                <div class="col-lg-6">
+                  <label class="info-p mb-3">Last Name</label>
+                  <input type="text" class="form-control" placeholder="Not assigned" disabled>
+                </div>
+  
+              </div>
+              <div class="row">
+                <div class="">
+                  <label class="info-p mb-3">Username</label>
+                  <input type="text" class="form-control"  disabled>
+                </div>
+                <div class="mt-3">
+                  <label class="info-p mb-3">Email</label>
+                  <input type="text" class="form-control"  disabled>
+                </div>
+  
+              </div>
+              <div class="row mt-3">
+                <div class="col-lg-12">
+                  <label class="info-p mb-3">Address</label>
+                  <input type="text" class="form-control" placeholder="Not assigned" disabled>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="">
+                  <label class="info-p mb-3">phone</label>
+                  <input type="text" class="form-control" placeholder="Not assigned" disabled>
+                </div>
+  
+              </div>
+              
+              <!-- <div class="row mt-3">
+                <div class="col-lg-12">
+                  <label class="info-p mb-3">Address</label>
+                  <input type="text" class="form-control" placeholder="6-october , 8th district" disabled>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-lg-12">
+                  <label class="info-p mb-3">Address</label>
+                  <input type="text" class="form-control" placeholder="6-october , 8th district" disabled>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+  
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
