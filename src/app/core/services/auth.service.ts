@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { error } from 'console';
 import { Observable, map,delay ,tap} from 'rxjs';
 
 
@@ -43,5 +44,8 @@ export class AuthService {
     return sessionStorage.getItem('token');
   }
 
- 
+ changeImg(img){
+  
+  return this.http.put(`${this.URL}Auth/ModifyPhoto`,img);
+ }
 }

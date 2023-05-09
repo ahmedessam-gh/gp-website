@@ -7,7 +7,6 @@ import { map, takeWhile } from 'rxjs';
 })
 export class ProfileDetailsService {
   URL = 'https://localhost:7115/api/'
-  componentIsActive: any;
   constructor(private http:HttpClient) { }
   getDetails(){
     return this.http.get(`${this.URL}Customers/ViewCustomerProfile`);

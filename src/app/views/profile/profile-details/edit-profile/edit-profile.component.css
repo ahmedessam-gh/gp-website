@@ -9,7 +9,6 @@
 
 .accountEditDetails label{
     font-size: 1rem;
-    margin-bottom: 10px;
     font-family: var(--secondary-font); 
     font-weight: 500;
     color: var(--main-color);
@@ -35,43 +34,24 @@ input::placeholder{
     cursor:pointer;
     z-index: 9999;
 }
-/* input[type="file"] {
+#choose-file {
   
   display: none;
 }
-
-.custom-file-input {
-
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  border-radius: 5px;
-  background-color: #fff;
+.choose-file-lable{
+  background-color: var(--main-color);
+   color: #ffffff;
+   border-radius: 10px;
+    font-size: 0.75em;
+    font-family: var(--button-font);
+    text-decoration: none;
+    letter-spacing: -0.015em;
+    padding: 0.8em 2.5em;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
 }
-
-.custom-file-input::before {
-
-  content: "Choose File";
-  display: inline-block;
-  background-color: #007bff;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
+.choose-file-lable:hover{
+  background-color: var(--hover-color);
   cursor: pointer;
 }
 
-.custom-file-input:hover::before {
-
-  background-color: #0069d9;
-}
-
-.custom-file-input input[type="file"] {
- 
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  cursor: pointer;
-} */

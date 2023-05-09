@@ -1,0 +1,114 @@
+<div class="container pad-sections">
+  <div class="accountCont m-auto row g-0">
+    <div class="col-lg-4 pe-lg-4">
+      <div class="card mb-4">
+        <div class="card-body text-center">
+
+          <form [formGroup]="userImg">
+            <div class="text-center">
+              <img src="{{userImg.get('imgUrl').value}}" alt="avatar" class="rounded-circle" width="150px">
+              <h5 class="my-3">Ahmed essam</h5>
+              <input type="file" id="choose-file" formControlName="imageUrl" (change)="changeImage($event)"class="custom-file-input">
+              <label for="choose-file" class="choose-file-lable">Upload</label>
+            </div>
+          </form>
+
+        </div>
+      </div>
+      <!-- <div class="mb-4">
+        <form action="">
+          <div class="text-center">
+            <img src="{{userDetails?.imgUrl}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+            <input type="file" formControlName="imageUrl" class="custom-file-input">
+          </div>
+        </form>
+      </div> -->
+    </div>
+
+    <div class="col-lg-6 mt-lg-0 mt-5 ">
+      <div >
+        <form [formGroup]="userInfo" (ngSubmit)="changeDetails()">
+          <div class="card accountEditDetails mb-4">
+            <div class="card-body">
+              <div class="row mb-3">
+                <div class="col-lg-6">
+                  <label class="info-p mb-3">First Name</label>
+                  <input type="text" class="form-control" value="{{userDetails?.fName}}" formControlName="fName"
+                    placeholder="first name...">
+                </div>
+                <div class="col-lg-6">
+                  <label class="info-p mb-3">Last Name</label>
+                  <input type="text" class="form-control" value="{{userDetails?.lName}}" formControlName="lName"
+                    placeholder="last name...">
+                </div>
+  
+              </div>
+              <div class="row">
+                <div class="">
+                  <label class="info-p mb-3">Username</label>
+                  <input type="text" class="form-control" value="{{userDetails?.userName}}" disabled>
+                </div>
+                <div class="mt-3">
+                  <label class="info-p mb-3">Email</label>
+                  <input type="text" class="form-control" value="{{userDetails?.email}}" formControlName="email"
+                    placeholder="example@gmail.com">
+                </div>
+  
+              </div>
+              <div class="row mt-3">
+                <div class="col-lg-12">
+                  <label class="info-p mb-3">Address</label>
+                  <input type="text" class="form-control" value="{{userDetails?.address}}" formControlName="address"
+                    placeholder="enter your address...">
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="">
+                  <label class="info-p mb-3">phone</label>
+                  <input type="text" class="form-control" value="{{userDetails?.phoneNumber}}"
+                    formControlName="phoneNumber" placeholder="enter your phone number...">
+                </div>
+  
+              </div>
+              <div class="mt-4">
+                <app-main-button type="submit" content="Save Changes"></app-main-button>
+              </div>
+  
+            </div>
+          </div>
+  
+        </form>
+      </div>
+      <div class="">
+        <form>
+          <div class="accountEditDetails card ">
+            <div class="card-body">
+              <div class="mb-3">
+                <label for="enail">Current Password</label>
+                <input type="password" class="form-control" placeholder="current password .. ">
+
+              </div>
+              <div class="mb-3">
+                <label for="enail">New Password</label>
+                <input type="password" class="form-control" placeholder="new password .. ">
+
+              </div>
+              <div class="mb-3">
+                <label for="enail">Confirm Password</label>
+                <input type="password" class="form-control" placeholder="confirm password .. ">
+
+              </div>
+              <div class="mt-4">
+                <app-main-button content="Save Changes"></app-main-button>
+
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>
