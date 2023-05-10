@@ -51,14 +51,11 @@ export class EditProfileComponent implements OnInit {
     const formData = new FormData();
     formData.append('photo',e.target.files[0], e.target.files[0].name);
     console.log(formData);
-    this.auth.changeImg(formData).subscribe(data => {
-      
+    this.auth.changeImg(formData).subscribe(data => {     
       this.userImg.get('imgUrl').patchValue(data['url']);
       this.profile.getDetails().subscribe((data)=>{
-        this.userDetails = data;
-        
-      })
-      
+        this.userDetails = data;     
+      });    
     },error=>{
       console.log(error);
     })
