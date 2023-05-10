@@ -11,3 +11,7 @@
     font-weight: 500;
     color: var(--main-color);
 }
+.imgPen{
+    width: 200px;
+    height: 20vw;
+}

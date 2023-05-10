@@ -6,7 +6,7 @@
 
           <form [formGroup]="userImg">
             <div class="text-center">
-              <img src="{{userImg?.get('imgUrl').value}}" alt="avatar" class="rounded-circle" width="150px">
+              <img src="{{userImg?.get('imgUrl').value}}" alt="avatar" class="rounded-circle imgPen" >
               <h5 class="my-3">Ahmed essam</h5>
               <input type="file" id="choose-file" formControlName="imgUrl" (change)="changeImage($event)"class="custom-file-input">
               <label for="choose-file" class="choose-file-lable">Upload</label>
