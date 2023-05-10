@@ -16,7 +16,7 @@
         <div class="col-lg-4">
           <div class="card mb-4">
             <div class="card-body text-center">
-                <img src="{{userDetails.imgUrl}}" alt="avatar"
+                <img src="{{userDetails.imgUrl || 'https://s3.amazonaws.com/37assets/svn/765-default-avatar.png'}}" alt="avatar"
                 class="rounded-circle imgPen" style="max-width: 150px; max-height: 150px;">
               <h5 class="my-3">{{userDetails.fName}} {{userDetails.lName}}</h5>
               <p class="text-muted mb-4">Customer</p>

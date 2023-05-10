@@ -32,7 +32,7 @@ export class EditProfileComponent implements OnInit {
     });
     
   }
-
+ 
   changeDetails(){
     if (this.userInfo.valid) {
       this.profile.editDetails(this.userInfo.value).subscribe(next => {
@@ -52,12 +52,17 @@ export class EditProfileComponent implements OnInit {
     formData.append('photo',e.target.files[0], e.target.files[0].name);
     console.log(formData);
     this.auth.changeImg(formData).subscribe(data => {     
-      this.userImg.get('imgUrl').patchValue(data['url']);
-      this.profile.getDetails().subscribe((data)=>{
-        this.userDetails = data;     
-      });    
+      this.userImg.get('imgUrl').patchValue(data['url']);   
     },error=>{
       console.log(error);
     })
+    
+  }
+  deleteImage(){
+
+    this.auth.deleteImg(this.userImg.get('imgUrl').value).subscribe(()=>{
+      this.userImg.get('imgUrl').patchValue(null);
+    });
+    
   }
 }

@@ -6,8 +6,13 @@
 
           <form [formGroup]="userImg">
             <div class="text-center">
-              <img src="{{userImg?.get('imgUrl').value}}" alt="avatar" class="rounded-circle imgPen" >
-              <h5 class="my-3">Ahmed essam</h5>
+              
+                <div class="img-x-cont">
+                  <img src="{{userImg?.get('imgUrl').value || 'https://s3.amazonaws.com/37assets/svn/765-default-avatar.png'}}" alt="avatar" id="file-input" class="rounded-circle mb-4 imgPen" >
+                  <button class="imgX" (click)="deleteImage()">x</button>
+                </div>
+              <!-- <h5 class="my-3">{{userDetails?.fName}} {{userDetails?.lName}}</h5> -->
+              <br>
               <input type="file" id="choose-file" formControlName="imgUrl" (change)="changeImage($event)"class="custom-file-input">
               <label for="choose-file" class="choose-file-lable">Upload</label>
             </div>

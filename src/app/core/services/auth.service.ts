@@ -46,7 +46,10 @@ export class AuthService {
   }
 
  changeImg(img){
-
   return this.http.put(`${this.URL}${apiEndpoints.auth.modifyPhoto}`,img);
+ }
+ 
+ deleteImg(img){
+  return this.http.delete(`${this.URL}${apiEndpoints.auth.deletePhoto}`,img);
  }
 }
