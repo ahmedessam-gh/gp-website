@@ -1,13 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Prod } from '../interfaces/Prod';
+import { apiEndpoints } from '../api-endpoints';
+import { HttpClient } from '@angular/common/http';
+import { pipe } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { product } from '../interfaces/product';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProdService {
   product: Prod[];
+  URL = apiEndpoints.baseUrl;
+
   favourites: any = [];
-  constructor() {
+  constructor(private http: HttpClient) {
     this.product = [
       {
         id: '1',
@@ -662,5 +669,33 @@ export class ProdService {
 
   getFav() {
     return this.favourites;
+  }
+
+  getShop() {
+    return this.http.get(`${this.URL}${apiEndpoints.products.getProductsPage}`);
+  }
+  getProds(id: number) {
+    return this.http
+      .get(`${this.URL}${apiEndpoints.products.getProductDetails(id)}`)
+      .pipe(
+        map((data: product[]) => {
+          const productsArray = Object.values(data);
+          const product = productsArray.find(
+            (prod: any) => prod.productId == id
+          );
+          console.log(product);
+          return product || null;
+        })
+      );
+  }
+
+  sendQuestions(questionForm: any) {
+    return this.http
+      .post(`${this.URL}${apiEndpoints.customers.askQuestion}`, questionForm)
+      .pipe(
+        map((res) => {
+          console.log(res);
+        })
+      );
   }
 }

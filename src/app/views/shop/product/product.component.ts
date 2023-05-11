@@ -21,10 +21,10 @@ export class ProductComponent implements OnInit {
   ratingSub = false;
   myprod: any;
   p: any;
-
+  prodid: any;
   prods: Prod[] = [];
 
-  question: FormGroup;
+  addQuestions: FormGroup;
   selectedPhoto: string;
   isBigPhotoUpdated: boolean;
   myratings: {
@@ -34,9 +34,9 @@ export class ProductComponent implements OnInit {
   }[];
   showNewQuestionForm: boolean = false;
   showRatingForm: boolean = false;
-  questions: { question: string; answer: string }[];
   ratings: FormGroup;
   selectedValue: string;
+  questions: any;
   constructor(
     private cart: CartService,
     private prod: ProdService,
@@ -45,26 +45,33 @@ export class ProductComponent implements OnInit {
     private ngbService: NgbService
   ) {}
 
-  ngOnInit(): void {
-    const ordersrouting = this.ActivatedRoute.snapshot.paramMap;
-    const prodid = ordersrouting.get('prodid');
+  async ngOnInit() {
+    this.prodid = this.ActivatedRoute.snapshot.paramMap.get('prodid');
+
+    this.prod.getProds(this.prodid).subscribe((data) => {
+      this.myprod = data;
+      this.questions = this.myprod.questions;
+      console.log(this.questions);
+
+      console.log(this.myprod);
+      this.addQuestions = this.fb.group({
+        productId: [this.myprod.productId],
+        question: ['', [Validators.required, Validators.minLength(9)]],
+      });
+    });
     this.prods = this.prod.product;
-    this.myprod = this.prod.product.find((prod) => prod.id === prodid);
-    this.selectedPhoto = this.myprod.img;
+
+    this.selectedPhoto = this.myprod.productImages[0].imageUrl;
     this.isBigPhotoUpdated = false;
-    this.questions = this.myprod.questions;
     this.myratings = this.myprod.ratings;
     this.submitted = true;
 
-    this.question = this.fb.group({
-      newQuestion: ['', [Validators.required, Validators.minLength(6)]],
-    });
-
-    this.ratings = this.fb.group({
-      newRating: [0, [Validators.required]],
-      newName: ['', [Validators.required]],
-      newReview: [''],
-    });
+    // this.ratings = this.fb.group({
+    //   newRating: [0, [Validators.required]],
+    //   newName: ['', [Validators.required]],
+    //   productId: [this.myprod.id],
+    //   newReview: [''],
+    // });
   }
 
   addToCart(prod: Prod) {
@@ -77,14 +84,15 @@ export class ProductComponent implements OnInit {
   }
 
   addQuestion() {
-    this.submitted = true;
-    if (this.question.valid) {
-      this.submitted = false;
-      const newQuestionValue = this.question.controls['newQuestion'].value;
-      this.questions.push({ question: newQuestionValue, answer: '' });
-      this.question.reset();
-      this.showNewQuestionForm = false;
-      // Clear the form control after adding the new question
+    console.log(this.addQuestions);
+    if (this.addQuestions.valid) {
+      this.prod.sendQuestions(this.addQuestions.value).subscribe((next) => {
+        const newQuestionValue = this.addQuestions.get('question').value;
+        console.log(newQuestionValue);
+        this.questions.push({ question: newQuestionValue, answer: '' });
+        this.addQuestions.reset();
+        this.showNewQuestionForm = false;
+      }); // Clear the form control after adding the new question
     }
   }
 

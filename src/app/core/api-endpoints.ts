@@ -24,7 +24,7 @@ export const apiEndpoints = {
     decrementQuantity: (id: string) => `Carts/DecrementQuantity${id}`,
     removeFromCart: (id: string) => `Carts/RemoveFromCart/${id}`,
     cancelOrder: (id: string) => `Carts/CancelOrder/${id}`,
-    testPay: 'Carts/testPay'
+    testPay: 'Carts/testPay',
   },
   customers: {
     rateProduct: 'Customers/RateProduct',
@@ -36,19 +36,20 @@ export const apiEndpoints = {
     viewCustomerProfile: 'Customers/ViewCustomerProfile',
     editCustomerProfile: 'Customers/EditCustomerProfile',
     viewVendorProfile: 'Customers/ViewVendorProfile',
-    editVendorProfile: 'Customers/EditVendorProfile'
+    editVendorProfile: 'Customers/EditVendorProfile',
   },
   productsActions: {
-    productsActions: (threshold: string) => `ProductsActions/NeedToPunch/${threshold}`
+    productsActions: (threshold: string) =>
+      `ProductsActions/NeedToPunch/${threshold}`,
   },
   products: {
-    getProductsPage: 'Products/GetProductsPage',
-    getProductDetails: (id: string) => `Products/GetProductDetails/${id}`,
-    getSuspendedProducts: 'Products/GetSuspendedProducts'
+    getProductsPage: 'Products/GetProductspage',
+    getProductDetails: (id: number) => `Products/GetProductDetails/?id=${id}`,
+    getSuspendedProducts: 'Products/GetSuspendedProducts',
   },
   productsReports: {
     getAllReports: 'ProductsReports/GetAllReports',
-    getUncheckedReports: 'ProductsReports/GetUncheckedReports'
+    getUncheckedReports: 'ProductsReports/GetUncheckedReports',
   },
   superAdmin: {
     createAdmin: 'SuperAdmin/CreateAdmin',
@@ -60,10 +61,11 @@ export const apiEndpoints = {
     addProduct: 'Vendors/AddProduct',
     getSuspendedVendor: 'Vendors/GetSuspendedVendor',
     getPendingOrders: 'Vendors/GetPendingOrders',
-    confirmPendingOrders: (orderId: string, productId: string) => `Vendors/ConfirmtPendingOrders/${orderId}/${productId}`,
-    viewOwnProducts: 'Vendors/ViewOwnProducts'
+    confirmPendingOrders: (orderId: string, productId: string) =>
+      `Vendors/ConfirmtPendingOrders/${orderId}/${productId}`,
+    viewOwnProducts: 'Vendors/ViewOwnProducts',
   },
   wishesLists: {
-    getCustomerWishList: 'WishesLists/GetCustomerWishList'
-  }
+    getCustomerWishList: 'WishesLists/GetCustomerWishList',
+  },
 };

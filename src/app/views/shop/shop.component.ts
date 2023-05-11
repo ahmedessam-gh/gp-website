@@ -15,7 +15,7 @@ import 'slick-carousel';
   styleUrls: ['./shop.component.css'],
 })
 export class ShopComponent implements OnInit {
-  newProds: Prod[] = [];
+  newProds;
   p: number = 1;
   filterForm: FormGroup;
   showFilter: boolean = false;
@@ -28,7 +28,10 @@ export class ShopComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.newProds = this.prod.product;
+    this.prod.getShop().subscribe((data) => {
+      this.newProds = data;
+      console.log(this.newProds[0].product);
+    });
     Aos.init();
 
     this.filterForm = this.fb.group({

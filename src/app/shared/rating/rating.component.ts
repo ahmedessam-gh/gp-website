@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Prod } from 'src/app/core/interfaces/Prod';
+import { product } from 'src/app/core/interfaces/product';
 
 @Component({
   selector: 'app-rating',
@@ -7,7 +8,7 @@ import { Prod } from 'src/app/core/interfaces/Prod';
   styleUrls: ['./rating.component.css'],
 })
 export class RatingComponent implements OnInit {
-  @Input() product: Prod;
+  @Input() product;
 
   constructor() {}
 

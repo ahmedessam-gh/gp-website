@@ -4,7 +4,7 @@
       <div class="productBigImg py-2">
         <img
           class="bigImg"
-          src="{{ myprod.img }}"
+          src="{{ myprod.productImages[0].imageUrl }}"
           alt="sss"
           width="80%"
           [ngClass]="{ fadeInLeft: isBigPhotoUpdated }"
@@ -13,14 +13,17 @@
       </div>
       <div class="smallImgDiv mt-3">
         <img
+          *ngFor="let smallimg of myprod.productImages"
           class="productSmallimgs mx-2"
-          src="{{ myprod.img }}"
-          [ngClass]="{ selected: selectedPhoto === myprod.img }"
+          src="{{ smallimg.imageUrl }}"
+          [ngClass]="{
+            selected: selectedPhoto === smallimg.imageUrl
+          }"
           alt=""
           width="17%"
-          (click)="changePhoto(myprod.img)"
+          (click)="changePhoto(smallimg.imageUrl)"
         />
-        <img
+        <!-- <img
           class="productSmallimgs mx-2"
           src="assets\images\02.jpg"
           [ngClass]="{ selected: selectedPhoto === 'assets/images/02.jpg' }"
@@ -35,37 +38,39 @@
           [ngClass]="{ selected: selectedPhoto === 'assets/images/04.jpg' }"
           width="17%"
           (click)="changePhoto('assets/images/04.jpg')"
-        />
+        /> -->
       </div>
     </div>
     <hr class="d-lg-none d-md-none d-xl-none d-block" />
     <div class="productDetails col-xl-6 col-12 col-md-6 mt-lg-0 mt-4">
-      <h1 class="productName">{{ myprod.ProdName }}</h1>
-      <label class="productRent" *ngIf="myprod.rent">
+      <h1 class="productName">{{ myprod.productName }}</h1>
+      <label class="productRent" *ngIf="myprod.rentable">
         <fa-icon class="px-1" icon="circle-check"></fa-icon> Avaliable for
         rent</label
       >
 
-      <label class="productNoRent" *ngIf="!myprod.rent">
+      <label class="productNoRent" *ngIf="!myprod.rentable">
         <fa-icon class="px-1" icon="times"></fa-icon> Currently not available
         for rent</label
       >
       <br />
       <div class="rating px-2 py-2">
         <app-rating [product]="myprod"></app-rating>
-        ( {{ myprod.rating }} )
+        ( {{ myprod.avgRate }} )
       </div>
 
       <hr />
-      <div class="productCategory py-2">{{ myprod.details }}</div>
+      <div class="productCategory py-2">{{ myprod.description }}</div>
       <hr />
       <div class="productPriceDiscount">
-        <label class="productPrice">{{ myprod.Price }} EGP</label>
-        <del class="productDiscount py-2">{{ myprod.discount }} EGP</del>
+        <label class="productPrice">{{ myprod.price }} EGP</label>
+        <del *ngIf="myprod.sale > 0" class="productDiscount py-2"
+          >{{ myprod.sale }} EGP</del
+        >
       </div>
-      <div class="productSize py-2">
-        <label class="productLabel">Select your Size</label>
-        <ul class="productSizes py-3 list-unstyled">
+      <!-- <div class="productSize py-2">
+        <label class="productLabel">Select your Size</label> -->
+      <!-- <ul class="productSizes py-3 list-unstyled">
           <li>
             <input
               type="radio"
@@ -125,10 +130,10 @@
               [(ngModel)]="myprod.size"
             />
           </li>
-        </ul>
-      </div>
+        </ul> -->
+      <!-- </div> -->
 
-      <div class="productColors">
+      <!-- <div class="productColors">
         <label class="productLabel">Select Your Color</label>
 
         <ul
@@ -149,7 +154,7 @@
             </label>
           </li>
         </ul>
-      </div>
+      </div> -->
 
       <app-main-button
         (click)="addToCart(myprod)"
@@ -183,8 +188,8 @@
           <button class="plus" (click)="plus(myprod)">+</button>
         </div>
       </div>
-      <div *ngIf="myprod.isStock == true" class="inStock">IN STOCK</div>
-      <div *ngIf="myprod.isStock == false" class="outOfStock">OUT OF STOCK</div>
+      <div *ngIf="myprod.quantity > 0" class="inStock">IN STOCK</div>
+      <div *ngIf="myprod.quantity == 0" class="outOfStock">OUT OF STOCK</div>
     </div>
   </div>
 </div>
@@ -198,7 +203,7 @@
     <div class="row"></div>
   </div>
 </div>
-<app-carousel [prods]="prods"></app-carousel>
+<!-- <app-carousel [prods]="prods"></app-carousel> -->
 <hr />
 
 <div class="prodHeaders">
@@ -228,34 +233,32 @@
       </div>
 
       <div class="questionform px-4 py-3" *ngIf="showNewQuestionForm">
-        <form [formGroup]="question" (ngSubmit)="addQuestion()">
+        <form
+          [formGroup]="addQuestions"
+          (ngSubmit)="addQuestion()"
+          #myForm="ngForm"
+        >
           <label for="question"> Enter a new question :</label>
           <input
             class="form-control my-2"
             placeholder="Enter your Question"
-            formControlName="newQuestion"
+            formControlName="question"
           />
           <div
             class="error-note position-relative"
-            *ngIf="submitted && question.controls['newQuestion'].invalid"
+            *ngIf="submitted && addQuestions.controls['newQuestion'].invalid"
           >
             <span class="error">enter a valid question with min 6 letters</span>
           </div>
           <br />
-          <app-main-button
-            type="submit"
-            content="Submit Question"
-            (click)="
-              showStandard(' Your question submitted successfully', question)
-            "
-          ></app-main-button>
+          <app-main-button content="Submit Question"></app-main-button>
         </form>
       </div>
     </div>
   </div>
 </div>
 <hr />
-<div class="prodRating pad-sections">
+<!-- <div class="prodRating pad-sections">
   <div class="container">
     <h3 class="prodh3 pad-sections">Reviews & Ratings</h3>
     <h3 class="prodratingheader">
@@ -292,10 +295,10 @@
         <a class="add-question" (click)="showRatingForms()">
           Click here to review it!
         </a>
-      </div>
+      </div> -->
 
-      <div class="questionform px-4 py-3" *ngIf="showRatingForm">
-        <form [formGroup]="ratings" (ngSubmit)="addRating()">
+<!-- <div class="questionform px-4 py-3" *ngIf="showRatingForm"> -->
+<!-- <form [formGroup]="ratings" (ngSubmit)="addRating()">
           <div class="d-flex">
             <label> Enter your Rating: </label>
             <ng-template #t let-fill="fill">
@@ -331,25 +334,25 @@
             placeholder="Enter your review (Optional)"
             formControlName="newReview"
           />
-          <br />
-          <!--
+          <br /> -->
+<!--
           <div
             class="error-note position-relative"
             *ngIf="ratingSub && ratings.controls['newName'].invalid"
           >
             <span class="error">You must enter your name</span>
           </div> -->
-          <app-main-button
+<!-- <app-main-button
             type="submit"
             content="Submit Review"
             (click)="showStandard('Review submitted successfully', ratings)"
           >
-          </app-main-button>
+          </app-main-button> -->
 
-          <app-toaster></app-toaster>
-        </form>
-      </div>
+<!-- <app-toaster></app-toaster> -->
+<!-- </form> -->
+<!-- </div>
     </div>
   </div>
   <p></p>
-</div>
+</div> -->

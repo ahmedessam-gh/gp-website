@@ -1,3 +1,4 @@
+import { product } from './../../core/interfaces/product';
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -11,7 +12,8 @@ import { ProdService } from 'src/app/core/services/prod.service';
   styleUrls: ['./productbox.component.css'],
 })
 export class ProductboxComponent implements OnInit {
-  @Input() product: Prod;
+  @Input() product: product;
+  @Input() rating: product;
   public form: FormGroup;
   favouriteList: any = [];
   constructor(
@@ -24,16 +26,10 @@ export class ProductboxComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addToFav(product: Prod, event) {
+  addToFav(product: product, event) {
     this.disableLink(event);
     this.prod.addToFav(product, event);
     // this.getFavourites();
-  }
-  addToCart() {
-    this.cart.addToCart({
-      items: this.product,
-      total: 0,
-    });
   }
 
   disableLink(event: MouseEvent) {

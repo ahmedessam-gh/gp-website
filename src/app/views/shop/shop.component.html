@@ -703,7 +703,10 @@
           data-aos-once="true"
           data-aos-duration="100"
         >
-          <app-productbox [product]="newProd"></app-productbox>
+          <app-productbox
+            [product]="newProd.product"
+            [rating]="newProd.avgRate"
+          ></app-productbox>
         </div>
         <pagination-controls
           class="my-pagination"
