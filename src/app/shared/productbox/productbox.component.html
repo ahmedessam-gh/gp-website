@@ -1,21 +1,19 @@
 <div class="card">
   <div class="product-box">
     <div class="product-img position-relative">
-      <div class="ribbon-danger" *ngIf="product.rent">Rent</div>
-      <div class="ribbon-success" *ngIf="product.status == 'Sale'">
-        {{ product.status }}
-      </div>
+      <div class="ribbon-danger" *ngIf="product.rentable">Rent</div>
+      <div class="ribbon-success" *ngIf="product.sale > 0">Sale</div>
       <a>
         <img
           class="img-fluid position-relative"
           height="70px"
-          src="{{ product.img }}"
+          src="{{ product.productImages[0].imageUrl }}"
           alt=""
         />
       </a>
       <div
         class="product-hover position-absolute"
-        [routerLink]="['/shop/product', product.id]"
+        [routerLink]="['/shop/product', product.productId]"
       >
         <ul>
           <li
@@ -24,16 +22,16 @@
           >
             <a
               ><fa-icon
-                id="{{ product.id }}"
+                id="{{ product.productId }}"
                 [ngClass]="{ favIcon: favouriteList.includes(product) }"
                 icon="heart"
               ></fa-icon
             ></a>
           </li>
-          <!-- <li [routerLink]="['/shop/product', product.id]">
+          <!-- <li [routerLink]="['/shop/product', product.productId]">
             <a
               ><fa-icon
-                [routerLink]="['/shop/product', product.id]"
+                [routerLink]="['/shop/product', product.productId]"
                 icon="shopping-cart"
               ></fa-icon
             ></a>
@@ -44,16 +42,17 @@
 
     <div class="product-details">
       <div>
-        <app-rating [product]="product"></app-rating>
+        <app-rating [product]="rating"></app-rating>
+        {{ rating }}
       </div>
       <h4>
-        {{ product.ProdName }}
+        {{ product.productName }}
       </h4>
 
-      <p>{{ product.note }}</p>
+      <p>{{ product.type }}</p>
       <div class="product-price">
-        ${{ product.Price }}
-        <del *ngIf="product.discount > 0">${{ product.discount }}</del>
+        {{ product.price }} EGP
+        <del *ngIf="product.sale > 0">{{ product.sale }} EGP</del>
       </div>
     </div>
   </div>

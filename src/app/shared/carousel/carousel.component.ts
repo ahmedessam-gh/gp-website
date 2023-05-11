@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ProdService } from 'src/app/core/services/prod.service';
 import { Prod } from 'src/app/core/interfaces/Prod';
+import { product } from 'src/app/core/interfaces/product';
 
 @Component({
   selector: 'app-carousel',
@@ -36,7 +37,7 @@ export class CarouselComponent implements OnInit {
     },
     nav: true,
   };
-  @Input() prods: Prod[] = [];
+  @Input() prods: product[];
   constructor() {}
 
   ngOnInit(): void {}

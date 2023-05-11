@@ -1,4 +1,13 @@
-import { Component, HostListener, OnDestroy, OnInit, Renderer2, ViewChild,ElementRef, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+} from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import * as Aos from 'aos';
 import { once } from 'events';
@@ -11,54 +20,90 @@ import { ProdService } from 'src/app/core/services/prod.service';
 import { HeadFootComponent } from '../head-foot/head-foot.component';
 import { HeaderComponent } from 'src/app/layout/header/header.component';
 import { faL } from '@fortawesome/free-solid-svg-icons';
+import { product } from 'src/app/core/interfaces/product';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit,OnDestroy,AfterViewInit{
+export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   // @ViewChild(HeaderComponent) header:HeaderComponent;
-  newProds: Prod[] = [];
+  newProds;
   favouriteList: any = [];
   removeScroll = false;
-  constructor(private elementRef: ElementRef,private renderer:Renderer2,private prod: ProdService, private cart: CartService ,private router:Router , public headerHome:HeaderService) {
-    this.headerHome.navPosition = "fixed";
-
+  constructor(
+    private elementRef: ElementRef,
+    private renderer: Renderer2,
+    private prod: ProdService,
+    private cart: CartService,
+    private router: Router,
+    public headerHome: HeaderService
+  ) {
+    this.headerHome.navPosition = 'fixed';
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollPosition = window.pageYOffset;
     const applyScrollStyling = scrollPosition > 200;
     this.headerHome.setApplyScrollStyling(applyScrollStyling);
-    if(!applyScrollStyling){
-      this.renderer.addClass(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'returnPad');
-      this.renderer.setStyle(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'background','transparent');
-      this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('a.nav-line').forEach(element => {
-        element.classList.add('link-white');
-      });
-      this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('.end-nav .header-icons fa-icon').forEach(elem => {
-        elem.classList.add('header-icons-no-scroll');
-      });
-    }else{
-      this.renderer.removeClass(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'returnPad');
-      this.renderer.setStyle(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'background','white');
-      this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('a.nav-line').forEach(element => {
-        element.classList.remove('link-white');
-      });
-      this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('.end-nav .header-icons fa-icon').forEach(elem => {
-        elem.classList.remove('header-icons-no-scroll');
-      });
+    if (!applyScrollStyling) {
+      this.renderer.addClass(
+        this.elementRef.nativeElement.parentElement.parentElement.querySelector(
+          'nav'
+        ),
+        'returnPad'
+      );
+      this.renderer.setStyle(
+        this.elementRef.nativeElement.parentElement.parentElement.querySelector(
+          'nav'
+        ),
+        'background',
+        'transparent'
+      );
+      this.elementRef.nativeElement.parentElement.parentElement
+        .querySelectorAll('a.nav-line')
+        .forEach((element) => {
+          element.classList.add('link-white');
+        });
+      this.elementRef.nativeElement.parentElement.parentElement
+        .querySelectorAll('.end-nav .header-icons fa-icon')
+        .forEach((elem) => {
+          elem.classList.add('header-icons-no-scroll');
+        });
+    } else {
+      this.renderer.removeClass(
+        this.elementRef.nativeElement.parentElement.parentElement.querySelector(
+          'nav'
+        ),
+        'returnPad'
+      );
+      this.renderer.setStyle(
+        this.elementRef.nativeElement.parentElement.parentElement.querySelector(
+          'nav'
+        ),
+        'background',
+        'white'
+      );
+      this.elementRef.nativeElement.parentElement.parentElement
+        .querySelectorAll('a.nav-line')
+        .forEach((element) => {
+          element.classList.remove('link-white');
+        });
+      this.elementRef.nativeElement.parentElement.parentElement
+        .querySelectorAll('.end-nav .header-icons fa-icon')
+        .forEach((elem) => {
+          elem.classList.remove('header-icons-no-scroll');
+        });
     }
-
   }
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     // console.log(this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('.end-nav .header-icons fa-icon'));
-  
-        
-      
   }
   ngOnInit(): void {
-    this.newProds = this.prod.product;
+    this.prod.getShop().subscribe((data) => {
+      this.newProds = data;
+    });
+
     Aos.init({});
     this.favouriteList = this.prod.getFav();
     console.log(this.favouriteList);
@@ -89,18 +134,31 @@ export class HomeComponent implements OnInit,OnDestroy,AfterViewInit{
   // //  console.log(this.favouriteList)
   // }
 
-
-
-  ngOnDestroy(){
-    this.headerHome.navPosition = "sticky";
+  ngOnDestroy() {
+    this.headerHome.navPosition = 'sticky';
     this.headerHome.setApplyScrollStyling(true);
-    this.renderer.removeClass(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'returnPad');
-    this.renderer.setStyle(this.elementRef.nativeElement.parentElement.parentElement.querySelector('nav'),'background','white');
-    this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('a.nav-line').forEach(element => {
-      element.classList.remove('link-white');
-    });
-    this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('.end-nav .header-icons fa-icon').forEach(elem => {
-      elem.classList.remove('header-icons-no-scroll');
-    });
+    this.renderer.removeClass(
+      this.elementRef.nativeElement.parentElement.parentElement.querySelector(
+        'nav'
+      ),
+      'returnPad'
+    );
+    this.renderer.setStyle(
+      this.elementRef.nativeElement.parentElement.parentElement.querySelector(
+        'nav'
+      ),
+      'background',
+      'white'
+    );
+    this.elementRef.nativeElement.parentElement.parentElement
+      .querySelectorAll('a.nav-line')
+      .forEach((element) => {
+        element.classList.remove('link-white');
+      });
+    this.elementRef.nativeElement.parentElement.parentElement
+      .querySelectorAll('.end-nav .header-icons fa-icon')
+      .forEach((elem) => {
+        elem.classList.remove('header-icons-no-scroll');
+      });
   }
 }

@@ -64,7 +64,10 @@
           data-aos-once="true"
           data-aos-duration="1000"
         >
-          <app-productbox [product]="newProd"></app-productbox>
+          <app-productbox
+            [product]="newProd.product"
+            [rating]="newProd.avgRate"
+          ></app-productbox>
         </div>
       </div>
     </div>
@@ -163,7 +166,7 @@
         </div>
       </div>
     </div> -->
-    <app-carousel [prods]="newProds"></app-carousel>
+    <app-carousel [prods]="newProds.product"></app-carousel>
   </div>
   <div><app-features-section></app-features-section></div>
 </div>
