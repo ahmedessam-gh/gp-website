@@ -296,33 +296,46 @@
 
 .homeBgs img {
   width: 100%;
-  height: 100vh;
+  height: 800px;
 
 }
 
 
 .homeBg-2-content h2 {
-  width: 35%;
+  width: 50%;
+  font-size: 3rem;
+  color: #ffffff !important;
 }
 
 .homeBgs .homeBg-2-content {
 
   position: absolute;
-  width: 35%;
+  width: 40%;
   text-align: center;
   color: #ffffff;
   z-index: 999;
 
 }
 @media screen and (max-width:950px) {
-  .homeBgs h2{
+/* .homeBgs h2{
     font-size: 1.2rem;
     width: 50%;
     margin-bottom: 10px;
+  } */
+  .homeBg-2-content h2 {
+    width: 80%;
+    font-size: 2.5rem;
+    
+    color: #ffffff !important;
   }
   .btn-respon .btn-custom{
     font-size: 0.8rem;
     padding: 2px 5px;
+  }
+  .homeBgs img {
+    width: 100%;
+    height: 100vh;
+  
   }
 }
 
