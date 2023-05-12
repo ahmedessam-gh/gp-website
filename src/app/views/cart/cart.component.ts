@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { event } from 'jquery';
 import { Observable } from 'rxjs';
+import { Prod } from 'src/app/core/interfaces/Prod';
 import { cart } from 'src/app/core/interfaces/cart';
+import { product } from 'src/app/core/interfaces/product';
 import { CartService } from 'src/app/core/services/cart.service';
 import { ProdService } from 'src/app/core/services/prod.service';
 
@@ -16,7 +18,9 @@ import { ProdService } from 'src/app/core/services/prod.service';
 
 export class CartComponent implements OnInit {
 
-  cartProducts: cart[]=[];
+  cartProducts :any;
+  cartss:any[];
+  noItemsError:string;
   total:number = 0;
   // totalForItem:Number;
   constructor(private cart: CartService) {
@@ -27,10 +31,27 @@ export class CartComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.cartProducts = this.cart.getCart();
-    console.log(this.cartProducts);
-   this.totalPrices();
+    this.cart.viewCart().subscribe((cart)=>{
+      // console.log(cart);
+      this.cartProducts = cart;
+      this.cartss = Object.values(this.cartProducts);
+      console.log(this.cartss.length);
+      console.log(typeof(this.cartss));
+      console.log(this.cartProducts.length);
+      console.log(typeof(this.cartProducts));
+    })
+
+  //  this.totalPrices();
   }
+
+  deleteItem(id:number){
+    this.cart.deleteCart(id).subscribe(()=>{
+      this.cartProducts = this.cartProducts.filter((prod)=>prod.product.productId !== id);
+    },error=>{
+      this.noItemsError = error.error;
+    });
+  }
+
   minus(obj) {
     if (obj.quantity <= 1) {
       obj.quantity;
@@ -48,7 +69,7 @@ export class CartComponent implements OnInit {
     }
   }
   totalPrices(){
-    this.total = this.cart.totalPrice();
+    // this.total = this.cart.totalPrice();
     console.log(this.total);
   }
 

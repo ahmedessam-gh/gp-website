@@ -1,12 +1,12 @@
 export const apiEndpoints = {
   baseUrl: 'https://localhost:7115/api/',
   admins: {
-    checkReport: (id: string) => `Admins/CheckReport/${id}`,
+    checkReport: (id: number) => `Admins/CheckReport/${id}`,
     actionReport: 'Admins/ActionReport',
     suspendProduct: 'Admins/SuspendProduct',
-    unSuspendedProduct: (id: string) => `Admins/UnSuspendedProduct/${id}`,
+    unSuspendedProduct: (id: number) => `Admins/UnSuspendedProduct/${id}`,
     suspendVendor: 'Admins/SuspendVendor',
-    unSuspendedVendor: (id: string) => `Admins/UnSuspendedVendor/${id}`,
+    unSuspendedVendor: (id: number) => `Admins/UnSuspendedVendor/${id}`,
   },
   auth: {
     customerRegister: 'Auth/CustRegister',
@@ -20,10 +20,10 @@ export const apiEndpoints = {
     getCustomerCart: 'Carts/GetCustomerCart',
     getOrderSummary: 'Carts/GetOrderSummary',
     payment: 'Carts/Payment',
-    incrementQuantity: (id: string) => `Carts/IncrementQuantity/${id}`,
-    decrementQuantity: (id: string) => `Carts/DecrementQuantity${id}`,
-    removeFromCart: (id: string) => `Carts/RemoveFromCart/${id}`,
-    cancelOrder: (id: string) => `Carts/CancelOrder/${id}`,
+    incrementQuantity: (id: number) => `Carts/IncrementQuantity/${id}`,
+    decrementQuantity: (id: number) => `Carts/DecrementQuantity${id}`,
+    removeFromCart: (id: number) => `Carts/RemoveFromCart?productId=${id}`,
+    cancelOrder: (id: number) => `Carts/CancelOrder/${id}`,
     testPay: 'Carts/testPay',
   },
   customers: {
@@ -62,7 +62,7 @@ export const apiEndpoints = {
     addProduct: 'Vendors/AddProduct',
     getSuspendedVendor: 'Vendors/GetSuspendedVendor',
     getPendingOrders: 'Vendors/GetPendingOrders',
-    confirmPendingOrders: (orderId: string, productId: string) =>
+    confirmPendingOrders: (orderId: number, productId: number) =>
       `Vendors/ConfirmtPendingOrders/${orderId}/${productId}`,
     viewOwnProducts: 'Vendors/ViewOwnProducts',
   },

@@ -30,7 +30,7 @@ export class ShopComponent implements OnInit {
   ngOnInit(): void {
     this.prod.getShop().subscribe((data) => {
       this.newProds = data;
-      console.log(this.newProds[0].product);
+      console.log(this.newProds);
     });
     Aos.init();
 

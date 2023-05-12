@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 
 import { NgbService } from 'src/app/core/services/ngb.service';
+import { CustomerService } from 'src/app/core/services/customer.service';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -39,7 +40,8 @@ export class ProductComponent implements OnInit {
     private prod: ProdService,
     private ActivatedRoute: ActivatedRoute,
     private fb: FormBuilder,
-    private ngbService: NgbService
+    private ngbService: NgbService,
+    private customer:CustomerService
   ) {}
 
   async ngOnInit() {
@@ -80,12 +82,7 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(prod: Prod) {
-    this.onSizeChanged(prod);
-    this.cart.addToCart({
-      items: prod,
-      total: 0,
-    });
-    console.log(prod);
+    this.customer.addToCart(prod).subscribe();
   }
 
   addQuestion() {
