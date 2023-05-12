@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {
-    this.cartProducts = this.cart.getCart();
+    // this.cartProducts = this.cart.getCart();
     this.myProd = this.prod.product;
     this.showUserList();
 

@@ -1,4 +1,4 @@
-<div *ngIf="cartProducts.length != 0">
+<div *ngIf="cartProducts?.length !== 0">
   <div class="wrap cf">
     <h1 class="projTitle">Add To Your Cart<span>-&</span> Start Buying</h1>
     <div class="heading cf">
@@ -10,50 +10,47 @@
   </div>
   <div class="tableContainer">
     <div class="row g-0" *ngFor="let cartProd of cartProducts">
-
-
       <div class="prodInfo d-flex col-12 col-lg-6 mb-5 my-3">
-        <img src="{{ cartProd.items.img }}" width="150px" height="150px" alt="" />
-
+        <img src="{{ cartProd.product.productImages[0].imageUrl}}" width="150px" height="150px" alt="" />
         <div class="content-cart ms-4">
-          <h6>{{ cartProd.items.ProdName }}</h6>
-          <p>{{ cartProd.items.Category }}</p>
-          <p>${{ cartProd.items.Price }}</p>
-          <p>{{ cartProd.items.size }}</p>
-          <div *ngIf="cartProd.items.isStock == true" class="inStock col-lg-3 my-lg-auto d-block d-lg-none">
+          <h6>{{ cartProd.product.productName}}</h6>
+          <p>{{ cartProd.product.category }}</p>
+          <p>${{ cartProd.product.price }}</p>
+          <!-- <p>{{ cartProd.product.size }}</p> -->
+          <div *ngIf="cartProd.product.quantity>0" class="inStock col-lg-3 my-lg-auto d-block d-lg-none">
             IN STOCK
           </div>
-          <div *ngIf="cartProd.items.isStock == false" class="outOfStock col-lg-3 my-lg-auto d-block d-lg-none">
+          <div *ngIf="cartProd.product.quantity<=0" class="outOfStock col-lg-3 my-lg-auto d-block d-lg-none">
             OUT OF STOCK
           </div>
           <div class="d-block d-lg-none d-flex mt-2">
             <div class="input-number d-flex">
               <button class="minus" (click)="minus(cartProd.items)">-</button>
-              <input readonly type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.items.quantity"
+              <input readonly type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.product.carts.quantity"
                 value="cartProd.items.quantity" min="1" max="20" />
               <button class="plus" (click)="plus(cartProd.items)">+</button>
             </div>
             <div class="ms-4 ">
-              <button class="btn-remove-respons bg-transparent" (click)="removeItem($event)">remove</button>
+              <button class="btn-remove-respons bg-transparent" (click)="deleteItem(cartProd.product.carts[0].productId)">remove</button>
             </div>
           </div>
         </div>
       </div>
-      <div *ngIf="cartProd.items.isStock == true" class="inStock col-lg-3 my-lg-auto d-none d-lg-block">
+      <div *ngIf="cartProd.product.quantity > 0" class="inStock col-lg-3 my-lg-auto d-none d-lg-block">
         IN STOCK
       </div>
-      <div *ngIf="cartProd.items.isStock == false" class="outOfStock col-lg-3 my-lg-auto d-none d-lg-block">
+      <div *ngIf="cartProd.product.quantity <= 0" class="outOfStock col-lg-3 my-lg-auto d-none d-lg-block">
         OUT OF STOCK
       </div>
 
       <div class="input-number col-6 col-lg-2 my-auto d-none d-lg-block">
-        <button class="minus" (click)="minus(cartProd.items)">-</button>
-        <input readonly type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.items.quantity"
+        <button class="minus" (click)="minus(cartProd)">-</button>
+        <input readonly type="number" id="quantity" (input)="totalPrices()"
           value="cartProd.items.quantity" min="1" max="20" />
-        <button class="plus" (click)="plus(cartProd.items)">+</button>
+        <button class="plus" (click)="plus(cartProd)">+</button>
       </div>
 
-      <div class="tableBtnRemove col-6 col-lg-1 my-lg-auto d-none d-lg-block" (click)="removeItem($event)">
+      <div class="tableBtnRemove col-6 col-lg-1 my-lg-auto d-none d-lg-block" (click)="deleteItem(cartProd.product.carts[0].productId)">
         <fa-icon [icon]="['fas', 'circle-xmark']"></fa-icon>
       </div>
     </div>
@@ -86,7 +83,7 @@
   </div>
 </div>
 <div
-  *ngIf="cartProducts.length == 0"
+  *ngIf="cartProducts?.length === 0"
   [routerLink]="['/shop']"
   id="noItemsDiv"
   style="cursor: pointer"
