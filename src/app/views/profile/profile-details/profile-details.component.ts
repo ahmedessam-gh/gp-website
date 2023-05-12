@@ -13,6 +13,7 @@ export class ProfileDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.profile.getDetails().subscribe((data)=>{
       this.userDetails = data; 
+      // console.log(this.userDetails);
     })
   }
 
