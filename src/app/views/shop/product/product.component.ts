@@ -17,21 +17,18 @@ import { NgbService } from 'src/app/core/services/ngb.service';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  submitted: boolean = false;
+  submitted: boolean;
   ratingSub = false;
   myprod: any;
   p: any;
+  q: any;
   prodid: any;
   prods: Prod[] = [];
-
+  rates: any;
   addQuestions: FormGroup;
   selectedPhoto: string;
   isBigPhotoUpdated: boolean;
-  myratings: {
-    rating: Number;
-    name: string;
-    review: string;
-  }[];
+  myratings: any;
   showNewQuestionForm: boolean = false;
   showRatingForm: boolean = false;
   ratings: FormGroup;
@@ -51,20 +48,28 @@ export class ProductComponent implements OnInit {
     this.prod.getProds(this.prodid).subscribe((data) => {
       this.myprod = data;
       this.questions = this.myprod.questions;
-      console.log(this.questions);
-
-      console.log(this.myprod);
       this.addQuestions = this.fb.group({
         productId: [this.myprod.productId],
         question: ['', [Validators.required, Validators.minLength(9)]],
       });
-    });
-    this.prods = this.prod.product;
 
-    this.selectedPhoto = this.myprod.productImages[0].imageUrl;
-    this.isBigPhotoUpdated = false;
-    this.myratings = this.myprod.ratings;
-    this.submitted = true;
+      this.selectedPhoto = this.myprod.productImages[0].imageUrl;
+      this.isBigPhotoUpdated = false;
+      this.submitted = false;
+
+      this.prod.getRatings(this.prodid).subscribe((data) => {
+        this.rates = data;
+        console.log(this.rates);
+        this.myratings = this.rates.customerRates;
+        this.ratings = this.fb.group({
+          rate: [1, [Validators.required]],
+          productId: [this.myprod.productId],
+          rateComment: [''],
+        });
+      });
+    });
+
+    this.prods = this.prod.product;
 
     // this.ratings = this.fb.group({
     //   newRating: [0, [Validators.required]],
@@ -84,35 +89,32 @@ export class ProductComponent implements OnInit {
   }
 
   addQuestion() {
-    console.log(this.addQuestions);
+    this.submitted = true;
     if (this.addQuestions.valid) {
       this.prod.sendQuestions(this.addQuestions.value).subscribe((next) => {
         const newQuestionValue = this.addQuestions.get('question').value;
         console.log(newQuestionValue);
-        this.questions.push({ question: newQuestionValue, answer: '' });
-        this.addQuestions.reset();
+        this.questions.push({ question: newQuestionValue });
+        this.submitted = false;
+        this.addQuestions.get('question').reset;
         this.showNewQuestionForm = false;
       }); // Clear the form control after adding the new question
     }
   }
 
   addRating() {
-    this.ratingSub = true;
-
     if (this.ratings.valid) {
-      this.ratingSub = false;
+      this.prod.sendRatings(this.ratings.value).subscribe((next) => {
+        const newRatingValue = this.ratings.controls['rate'].value;
+        const newReviewValue = this.ratings.controls['rateComment'].value;
 
-      const newRatingValue = this.ratings.controls['newRating'].value;
-      const newNameValue = this.ratings.controls['newName'].value;
-      const newReviewValue = this.ratings.controls['newReview'].value;
-
-      this.myratings.push({
-        rating: newRatingValue,
-        name: newNameValue,
-        review: newReviewValue,
-      });
-      this.ratings.reset();
-    } // Clear the form control after adding the new question
+        this.myratings.push({
+          rate: newRatingValue,
+          rateComment: newReviewValue,
+        });
+        this.ratings.reset();
+      }); // Clear the form control after adding the new question
+    }
   }
   changePhoto(photo: any) {
     const smallPhotos = document.querySelectorAll(
@@ -157,7 +159,6 @@ export class ProductComponent implements OnInit {
   showRatingForms() {
     this.showRatingForm = !this.showRatingForm;
   }
-
   showNewQuestionForms() {
     this.showNewQuestionForm = !this.showNewQuestionForm;
   }

@@ -689,6 +689,17 @@ export class ProdService {
       );
   }
 
+  getRatings(id: number) {
+    return this.http.get(
+      `${this.URL}${apiEndpoints.products.getProductReviews(id)}`
+    );
+  }
+  sendRatings(ratingForm: any) {
+    return this.http.post(
+      `${this.URL}${apiEndpoints.customers.rateProduct}`,
+      ratingForm
+    );
+  }
   sendQuestions(questionForm: any) {
     return this.http
       .post(`${this.URL}${apiEndpoints.customers.askQuestion}`, questionForm)

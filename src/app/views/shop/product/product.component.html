@@ -55,8 +55,8 @@
       >
       <br />
       <div class="rating px-2 py-2">
-        <app-rating [product]="myprod"></app-rating>
-        ( {{ myprod.avgRate }} )
+        <app-rating [product]="rates.average"></app-rating>
+        <label class="ratecount mx-2"> ( {{ rates.count }} votes )</label>
       </div>
 
       <hr />
@@ -209,7 +209,13 @@
 <div class="prodHeaders">
   <div class="container pad-sections">
     <h3 class="prodh3 pad-sections">Product Questions & Answers</h3>
-    <div class="py-3" *ngFor="let question of myprod.questions">
+    <div
+      class="py-3"
+      *ngFor="
+        let question of myprod.questions
+          | paginate : { itemsPerPage: 3, currentPage: q }
+      "
+    >
       <div class="questionsection py-3">
         <strong class="px-3"> Question: </strong>
         <label> {{ question.question }}</label>
@@ -221,6 +227,15 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="p-0">
+      <pagination-controls
+        class="my-pagination"
+        (pageChange)="q = $event"
+        previousLabel="Previous"
+        nextLabel="Next"
+      >
+      </pagination-controls>
     </div>
     <div class="adding-question">
       <div class="addinglabela pad-sections">
@@ -246,37 +261,45 @@
           />
           <div
             class="error-note position-relative"
-            *ngIf="submitted && addQuestions.controls['newQuestion'].invalid"
+            *ngIf="submitted && addQuestions.controls['question'].invalid"
           >
-            <span class="error">enter a valid question with min 6 letters</span>
+            <span class="error"
+              >this field is required ( atleast 9 letters )
+            </span>
           </div>
           <br />
-          <app-main-button content="Submit Question"></app-main-button>
+          <app-main-button
+            (click)="
+              showStandard('Your questions was added sucessfully', addQuestions)
+            "
+            content="Submit Question"
+          ></app-main-button>
+          <app-toaster></app-toaster>
         </form>
       </div>
     </div>
   </div>
 </div>
 <hr />
-<!-- <div class="prodRating pad-sections">
+<div class="prodRating pad-sections">
   <div class="container">
     <h3 class="prodh3 pad-sections">Reviews & Ratings</h3>
     <h3 class="prodratingheader">
-      {{ myprod.rating }}<span class="px-1">out of 5</span>
+      {{ rates.average }}<span class="px-1">out of 5</span>
     </h3>
     <hr />
     <br />
     <div
       class="card py-3 px-2 my-2 userRatings"
       *ngFor="
-        let rating of myprod.ratings
+        let rating of rates.customerRates
           | paginate : { itemsPerPage: 3, currentPage: p }
       "
     >
-      <label> {{ rating.name }} </label>
-      <app-rating class="py-1" [product]="rating"></app-rating>
+      <label> {{ rating.customerName }} </label>
+      <app-rating class="py-1" [product]="rating.rate"></app-rating>
 
-      <p *ngIf="rating.review">{{ rating.review }}</p>
+      <p *ngIf="rating.rateComment">{{ rating.rateComment }}</p>
     </div>
     <div class="p-0">
       <pagination-controls
@@ -295,10 +318,10 @@
         <a class="add-question" (click)="showRatingForms()">
           Click here to review it!
         </a>
-      </div> -->
+      </div>
 
-<!-- <div class="questionform px-4 py-3" *ngIf="showRatingForm"> -->
-<!-- <form [formGroup]="ratings" (ngSubmit)="addRating()">
+      <div class="questionform px-4 py-3" *ngIf="showRatingForm">
+        <form [formGroup]="ratings" (ngSubmit)="addRating()">
           <div class="d-flex">
             <label> Enter your Rating: </label>
             <ng-template #t let-fill="fill">
@@ -313,46 +336,38 @@
             <ngb-rating
               class="px-2"
               [starTemplate]="t"
-              formControlName="newRating"
-              [resettable]="true"
+              formControlName="rate"
               [max]="5"
             ></ngb-rating>
             <br />
           </div>
-          <label class="pt-3"> Enter your name :</label>
 
-          <input
-            class="form-control my-2"
-            placeholder="Enter your name"
-            formControlName="newName"
-          />
           <br />
           <label> Enter your review :</label>
 
           <input
             class="form-control my-2"
             placeholder="Enter your review (Optional)"
-            formControlName="newReview"
+            formControlName="rateComment"
           />
-          <br /> -->
-<!--
+          <br />
+
           <div
             class="error-note position-relative"
-            *ngIf="ratingSub && ratings.controls['newName'].invalid"
+            *ngIf="ratingSub && ratings.controls['rate'].invalid"
           >
             <span class="error">You must enter your name</span>
-          </div> -->
-<!-- <app-main-button
+          </div>
+          <app-main-button
             type="submit"
             content="Submit Review"
             (click)="showStandard('Review submitted successfully', ratings)"
           >
-          </app-main-button> -->
+          </app-main-button>
 
-<!-- <app-toaster></app-toaster> -->
-<!-- </form> -->
-<!-- </div>
+          <app-toaster></app-toaster>
+        </form>
+      </div>
     </div>
   </div>
-  <p></p>
-</div> -->
+</div>

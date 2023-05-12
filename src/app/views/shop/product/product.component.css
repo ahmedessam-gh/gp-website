@@ -24,7 +24,12 @@
 
 
 }
+.ratecount {
 
+
+  color: var(--gray-color);
+  font-family: var(--button-font);
+}
 .productCategory {
 
   color: var(--gray-color);

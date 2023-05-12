@@ -13,4 +13,6 @@ export interface product {
     question: string;
     answer: string;
   }[];
+  quantity: number;
+  description: string;
 }
