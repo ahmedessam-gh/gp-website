@@ -213,7 +213,12 @@
       class="py-3"
       *ngFor="
         let question of myprod.questions
-          | paginate : { itemsPerPage: 3, currentPage: q }
+          | paginate
+            : {
+                itemsPerPage: 3,
+                currentPage: q,
+                id: 'listing-questions'
+              }
       "
     >
       <div class="questionsection py-3">
@@ -234,6 +239,7 @@
         (pageChange)="q = $event"
         previousLabel="Previous"
         nextLabel="Next"
+        id="listing-questions"
       >
       </pagination-controls>
     </div>
@@ -284,8 +290,8 @@
 <div class="prodRating pad-sections">
   <div class="container">
     <h3 class="prodh3 pad-sections">Reviews & Ratings</h3>
-    <h3 class="prodratingheader">
-      {{ rates.average }}<span class="px-1">out of 5</span>
+    <h3 class="prodratingheader" *ngIf="rates.average > 0">
+      {{ rates.average | number : "1.1-1" }}<span class="px-1">out of 5</span>
     </h3>
     <hr />
     <br />
@@ -293,7 +299,7 @@
       class="card py-3 px-2 my-2 userRatings"
       *ngFor="
         let rating of rates.customerRates
-          | paginate : { itemsPerPage: 3, currentPage: p }
+          | paginate : { itemsPerPage: 3, currentPage: p, id: 'listing-rating' }
       "
     >
       <label> {{ rating.customerName }} </label>
@@ -306,6 +312,7 @@
         class="my-pagination"
         (pageChange)="p = $event"
         previousLabel="Previous"
+        id="listing-rating"
         nextLabel="Next"
       >
       </pagination-controls>
