@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="tableContainer">
-    <div class="row g-0" *ngFor="let cartProd of cartProducts">
+    <div class="row g-0" *ngFor="let cartProd of cartProducts | paginate:{itemsPerPage :1,currentPage:p}">
       <div class="prodInfo d-flex col-12 col-lg-6 mb-5 my-3">
         <img src="{{ cartProd.product.productImages[0].imageUrl}}" width="150px" height="150px" alt="" />
         <div class="content-cart ms-4">
@@ -25,10 +25,10 @@
           </div>
           <div class="d-block d-lg-none d-flex mt-2">
             <div class="input-number d-flex">
-              <button class="minus" (click)="minus(cartProd.items)">-</button>
-              <input readonly type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.product.carts.quantity"
-                value="cartProd.items.quantity" min="1" max="20" />
-              <button class="plus" (click)="plus(cartProd.items)">+</button>
+              <button class="minus" (click)="minus(cartProd.product.productId,$event)">-</button>
+              <input readonly type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.product.carts[0].quantity"
+                value="cartProd.items.quantity" maxlength="10" />
+              <button class="plus" (click)="plus(cartProd.product.productId,$event)">+</button>
             </div>
             <div class="ms-4 ">
               <button class="btn-remove-respons bg-transparent" (click)="deleteItem(cartProd.product.carts[0].productId)">remove</button>
@@ -44,16 +44,23 @@
       </div>
 
       <div class="input-number col-6 col-lg-2 my-auto d-none d-lg-block">
-        <button class="minus" (click)="minus(cartProd)">-</button>
-        <input readonly type="number" id="quantity" (input)="totalPrices()"
-          value="cartProd.items.quantity" min="1" max="20" />
-        <button class="plus" (click)="plus(cartProd)">+</button>
+        <button class="minus" (click)="minus(cartProd.product.productId,$event)">-</button>
+        <input readonly type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.product.carts[0].quantity"
+           min="1" max="20" />
+        <button class="plus" (click)="plus(cartProd.product.productId,$event)">+</button>
       </div>
 
       <div class="tableBtnRemove col-6 col-lg-1 my-lg-auto d-none d-lg-block" (click)="deleteItem(cartProd.product.carts[0].productId)">
         <fa-icon [icon]="['fas', 'circle-xmark']"></fa-icon>
       </div>
     </div>
+    <pagination-controls
+        class="my-pagination"
+        (pageChange)="p = $event"
+        previousLabel="Previous"
+        nextLabel="Next"
+      >
+      </pagination-controls>
     <div class="d-md-flex justify-content-between pad-sections">
       <div class="clearLink checkoutLink mt-3 mb-3 mb-lg-0" (click)="clearCart()">
         <app-main-button content="Clear Cart"></app-main-button>
@@ -63,7 +70,7 @@
           <table>
             <tr>
               <td><span>Subtotal</span></td>
-              <td>${{ total }}</td>
+              <td>$123</td>
             </tr>
             <tr>
               <td><span>Shipping</span></td>
@@ -81,6 +88,7 @@
       </div>
     </div>
   </div>
+  
 </div>
 <div
   *ngIf="cartProducts?.length === 0"

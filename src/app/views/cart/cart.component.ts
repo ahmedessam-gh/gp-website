@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { event } from 'jquery';
 import { Observable } from 'rxjs';
@@ -19,10 +20,7 @@ import { ProdService } from 'src/app/core/services/prod.service';
 export class CartComponent implements OnInit {
 
   cartProducts :any;
-  cartss:any[];
-  noItemsError:string;
-  total:number = 0;
-  // totalForItem:Number;
+  p:any;
   constructor(private cart: CartService) {
     
   }
@@ -31,46 +29,34 @@ export class CartComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.cart.viewCart().subscribe((cart)=>{
-      // console.log(cart);
+    this.cart.viewCart(1,2).subscribe((cart)=>{
       this.cartProducts = cart;
-      this.cartss = Object.values(this.cartProducts);
-      console.log(this.cartss.length);
-      console.log(typeof(this.cartss));
-      console.log(this.cartProducts.length);
-      console.log(typeof(this.cartProducts));
+      console.log(this.cartProducts);
+      
     })
 
-  //  this.totalPrices();
+  
   }
 
   deleteItem(id:number){
     this.cart.deleteCart(id).subscribe(()=>{
       this.cartProducts = this.cartProducts.filter((prod)=>prod.product.productId !== id);
-    },error=>{
-      this.noItemsError = error.error;
     });
   }
 
-  minus(obj) {
-    if (obj.quantity <= 1) {
-      obj.quantity;
-    } else {
-      obj.quantity--;
-      this.totalPrices();
-    }
+  plus(prodId:number,e) {
+    e.target.previousSibling.value = Number(e.target.previousSibling.value)+1
+    const param = new HttpParams().set('productId',prodId);
+    this.cart.incrementQuantity(param).subscribe();
   }
-  plus(obj) {
-    if (obj.quantity >= 10) {
-      obj.quantity;
-    } else {
-      obj.quantity++;
-      this.totalPrices();
-    }
+  minus(prodId:number,e) {
+    e.target.nextSibling.value = Number(e.target.nextSibling.value)-1
+    const param = new HttpParams().set('productId',prodId)
+    this.cart.decrementQuantity(param).subscribe();
   }
   totalPrices(){
     // this.total = this.cart.totalPrice();
-    console.log(this.total);
+    // console.log(this.total);
   }
 
   clearCart() {
