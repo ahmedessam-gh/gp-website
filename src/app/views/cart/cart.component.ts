@@ -19,48 +19,76 @@ import { ProdService } from 'src/app/core/services/prod.service';
 
 export class CartComponent implements OnInit {
 
-  cartProducts :any;
-  p:any;
+  cartProducts: any[];
+  p: any;
+  total: number = 0;
+  priceOfProduct: number;
+
+
   constructor(private cart: CartService) {
+
+  }
+
+  //
+  ngOnInit(): void {
+    this.cart.viewCart(1, 1).subscribe((cart) => {
+      this.cartProducts = cart['carts'];
+      console.log(this.cartProducts);
+      this.totalPrice();
+    });
+
     
   }
 
-
-
-
-  ngOnInit(): void {
-    this.cart.viewCart(1,2).subscribe((cart)=>{
-      this.cartProducts = cart;
-      console.log(this.cartProducts);
-      
-    })
-
-  
+  //
+  totalPrice() {
+    console.log('works fine');
+    this.total = 0;
+    this.cartProducts.forEach((product: any) => {
+      this.total += product.price - (product.price * product['sale%']);
+      console.log(product.price);
+    });
+    console.log(this.total);
   }
-
-  deleteItem(id:number){
-    this.cart.deleteCart(id).subscribe(()=>{
-      this.cartProducts = this.cartProducts.filter((prod)=>prod.product.productId !== id);
+  //
+  deleteItem(id: number) {
+    this.cart.deleteCart(id).subscribe(() => {
+      this.cartProducts = this.cartProducts.filter((prod) => prod.product.productId !== id);
     });
   }
+  //
+  plus(cartProduct:any,prodId: number, e) {  
+    console.log(cartProduct.quantity);
+    if(cartProduct.quantity >= 10){
+      e.target.previousSibling.value = 10
+    }else{
+      e.target.previousSibling.value = Number(e.target.previousSibling.value) + 1
+      cartProduct.quantity += 1;
+      cartProduct.price += cartProduct.product.price;
+      const param = new HttpParams().set('productId', prodId);
+      this.cart.incrementQuantity(param).subscribe();
+      this.totalPrice();
+    }  
+  }
+  //
+  minus(cartProduct:any,prodId: number, e) {
+    console.log(cartProduct.quantity);
+    if(cartProduct.quantity <= 1){
+      e.target.nextSibling.value = 1
+    }else{
+      e.target.nextSibling.value = Number(e.target.nextSibling.value) - 1
+      cartProduct.quantity -= 1;
+      cartProduct.price -= cartProduct.product.price;
+      const param = new HttpParams().set('productId', prodId)
+      this.cart.decrementQuantity(param).subscribe();
+      this.totalPrice();
+    }
+  }
 
-  plus(prodId:number,e) {
-    e.target.previousSibling.value = Number(e.target.previousSibling.value)+1
-    const param = new HttpParams().set('productId',prodId);
-    this.cart.incrementQuantity(param).subscribe();
-  }
-  minus(prodId:number,e) {
-    e.target.nextSibling.value = Number(e.target.nextSibling.value)-1
-    const param = new HttpParams().set('productId',prodId)
-    this.cart.decrementQuantity(param).subscribe();
-  }
-  totalPrices(){
-    // this.total = this.cart.totalPrice();
-    // console.log(this.total);
-  }
-
+  //
   clearCart() {
-    this.cartProducts.length = 0;  
+
+    this.cartProducts.length = 0;
     // this.totalPrices();
   }
 
@@ -69,7 +97,7 @@ export class CartComponent implements OnInit {
     this.cartProducts.splice(i, 1);
   }
 
-  
+
 
 
 

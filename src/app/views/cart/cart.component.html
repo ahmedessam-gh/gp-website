@@ -25,13 +25,13 @@
           </div>
           <div class="d-block d-lg-none d-flex mt-2">
             <div class="input-number d-flex">
-              <button class="minus" (click)="minus(cartProd.product.productId,$event)">-</button>
-              <input readonly type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.product.carts[0].quantity"
+              <button class="minus" (click)="minus(cartProd,cartProd.product.productId,$event)">-</button>
+              <input readonly type="number" id="quantity" (ngModelChange)="totalPrice()" [(ngModel)]="cartProd.quantity"
                 value="cartProd.items.quantity" maxlength="10" />
-              <button class="plus" (click)="plus(cartProd.product.productId,$event)">+</button>
+              <button class="plus" (click)="plus(cartProd,cartProd.product.productId,$event)">+</button>
             </div>
             <div class="ms-4 ">
-              <button class="btn-remove-respons bg-transparent" (click)="deleteItem(cartProd.product.carts[0].productId)">remove</button>
+              <button class="btn-remove-respons bg-transparent" (click)="deleteItem(cartProd.product.productId)">remove</button>
             </div>
           </div>
         </div>
@@ -44,13 +44,13 @@
       </div>
 
       <div class="input-number col-6 col-lg-2 my-auto d-none d-lg-block">
-        <button class="minus" (click)="minus(cartProd.product.productId,$event)">-</button>
-        <input readonly type="number" id="quantity" (input)="totalPrices()" [(ngModel)]="cartProd.product.carts[0].quantity"
+        <button class="minus" (click)="minus(cartProd,cartProd.product.productId,$event)">-</button>
+        <input type="number" id="quantity" (ngModelChange)="totalPrice()" [(ngModel)]="cartProd.quantity"
            min="1" max="20" />
-        <button class="plus" (click)="plus(cartProd.product.productId,$event)">+</button>
+        <button class="plus" (click)="plus(cartProd,cartProd.product.productId,$event)">+</button>
       </div>
 
-      <div class="tableBtnRemove col-6 col-lg-1 my-lg-auto d-none d-lg-block" (click)="deleteItem(cartProd.product.carts[0].productId)">
+      <div class="tableBtnRemove col-6 col-lg-1 my-lg-auto d-none d-lg-block" (click)="deleteItem(cartProd.product.productId)">
         <fa-icon [icon]="['fas', 'circle-xmark']"></fa-icon>
       </div>
     </div>
@@ -70,7 +70,7 @@
           <table>
             <tr>
               <td><span>Subtotal</span></td>
-              <td>$123</td>
+              <td>{{total}}</td>
             </tr>
             <tr>
               <td><span>Shipping</span></td>
