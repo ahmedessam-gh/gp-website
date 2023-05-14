@@ -5,7 +5,7 @@
 //   total:number;
   
 // }
-export interface cart{
+export interface cart {
   customerId:number,
   productId: number,
   quantity: 0,
