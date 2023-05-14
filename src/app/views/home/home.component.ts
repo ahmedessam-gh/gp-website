@@ -100,9 +100,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     // console.log(this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('.end-nav .header-icons fa-icon'));
   }
   ngOnInit(): void {
-    this.prod.getShop().subscribe((data) => {
-      this.newProds = data;
-    });
+    // this.prod.getShop().subscribe((data) => {
+    //   this.newProds = data;
+    // });
 
     Aos.init({});
     this.favouriteList = this.prod.getFav();

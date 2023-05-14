@@ -1,7 +1,7 @@
 <div class="container pad-sections">
   <div class="row">
     <div
-      class="shopSidebar col-xl-3 col-lg-3 py-1 d-none d-lg-block d-xl-block"
+      class="shopSidebar col-xl-3 col-lg-3 py-1 d-none d-lg-block d-xl-block *ngi"
     >
       <ul class="list-unstyled">
         <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
@@ -150,7 +150,7 @@
                     type="radio"
                     id="Male"
                     formControlName="type"
-                    value="Male"
+                    value="Men"
                   />
 
                   <label for="Male" class="size-filter">Male </label>
@@ -159,7 +159,7 @@
                     type="radio"
                     id="Female"
                     formControlName="type"
-                    value="Female"
+                    value="Women"
                   />
 
                   <label for="Female" class="size-filter">Female </label>
@@ -630,7 +630,12 @@
           class="card col-xl-4 col-md-4 col-6"
           *ngFor="
             let newProd of newProds
-              | paginate : { itemsPerPage: pageSize, currentPage: pageNumber };
+              | paginate
+                : {
+                    itemsPerPage: pageSize,
+                    currentPage: pageNumber,
+                    totalItems: count
+                  };
             let i = index
           "
           data-aos="fade-up"

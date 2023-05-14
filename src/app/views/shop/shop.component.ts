@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { Prod } from 'src/app/core/interfaces/Prod';
 import { Component, OnInit } from '@angular/core';
 import { ProdService } from 'src/app/core/services/prod.service';
@@ -22,6 +23,7 @@ export class ShopComponent implements OnInit {
   pageNumber: number = 1;
   sendPage: FormGroup;
   selectedOption: string;
+  count: number;
   constructor(
     private fb: FormBuilder,
     private prod: ProdService,
@@ -30,22 +32,14 @@ export class ShopComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.sendPage = this.fb.group({
-      pageNumber: this.pageNumber,
-      pageSize: this.pageSize,
-    });
-    this.prod.getShop().subscribe((data) => {
-      this.newProds = data;
-      console.log(this.newProds);
-    });
     Aos.init();
-
     this.filterForm = this.fb.group({
-      type: [],
-      MinPrice: [],
-      price: [],
-      category: [],
+      type: [''],
+      MinPrice: [''],
+      price: [''],
+      category: [''],
     });
+    this.changePage(this.pageNumber);
   }
 
   getCategory(optionValue) {
@@ -83,21 +77,18 @@ export class ShopComponent implements OnInit {
 
   onSubmit() {
     const filters = this.filterForm.value;
-    // if (filters.size && filters.size.length === 0) {
-    //   delete filters.size; // Remove size if it's empty
-    // }
-    // if (filters.category && filters.category.length === 0) {
-    //   delete filters.category; // Remove category if it's empty
-    // }
-    // if (filters.color && filters.color.length === 0) {
-    //   delete filters.color; // Remove color if it's empty
-    // }
-    // if (filters.price && filters.price.length === 0) {
-    //   delete filters.price; // Remove price if it's empty
-    // }
 
+    const params = new HttpParams()
+      .set('Gender', this.filterForm.value['type'])
+      .set('pageNumber', this.pageNumber)
+      .set('pageSize', this.pageSize);
+
+    this.prod.getShop(params).subscribe((data) => {
+      this.newProds = data;
+      this.count = this.newProds[0].count;
+      console.log(this.newProds);
+    });
     console.log(filters);
-    // do something with the selected filters
   }
   openFilter() {
     this.showFilter = !this.showFilter;
@@ -105,6 +96,27 @@ export class ShopComponent implements OnInit {
 
   changePage(pageNum: number) {
     this.pageNumber = pageNum;
+
     console.log(this.pageNumber);
+
+    const params = new HttpParams()
+      .set('pageNumber', this.pageNumber)
+      .set('pageSize', this.pageSize)
+      .set('Gender', this.filterForm.value['type']);
+    this.prod.getShop(params).subscribe((data) => {
+      this.newProds = data;
+      this.count = this.newProds[0].count;
+      const values = Object.values(this.newProds[0].product);
+      const count = values.filter((obj) => typeof obj === 'object').length;
+      console.log(count);
+
+      this.filterForm = this.fb.group({
+        type: [this.filterForm.value['type'] || ''],
+        MinPrice: [this.filterForm.value['MinPrice'] || ''],
+        price: [this.filterForm.value['MaxPrice'] || ''],
+        category: [this.filterForm.value['category'] || ''],
+      });
+      console.log(this.newProds);
+    });
   }
 }

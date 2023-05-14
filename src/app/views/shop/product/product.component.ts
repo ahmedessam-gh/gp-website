@@ -54,9 +54,9 @@ export class ProductComponent implements OnInit {
   async ngOnInit() {
     this.showUserList();
     this.prodid = this.ActivatedRoute.snapshot.paramMap.get('prodid');
-    this.prod.getShop().subscribe((carouselprod) => {
-      this.prods = carouselprod;
-    });
+    // this.prod.getShop().subscribe((carouselprod) => {
+    //   this.prods = carouselprod;
+    // });
     this.prod.getProds(this.prodid).subscribe((data) => {
       this.myprod = data;
       this.questions = this.myprod.questions;
