@@ -35,6 +35,7 @@ export class ProductComponent implements OnInit {
   ratings: FormGroup;
   selectedValue: string;
   questions: any;
+  qu:number;
   constructor(
     private cart: CartService,
     private prod: ProdService,
@@ -49,6 +50,8 @@ export class ProductComponent implements OnInit {
 
     this.prod.getProds(this.prodid).subscribe((data) => {
       this.myprod = data;
+      this.qu = data[0].quantity;
+      console.log(this.qu);
       this.questions = this.myprod.questions;
       this.addQuestions = this.fb.group({
         productId: [this.myprod.productId],

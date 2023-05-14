@@ -9,21 +9,35 @@ import { orderDetails } from '../interfaces/orderDetails';
   providedIn: 'root',
 })
 export class CartService {
-  constructor(private http:HttpClient) {}
-  viewCart(pNumber:number,pSize:number):Observable<any[]>{
-    return this.http.get<any[]>(`${apiEndpoints.baseUrl}${apiEndpoints.carts.getCustomerCart(pNumber,pSize)}`);
+  order: any;
+  orderTotal: number = 0
+  constructor(private http: HttpClient) { }
+  viewCart(pNumber: number, pSize: number): Observable<any[]> {
+    return this.http.get<any[]>(`${apiEndpoints.baseUrl}${apiEndpoints.carts.getCustomerCart(pNumber, pSize)}`);
   }
-  
-  deleteCart(id){
+  deleteCart(id) {
     return this.http.delete(`${apiEndpoints.baseUrl}${apiEndpoints.carts.removeFromCart(id)}`);
   }
-  incrementQuantity(param:HttpParams){ 
-    return this.http.put(`${apiEndpoints.baseUrl}${apiEndpoints.carts.incrementQuantity}`,'',{params:param});
+  incrementQuantity(param: HttpParams) {
+    return this.http.put(`${apiEndpoints.baseUrl}${apiEndpoints.carts.incrementQuantity}`, '', { params: param });
   }
-  decrementQuantity(param:HttpParams){
-    return this.http.put(`${apiEndpoints.baseUrl}${apiEndpoints.carts.decrementQuantity}`,'',{params:param});
+  decrementQuantity(param: HttpParams) {
+    return this.http.put(`${apiEndpoints.baseUrl}${apiEndpoints.carts.decrementQuantity}`, '', { params: param });
   }
-  getOrderDetails():Observable<orderDetails[]>{
-    return this.http.get<orderDetails[]>(`${apiEndpoints.baseUrl}${apiEndpoints.carts.getOrderSummary}`);
+  getOrderDetails(): Observable<orderDetails> {
+    return this.http.get<orderDetails>(`${apiEndpoints.baseUrl}${apiEndpoints.carts.getOrderSummary}`);
+  }
+
+  async totalPrice(): Promise<number> {
+    this.orderTotal = 0;
+    this.order = await this.getOrderDetails().toPromise();
+    this.order.detailsList.forEach((prod) => {
+      this.orderTotal += prod.price;
+    });
+    return this.orderTotal;
+  }
+
+  payWithCash(payUpdates:any){
+    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCash}`,payUpdates);
   }
 }

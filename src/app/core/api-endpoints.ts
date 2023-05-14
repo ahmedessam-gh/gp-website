@@ -19,7 +19,8 @@ export const apiEndpoints = {
   carts: {
     getCustomerCart :(pNum :number,pSize :number) => `Carts/GetCustomerCart?PageNumber=${pNum}&PageSize=${pSize}`,
     getOrderSummary: 'Carts/GetOrderSummary',
-    payment: 'Carts/Payment',
+    payWithCash: 'Carts/paywithCash',
+    payWithCredit : 'Carts/paywithCredit',
     // incrementQuantity: (id: number) => `Carts/IncrementQuantity/${id}`,
     // decrementQuantity: (id: number) => `Carts/DecrementQuantity${id}`,
     incrementQuantity:  `Carts/IncrementQuantity`,
