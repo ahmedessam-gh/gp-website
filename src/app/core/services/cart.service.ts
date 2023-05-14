@@ -3,6 +3,7 @@ import { cart } from '../interfaces/cart';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { apiEndpoints } from '../api-endpoints';
 import { Observable, map } from 'rxjs';
+import { orderDetails } from '../interfaces/orderDetails';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +22,8 @@ export class CartService {
   }
   decrementQuantity(param:HttpParams){
     return this.http.put(`${apiEndpoints.baseUrl}${apiEndpoints.carts.decrementQuantity}`,'',{params:param});
+  }
+  getOrderDetails():Observable<orderDetails[]>{
+    return this.http.get<orderDetails[]>(`${apiEndpoints.baseUrl}${apiEndpoints.carts.getOrderSummary}`);
   }
 }

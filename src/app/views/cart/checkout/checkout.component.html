@@ -1,9 +1,11 @@
 <div class="pad-sections ">
     <div class="container ">
-        <div class="row">
-            <div class="col-md-7 ">
-                <!-- <app-checkout></app-checkout> -->
-                <form action="">
+
+        <!-- <app-checkout></app-checkout> -->
+        <form [formGroup]="orderForm">
+            <div class="row">
+                <div class="col-md-7 ">
+
                     <fieldset class="" style="color:var(--main-color);">
                         <legend>Billing Details</legend>
 
@@ -14,41 +16,28 @@
                                 </div>
                                 <div class="pe-2 col-6">
                                     <label for="">First Name</label>
-                                    <input type="text" name="First" #name="ngModel" ngModel
-                                        class="form-control col-md-6 my-3" placeholder="First Name ..." required>
+                                    <input type="text" formControlName="fname" class="form-control col-md-6 my-2" placeholder="First Name ..."
+                                        required>
                                 </div>
                                 <div class="ps-2 col-6">
                                     <label for="">Last Name</label>
-                                    <input type="text" name="Last" #name="ngModel" ngModel
-                                        class="form-control col-md-6 my-3" placeholder="Last Name ..." required>
+                                    <input type="text" formControlName="lname" class="form-control col-md-6 my-2" placeholder="Last Name ..."
+                                        required>
                                 </div>
-                                <div>
+                                <div class="mt-3">
+                                    <label for="">Email</label>
+                                    <input type="email" formControlName="email" class="form-control col-md-6 my-2" placeholder="First Name ..."
+                                        required>
+                                </div>
+                                <div class="mt-3 mb-3">
                                     <label for="">Address</label>
-                                    <input type="text" name="Address" #name="ngModel" ngModel class="form-control my-3"
-                                        placeholder="Street Name ..." required>
-                                    <input type="text" name="Address" #name="ngModel" ngModel
-                                        class="form-control col-md-6 my-3" placeholder="Apartment ..." required>
+                                    <input type="text" formControlName="address" class="form-control my-2" placeholder="address ..." required>
 
                                 </div>
-                                <div>
-                                    <label for="" class="d-block">Country</label>
-                                    <select class="form-select my-3" style="font-family: var(--secondary-font);"
-                                        aria-label=".form-select-lg example">
-                                        <option selected>Choose a Country</option>
-                                        <option value="1">egypt</option>
-                                        <option value="2">algeria</option>
-                                        <option value="3">KSA</option>
-                                    </select>
-                                </div>
-                                <div class="pe-2 col-6">
-                                    <label for="">Email</label>
-                                    <input type="email" name="email" #name="ngModel" ngModel
-                                        class="form-control col-md-6 my-3" placeholder="First Name ..." required>
-                                </div>
-                                <div class="ps-2 col-6">
-                                    <label for="">Zip/Postal Code</label>
-                                    <input type="number" name="zip" #name="ngModel" ngModel
-                                        class="form-control col-md-6 my-3" placeholder="" required>
+                                <div class="">
+                                    <label for="">Phone</label>
+                                    <input type="text" formControlName="phone" class="form-control col-md-6 my-2" placeholder="First Name ..."
+                                        required>
                                 </div>
                             </div>
                             <div class="step">
@@ -58,7 +47,7 @@
                                 <div>
                                     <div class="paymentCont p-3 mb-3 d-flex justify-content-between">
                                         <div>
-                                            <input type="radio" [(ngModel)]="currenMethod" name="method" value="cash">
+                                            <input type="radio" formControlName="method" value="cash">
                                             <span class="ms-2">Cash</span>
                                         </div>
                                         <fa-icon style="color:green;" [icon]="['fas','money-bill']"></fa-icon>
@@ -66,56 +55,58 @@
                                     <div class="paymentCont p-3 mb-3">
                                         <div class=" d-flex justify-content-between">
                                             <div>
-                                                <input type="radio" [(ngModel)]="currenMethod" name="method" value="credit">
+                                                <input type="radio" formControlName="method"
+                                                value="credit">
                                                 <span class="ms-2">Credit Card</span>
                                             </div>
                                             <fa-icon style="color:#024b7c;" [icon]="['fas','credit-card']"></fa-icon>
                                         </div>
-                                        
-                                        <div *ngIf="currenMethod == 'credit'" @slideDown class="row" >
+
+                                        <!-- <div *ngIf="currenMethod == 'credit'" @slideDown class="row">
                                             <div>
                                                 <label for="" class="mt-3">Credit Card Details</label>
-                                                <input type="email" name="email" #name="ngModel" ngModel
+                                                <input type="email"
                                                     class="form-control col-md-6 my-3" placeholder="Credit Card Number"
                                                     required>
                                             </div>
                                             <div class="pe-2 col-6">
-                                                <input type="email" name="email" #name="ngModel" ngModel
-                                                    class="form-control col-md-6 my-3" placeholder="security code" required>
+                                                <input type="email"
+                                                    class="form-control col-md-6 my-3" placeholder="security code"
+                                                    required>
                                             </div>
                                             <div class="ps-2 col-6">
-                                                <input type="date" name="zip" #name="ngModel" ngModel
+                                                <input type="date"
                                                     class="form-control col-md-6 my-3" placeholder="expire" required>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
-                                    
+
                                     <!-- <div class="paymentCont p-3 mb-3">
-                                        <div class=" d-flex justify-content-between">
-                                            <div>
-                                                <input type="radio" [(ngModel)]="currenMethod" name="method" value="paypal">
-                                                <span class="ms-2">Paypal</span>
-                                            </div>
-                                            <fa-icon style="color:#024b7c;" [icon]="['fab','paypal']"></fa-icon>
-                                        </div>
-                                        
-                                        <div *ngIf="currenMethod == 'paypal'" @slideDown class="row" >
-                                            <div>
-                                                <label for="" class="mt-3">Paypal Details</label>
-                                                <input type="email" name="email" #name="ngModel" ngModel
-                                                    class="form-control col-md-6 my-3" placeholder="Credit Card Number"
-                                                    required>
-                                            </div>
-                                            <div class="pe-2 col-6">
-                                                <input type="email" name="email" #name="ngModel" ngModel
-                                                    class="form-control col-md-6 my-3" placeholder="security code" required>
-                                            </div>
-                                            <div class="ps-2 col-6">
-                                                <input type="date" name="zip" #name="ngModel" ngModel
-                                                    class="form-control col-md-6 my-3" placeholder="expire" required>
-                                            </div>
-                                        </div>
-                                    </div> -->
+                                                <div class=" d-flex justify-content-between">
+                                                    <div>
+                                                        <input type="radio" [(ngModel)]="currenMethod" name="method" value="paypal">
+                                                        <span class="ms-2">Paypal</span>
+                                                    </div>
+                                                    <fa-icon style="color:#024b7c;" [icon]="['fab','paypal']"></fa-icon>
+                                                </div>
+                                                
+                                                <div *ngIf="currenMethod == 'paypal'" @slideDown class="row" >
+                                                    <div>
+                                                        <label for="" class="mt-3">Paypal Details</label>
+                                                        <input type="email" name="email" #name="ngModel" ngModel
+                                                            class="form-control col-md-6 my-3" placeholder="Credit Card Number"
+                                                            required>
+                                                    </div>
+                                                    <div class="pe-2 col-6">
+                                                        <input type="email" name="email" #name="ngModel" ngModel
+                                                            class="form-control col-md-6 my-3" placeholder="security code" required>
+                                                    </div>
+                                                    <div class="ps-2 col-6">
+                                                        <input type="date" name="zip" #name="ngModel" ngModel
+                                                            class="form-control col-md-6 my-3" placeholder="expire" required>
+                                                    </div>
+                                                </div>
+                                            </div> -->
                                 </div>
                             </div>
                         </div>
@@ -129,56 +120,42 @@
                             </div>
                         </div>
                     </fieldset>
-                </form>
-            </div>
-            <div class="col-md-5 d-flex flex-column justify-content-between checkoutPlaceOrder position-relative ps-0 ">
-                <div>
-                    <h5 style="color: var(--main-color);font-size: 1.6rem;" class="my-3 text-center">Your Order</h5>
-                    <table class="table w-75 m-auto">
-                        <thead>
-                            <tr style="color:var(--main-color);font-size: 1.2em;">
-                                <th>Product</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>prod1</td>
-                                <td>100$</td>
-                            </tr>
-                            <tr>
-                                <td>prod2</td>
-                                <td>100$</td>
-                            </tr>
-                            <tr>
-                                <td>prod4</td>
-                                <td>100$</td>
-                            </tr>
-                            <tr>
-                                <td>prod5</td>
-                                <td>100$</td>
-                            </tr>
-                            <tr>
-                                <td>shipping</td>
-                                <td>100$</td>
-                            </tr>
-                            <tr>
-                                <td>taxes</td>
-                                <td>100$</td>
-                            </tr>
-                            <tr style="color:var(--main-color);font-size: 1.2em;">
-                                <td>Total</td>
-                                <td>500$</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="placeOrderBtn mb-4">
-                    <app-main-button borderRadius="0%" width="100%" content="Place Order"></app-main-button>
-                </div>
 
+                </div>
+                <div
+                    class="col-md-5 d-flex flex-column justify-content-between checkoutPlaceOrder position-relative ps-0 ">
+                    <div >
+                        <h5 style="color: var(--main-color);font-size: 1.6rem;" class="my-3 text-center">Your Order</h5>
+                        <table class="table w-75 m-auto" >
+                            <thead>
+                                <tr style="color:var(--main-color);font-size: 1.2em;">
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let order of productDetails">
+                                <tr>
+                                    <td>{{order.productName}}</td>
+                                    <td>{{order.price }}$</td>
+                                </tr>
+                                <!-- <tr style="color:var(--main-color);font-size: 1.2em;">
+                                    <td>Total</td>
+                                    <td>500$</td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="placeOrderBtn mb-4">
+                        <app-main-button type="submit" (click)="placeOrder()" borderRadius="0%" width="100%" content="Place Order"></app-main-button>
+                    </div>
+
+                </div>
             </div>
-        </div>
+
+        </form>
+
+
+
     </div>
 </div>
 <!-- <div>

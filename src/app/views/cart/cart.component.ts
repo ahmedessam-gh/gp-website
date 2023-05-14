@@ -19,7 +19,7 @@ import { ProdService } from 'src/app/core/services/prod.service';
 
 export class CartComponent implements OnInit {
 
-  cartProducts: any[];
+  cartProducts: any[]=[];
   p: any;
   total: number = 0;
   priceOfProduct: number;
@@ -42,13 +42,10 @@ export class CartComponent implements OnInit {
 
   //
   totalPrice() {
-    console.log('works fine');
     this.total = 0;
     this.cartProducts.forEach((product: any) => {
-      this.total += product.price - (product.price * product['sale%']);
-      console.log(product.price);
+      this.total += product.price;
     });
-    console.log(this.total);
   }
   //
   deleteItem(id: number) {
@@ -57,28 +54,22 @@ export class CartComponent implements OnInit {
     });
   }
   //
-  plus(cartProduct:any,prodId: number, e) {  
-    console.log(cartProduct.quantity);
-    if(cartProduct.quantity >= 10){
-      e.target.previousSibling.value = 10
-    }else{
-      e.target.previousSibling.value = Number(e.target.previousSibling.value) + 1
+  plus(cartProduct: any, prodId: number, e) {
+    if (cartProduct.quantity >= 10) {
+      cartProduct.quantity = 10;
+    } else {
       cartProduct.quantity += 1;
-      cartProduct.price += cartProduct.product.price;
       const param = new HttpParams().set('productId', prodId);
       this.cart.incrementQuantity(param).subscribe();
       this.totalPrice();
-    }  
+    }
   }
   //
-  minus(cartProduct:any,prodId: number, e) {
-    console.log(cartProduct.quantity);
-    if(cartProduct.quantity <= 1){
-      e.target.nextSibling.value = 1
-    }else{
-      e.target.nextSibling.value = Number(e.target.nextSibling.value) - 1
+  minus(cartProduct: any, prodId: number, e) {
+    if (cartProduct.quantity <= 1) {
+      cartProduct.quantity = 1;
+    } else {
       cartProduct.quantity -= 1;
-      cartProduct.price -= cartProduct.product.price;
       const param = new HttpParams().set('productId', prodId)
       this.cart.decrementQuantity(param).subscribe();
       this.totalPrice();
@@ -89,13 +80,10 @@ export class CartComponent implements OnInit {
   clearCart() {
 
     this.cartProducts.length = 0;
-    // this.totalPrices();
+    this.totalPrice();
   }
 
-  /*remove clicked item from cart*/
-  removeItem(i) {
-    this.cartProducts.splice(i, 1);
-  }
+
 
 
 

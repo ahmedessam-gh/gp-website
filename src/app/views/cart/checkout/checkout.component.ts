@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, transition, style, animate } from '@angular/animations';
+import { CartService } from 'src/app/core/services/cart.service';
+import { orderDetails } from 'src/app/core/interfaces/orderDetails';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -23,10 +26,29 @@ export class CheckoutComponent implements OnInit {
   activeIndex = 1;
   isChecked:boolean;
   currenMethod:any;
-  constructor() { }
+  orderForm:FormGroup;
+  orderDetails:orderDetails[];
+  productDetails:any[];
+  constructor(private cart:CartService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
-    
+    this.cart.getOrderDetails().subscribe((data)=>{
+      this.orderDetails = data;
+      this.productDetails = data['detailsList'];
+      this.orderForm = this.fb.group({
+        fname:[this.orderDetails['fname'] || '',Validators.required],
+        lname:[this.orderDetails['lname'] || '',Validators.required],
+        email:[this.orderDetails['email'] || '',Validators.required],
+        address:[this.orderDetails['address'] || '',Validators.required],
+        phone:[this.orderDetails['phone'] || '',Validators.required],
+        method:[''],
+      })
+    })
+  }
+  placeOrder(){
+    if(this.orderForm.valid){
+      console.log(this.orderForm);
+    }
   }
   setActive(){
     const billingContainer = document.getElementById('billingContainer');
