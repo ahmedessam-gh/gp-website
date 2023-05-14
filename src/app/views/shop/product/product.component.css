@@ -30,6 +30,11 @@
   color: var(--gray-color);
   font-family: var(--button-font);
 }
+.prodratingheader2{
+
+  color:var(--gray-color);
+  font-family: var(--main-font)
+}
 .productCategory {
 
   color: var(--gray-color);
@@ -450,3 +455,18 @@ position: absolute;
 }
 
 
+.loginerror{
+
+  color: var(--red-color);
+  font-family: var(--main-font);
+}
+.loginerror a{
+
+  color: var(--main-color);
+}
+.rateerror{
+
+  font-size: small;
+  color: var(--red-color);
+  font-family: var(--main-font);
+}

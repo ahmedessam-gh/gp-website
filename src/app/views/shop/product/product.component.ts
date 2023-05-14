@@ -12,6 +12,10 @@ import {
 
 import { NgbService } from 'src/app/core/services/ngb.service';
 import { CustomerService } from 'src/app/core/services/customer.service';
+import { rating } from 'src/app/core/interfaces/rating';
+import { throws } from 'assert';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { product } from 'src/app/core/interfaces/product';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -24,8 +28,8 @@ export class ProductComponent implements OnInit {
   p: any;
   q: any;
   prodid: any;
-  prods: Prod[] = [];
-  rates: any;
+  prods;
+  rates: rating;
   addQuestions: FormGroup;
   selectedPhoto: string;
   isBigPhotoUpdated: boolean;
@@ -35,18 +39,24 @@ export class ProductComponent implements OnInit {
   ratings: FormGroup;
   selectedValue: string;
   questions: any;
+  userList: boolean = false;
+  errors: string = '';
   constructor(
     private cart: CartService,
     private prod: ProdService,
     private ActivatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private ngbService: NgbService,
-    private customer:CustomerService
+    private customer: CustomerService,
+    private auth: AuthService
   ) {}
 
   async ngOnInit() {
+    this.showUserList();
     this.prodid = this.ActivatedRoute.snapshot.paramMap.get('prodid');
-
+    this.prod.getShop().subscribe((carouselprod) => {
+      this.prods = carouselprod;
+    });
     this.prod.getProds(this.prodid).subscribe((data) => {
       this.myprod = data;
       this.questions = this.myprod.questions;
@@ -60,9 +70,11 @@ export class ProductComponent implements OnInit {
       this.submitted = false;
 
       this.prod.getRatings(this.prodid).subscribe((data) => {
-        this.rates = data;
+        this.rates = data as rating;
+
         console.log(this.rates);
         this.myratings = this.rates.customerRates;
+
         this.ratings = this.fb.group({
           rate: [1, [Validators.required]],
           productId: [this.myprod.productId],
@@ -70,8 +82,6 @@ export class ProductComponent implements OnInit {
         });
       });
     });
-
-    this.prods = this.prod.product;
 
     // this.ratings = this.fb.group({
     //   newRating: [0, [Validators.required]],
@@ -84,7 +94,11 @@ export class ProductComponent implements OnInit {
   addToCart(prod: Prod) {
     this.customer.addToCart(prod).subscribe();
   }
-
+  showUserList() {
+    if (this.auth.getUser()) {
+      this.userList = true;
+    } else this.userList = false;
+  }
   addQuestion() {
     this.submitted = true;
     if (this.addQuestions.valid) {
@@ -93,24 +107,28 @@ export class ProductComponent implements OnInit {
         console.log(newQuestionValue);
         this.questions.push({ question: newQuestionValue });
         this.submitted = false;
-        this.addQuestions.get('question').reset;
-        this.showNewQuestionForm = false;
+        this.addQuestions.get('question').setValue('');
       }); // Clear the form control after adding the new question
     }
   }
 
   addRating() {
     if (this.ratings.valid) {
-      this.prod.sendRatings(this.ratings.value).subscribe((next) => {
-        const newRatingValue = this.ratings.controls['rate'].value;
-        const newReviewValue = this.ratings.controls['rateComment'].value;
+      this.prod.sendRatings(this.ratings.value).subscribe(
+        (next) => {
+          const newRatingValue = this.ratings.controls['rate'].value;
+          const newReviewValue = this.ratings.controls['rateComment'].value;
 
-        this.myratings.push({
-          rate: newRatingValue,
-          rateComment: newReviewValue,
-        });
-        this.ratings.reset();
-      }); // Clear the form control after adding the new question
+          this.myratings.push({
+            rate: newRatingValue,
+            rateComment: newReviewValue,
+          });
+          this.ratings.reset();
+        },
+        (error) => {
+          this.errors = error.error;
+        }
+      ); // Clear the form control after adding the new question
     }
   }
   changePhoto(photo: any) {

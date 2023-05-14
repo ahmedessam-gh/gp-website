@@ -46,7 +46,8 @@ export const apiEndpoints = {
     getProductsPage: 'Products/GetProductspage',
     getProductReviews: (id: number) => `Products/GetProductReviews/?id=${id}`,
     getProductDetails: (id: number) => `Products/GetProductDetails/?id=${id}`,
-    getSuspendedProducts: 'Products/GetSuspendedProducts',
+    searchProducts: `Products/SearchProducts`,
+    getSuspendedProducts: 'Products/GetSuspendedProducts?searchTerm=',
   },
   productsReports: {
     getAllReports: 'ProductsReports/GetAllReports',

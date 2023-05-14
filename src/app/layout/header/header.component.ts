@@ -20,6 +20,9 @@ import { cart } from '../../core/interfaces/cart';
 import { CartService } from '../../core/services/cart.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Location } from '@angular/common';
+import { product } from 'src/app/core/interfaces/product';
+import { SearchService } from 'src/app/core/services/search.service';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -29,19 +32,19 @@ import { Location } from '@angular/common';
 export class HeaderComponent implements OnInit {
   productid: string;
   isScrolled = false;
-  searchText = '';
+  searchText: string = '';
   showSearch = false;
   isFixed: boolean;
   showSuggetions = true;
   showResults = false;
   searchQuery = '';
   cartProducts: cart[] = [];
-  myProd: Prod[];
   newProd: any;
   collapsed = true;
   nativeElement: any;
   ActivatedRoute: any;
   userList = false;
+  searchedProd: product[];
   toggler(): void {
     this.collapsed = !this.collapsed;
     const nav = document.getElementById('lower-nav');
@@ -49,29 +52,27 @@ export class HeaderComponent implements OnInit {
   }
 
   constructor(
-    private prod: ProdService,
+    private search: SearchService,
     private route: ActivatedRoute,
     private router: Router,
     public header: HeaderService,
     private renderer: Renderer2,
     private elementrf: ElementRef,
     private cart: CartService,
-    private auth:AuthService,
-    private location:Location
+    private auth: AuthService,
+    private location: Location
   ) {}
-  
+
   ngOnInit(): void {
     // this.cartProducts = this.cart.getCart();
-    this.myProd = this.prod.product;
     this.showUserList();
-
   }
-  showUserList(){
-    if(this.auth.getUser()){
+  showUserList() {
+    if (this.auth.getUser()) {
       this.userList = true;
     }
   }
-  logOut(){
+  logOut() {
     this.auth.logOut();
     this.router.navigate(['']);
     this.userList = false;
@@ -106,13 +107,23 @@ export class HeaderComponent implements OnInit {
   }
 
   onSearchInput() {
+    // const params = new HttpParams().set('searchTerm', this.searchText);
+
     if (this.searchText === '') {
       this.showSuggetions = true;
       this.showResults = false;
     } else {
       this.showSuggetions = false;
       this.showResults = true;
+
+      // this.search.getSearchProds(params).subscribe((data) => {
+      //   this.searchedProd = data as product[];
+      // });
     }
+  }
+
+  searchtexttest() {
+    console.log(this.searchText);
   }
   ngOnDestroy() {}
 }

@@ -18,32 +18,8 @@
 
             <div class="collapse show" id="categories-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
-                <li class="position-relative">
-                  <label
-                    for="men"
-                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >Men</label
-                  >
-                  <input
-                    type="checkbox"
-                    id="men"
-                    (change)="getCategory($event)"
-                    value="men"
-                  />
-                </li>
-                <li class="position-relative">
-                  <label
-                    for="women"
-                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >Women</label
-                  >
-                  <input
-                    type="checkbox"
-                    id="women"
-                    (change)="getCategory($event)"
-                    value="women"
-                  />
-                </li>
+                <li class="position-relative"></li>
+
                 <li class="position-relative">
                   <label
                     for="accessories"
@@ -51,23 +27,22 @@
                     >Accessories</label
                   >
                   <input
-                    type="checkbox"
+                    type="radio"
                     id="accessories"
-                    (change)="getCategory($event)"
                     value="accessories"
+                    formControlName="category"
                   />
                 </li>
                 <li class="position-relative">
                   <label
                     for="shoes"
-                    href="#"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
                     >Shoes</label
                   >
                   <input
-                    type="checkbox"
+                    type="radio"
                     id="shoes"
-                    (change)="getCategory($event)"
+                    formControlName="category"
                     value="shoes"
                   />
                 </li>
@@ -82,7 +57,7 @@
               data-bs-target="#filterPrice-collapse"
               aria-expanded="true"
             >
-              <h5>Filter Price</h5>
+              <h5>Maximum Price</h5>
             </button>
             <div class="collapse show" id="filterPrice-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
@@ -90,67 +65,67 @@
                   <label
                     for="p1"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >$0-$50</label
+                    >100+</label
                   >
                   <input
-                    type="checkbox"
+                    type="radio"
                     id="p1"
-                    (change)="getPrice($event)"
-                    value="150"
+                    formControlName="MinPrice"
+                    value="100"
                   />
                 </li>
                 <li class="position-relative">
                   <input
-                    type="checkbox"
+                    type="radio"
                     id="p2"
-                    (change)="getPrice($event)"
-                    value="p2"
+                    formControlName="MinPrice"
+                    value="200"
                   />
 
                   <label
                     for="p2"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >$50-$100</label
+                    >200+</label
                   >
                 </li>
                 <li class="position-relative">
                   <input
-                    type="checkbox"
+                    type="radio"
+                    formControlName="MinPrice"
                     id="p3"
-                    (change)="getPrice($event)"
-                    value="p3"
+                    value="300"
                   />
 
                   <label
                     for="p3"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >$100-$150</label
+                    >300+</label
                   >
                 </li>
                 <li class="position-relative">
                   <label
                     for="p4"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >$150-$200</label
+                    >400+</label
                   >
                   <input
-                    type="checkbox"
+                    type="radio"
+                    formControlName="MinPrice"
                     id="p4"
-                    (change)="getPrice($event)"
-                    value="$150-200"
+                    value="400"
                   />
                 </li>
                 <li class="position-relative">
                   <label
                     for="p5"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >$200+</label
+                    >500+</label
                   >
                   <input
-                    type="checkbox"
+                    type="radio"
                     id="p5"
-                    (change)="getPrice($event)"
-                    value="p5"
+                    formControlName="MinPrice"
+                    value="500"
                   />
                 </li>
               </ul>
@@ -164,7 +139,7 @@
               data-bs-target="#size-collapse"
               aria-expanded="true"
             >
-              <h5>Size</h5>
+              <h5>Gender</h5>
             </button>
             <div class="collapse show" id="size-collapse">
               <ul
@@ -173,62 +148,21 @@
                 <li>
                   <input
                     type="radio"
-                    id="xs"
-                    formControlName="size"
-                    value="xs"
+                    id="Male"
+                    formControlName="type"
+                    value="Male"
                   />
 
-                  <label for="xs" class="size-filter">XS </label>
-
-                  <input type="radio" id="s" formControlName="size" value="s" />
-
-                  <label for="s" class="size-filter">s </label>
-
-                  <input type="radio" id="m" formControlName="size" value="m" />
-
-                  <label for="m" class="size-filter">M </label>
-                </li>
-                <li>
-                  <input type="radio" id="l" formControlName="size" value="l" />
-
-                  <label for="l" class="size-filter">L </label>
+                  <label for="Male" class="size-filter">Male </label>
 
                   <input
                     type="radio"
-                    id="xl"
-                    formControlName="size"
-                    value="xl"
+                    id="Female"
+                    formControlName="type"
+                    value="Female"
                   />
 
-                  <label for="xl" class="size-filter">XL </label>
-
-                  <input
-                    type="radio"
-                    id="xxl"
-                    formControlName="size"
-                    value="xxl"
-                  />
-
-                  <label for="xxl" class="size-filter">XXL </label>
-                </li>
-                <li>
-                  <input
-                    type="radio"
-                    id="xxxl"
-                    formControlName="size"
-                    value="xxxl"
-                  />
-
-                  <label for="xxxl" class="size-filter">xxxl </label>
-
-                  <input
-                    type="radio"
-                    id="xxxxl"
-                    formControlName="size"
-                    value="xxxxl"
-                  />
-
-                  <label for="xxxxl" class="size-filter">XxxxL </label>
+                  <label for="Female" class="size-filter">Female </label>
                 </li>
               </ul>
             </div>
@@ -244,7 +178,7 @@
             >
               <h5>Color</h5>
             </button>
-            <div class="collapse show" id="color-collapse">
+            <!-- <div class="collapse show" id="color-collapse">
               <ul
                 class="custom-radios btn-toggle-nav list-unstyled fw-normal small px-3"
               >
@@ -319,7 +253,7 @@
                   </label>
                 </li>
               </ul>
-            </div>
+            </div> -->
           </li>
 
           <hr />
@@ -696,7 +630,7 @@
           class="card col-xl-4 col-md-4 col-6"
           *ngFor="
             let newProd of newProds
-              | paginate : { itemsPerPage: 9, currentPage: p };
+              | paginate : { itemsPerPage: pageSize, currentPage: pageNumber };
             let i = index
           "
           data-aos="fade-up"
@@ -710,7 +644,7 @@
         </div>
         <pagination-controls
           class="my-pagination"
-          (pageChange)="p = $event"
+          (pageChange)="changePage($event)"
           previousLabel="Previous"
           nextLabel="Next"
           screenReaderPaginationLabel="Pagination"

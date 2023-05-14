@@ -2,7 +2,10 @@
   <owl-carousel-o [options]="customOptions" class="carousel">
     <ng-container *ngFor="let prod of prods">
       <ng-template carouselSlide>
-        <app-productbox [product]="prod"></app-productbox>
+        <app-productbox
+          [product]="prod.product"
+          [rating]="prod.avgRate"
+        ></app-productbox>
       </ng-template>
     </ng-container>
   </owl-carousel-o>

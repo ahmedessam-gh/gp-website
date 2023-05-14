@@ -37,7 +37,7 @@ export class CarouselComponent implements OnInit {
     },
     nav: true,
   };
-  @Input() prods: product[];
+  @Input() prods;
   constructor() {}
 
   ngOnInit(): void {}

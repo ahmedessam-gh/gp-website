@@ -16,10 +16,12 @@ import 'slick-carousel';
 })
 export class ShopComponent implements OnInit {
   newProds;
-  p: number = 1;
+  pageSize: number = 1;
   filterForm: FormGroup;
   showFilter: boolean = false;
-
+  pageNumber: number = 1;
+  sendPage: FormGroup;
+  selectedOption: string;
   constructor(
     private fb: FormBuilder,
     private prod: ProdService,
@@ -28,6 +30,10 @@ export class ShopComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.sendPage = this.fb.group({
+      pageNumber: this.pageNumber,
+      pageSize: this.pageSize,
+    });
     this.prod.getShop().subscribe((data) => {
       this.newProds = data;
       console.log(this.newProds);
@@ -35,26 +41,23 @@ export class ShopComponent implements OnInit {
     Aos.init();
 
     this.filterForm = this.fb.group({
-      size: [],
-      color: [],
+      type: [],
+      MinPrice: [],
       price: [],
       category: [],
     });
   }
 
-  getCategory(event) {
-    if (!Array.isArray(this.filterForm.value['category'])) {
-      this.filterForm.value['category'] = []; // Initialize as an empty array
-    }
-    let removeindex = this.filterForm.value['category'].indexOf(
-      event.target.value
-    );
-    if (event.target.checked)
-      this.filterForm.value['category'].push(event.target.value);
-    else if (removeindex !== -1)
-      this.filterForm.value['category'].splice(removeindex, 1);
-  }
+  getCategory(optionValue) {
+    // If the clicked option is already selected, uncheck it
+    if (this.selectedOption == optionValue) this.selectedOption = '';
+    else {
+      // Otherwise, select the clicked option
+      this.selectedOption = optionValue;
 
+      console.log(this.selectedOption);
+    }
+  }
   getPrice(event) {
     if (!Array.isArray(this.filterForm.value['price'])) {
       this.filterForm.value['price'] = []; // Initialize as an empty array
@@ -98,5 +101,10 @@ export class ShopComponent implements OnInit {
   }
   openFilter() {
     this.showFilter = !this.showFilter;
+  }
+
+  changePage(pageNum: number) {
+    this.pageNumber = pageNum;
+    console.log(this.pageNumber);
   }
 }

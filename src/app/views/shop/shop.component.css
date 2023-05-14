@@ -194,7 +194,7 @@ app-main-button{
 
   font-family: var(--main-font);
 }
-input[type="checkbox"] {
+input[type="radio"] {
 position: absolute;
   right: 0;
 }

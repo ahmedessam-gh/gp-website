@@ -56,7 +56,12 @@
       <br />
       <div class="rating px-2 py-2">
         <app-rating [product]="rates.average"></app-rating>
-        <label class="ratecount mx-2"> ( {{ rates.count }} votes )</label>
+        <label class="ratecount mx-2" *ngIf="rates.average > 0">
+          ( {{ rates.count }} votes )</label
+        >
+        <label class="ratecount mx-2" *ngIf="rates.average == 0">
+          ( product not rated yet )</label
+        >
       </div>
 
       <hr />
@@ -203,12 +208,15 @@
     <div class="row"></div>
   </div>
 </div>
-<!-- <app-carousel [prods]="prods"></app-carousel> -->
+<app-carousel [prods]="prods"></app-carousel>
 <hr />
 
 <div class="prodHeaders">
   <div class="container pad-sections">
     <h3 class="prodh3 pad-sections">Product Questions & Answers</h3>
+    <h3 class="prodratingheader2" *ngIf="myprod.questions.length === 0">
+      No questions about this product yet
+    </h3>
     <div
       class="py-3"
       *ngFor="
@@ -221,7 +229,7 @@
               }
       "
     >
-      <div class="questionsection py-3">
+      <div class="questionsection py-3" *ngIf="question.question.length > 0">
         <strong class="px-3"> Question: </strong>
         <label> {{ question.question }}</label>
         <br />
@@ -253,7 +261,10 @@
         </a>
       </div>
 
-      <div class="questionform px-4 py-3" *ngIf="showNewQuestionForm">
+      <div
+        class="questionform px-4 py-3"
+        *ngIf="showNewQuestionForm && userList == true"
+      >
         <form
           [formGroup]="addQuestions"
           (ngSubmit)="addQuestion()"
@@ -275,13 +286,18 @@
           </div>
           <br />
           <app-main-button
+            type="submit"
+            content="Submit Question"
             (click)="
               showStandard('Your questions was added sucessfully', addQuestions)
             "
-            content="Submit Question"
           ></app-main-button>
           <app-toaster></app-toaster>
         </form>
+      </div>
+      <div class="loginerror" *ngIf="showNewQuestionForm && userList == false">
+        You need to <a routerLink="/welcome/loginn">login</a> to submit your
+        question !
       </div>
     </div>
   </div>
@@ -292,6 +308,10 @@
     <h3 class="prodh3 pad-sections">Reviews & Ratings</h3>
     <h3 class="prodratingheader" *ngIf="rates.average > 0">
       {{ rates.average | number : "1.1-1" }}<span class="px-1">out of 5</span>
+    </h3>
+
+    <h3 class="prodratingheader2" *ngIf="rates.average == 0">
+      Product not rated yet
     </h3>
     <hr />
     <br />
@@ -327,7 +347,10 @@
         </a>
       </div>
 
-      <div class="questionform px-4 py-3" *ngIf="showRatingForm">
+      <div
+        class="questionform px-4 py-3"
+        *ngIf="showRatingForm && userList == true"
+      >
         <form [formGroup]="ratings" (ngSubmit)="addRating()">
           <div class="d-flex">
             <label> Enter your Rating: </label>
@@ -353,18 +376,13 @@
           <label> Enter your review :</label>
 
           <input
-            class="form-control my-2"
+            class="form-control mt-2"
             placeholder="Enter your review (Optional)"
             formControlName="rateComment"
           />
           <br />
 
-          <div
-            class="error-note position-relative"
-            *ngIf="ratingSub && ratings.controls['rate'].invalid"
-          >
-            <span class="error">You must enter your name</span>
-          </div>
+          <div class="rateerror mb-2">{{ errors }}</div>
           <app-main-button
             type="submit"
             content="Submit Review"
@@ -372,8 +390,12 @@
           >
           </app-main-button>
 
-          <app-toaster></app-toaster>
+          <app-toaster *ngIf="errors == ''"></app-toaster>
         </form>
+      </div>
+      <div class="loginerror" *ngIf="showRatingForm && userList == false">
+        You need to <a routerLink="/welcome/loginn">login</a> to submit your
+        rate !
       </div>
     </div>
   </div>

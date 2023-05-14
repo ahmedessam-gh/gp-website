@@ -1,3 +1,10 @@
 export interface rating {
-  avgRating: number;
+  average: number;
+  customerRates: {
+    rate: number;
+    rateComment: string;
+    customerName: string;
+  }[];
+
+  count: number;
 }
