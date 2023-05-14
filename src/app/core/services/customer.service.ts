@@ -5,12 +5,14 @@ import { Prod } from '../interfaces/Prod';
 import { apiEndpoints } from '../api-endpoints';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CustomerService {
-
-  constructor(private http:HttpClient) { }
-  addToCart(item:Prod){
-    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.customers.addToCart}`,item);
+  constructor(private http: HttpClient) {}
+  addToCart(item: any) {
+    return this.http.post(
+      `${apiEndpoints.baseUrl}${apiEndpoints.customers.addToCart}`,
+      item
+    );
   }
 }

@@ -66,8 +66,23 @@ export class ShopComponent implements OnInit {
   }
 
   clearAllFilters() {
-    this.filterForm.reset();
+    const params = new HttpParams()
+      .set('pageNumber', this.pageNumber)
+      .set('pageSize', this.pageSize)
+      .set('Gender', this.filterForm.value['type']);
 
+    this.prod.getShop(params).subscribe((data) => {
+      this.newProds = data;
+      this.count = this.newProds[0].count;
+
+      console.log(this.count);
+      this.filterForm = this.fb.group({
+        type: [''],
+        MinPrice: [''],
+        price: [''],
+        category: [''],
+      });
+    });
     $(document).ready(() => {
       $('#uncheck').click(() => {
         $('[type=radio], [type=checkbox').prop('checked', false);
@@ -85,7 +100,6 @@ export class ShopComponent implements OnInit {
 
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data;
-      this.count = this.newProds[0].count;
       console.log(this.newProds);
     });
     console.log(filters);
@@ -106,9 +120,6 @@ export class ShopComponent implements OnInit {
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data;
       this.count = this.newProds[0].count;
-      const values = Object.values(this.newProds[0].product);
-      const count = values.filter((obj) => typeof obj === 'object').length;
-      console.log(count);
 
       this.filterForm = this.fb.group({
         type: [this.filterForm.value['type'] || ''],

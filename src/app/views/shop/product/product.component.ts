@@ -91,7 +91,7 @@ export class ProductComponent implements OnInit {
     // });
   }
 
-  addToCart(prod: Prod) {
+  addToCart(prod: any) {
     this.customer.addToCart(prod).subscribe();
   }
   showUserList() {
