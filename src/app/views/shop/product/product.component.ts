@@ -41,6 +41,7 @@ export class ProductComponent implements OnInit {
   questions: any;
   userList: boolean = false;
   errors: string = '';
+  prodWithQuantity: any;
   constructor(
     private cart: CartService,
     private prod: ProdService,
@@ -49,14 +50,19 @@ export class ProductComponent implements OnInit {
     private ngbService: NgbService,
     private customer: CustomerService,
     private auth: AuthService
-  ) {}
+  ) { }
 
   async ngOnInit() {
+  
     this.showUserList();
     this.prodid = this.ActivatedRoute.snapshot.paramMap.get('prodid');
     // this.prod.getShop().subscribe((carouselprod) => {
     //   this.prods = carouselprod;
     // });
+    this.prod.getProdsQuantity(this.prodid).subscribe((data)=>{
+      this.prodWithQuantity = data;
+      console.log(this.prodWithQuantity.quantity);
+    })
     this.prod.getProds(this.prodid).subscribe((data) => {
       this.myprod = data;
       this.questions = this.myprod.questions;
@@ -91,7 +97,7 @@ export class ProductComponent implements OnInit {
     // });
   }
 
-  addToCart(prod: Prod) {
+  addToCart(prod: any) {
     this.customer.addToCart(prod).subscribe();
   }
   showUserList() {

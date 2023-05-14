@@ -691,6 +691,9 @@ export class ProdService {
         })
       );
   }
+  getProdsQuantity(id: number){
+    return this.http.get(`${this.URL}${apiEndpoints.products.getProductDetails(id)}`);
+  }
 
   getRatings(id: number) {
     return this.http.get(

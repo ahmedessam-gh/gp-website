@@ -4,7 +4,7 @@
       <div class="productBigImg py-2">
         <img
           class="bigImg"
-          src="{{ myprod.productImages[0].imageUrl }}"
+          src="{{ myprod?.productImages[0].imageUrl }}"
           alt="sss"
           width="80%"
           [ngClass]="{ fadeInLeft: isBigPhotoUpdated }"
@@ -13,9 +13,9 @@
       </div>
       <div class="smallImgDiv mt-3">
         <img
-          *ngFor="let smallimg of myprod.productImages"
+          *ngFor="let smallimg of myprod?.productImages"
           class="productSmallimgs mx-2"
-          src="{{ smallimg.imageUrl }}"
+          src="{{ smallimg?.imageUrl }}"
           [ngClass]="{
             selected: selectedPhoto === smallimg.imageUrl
           }"
@@ -43,34 +43,34 @@
     </div>
     <hr class="d-lg-none d-md-none d-xl-none d-block" />
     <div class="productDetails col-xl-6 col-12 col-md-6 mt-lg-0 mt-4">
-      <h1 class="productName">{{ myprod.productName }}</h1>
-      <label class="productRent" *ngIf="myprod.rentable">
+      <h1 class="productName">{{ myprod?.productName }}</h1>
+      <label class="productRent" *ngIf="myprod?.rentable">
         <fa-icon class="px-1" icon="circle-check"></fa-icon> Avaliable for
         rent</label
       >
 
-      <label class="productNoRent" *ngIf="!myprod.rentable">
+      <label class="productNoRent" *ngIf="!myprod?.rentable">
         <fa-icon class="px-1" icon="times"></fa-icon> Currently not available
         for rent</label
       >
       <br />
       <div class="rating px-2 py-2">
-        <app-rating [product]="rates.average"></app-rating>
-        <label class="ratecount mx-2" *ngIf="rates.average > 0">
+        <app-rating [product]="rates?.average"></app-rating>
+        <label class="ratecount mx-2" *ngIf="rates?.average > 0">
           ( {{ rates.count }} votes )</label
         >
-        <label class="ratecount mx-2" *ngIf="rates.average == 0">
+        <label class="ratecount mx-2" *ngIf="rates?.average == 0">
           ( product not rated yet )</label
         >
       </div>
 
       <hr />
-      <div class="productCategory py-2">{{ myprod.description }}</div>
+      <div class="productCategory py-2">{{ myprod?.description }}</div>
       <hr />
       <div class="productPriceDiscount">
-        <label class="productPrice">{{ myprod.price }} EGP</label>
-        <del *ngIf="myprod.sale > 0" class="productDiscount py-2"
-          >{{ myprod.sale }} EGP</del
+        <label class="productPrice">{{ myprod?.price }} EGP</label>
+        <del *ngIf="myprod?.sale > 0" class="productDiscount py-2"
+          >{{ myprod?.sale }} EGP</del
         >
       </div>
       <!-- <div class="productSize py-2">
@@ -180,17 +180,17 @@
       <div class="py-4">
         <label class="productLabel py-3"> Select Your Quantity : </label>
         <div class="input-number">
-          <button class="minus" (click)="minus(myprod)">-</button>
+          <button class="minus" (click)="minus(prodWithQuantity)">-</button>
           <input
             readonly
             type="number"
             id="quantity"
-            [(ngModel)]="myprod.quantity"
+            [(ngModel)]="prodWithQuantity.quantity"
             value="1"
             min="1"
             max="20"
           />
-          <button class="plus" (click)="plus(myprod)">+</button>
+          <button class="plus" (click)="plus(prodWithQuantity)">+</button>
         </div>
       </div>
       <div *ngIf="myprod.quantity > 0" class="inStock">IN STOCK</div>
@@ -306,11 +306,11 @@
 <div class="prodRating pad-sections">
   <div class="container">
     <h3 class="prodh3 pad-sections">Reviews & Ratings</h3>
-    <h3 class="prodratingheader" *ngIf="rates.average > 0">
+    <h3 class="prodratingheader" *ngIf="rates?.average > 0">
       {{ rates.average | number : "1.1-1" }}<span class="px-1">out of 5</span>
     </h3>
 
-    <h3 class="prodratingheader2" *ngIf="rates.average == 0">
+    <h3 class="prodratingheader2" *ngIf="rates?.average == 0">
       Product not rated yet
     </h3>
     <hr />
@@ -318,14 +318,14 @@
     <div
       class="card py-3 px-2 my-2 userRatings"
       *ngFor="
-        let rating of rates.customerRates
+        let rating of rates?.customerRates
           | paginate : { itemsPerPage: 3, currentPage: p, id: 'listing-rating' }
       "
     >
       <label> {{ rating.customerName }} </label>
-      <app-rating class="py-1" [product]="rating.rate"></app-rating>
+      <app-rating class="py-1" [product]="rating?.rate"></app-rating>
 
-      <p *ngIf="rating.rateComment">{{ rating.rateComment }}</p>
+      <p *ngIf="rating?.rateComment">{{ rating?.rateComment }}</p>
     </div>
     <div class="p-0">
       <pagination-controls

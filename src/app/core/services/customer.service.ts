@@ -3,6 +3,7 @@ import { cart } from '../interfaces/cart';
 import { HttpClient } from '@angular/common/http';
 import { Prod } from '../interfaces/Prod';
 import { apiEndpoints } from '../api-endpoints';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { apiEndpoints } from '../api-endpoints';
 export class CustomerService {
 
   constructor(private http:HttpClient) { }
-  addToCart(item:Prod){
-    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.customers.addToCart}`,item);
+  addToCart(item):Observable<any[]>{
+    return this.http.post<any[]>(`${apiEndpoints.baseUrl}${apiEndpoints.customers.addToCart}`,item);
   }
 }

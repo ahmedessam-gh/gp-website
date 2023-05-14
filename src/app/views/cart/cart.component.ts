@@ -42,10 +42,10 @@ export class CartComponent implements OnInit {
 
   //
   totalPrice() {
-    this.total = 0;
-    this.cartProducts.forEach((product: any) => {
-      this.total += product.price;
-    });
+    // this.total = 0;
+    // this.cartProducts.forEach((product: any) => {
+    //   this.total += product.price;
+    // });
   }
   //
   deleteItem(id: number) {
