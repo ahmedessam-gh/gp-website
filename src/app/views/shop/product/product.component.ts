@@ -43,6 +43,8 @@ export class ProductComponent implements OnInit {
   userList: boolean = false;
   errors: string = '';
   prodWithQuantity: any;
+  quantity: any;
+  allprod: Object;
   constructor(
     private cart: CartService,
     private prod: ProdService,
@@ -51,18 +53,19 @@ export class ProductComponent implements OnInit {
     private ngbService: NgbService,
     private customer: CustomerService,
     private auth: AuthService
-  ) { }
+  ) {}
 
   async ngOnInit() {
-  
     this.showUserList();
     this.prodid = this.ActivatedRoute.snapshot.paramMap.get('prodid');
     // this.prod.getShop().subscribe((carouselprod) => {
     //   this.prods = carouselprod;
     // });
-    const param = new HttpParams().set('id',this.prodid);
+    const param = new HttpParams().set('id', this.prodid);
     this.prod.getProds(param).subscribe((data) => {
-      this.myprod = data;
+      this.allprod = data;
+      this.myprod = (data as any).product;
+      this.quantity = (data as any).quantity;
       console.log(this.myprod);
       this.questions = this.myprod.questions;
       this.addQuestions = this.fb.group({

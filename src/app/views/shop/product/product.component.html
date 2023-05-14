@@ -180,17 +180,17 @@
       <div class="py-4">
         <label class="productLabel py-3"> Select Your Quantity : </label>
         <div class="input-number">
-          <button class="minus" (click)="minus(prodWithQuantity)">-</button>
+          <button class="minus" (click)="minus(allprod)">-</button>
           <input
             readonly
             type="number"
             id="quantity"
-            [(ngModel)]="prodWithQuantity.quantity"
+            [(ngModel)]="quantity"
             value="1"
             min="1"
             max="20"
           />
-          <button class="plus" (click)="plus(prodWithQuantity)">+</button>
+          <button class="plus" (click)="plus(allprod)">+</button>
         </div>
       </div>
       <div *ngIf="myprod.quantity > 0" class="inStock">IN STOCK</div>
