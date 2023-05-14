@@ -55,15 +55,15 @@
                                     <div class="paymentCont p-3 mb-3">
                                         <div class=" d-flex justify-content-between">
                                             <div>
-                                                <input type="radio" formControlName="method"
-                                                value="credit">
+                                                <input type="radio" formControlName="method" value="credit">
                                                 <span class="ms-2">Credit Card</span>
                                             </div>
                                             <fa-icon style="color:#024b7c;" [icon]="['fas','credit-card']"></fa-icon>
                                         </div>
 
-                                        <div *ngIf="orderForm.get('method').value == 'credit'" @slideDown class="row">
-                                            <div>
+                                        <div @slideDown class="row">
+                                            
+                                            <!-- <div>
                                                 <label for="" class="mt-3">Credit Card Details</label>
                                                 <input type="email"
                                                     class="form-control col-md-6 my-3" placeholder="Credit Card Number"
@@ -77,11 +77,11 @@
                                             <div class="ps-2 col-6">
                                                 <input type="date"
                                                     class="form-control col-md-6 my-3" placeholder="expire" required>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="placeOrderBtn mb-4" >
+                    <div class="placeOrderBtn mb-4">
                         <app-main-button type="submit" (click)="placeOrder()" borderRadius="0%" width="100%"
                             content="Place Order"></app-main-button>
                     </div>
@@ -138,9 +138,9 @@
 
     </div>
 </div>
-<!-- <div>
+<div>
     <app-payment></app-payment>
-</div> -->
+</div>
 <div class="pt-4">
     <app-features-section></app-features-section>
 </div>

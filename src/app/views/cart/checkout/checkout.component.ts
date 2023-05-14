@@ -3,7 +3,7 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 import { CartService } from 'src/app/core/services/cart.service';
 import { orderDetails } from 'src/app/core/interfaces/orderDetails';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { async } from 'rxjs';
 
 @Component({
   selector: 'app-checkout',
@@ -23,6 +23,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   ]
 })
 export class CheckoutComponent implements OnInit {
+
+  emailAddress:string;
   activeIndex = 1;
   isChecked: boolean;
   currenMethod: any;
@@ -45,6 +47,7 @@ export class CheckoutComponent implements OnInit {
     console.log(this.orderTotal);
 
   }
+  //
   //
   placeOrder() {
     if (this.orderForm.valid) {

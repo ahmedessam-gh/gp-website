@@ -7,7 +7,7 @@ import { cart } from 'src/app/core/interfaces/cart';
 import { product } from 'src/app/core/interfaces/product';
 import { CartService } from 'src/app/core/services/cart.service';
 import { ProdService } from 'src/app/core/services/prod.service';
-
+import { StripeScriptTag } from 'stripe-angular';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -26,13 +26,14 @@ export class CartComponent implements OnInit {
 
 
   constructor(private cart: CartService) {
-
+    
   }
 
   //
   ngOnInit(): void {
     this.cart.viewCart(1, 1).subscribe((cart) => {
       this.cartProducts = cart['carts'];
+      
       console.log(this.cartProducts);
       this.totalPrice();
     });
@@ -42,10 +43,10 @@ export class CartComponent implements OnInit {
 
   //
   totalPrice() {
-    // this.total = 0;
-    // this.cartProducts.forEach((product: any) => {
-    //   this.total += product.price;
-    // });
+    this.total = 0;
+    this.cartProducts.forEach((product: any) => {
+      this.total += product.price;
+    });
   }
   //
   deleteItem(id: number) {

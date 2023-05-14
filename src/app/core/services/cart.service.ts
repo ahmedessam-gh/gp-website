@@ -40,4 +40,10 @@ export class CartService {
   payWithCash(payUpdates:any){
     return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCash}`,payUpdates);
   }
+  payWithCredit(payUpdates:any){
+    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCredit}`,payUpdates);
+  }
+  sendStripToken(stripeToken){
+    return 
+  }
 }

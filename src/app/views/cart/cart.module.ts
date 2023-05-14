@@ -10,6 +10,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StripeModule } from 'stripe-angular';
 @NgModule({
     declarations: [
         CartComponent,
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         FontAwesomeModule,  
         SharedModule,
         NgxPaginationModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        StripeModule.forRoot('')
     ]
 })
 export class CartModule { }

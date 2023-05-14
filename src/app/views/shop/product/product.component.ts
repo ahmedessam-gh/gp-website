@@ -16,6 +16,7 @@ import { rating } from 'src/app/core/interfaces/rating';
 import { throws } from 'assert';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { product } from 'src/app/core/interfaces/product';
+import { HttpParams } from '@angular/common/http';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -59,12 +60,10 @@ export class ProductComponent implements OnInit {
     // this.prod.getShop().subscribe((carouselprod) => {
     //   this.prods = carouselprod;
     // });
-    this.prod.getProdsQuantity(this.prodid).subscribe((data)=>{
-      this.prodWithQuantity = data;
-      console.log(this.prodWithQuantity.quantity);
-    })
-    this.prod.getProds(this.prodid).subscribe((data) => {
+    const param = new HttpParams().set('id',this.prodid);
+    this.prod.getProds(param).subscribe((data) => {
       this.myprod = data;
+      console.log(this.myprod);
       this.questions = this.myprod.questions;
       this.addQuestions = this.fb.group({
         productId: [this.myprod.productId],
@@ -99,6 +98,7 @@ export class ProductComponent implements OnInit {
 
   addToCart(prod: any) {
     this.customer.addToCart(prod).subscribe();
+    console.log(prod);
   }
   showUserList() {
     if (this.auth.getUser()) {

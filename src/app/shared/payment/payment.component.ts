@@ -1,5 +1,6 @@
 import { Component, OnInit ,Input,ViewChild, ElementRef} from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { CartService } from 'src/app/core/services/cart.service';
 declare var Stripe : stripe.StripeStatic;
 @Component({
   selector: 'app-payment',
@@ -10,7 +11,7 @@ export class PaymentComponent implements OnInit {
   paymentHandler: any = null;
   stripeAPIKey: any = 'pk_test_51N4OuSDz65k2SKUd7lEOmteETYa5cBdBWL3QVtibiLctz1t7LVoRTMBI7dR5PYtEsNZYnsZbTtR0Ec3p1imWqzqQ00J0j9kTO9';
   
-  constructor() {}
+  constructor(private cart:CartService) {}
   
 
   ngOnInit() {
@@ -27,13 +28,15 @@ export class PaymentComponent implements OnInit {
       },
     });
     paymentHandler.open({
-      name: 'ItSolutionStuff.com',
-      description: '3 widgets',
+      name: 'Dressify Checkout',
+      description: 'buy',
       amount: amount * 100,
     });
   }
   
-
+  // sendStripe(stripeToken){
+  //   this.cart.sendStripToken(stripeToken).subscribe();
+  // }
   invokeStripe() {
     if (!window.document.getElementById('stripe-script')) {
       const script = window.document.createElement('script');
@@ -47,11 +50,12 @@ export class PaymentComponent implements OnInit {
           locale: 'auto',
           token: function (stripeToken: any) {
             console.log(stripeToken);
-            alert('Payment has been successfull!');
+            this.sendStripe(stripeToken);
           },
         });
+       
       };
-  
+      
       window.document.body.appendChild(script);
     }
   }
