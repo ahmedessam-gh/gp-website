@@ -678,7 +678,7 @@ export class ProdService {
     return this.http
       .get(`${this.URL}${apiEndpoints.products.getProductDetails(id)}`)
       .pipe(
-        map((data: any[]) => {
+        map((data: product[]) => {
           const productsArray = Object.values(data);
           const product = productsArray.find(
             (prod: any) => prod.productId == id

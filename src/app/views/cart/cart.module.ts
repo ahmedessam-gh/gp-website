@@ -8,8 +8,6 @@ import 'animate.css';
 import { FontAwesomeModule,FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
     declarations: [
         CartComponent,
@@ -20,9 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         CartRoutingModule,
         FormsModule,     
         FontAwesomeModule,  
-        SharedModule,
-        NgxPaginationModule,
-        ReactiveFormsModule
+        SharedModule
     ]
 })
 export class CartModule { }

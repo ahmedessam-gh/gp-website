@@ -1,4 +1,3 @@
-import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { event } from 'jquery';
 import { Observable } from 'rxjs';
@@ -19,73 +18,72 @@ import { ProdService } from 'src/app/core/services/prod.service';
 
 export class CartComponent implements OnInit {
 
-  cartProducts: any[]=[];
-  p: any;
-  total: number = 0;
-  priceOfProduct: number;
-
-
+  cartProducts :any;
+  cartss:any[];
+  noItemsError:string;
+  total:number = 0;
+  // totalForItem:Number;
   constructor(private cart: CartService) {
-
-  }
-
-  //
-  ngOnInit(): void {
-    this.cart.viewCart(1, 1).subscribe((cart) => {
-      this.cartProducts = cart['carts'];
-      console.log(this.cartProducts);
-      this.totalPrice();
-    });
-
     
   }
 
-  //
-  totalPrice() {
-    this.total = 0;
-    this.cartProducts.forEach((product: any) => {
-      this.total += product.price;
-    });
-  }
-  //
-  deleteItem(id: number) {
-    this.cart.deleteCart(id).subscribe(() => {
-      this.cartProducts = this.cartProducts.filter((prod) => prod.product.productId !== id);
-    });
-  }
-  //
-  plus(cartProduct: any, prodId: number, e) {
-    if (cartProduct.quantity >= 10) {
-      cartProduct.quantity = 10;
-    } else {
-      cartProduct.quantity += 1;
-      const param = new HttpParams().set('productId', prodId);
-      this.cart.incrementQuantity(param).subscribe();
-      this.totalPrice();
-    }
-  }
-  //
-  minus(cartProduct: any, prodId: number, e) {
-    if (cartProduct.quantity <= 1) {
-      cartProduct.quantity = 1;
-    } else {
-      cartProduct.quantity -= 1;
-      const param = new HttpParams().set('productId', prodId)
-      this.cart.decrementQuantity(param).subscribe();
-      this.totalPrice();
-    }
+
+
+
+  ngOnInit(): void {
+    this.cart.viewCart().subscribe((cart)=>{
+      // console.log(cart);
+      this.cartProducts = cart;
+      this.cartss = Object.values(this.cartProducts);
+      console.log(this.cartss.length);
+      console.log(typeof(this.cartss));
+      console.log(this.cartProducts.length);
+      console.log(typeof(this.cartProducts));
+    })
+
+  //  this.totalPrices();
   }
 
-  //
+  deleteItem(id:number){
+    this.cart.deleteCart(id).subscribe(()=>{
+      this.cartProducts = this.cartProducts.filter((prod)=>prod.product.productId !== id);
+    },error=>{
+      this.noItemsError = error.error;
+    });
+  }
+
+  minus(obj) {
+    if (obj.quantity <= 1) {
+      obj.quantity;
+    } else {
+      obj.quantity--;
+      this.totalPrices();
+    }
+  }
+  plus(obj) {
+    if (obj.quantity >= 10) {
+      obj.quantity;
+    } else {
+      obj.quantity++;
+      this.totalPrices();
+    }
+  }
+  totalPrices(){
+    // this.total = this.cart.totalPrice();
+    console.log(this.total);
+  }
+
   clearCart() {
-
-    this.cartProducts.length = 0;
-    this.totalPrice();
+    this.cartProducts.length = 0;  
+    // this.totalPrices();
   }
 
+  /*remove clicked item from cart*/
+  removeItem(i) {
+    this.cartProducts.splice(i, 1);
+  }
 
-
-
+  
 
 
 
