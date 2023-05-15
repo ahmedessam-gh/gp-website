@@ -24,7 +24,7 @@
 }
 
 .pad-sections {
-    margin: 50px auto ;
+    margin: 50px auto;
     border: 0;
 }
 
@@ -33,9 +33,11 @@
     color: #ffffff !important;
     border-radius: 50%;
 }
-.profile-animation{
+
+.profile-animation {
     animation: fadeIn 0.2s ease-in-out;
 }
+
 html,
 body {
     height: 100%;
@@ -50,7 +52,7 @@ body {
     z-index: 99999;
 }
 
-.form-control{
+.form-control {
     background-color: transparent;
     border-radius: 10px;
 
@@ -115,61 +117,81 @@ input::placeholder {
     margin-bottom: 0 !important;
 }
 
-.error-border{
-    border-color:rgb(255, 162, 162) !important;
+.error-border {
+    border-color: rgb(255, 162, 162) !important;
 }
+
 .input-group h5 {
     font-size: 1.5rem;
 
     color: var(--main-color);
 }
 
-.toast:before{
+.toast:before {
 
-  color: var(--main-color) ;
-  font-family: var(--main-font);
-  content: '\2713';
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-
-
-}
-
-.toast{
-
-  color: var(--main-color) ;
-  font-family: var(--main-font);
-  margin-left:15px ;
-  padding-left: 20px;
-  position: relative;
-}
-
-.dangertoast{
-
-
-  color: var(--red-color) ;
-  font-family: var(--main-font);
-  margin-left:15px ;
-  padding-left: 20px;
-  position: relative;
-
-}
-
-.dangertoast:before{
-
-  color: var(--red-color) ;
-  font-family: var(--main-font);
-  content: '\2715';
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
+    color: var(--main-color);
+    font-family: var(--main-font);
+    content: '\2713';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
 
 
 }
 
+.toast {
+
+    color: var(--main-color);
+    font-family: var(--main-font);
+    margin-left: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.dangertoast {
+
+
+    color: var(--red-color);
+    font-family: var(--main-font);
+    margin-left: 15px;
+    padding-left: 20px;
+    position: relative;
+
+}
+
+.dangertoast:before {
+
+    color: var(--red-color);
+    font-family: var(--main-font);
+    content: '\2715';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+
+
+}
+.paginationCustom{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+/* .my-pagination ::ng-deep .ngx-pagination {
+    margin-top: 100% !important;
+    padding-left: 0px !important;
+    color: var(--main-color) !important;
+}
+
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background-color: var(--main-color);
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current span {
+    color: white;
+} */
 
 body {
     margin: 0;

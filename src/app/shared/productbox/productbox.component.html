@@ -17,13 +17,13 @@
       >
         <ul>
           <li
-            (click)="addToFav(product, $event)"
-            [ngClass]="{ favIcon: favouriteList.includes(product) }"
+            (click)="addToFav(product,$event)"
+            [ngClass]="{ favIcon: favouriteList.includes(product)}"
           >
             <a
               ><fa-icon
                 id="{{ product.productId }}"
-                [ngClass]="{ favIcon: favouriteList.includes(product) }"
+                [ngClass]="{ favIcon: favouriteList.includes(product)}"
                 icon="heart"
               ></fa-icon
             ></a>

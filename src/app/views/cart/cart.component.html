@@ -1,4 +1,4 @@
-<div *ngIf="cartProducts?.length !== 0">
+<div *ngIf="cartProducts">
   <div class="wrap cf">
     <h1 class="projTitle">Add To Your Cart<span>-&</span> Start Buying</h1>
     <div class="heading cf">
@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="tableContainer">
-    <div class="row g-0" *ngFor="let cartProd of cartProducts | paginate:{itemsPerPage :1,currentPage:p}">
+    <div class="row g-0" *ngFor="let cartProd of cartProducts | paginate:{itemsPerPage:pageSize,currentPage:pageNumber,totalItems:count}">
       <div class="prodInfo d-flex col-12 col-lg-6 mb-5 my-3">
         <img src="{{ cartProd.product.productImages[0].imageUrl}}" width="150px" height="150px" alt="" />
         <div class="content-cart ms-4">
@@ -54,13 +54,15 @@
         <fa-icon [icon]="['fas', 'circle-xmark']"></fa-icon>
       </div>
     </div>
-    <pagination-controls
+    <div class="paginationCustom">
+      <pagination-controls
         class="my-pagination"
-        (pageChange)="p = $event"
+        (pageChange)="changePage($event)"
         previousLabel="Previous"
         nextLabel="Next"
       >
       </pagination-controls>
+    </div>
     <div class="d-md-flex justify-content-between pad-sections">
       <div class="clearLink checkoutLink mt-3 mb-3 mb-lg-0" (click)="clearCart()">
         <app-main-button content="Clear Cart"></app-main-button>
@@ -70,7 +72,7 @@
           <table>
             <tr>
               <td><span>Subtotal</span></td>
-              <td>{{total}}</td>
+              <td>${{total}}</td>
             </tr>
             <tr>
               <td><span>Shipping</span></td>
@@ -91,7 +93,7 @@
   
 </div>
 <div
-  *ngIf="cartProducts?.length === 0"
+  *ngIf="!cartProducts"
   [routerLink]="['/shop']"
   id="noItemsDiv"
   style="cursor: pointer"

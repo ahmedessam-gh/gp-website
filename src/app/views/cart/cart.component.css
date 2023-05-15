@@ -247,6 +247,21 @@ input[type=number]{
 .noItems{
   height: 80vh;
 }
+.my-pagination ::ng-deep .ngx-pagination {
+  margin-top: 90% !important;
+  padding-left: 0px !important;
+  color: var(--main-color) !important;
+}
+
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background-color: var(--main-color);
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current span {
+  color: white;
+}
+
 @media screen and (max-width:992px) {
   .padCheckout{
     width: 100%;

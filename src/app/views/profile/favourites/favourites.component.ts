@@ -9,22 +9,34 @@ import { ProdService } from 'src/app/core/services/prod.service';
   styleUrls: ['./favourites.component.css']
 })
 export class FavouriteComponent implements OnInit {
-  favouriteList: any[];
+  pageNumber:number=1;
+  pageSize:number = 2; 
+  count:number;
+  favouriteList: any;
   constructor(private prod: ProdService, private customer: CustomerService) { }
 
   ngOnInit(): void {
+    this.changePage(this.pageNumber);
+  }
+  changePage(pageNum){
     const param = new HttpParams()
-      .set('PageNumber', 1)
-      .set('PageSize', 1);
+      .set('PageNumber', this.pageNumber)
+      .set('PageSize', this.pageSize);
       this.customer.getWishList(param).subscribe((data)=>{
         this.favouriteList = data['productList'];
         console.log(this.favouriteList);
       })
-    console.log(this.favouriteList);
+      this.pageNumber = pageNum;
   }
-  removeItem(product){
-    // const param = new HttpParams().set('ProductId',product)
-    // return this.customer.deleteWishList(param).subscribe();
+  removeItem(product:number){
+    const param = new HttpParams().set('ProductId',product)
+    this.customer.deleteWishList(param).subscribe(()=>{
+      this.favouriteList = this.favouriteList.filter((fav) => fav.productId !== product);
+      if(this.favouriteList.length == 0){
+        this.favouriteList = false;
+      }
+
+    });
   }
   clearCart() {
     this.favouriteList = []
