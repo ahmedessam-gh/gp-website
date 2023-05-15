@@ -92,8 +92,23 @@ color: var(--main-color);
   font-family: var(--main-font);
 }
 .my-pagination ::ng-deep .ngx-pagination {
+  margin-top: 100%;
+  padding-left: 0px;
+  color: var(--main-color);
+}
+
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background-color: var(--main-color);
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current span {
+  color: white;
+}
+
+/* .my-pagination ::ng-deep .ngx-pagination {
   margin: auto;
-  width: 50%;
+  width: 100%;
 color: var(--main-color);
 }
 
@@ -109,7 +124,7 @@ color: var(--main-color);
 .my-pagination ::ng-deep .ngx-pagination .current span{
 
 color: white;
-}
+} */
 
 .size-filter{
 font-family: var(--main-font);

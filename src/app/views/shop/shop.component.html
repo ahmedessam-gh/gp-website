@@ -709,7 +709,8 @@
               [rating]="newProd?.avgRate"
             ></app-productbox>
           </div>
-          <pagination-controls
+          <div class="paginationCustom">
+            <pagination-controls
             class="my-pagination"
             (pageChange)="changePage($event)"
             previousLabel="Previous"
@@ -719,6 +720,7 @@
             screenReaderCurrentLabel="You're on page"
           >
           </pagination-controls>
+          </div>
         </div>
         <div *ngIf="newProds.length == 0">NO PRODUCTS HERE</div>
       </div>
