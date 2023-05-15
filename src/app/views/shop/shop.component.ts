@@ -23,7 +23,9 @@ export class ShopComponent implements OnInit {
   pageNumber: number = 1;
   sendPage: FormGroup;
   selectedOption: string;
-  count: number;
+
+  count?: number;
+
   constructor(
     private fb: FormBuilder,
     private prod: ProdService,
@@ -69,7 +71,12 @@ export class ShopComponent implements OnInit {
     const params = new HttpParams()
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize)
-      .set('Gender', this.filterForm.value['type']);
+
+      .set('Gender', this.filterForm.value['type'])
+      .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      .set('MinPrice', this.filterForm.value['MinPrice'])
+      .set('Category', this.filterForm.value['category']);
+
 
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data;
@@ -96,7 +103,11 @@ export class ShopComponent implements OnInit {
     const params = new HttpParams()
       .set('Gender', this.filterForm.value['type'])
       .set('pageNumber', this.pageNumber)
-      .set('pageSize', this.pageSize);
+      .set('pageSize', this.pageSize)
+      .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      .set('MinPrice', this.filterForm.value['MinPrice'])
+      .set('Category', this.filterForm.value['category']);
+
 
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data;
@@ -116,10 +127,15 @@ export class ShopComponent implements OnInit {
     const params = new HttpParams()
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize)
-      .set('Gender', this.filterForm.value['type']);
+      .set('Category', this.filterForm.value['category'])
+      .set('Gender', this.filterForm.value['type'])
+      .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      .set('MinPrice', this.filterForm.value['MinPrice']);
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data;
       this.count = this.newProds[0].count;
+      
+
 
       this.filterForm = this.fb.group({
         type: [this.filterForm.value['type'] || ''],
