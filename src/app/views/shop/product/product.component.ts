@@ -177,9 +177,8 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  addToFav(product: Prod, event) {
-    this.prod.addToFav(product, event);
-    // this.getFavourites();
+  addToFav(productId:any) {
+    this.customer.addToWishList(productId).subscribe();
   }
 
   onSizeChanged(prod: Prod) {
