@@ -25,6 +25,7 @@ export class ShopComponent implements OnInit {
   selectedOption: string;
 
   count?: number;
+  searchTerm: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -81,7 +82,8 @@ export class ShopComponent implements OnInit {
       .set('Gender', this.filterForm.value['type'])
       .set('MaxPrice', this.filterForm.value['MaxPrice'])
       .set('MinPrice', this.filterForm.value['MinPrice'])
-      .set('Category', this.filterForm.value['category']);
+      .set('Category', this.filterForm.value['category'])
+      .set('SearchTerm', this.searchTerm);
 
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data.productsWithAvgRates;
@@ -111,7 +113,8 @@ export class ShopComponent implements OnInit {
       .set('pageSize', this.pageSize)
       .set('MaxPrice', this.filterForm.value['MaxPrice'])
       .set('MinPrice', this.filterForm.value['MinPrice'])
-      .set('Category', this.filterForm.value['category']);
+      .set('Category', this.filterForm.value['category'])
+      .set('SearchTerm', this.searchTerm);
 
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data.productsWithAvgRates;
@@ -136,7 +139,9 @@ export class ShopComponent implements OnInit {
       .set('Category', this.filterForm.value['category'])
       .set('Gender', this.filterForm.value['type'])
       .set('MaxPrice', this.filterForm.value['MaxPrice'])
-      .set('MinPrice', this.filterForm.value['MinPrice']);
+      .set('MinPrice', this.filterForm.value['MinPrice'])
+      .set('SearchTerm', this.searchTerm);
+
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data.productsWithAvgRates;
       // this.count = this.newProds[0].count;
@@ -148,6 +153,24 @@ export class ShopComponent implements OnInit {
         MaxPrice: [this.filterForm.value['MaxPrice'] || ''],
         category: [this.filterForm.value['category'] || ''],
       });
+      console.log(this.newProds);
+    });
+  }
+
+  getSearch() {
+    const params = new HttpParams()
+      .set('Gender', this.filterForm.value['type'])
+      .set('pageNumber', this.pageNumber)
+      .set('pageSize', this.pageSize)
+      .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      .set('MinPrice', this.filterForm.value['MinPrice'])
+      .set('Category', this.filterForm.value['category'])
+      .set('SearchTerm', this.searchTerm);
+
+    this.prod.getShop(params).subscribe((data) => {
+      this.newProds = data.productsWithAvgRates;
+      this.count = data.count;
+
       console.log(this.newProds);
     });
   }
