@@ -240,8 +240,7 @@ position: absolute;
 
 
 .inputBox fa-icon {
-
-
+background: lightgrey;
   font-size: 1.5em;
   padding: 0.5em;
   border-radius: 50%;
@@ -326,3 +325,4 @@ float: right;
   }
 
 }
+
