@@ -16,6 +16,7 @@ import { rating } from 'src/app/core/interfaces/rating';
 import { throws } from 'assert';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { product } from 'src/app/core/interfaces/product';
+import { HttpParams } from '@angular/common/http';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -42,6 +43,8 @@ export class ProductComponent implements OnInit {
   userList: boolean = false;
   errors: string = '';
   prodWithQuantity: any;
+  quantity: any;
+  allprod: any;
   constructor(
     private cart: CartService,
     private prod: ProdService,
@@ -50,7 +53,7 @@ export class ProductComponent implements OnInit {
     private ngbService: NgbService,
     private customer: CustomerService,
     private auth: AuthService
-  ) {}
+  ) { }
 
   async ngOnInit() {
     this.showUserList();
@@ -58,12 +61,13 @@ export class ProductComponent implements OnInit {
     // this.prod.getShop().subscribe((carouselprod) => {
     //   this.prods = carouselprod;
     // });
-    this.prod.getProdsQuantity(this.prodid).subscribe((data) => {
-      this.prodWithQuantity = data;
-      console.log(this.prodWithQuantity.quantity);
-    });
-    this.prod.getProds(this.prodid).subscribe((data) => {
-      this.myprod = data;
+    const param = new HttpParams().set('id', this.prodid);
+    this.prod.getProds(param).subscribe((data) => {
+      this.allprod = data;
+      console.log(this.allprod);
+      this.myprod = (data as any).product;
+      this.quantity = (data as any).quantity;
+      console.log(this.quantity);
       this.questions = this.myprod.questions;
       this.addQuestions = this.fb.group({
         productId: [this.myprod.productId],
@@ -97,7 +101,13 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(prod: any) {
-    this.customer.addToCart(prod).subscribe();
+    const data = {
+      productId: prod.product.productId,
+      quantity: prod.quantity,
+      isRent: true
+    }
+    this.customer.addToCart(data).subscribe();
+    console.log(data);
   }
   showUserList() {
     if (this.auth.getUser()) {
@@ -149,25 +159,33 @@ export class ProductComponent implements OnInit {
     this.isBigPhotoUpdated = true;
     this.isBigPhotoUpdated = false;
   }
-
-  minus(obj) {
-    if (obj.quantity <= 1) {
-      obj.quantity;
+  //
+  plus() {
+    if (this.allprod.quantity >= 10) {
+      this.allprod.quantity = 10;
     } else {
-      obj.quantity--;
+      this.allprod.quantity += 1;
     }
   }
-  plus(obj) {
-    if (obj.quantity >= 10) {
-      obj.quantity;
+  //
+  minus() {
+    if (this.allprod.quantity <= 1) {
+      this.allprod.quantity;
     } else {
-      obj.quantity++;
+      this.allprod.quantity -= 1;
+
     }
   }
 
   addToFav(product: Prod, event) {
     this.prod.addToFav(product, event);
     // this.getFavourites();
+  }
+
+  onSizeChanged(prod: Prod) {
+    const newProd = { ...prod };
+    newProd.size = prod.size;
+    newProd.id = `${prod.id}_${prod.size}`;
   }
 
   showRatingForms() {

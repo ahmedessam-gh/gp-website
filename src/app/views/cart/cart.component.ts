@@ -19,7 +19,7 @@ import { StripeScriptTag } from 'stripe-angular';
 
 export class CartComponent implements OnInit {
 
-  cartProducts: any[]=[];
+  cartProducts: any;
   p: any;
   total: number = 0;
   priceOfProduct: number;
@@ -33,8 +33,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cart.viewCart(1, 1).subscribe((cart) => {
       this.cartProducts = cart['carts'];
-      
-      console.log(this.cartProducts);
+      console.log(this.cartProducts)
       this.totalPrice();
     });
 

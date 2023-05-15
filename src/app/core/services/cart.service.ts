@@ -12,8 +12,8 @@ export class CartService {
   order: any;
   orderTotal: number = 0
   constructor(private http: HttpClient) { }
-  viewCart(pNumber: number, pSize: number): Observable<any[]> {
-    return this.http.get<any[]>(`${apiEndpoints.baseUrl}${apiEndpoints.carts.getCustomerCart(pNumber, pSize)}`);
+  viewCart(pNumber: number, pSize: number){
+    return this.http.get(`${apiEndpoints.baseUrl}${apiEndpoints.carts.getCustomerCart(pNumber, pSize)}`);
   }
   deleteCart(id) {
     return this.http.delete(`${apiEndpoints.baseUrl}${apiEndpoints.carts.removeFromCart(id)}`);
@@ -44,6 +44,6 @@ export class CartService {
     return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCredit}`,payUpdates);
   }
   sendStripToken(stripeToken){
-    return 
+    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.stripeToken}`,stripeToken);
   }
 }
