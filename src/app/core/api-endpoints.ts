@@ -21,6 +21,7 @@ export const apiEndpoints = {
     getOrderSummary: 'Carts/GetOrderSummary',
     payWithCash: 'Carts/paywithCash',
     payWithCredit : 'Carts/paywithCredit',
+    stripeToken : 'Carts/testPaywithCredit',
     // incrementQuantity: (id: number) => `Carts/IncrementQuantity/${id}`,
     // decrementQuantity: (id: number) => `Carts/DecrementQuantity${id}`,
     incrementQuantity:  `Carts/IncrementQuantity`,

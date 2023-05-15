@@ -27,7 +27,7 @@
             <div class="input-number d-flex">
               <button class="minus" (click)="minus(cartProd,cartProd.product.productId,$event)">-</button>
               <input readonly type="number" id="quantity" (ngModelChange)="totalPrice()" [(ngModel)]="cartProd.quantity"
-                value="cartProd.items.quantity" maxlength="10" />
+                 maxlength="10" />
               <button class="plus" (click)="plus(cartProd,cartProd.product.productId,$event)">+</button>
             </div>
             <div class="ms-4 ">

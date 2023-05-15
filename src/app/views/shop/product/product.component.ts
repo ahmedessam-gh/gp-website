@@ -44,7 +44,7 @@ export class ProductComponent implements OnInit {
   errors: string = '';
   prodWithQuantity: any;
   quantity: any;
-  allprod: Object;
+  allprod: any;
   constructor(
     private cart: CartService,
     private prod: ProdService,
@@ -53,7 +53,7 @@ export class ProductComponent implements OnInit {
     private ngbService: NgbService,
     private customer: CustomerService,
     private auth: AuthService
-  ) {}
+  ) { }
 
   async ngOnInit() {
     this.showUserList();
@@ -64,9 +64,10 @@ export class ProductComponent implements OnInit {
     const param = new HttpParams().set('id', this.prodid);
     this.prod.getProds(param).subscribe((data) => {
       this.allprod = data;
+      console.log(this.allprod);
       this.myprod = (data as any).product;
       this.quantity = (data as any).quantity;
-      console.log(this.myprod);
+      console.log(this.quantity);
       this.questions = this.myprod.questions;
       this.addQuestions = this.fb.group({
         productId: [this.myprod.productId],
@@ -100,8 +101,13 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(prod: any) {
-    this.customer.addToCart(prod).subscribe();
-    console.log(prod);
+    const data = {
+      productId: prod.product.productId,
+      quantity: prod.quantity,
+      isRent: true
+    }
+    this.customer.addToCart(data).subscribe();
+    console.log(data);
   }
   showUserList() {
     if (this.auth.getUser()) {
@@ -153,19 +159,21 @@ export class ProductComponent implements OnInit {
     this.isBigPhotoUpdated = true;
     this.isBigPhotoUpdated = false;
   }
-
-  minus(obj) {
-    if (obj.quantity <= 1) {
-      obj.quantity;
+  //
+  plus() {
+    if (this.allprod.quantity >= 10) {
+      this.allprod.quantity = 10;
     } else {
-      obj.quantity--;
+      this.allprod.quantity += 1;
     }
   }
-  plus(obj) {
-    if (obj.quantity >= 10) {
-      obj.quantity;
+  //
+  minus() {
+    if (this.allprod.quantity <= 1) {
+      this.allprod.quantity;
     } else {
-      obj.quantity++;
+      this.allprod.quantity -= 1;
+
     }
   }
 

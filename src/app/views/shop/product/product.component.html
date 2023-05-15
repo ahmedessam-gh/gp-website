@@ -162,7 +162,7 @@
       </div> -->
 
       <app-main-button
-        (click)="addToCart(myprod)"
+        (click)="addToCart(allprod)"
         class="buttons mx-3"
         class="orderButton"
         iconLeft="cart-shopping"
@@ -180,17 +180,17 @@
       <div class="py-4">
         <label class="productLabel py-3"> Select Your Quantity : </label>
         <div class="input-number">
-          <button class="minus" (click)="minus(allprod)">-</button>
+          <button class="minus" (click)="minus()">-</button>
           <input
             readonly
             type="number"
             id="quantity"
-            [(ngModel)]="quantity"
+            [(ngModel)]="allprod.quantity"
             value="1"
             min="1"
             max="20"
           />
-          <button class="plus" (click)="plus(allprod)">+</button>
+          <button class="plus" (click)="plus()">+</button>
         </div>
       </div>
       <div *ngIf="myprod.quantity > 0" class="inStock">IN STOCK</div>
