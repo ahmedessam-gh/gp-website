@@ -17,33 +17,105 @@
             </button>
 
             <div class="collapse show" id="categories-collapse">
-              <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
+              <ul
+                class="btn-toggle-nav list-unstyled fw-normal small px-3"
+                *ngFor="let categoryFilter of filters.categories"
+              >
                 <li class="position-relative"></li>
 
                 <li class="position-relative">
                   <label
-                    for="accessories"
+                    for="{{ categoryFilter }}"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >Accessories</label
+                    >{{ categoryFilter }}</label
                   >
                   <input
                     type="radio"
-                    id="accessories"
-                    value="accessories"
+                    id="{{ categoryFilter }}"
+                    value="{{ categoryFilter }}"
                     formControlName="category"
+                  />
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
+              data-bs-toggle="collapse"
+              data-bs-target="#filterPrice-collapse"
+              aria-expanded="true"
+            >
+              <h5>Minimum Price</h5>
+            </button>
+            <div class="collapse show" id="filterPrice-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
+                <li class="position-relative">
+                  <label
+                    for="p1"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >100-</label
+                  >
+                  <input
+                    type="radio"
+                    id="p1"
+                    formControlName="MaxPrice"
+                    value="100"
+                  />
+                </li>
+                <li class="position-relative">
+                  <input
+                    type="radio"
+                    id="p2"
+                    formControlName="MaxPrice"
+                    value="200"
+                  />
+
+                  <label
+                    for="p2"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >200-</label
+                  >
+                </li>
+                <li class="position-relative">
+                  <input
+                    type="radio"
+                    formControlName="MaxPrice"
+                    id="p3"
+                    value="300"
+                  />
+
+                  <label
+                    for="p3"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >300-</label
+                  >
+                </li>
+                <li class="position-relative">
+                  <label
+                    for="p4"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >400-</label
+                  >
+                  <input
+                    type="radio"
+                    formControlName="MaxPrice"
+                    id="p4"
+                    value="400"
                   />
                 </li>
                 <li class="position-relative">
                   <label
-                    for="shoes"
+                    for="p5"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >Shoes</label
+                    >500-</label
                   >
                   <input
                     type="radio"
-                    id="shoes"
-                    formControlName="category"
-                    value="shoes"
+                    id="p5"
+                    formControlName="MaxPrice"
+                    value="500"
                   />
                 </li>
               </ul>
@@ -696,7 +768,10 @@
             </div>
           </div>
         </div>
+<<<<<<< Updated upstream
         <div *ngIf="!newProds">No prods here</div>
+=======
+>>>>>>> Stashed changes
         <div *ngIf="newProds">
           <div
             class="card col-xl-4 col-md-4 col-6"
@@ -706,7 +781,11 @@
                   : {
                       itemsPerPage: pageSize,
                       currentPage: pageNumber,
+<<<<<<< Updated upstream
                       totalItems: count
+=======
+                      totalItems: 4
+>>>>>>> Stashed changes
                     };
               let i = index
             "
@@ -715,8 +794,13 @@
             data-aos-duration="100"
           >
             <app-productbox
+<<<<<<< Updated upstream
               [product]="newProd.product"
               [rating]="newProd.avgRate"
+=======
+              [product]="newProd?.product"
+              [rating]="newProd?.avgRate"
+>>>>>>> Stashed changes
             ></app-productbox>
           </div>
           <pagination-controls
@@ -730,6 +814,10 @@
           >
           </pagination-controls>
         </div>
+<<<<<<< Updated upstream
+=======
+        <div *ngIf="!newProds">NO PRODUCTS HERE</div>
+>>>>>>> Stashed changes
       </div>
     </div>
   </div>

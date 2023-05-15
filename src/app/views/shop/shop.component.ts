@@ -18,12 +18,17 @@ import 'slick-carousel';
 export class ShopComponent implements OnInit {
   newProds?: any;
   pageSize: number = 1;
+  filters: any;
   filterForm: FormGroup;
   showFilter: boolean = false;
   pageNumber: number = 1;
   sendPage: FormGroup;
   selectedOption: string;
+<<<<<<< Updated upstream
   count?: number;
+=======
+  count: number = 0;
+>>>>>>> Stashed changes
   constructor(
     private fb: FormBuilder,
     private prod: ProdService,
@@ -32,6 +37,9 @@ export class ShopComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.prod.getCategory().subscribe((data) => {
+      this.filters = data;
+    });
     Aos.init();
     this.filterForm = this.fb.group({
       type: [''],
@@ -49,14 +57,16 @@ export class ShopComponent implements OnInit {
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize)
       .set('Gender', this.filterForm.value['type'])
+<<<<<<< Updated upstream
       .set('MaxPrice', this.filterForm.value['MaxPrice'])
       .set('MinPrice', this.filterForm.value['MinPrice']);
+=======
+      .set('Category', this.filterForm.value['category']);
+>>>>>>> Stashed changes
 
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data;
-      this.count = this.newProds[0].count;
 
-      console.log(this.count);
       this.filterForm = this.fb.group({
         type: [''],
         MinPrice: [''],
@@ -79,8 +89,12 @@ export class ShopComponent implements OnInit {
       .set('Gender', this.filterForm.value['type'])
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize)
+<<<<<<< Updated upstream
       .set('MaxPrice', this.filterForm.value['MaxPrice'])
       .set('MinPrice', this.filterForm.value['MinPrice']);
+=======
+      .set('Category', this.filterForm.value['category']);
+>>>>>>> Stashed changes
 
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data;
@@ -103,12 +117,22 @@ export class ShopComponent implements OnInit {
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize)
       .set('Gender', this.filterForm.value['type'])
+<<<<<<< Updated upstream
       .set('MaxPrice', this.filterForm.value['MaxPrice'])
       .set('MinPrice', this.filterForm.value['MinPrice']);
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data;
       this.count = this.newProds[0].count;
+=======
+      .set('Category', this.filterForm.value['category']);
+>>>>>>> Stashed changes
 
+    this.prod.getShop(params).subscribe((data) => {
+      if (data) {
+        this.newProds = data as any;
+      } else {
+        this.newProds = null;
+      }
       this.filterForm = this.fb.group({
         type: [this.filterForm.value['type'] || ''],
         MinPrice: [this.filterForm.value['MinPrice'] || ''],

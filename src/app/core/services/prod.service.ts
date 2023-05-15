@@ -691,8 +691,10 @@ export class ProdService {
         })
       );
   }
-  getProdsQuantity(id: number){
-    return this.http.get(`${this.URL}${apiEndpoints.products.getProductDetails(id)}`);
+  getProdsQuantity(id: number) {
+    return this.http.get(
+      `${this.URL}${apiEndpoints.products.getProductDetails(id)}`
+    );
   }
 
   getRatings(id: number) {
@@ -714,5 +716,9 @@ export class ProdService {
           console.log(res);
         })
       );
+  }
+
+  getCategory() {
+    return this.http.get(`${this.URL}${apiEndpoints.products.getCategories}`);
   }
 }
