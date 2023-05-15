@@ -50,19 +50,18 @@ export class ProductComponent implements OnInit {
     private ngbService: NgbService,
     private customer: CustomerService,
     private auth: AuthService
-  ) { }
+  ) {}
 
   async ngOnInit() {
-  
     this.showUserList();
     this.prodid = this.ActivatedRoute.snapshot.paramMap.get('prodid');
     // this.prod.getShop().subscribe((carouselprod) => {
     //   this.prods = carouselprod;
     // });
-    this.prod.getProdsQuantity(this.prodid).subscribe((data)=>{
+    this.prod.getProdsQuantity(this.prodid).subscribe((data) => {
       this.prodWithQuantity = data;
       console.log(this.prodWithQuantity.quantity);
-    })
+    });
     this.prod.getProds(this.prodid).subscribe((data) => {
       this.myprod = data;
       this.questions = this.myprod.questions;
@@ -169,12 +168,6 @@ export class ProductComponent implements OnInit {
   addToFav(product: Prod, event) {
     this.prod.addToFav(product, event);
     // this.getFavourites();
-  }
-
-  onSizeChanged(prod: Prod) {
-    const newProd = { ...prod };
-    newProd.size = prod.size;
-    newProd.id = `${prod.id}_${prod.size}`;
   }
 
   showRatingForms() {

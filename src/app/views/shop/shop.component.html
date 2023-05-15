@@ -57,7 +57,7 @@
               data-bs-target="#filterPrice-collapse"
               aria-expanded="true"
             >
-              <h5>Maximum Price</h5>
+              <h5>Minimum Price</h5>
             </button>
             <div class="collapse show" id="filterPrice-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
@@ -136,12 +136,94 @@
               type="button"
               class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
               data-bs-toggle="collapse"
-              data-bs-target="#size-collapse"
+              data-bs-target="#filtermax-collapse"
+              aria-expanded="true"
+            >
+              <h5>Maximum Price</h5>
+            </button>
+            <div class="collapse show" id="filtermax-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
+                <li class="position-relative">
+                  <label
+                    for="p1"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >100-</label
+                  >
+                  <input
+                    type="radio"
+                    id="p1"
+                    formControlName="MaxPrice"
+                    value="100"
+                  />
+                </li>
+                <li class="position-relative">
+                  <input
+                    type="radio"
+                    id="p2"
+                    formControlName="MaxPrice"
+                    value="200"
+                  />
+
+                  <label
+                    for="p2"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >200-</label
+                  >
+                </li>
+                <li class="position-relative">
+                  <input
+                    type="radio"
+                    formControlName="MaxPrice"
+                    id="p3"
+                    value="300"
+                  />
+
+                  <label
+                    for="p3"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >300-</label
+                  >
+                </li>
+                <li class="position-relative">
+                  <label
+                    for="p4"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >400-</label
+                  >
+                  <input
+                    type="radio"
+                    formControlName="MaxPrice"
+                    id="p4"
+                    value="400"
+                  />
+                </li>
+                <li class="position-relative">
+                  <label
+                    for="p5"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >500-</label
+                  >
+                  <input
+                    type="radio"
+                    id="p5"
+                    formControlName="MaxPrice"
+                    value="500"
+                  />
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
+              data-bs-toggle="collapse"
+              data-bs-target="#gender-collapse"
               aria-expanded="true"
             >
               <h5>Gender</h5>
             </button>
-            <div class="collapse show" id="size-collapse">
+            <div class="collapse show" id="gender-collapse">
               <ul
                 class="custom-sizes btn-toggle-nav list-unstyled fw-normal small px-3"
               >
@@ -168,17 +250,7 @@
             </div>
           </li>
 
-          <li>
-            <button
-              type="button"
-              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
-              data-bs-toggle="collapse"
-              data-bs-target="#color-collapse"
-              aria-expanded="true"
-            >
-              <h5>Color</h5>
-            </button>
-            <!-- <div class="collapse show" id="color-collapse">
+          <!-- <div class="collapse show" id="color-collapse">
               <ul
                 class="custom-radios btn-toggle-nav list-unstyled fw-normal small px-3"
               >
@@ -254,7 +326,6 @@
                 </li>
               </ul>
             </div> -->
-          </li>
 
           <hr />
           <ul class="list-unstyled">
@@ -625,38 +696,40 @@
             </div>
           </div>
         </div>
-
-        <div
-          class="card col-xl-4 col-md-4 col-6"
-          *ngFor="
-            let newProd of newProds
-              | paginate
-                : {
-                    itemsPerPage: pageSize,
-                    currentPage: pageNumber,
-                    totalItems: count
-                  };
-            let i = index
-          "
-          data-aos="fade-up"
-          data-aos-once="true"
-          data-aos-duration="100"
-        >
-          <app-productbox
-            [product]="newProd.product"
-            [rating]="newProd.avgRate"
-          ></app-productbox>
+        <div *ngIf="!newProds">No prods here</div>
+        <div *ngIf="newProds">
+          <div
+            class="card col-xl-4 col-md-4 col-6"
+            *ngFor="
+              let newProd of newProds
+                | paginate
+                  : {
+                      itemsPerPage: pageSize,
+                      currentPage: pageNumber,
+                      totalItems: count
+                    };
+              let i = index
+            "
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-duration="100"
+          >
+            <app-productbox
+              [product]="newProd.product"
+              [rating]="newProd.avgRate"
+            ></app-productbox>
+          </div>
+          <pagination-controls
+            class="my-pagination"
+            (pageChange)="changePage($event)"
+            previousLabel="Previous"
+            nextLabel="Next"
+            screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page"
+          >
+          </pagination-controls>
         </div>
-        <pagination-controls
-          class="my-pagination"
-          (pageChange)="changePage($event)"
-          previousLabel="Previous"
-          nextLabel="Next"
-          screenReaderPaginationLabel="Pagination"
-          screenReaderPageLabel="page"
-          screenReaderCurrentLabel="You're on page"
-        >
-        </pagination-controls>
       </div>
     </div>
   </div>
