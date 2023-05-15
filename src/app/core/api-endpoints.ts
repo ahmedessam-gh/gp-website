@@ -17,13 +17,14 @@ export const apiEndpoints = {
     deletePhoto: 'Auth/DeletePhoto',
   },
   carts: {
-    getCustomerCart :(pNum :number,pSize :number) => `Carts/GetCustomerCart?PageNumber=${pNum}&PageSize=${pSize}`,
+    getCustomerCart: (pNum: number, pSize: number) =>
+      `Carts/GetCustomerCart?PageNumber=${pNum}&PageSize=${pSize}`,
     getOrderSummary: 'Carts/GetOrderSummary',
     payWithCash: 'Carts/paywithCash',
-    payWithCredit : 'Carts/paywithCredit',
+    payWithCredit: 'Carts/paywithCredit',
     // incrementQuantity: (id: number) => `Carts/IncrementQuantity/${id}`,
     // decrementQuantity: (id: number) => `Carts/DecrementQuantity${id}`,
-    incrementQuantity:  `Carts/IncrementQuantity`,
+    incrementQuantity: `Carts/IncrementQuantity`,
     decrementQuantity: `Carts/DecrementQuantity`,
     removeFromCart: (id: number) => `Carts/RemoveFromCart?productId=${id}`,
     cancelOrder: (id: number) => `Carts/CancelOrder/${id}`,
@@ -51,6 +52,7 @@ export const apiEndpoints = {
     getProductDetails: `Products/GetProductDetails`,
     searchProducts: `Products/SearchProducts`,
     getSuspendedProducts: 'Products/GetSuspendedProducts?searchTerm=',
+    getCategories: 'Products/GetCategories',
   },
   productsReports: {
     getAllReports: 'ProductsReports/GetAllReports',

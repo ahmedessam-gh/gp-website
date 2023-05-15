@@ -16,14 +16,19 @@ import 'slick-carousel';
   styleUrls: ['./shop.component.css'],
 })
 export class ShopComponent implements OnInit {
-  newProds;
+  newProds?: any;
   pageSize: number = 1;
+  filters: any;
   filterForm: FormGroup;
   showFilter: boolean = false;
   pageNumber: number = 1;
   sendPage: FormGroup;
   selectedOption: string;
-  count: number;
+<<<<<<< Updated upstream
+  count?: number;
+=======
+  count: number = 0;
+>>>>>>> Stashed changes
   constructor(
     private fb: FormBuilder,
     private prod: ProdService,
@@ -32,54 +37,40 @@ export class ShopComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.prod.getCategory().subscribe((data) => {
+      this.filters = data;
+    });
     Aos.init();
     this.filterForm = this.fb.group({
       type: [''],
       MinPrice: [''],
-      price: [''],
+      MaxPrice: [''],
       category: [''],
     });
     this.changePage(this.pageNumber);
   }
 
-  getCategory(optionValue) {
-    // If the clicked option is already selected, uncheck it
-    if (this.selectedOption == optionValue) this.selectedOption = '';
-    else {
-      // Otherwise, select the clicked option
-      this.selectedOption = optionValue;
-
-      console.log(this.selectedOption);
-    }
-  }
-  getPrice(event) {
-    if (!Array.isArray(this.filterForm.value['price'])) {
-      this.filterForm.value['price'] = []; // Initialize as an empty array
-    }
-    let removeindex = this.filterForm.value['price'].indexOf(
-      event.target.value
-    );
-    if (event.target.checked)
-      this.filterForm.value['price'].push(event.target.value);
-    else if (removeindex !== -1)
-      this.filterForm.value['price'].splice(removeindex, 1);
-  }
-
   clearAllFilters() {
     const params = new HttpParams()
+      .set('category', this.filterForm.value['category'])
+
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize)
-      .set('Gender', this.filterForm.value['type']);
+      .set('Gender', this.filterForm.value['type'])
+<<<<<<< Updated upstream
+      .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      .set('MinPrice', this.filterForm.value['MinPrice']);
+=======
+      .set('Category', this.filterForm.value['category']);
+>>>>>>> Stashed changes
 
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data;
-      this.count = this.newProds[0].count;
 
-      console.log(this.count);
       this.filterForm = this.fb.group({
         type: [''],
         MinPrice: [''],
-        price: [''],
+        MaxPrice: [''],
         category: [''],
       });
     });
@@ -94,9 +85,16 @@ export class ShopComponent implements OnInit {
     const filters = this.filterForm.value;
 
     const params = new HttpParams()
+      .set('category', this.filterForm.value['category'])
       .set('Gender', this.filterForm.value['type'])
       .set('pageNumber', this.pageNumber)
-      .set('pageSize', this.pageSize);
+      .set('pageSize', this.pageSize)
+<<<<<<< Updated upstream
+      .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      .set('MinPrice', this.filterForm.value['MinPrice']);
+=======
+      .set('Category', this.filterForm.value['category']);
+>>>>>>> Stashed changes
 
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data;
@@ -114,17 +112,31 @@ export class ShopComponent implements OnInit {
     console.log(this.pageNumber);
 
     const params = new HttpParams()
+      .set('category', this.filterForm.value['category'])
+
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize)
-      .set('Gender', this.filterForm.value['type']);
+      .set('Gender', this.filterForm.value['type'])
+<<<<<<< Updated upstream
+      .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      .set('MinPrice', this.filterForm.value['MinPrice']);
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data;
       this.count = this.newProds[0].count;
+=======
+      .set('Category', this.filterForm.value['category']);
+>>>>>>> Stashed changes
 
+    this.prod.getShop(params).subscribe((data) => {
+      if (data) {
+        this.newProds = data as any;
+      } else {
+        this.newProds = null;
+      }
       this.filterForm = this.fb.group({
         type: [this.filterForm.value['type'] || ''],
         MinPrice: [this.filterForm.value['MinPrice'] || ''],
-        price: [this.filterForm.value['MaxPrice'] || ''],
+        MaxPrice: [this.filterForm.value['MaxPrice'] || ''],
         category: [this.filterForm.value['category'] || ''],
       });
       console.log(this.newProds);

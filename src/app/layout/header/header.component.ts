@@ -23,6 +23,7 @@ import { Location } from '@angular/common';
 import { product } from 'src/app/core/interfaces/product';
 import { SearchService } from 'src/app/core/services/search.service';
 import { HttpParams } from '@angular/common/http';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -45,6 +46,7 @@ export class HeaderComponent implements OnInit {
   ActivatedRoute: any;
   userList = false;
   searchedProd: product[];
+  searchNone: string = '';
   toggler(): void {
     this.collapsed = !this.collapsed;
     const nav = document.getElementById('lower-nav');
@@ -107,7 +109,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onSearchInput() {
-    // const params = new HttpParams().set('searchTerm', this.searchText);
+    const params = new HttpParams().set('searchTerm', this.searchText);
 
     if (this.searchText === '') {
       this.showSuggetions = true;
@@ -115,10 +117,19 @@ export class HeaderComponent implements OnInit {
     } else {
       this.showSuggetions = false;
       this.showResults = true;
-
-      // this.search.getSearchProds(params).subscribe((data) => {
-      //   this.searchedProd = data as product[];
-      // });
+      this.search
+        .getSearchProds(params)
+        .pipe(debounceTime(5000)) // Adjust the delay duration as needed (in milliseconds)
+        .subscribe(
+          (data) => {
+            this.searchedProd = data as product[];
+            console.log(this.searchedProd);
+          },
+          (error) => {
+            this.searchNone = error.error;
+            console.log(this.searchNone);
+          }
+        );
     }
   }
 

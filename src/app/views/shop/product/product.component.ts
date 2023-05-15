@@ -16,7 +16,6 @@ import { rating } from 'src/app/core/interfaces/rating';
 import { throws } from 'assert';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { product } from 'src/app/core/interfaces/product';
-import { HttpParams } from '@angular/common/http';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -43,8 +42,6 @@ export class ProductComponent implements OnInit {
   userList: boolean = false;
   errors: string = '';
   prodWithQuantity: any;
-  quantity: any;
-  allprod: Object;
   constructor(
     private cart: CartService,
     private prod: ProdService,
@@ -61,12 +58,12 @@ export class ProductComponent implements OnInit {
     // this.prod.getShop().subscribe((carouselprod) => {
     //   this.prods = carouselprod;
     // });
-    const param = new HttpParams().set('id', this.prodid);
-    this.prod.getProds(param).subscribe((data) => {
-      this.allprod = data;
-      this.myprod = (data as any).product;
-      this.quantity = (data as any).quantity;
-      console.log(this.myprod);
+    this.prod.getProdsQuantity(this.prodid).subscribe((data) => {
+      this.prodWithQuantity = data;
+      console.log(this.prodWithQuantity.quantity);
+    });
+    this.prod.getProds(this.prodid).subscribe((data) => {
+      this.myprod = data;
       this.questions = this.myprod.questions;
       this.addQuestions = this.fb.group({
         productId: [this.myprod.productId],
@@ -101,7 +98,6 @@ export class ProductComponent implements OnInit {
 
   addToCart(prod: any) {
     this.customer.addToCart(prod).subscribe();
-    console.log(prod);
   }
   showUserList() {
     if (this.auth.getUser()) {
@@ -172,12 +168,6 @@ export class ProductComponent implements OnInit {
   addToFav(product: Prod, event) {
     this.prod.addToFav(product, event);
     // this.getFavourites();
-  }
-
-  onSizeChanged(prod: Prod) {
-    const newProd = { ...prod };
-    newProd.size = prod.size;
-    newProd.id = `${prod.id}_${prod.size}`;
   }
 
   showRatingForms() {

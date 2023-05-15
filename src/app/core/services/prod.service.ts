@@ -11,7 +11,6 @@ import { product } from '../interfaces/product';
 })
 export class ProdService {
   product: Prod[];
-  productWithQ;
   URL = apiEndpoints.baseUrl;
 
   favourites: any = [];
@@ -678,24 +677,25 @@ export class ProdService {
       { params }
     );
   }
-  getProds(param:HttpParams) {
+  getProds(id: number) {
     return this.http
-      .get(`${this.URL}${apiEndpoints.products.getProductDetails}`,{ params: param })
-      // .pipe(
-      //   map((data: any[]) => {
-      //     console.log(data);
-      //     const productsArray = Object.values(data);
-      //     const product = productsArray.find(
-      //       (prod: any) => prod.productId == id
-      //     );
-      //     console.log(product);
-      //     return product || null;
-      //   })
-     // );
+      .get(`${this.URL}${apiEndpoints.products.getProductDetails(id)}`)
+      .pipe(
+        map((data: any[]) => {
+          const productsArray = Object.values(data);
+          const product = productsArray.find(
+            (prod: any) => prod.productId == id
+          );
+          console.log(product);
+          return product || null;
+        })
+      );
   }
-  // getProdsQuantity(id: number){
-  //   return this.http.get(`${this.URL}${apiEndpoints.products.getProductDetails(id)}`);
-  // }
+  getProdsQuantity(id: number) {
+    return this.http.get(
+      `${this.URL}${apiEndpoints.products.getProductDetails(id)}`
+    );
+  }
 
   getRatings(id: number) {
     return this.http.get(
@@ -716,5 +716,9 @@ export class ProdService {
           console.log(res);
         })
       );
+  }
+
+  getCategory() {
+    return this.http.get(`${this.URL}${apiEndpoints.products.getCategories}`);
   }
 }
