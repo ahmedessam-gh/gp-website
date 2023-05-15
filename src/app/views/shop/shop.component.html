@@ -17,10 +17,7 @@
             </button>
 
             <div class="collapse show" id="categories-collapse">
-              <ul
-                class="btn-toggle-nav list-unstyled fw-normal small px-3"
-                
-              >
+              <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
                 <li class="position-relative"></li>
 
                 <li class="position-relative">
@@ -39,88 +36,7 @@
               </ul>
             </div>
           </li>
-          <li>
-            <button
-              type="button"
-              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
-              data-bs-toggle="collapse"
-              data-bs-target="#filterPrice-collapse"
-              aria-expanded="true"
-            >
-              <h5>Minimum Price</h5>
-            </button>
-            <div class="collapse show" id="filterPrice-collapse">
-              <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
-                <li class="position-relative">
-                  <label
-                    for="p1"
-                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >100-</label
-                  >
-                  <input
-                    type="radio"
-                    id="p1"
-                    formControlName="MaxPrice"
-                    value="100"
-                  />
-                </li>
-                <li class="position-relative">
-                  <input
-                    type="radio"
-                    id="p2"
-                    formControlName="MaxPrice"
-                    value="200"
-                  />
 
-                  <label
-                    for="p2"
-                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >200-</label
-                  >
-                </li>
-                <li class="position-relative">
-                  <input
-                    type="radio"
-                    formControlName="MaxPrice"
-                    id="p3"
-                    value="300"
-                  />
-
-                  <label
-                    for="p3"
-                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >300-</label
-                  >
-                </li>
-                <li class="position-relative">
-                  <label
-                    for="p4"
-                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >400-</label
-                  >
-                  <input
-                    type="radio"
-                    formControlName="MaxPrice"
-                    id="p4"
-                    value="400"
-                  />
-                </li>
-                <li class="position-relative">
-                  <label
-                    for="p5"
-                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >500-</label
-                  >
-                  <input
-                    type="radio"
-                    id="p5"
-                    formControlName="MaxPrice"
-                    value="500"
-                  />
-                </li>
-              </ul>
-            </div>
-          </li>
           <li>
             <button
               type="button"
@@ -769,10 +685,7 @@
           </div>
         </div>
 
-        <!-- <div *ngIf="!newProds">No prods here</div> -->
-
-
-        <div >
+        <div *ngIf="newProds.length > 0">
           <div
             class="card col-xl-4 col-md-4 col-6"
             *ngFor="
@@ -805,7 +718,7 @@
           >
           </pagination-controls>
         </div>
-        <!-- <div *ngIf="!newProds">NO PRODUCTS HERE</div> -->
+        <div *ngIf="newProds.length == 0">NO PRODUCTS HERE</div>
       </div>
     </div>
   </div>

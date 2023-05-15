@@ -16,7 +16,7 @@ import 'slick-carousel';
   styleUrls: ['./shop.component.css'],
 })
 export class ShopComponent implements OnInit {
-  newProds;
+  newProds?: any;
   pageSize: number = 1;
   filterForm: FormGroup;
   showFilter: boolean = false;
@@ -38,7 +38,7 @@ export class ShopComponent implements OnInit {
     this.filterForm = this.fb.group({
       type: [''],
       MinPrice: [''],
-      price: [''],
+      MaxPrice: [''],
       category: [''],
     });
     this.changePage(this.pageNumber);
@@ -68,25 +68,30 @@ export class ShopComponent implements OnInit {
   }
 
   clearAllFilters() {
+    this.filterForm = this.fb.group({
+      type: [''],
+      MinPrice: [''],
+      MaxPrice: [''],
+      category: [''],
+    });
     const params = new HttpParams()
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize)
 
-      // .set('Gender', this.filterForm.value['type'])
-      // .set('MaxPrice', this.filterForm.value['MaxPrice'])
-      // .set('MinPrice', this.filterForm.value['MinPrice'])
-      // .set('Category', this.filterForm.value['category']);
-
+      .set('Gender', this.filterForm.value['type'])
+      .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      .set('MinPrice', this.filterForm.value['MinPrice'])
+      .set('Category', this.filterForm.value['category']);
 
     this.prod.getShop(params).subscribe((data) => {
-      this.newProds = data;
-      this.count = this.newProds[0].count;
+      this.newProds = data.productsWithAvgRates;
+      this.count = data.count;
 
       console.log(this.count);
       this.filterForm = this.fb.group({
         type: [''],
         MinPrice: [''],
-        price: [''],
+        MaxPrice: [''],
         category: [''],
       });
     });
@@ -101,16 +106,17 @@ export class ShopComponent implements OnInit {
     const filters = this.filterForm.value;
 
     const params = new HttpParams()
-      // .set('Gender', this.filterForm.value['type'])
+      .set('Gender', this.filterForm.value['type'])
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize)
-      // .set('MaxPrice', this.filterForm.value['MaxPrice'])
-      // .set('MinPrice', this.filterForm.value['MinPrice'])
-      // .set('Category', this.filterForm.value['category']);
-
+      .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      .set('MinPrice', this.filterForm.value['MinPrice'])
+      .set('Category', this.filterForm.value['category']);
 
     this.prod.getShop(params).subscribe((data) => {
-      this.newProds = data;
+      this.newProds = data.productsWithAvgRates;
+      this.count = data.count;
+
       console.log(this.newProds);
     });
     console.log(filters);
@@ -126,21 +132,20 @@ export class ShopComponent implements OnInit {
 
     const params = new HttpParams()
       .set('pageNumber', this.pageNumber)
-      .set('pageSize', this.pageSize);
-      // .set('Category', this.filterForm.value['category'])
-      // .set('Gender', this.filterForm.value['type'])
-      // .set('MaxPrice', this.filterForm.value['MaxPrice'])
-      // .set('MinPrice', this.filterForm.value['MinPrice']);
+      .set('pageSize', this.pageSize)
+      .set('Category', this.filterForm.value['category'])
+      .set('Gender', this.filterForm.value['type'])
+      .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      .set('MinPrice', this.filterForm.value['MinPrice']);
     this.prod.getShop(params).subscribe((data) => {
-      this.newProds = data;
-      this.count = this.newProds[0].count;
-      
-
+      this.newProds = data.productsWithAvgRates;
+      // this.count = this.newProds[0].count;
+      this.count = data.count;
 
       this.filterForm = this.fb.group({
         type: [this.filterForm.value['type'] || ''],
         MinPrice: [this.filterForm.value['MinPrice'] || ''],
-        price: [this.filterForm.value['MaxPrice'] || ''],
+        MaxPrice: [this.filterForm.value['MaxPrice'] || ''],
         category: [this.filterForm.value['category'] || ''],
       });
       console.log(this.newProds);
