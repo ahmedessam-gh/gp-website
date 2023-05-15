@@ -19,20 +19,20 @@
             <div class="collapse show" id="categories-collapse">
               <ul
                 class="btn-toggle-nav list-unstyled fw-normal small px-3"
-                *ngFor="let categoryFilter of filters.categories"
+                
               >
                 <li class="position-relative"></li>
 
                 <li class="position-relative">
                   <label
-                    for="{{ categoryFilter }}"
+                    for="cat"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >{{ categoryFilter }}</label
+                    >cat</label
                   >
                   <input
                     type="radio"
-                    id="{{ categoryFilter }}"
-                    value="{{ categoryFilter }}"
+                    id="cat"
+                    value="cat"
                     formControlName="category"
                   />
                 </li>
@@ -768,11 +768,11 @@
             </div>
           </div>
         </div>
-<<<<<<< Updated upstream
-        <div *ngIf="!newProds">No prods here</div>
-=======
->>>>>>> Stashed changes
-        <div *ngIf="newProds">
+
+        <!-- <div *ngIf="!newProds">No prods here</div> -->
+
+
+        <div >
           <div
             class="card col-xl-4 col-md-4 col-6"
             *ngFor="
@@ -781,11 +781,7 @@
                   : {
                       itemsPerPage: pageSize,
                       currentPage: pageNumber,
-<<<<<<< Updated upstream
                       totalItems: count
-=======
-                      totalItems: 4
->>>>>>> Stashed changes
                     };
               let i = index
             "
@@ -794,13 +790,8 @@
             data-aos-duration="100"
           >
             <app-productbox
-<<<<<<< Updated upstream
-              [product]="newProd.product"
-              [rating]="newProd.avgRate"
-=======
               [product]="newProd?.product"
               [rating]="newProd?.avgRate"
->>>>>>> Stashed changes
             ></app-productbox>
           </div>
           <pagination-controls
@@ -814,10 +805,7 @@
           >
           </pagination-controls>
         </div>
-<<<<<<< Updated upstream
-=======
-        <div *ngIf="!newProds">NO PRODUCTS HERE</div>
->>>>>>> Stashed changes
+        <!-- <div *ngIf="!newProds">NO PRODUCTS HERE</div> -->
       </div>
     </div>
   </div>

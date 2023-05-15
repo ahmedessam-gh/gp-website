@@ -72,10 +72,10 @@ export class ShopComponent implements OnInit {
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize)
 
-      .set('Gender', this.filterForm.value['type'])
-      .set('MaxPrice', this.filterForm.value['MaxPrice'])
-      .set('MinPrice', this.filterForm.value['MinPrice'])
-      .set('Category', this.filterForm.value['category']);
+      // .set('Gender', this.filterForm.value['type'])
+      // .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      // .set('MinPrice', this.filterForm.value['MinPrice'])
+      // .set('Category', this.filterForm.value['category']);
 
 
     this.prod.getShop(params).subscribe((data) => {
@@ -101,12 +101,12 @@ export class ShopComponent implements OnInit {
     const filters = this.filterForm.value;
 
     const params = new HttpParams()
-      .set('Gender', this.filterForm.value['type'])
+      // .set('Gender', this.filterForm.value['type'])
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize)
-      .set('MaxPrice', this.filterForm.value['MaxPrice'])
-      .set('MinPrice', this.filterForm.value['MinPrice'])
-      .set('Category', this.filterForm.value['category']);
+      // .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      // .set('MinPrice', this.filterForm.value['MinPrice'])
+      // .set('Category', this.filterForm.value['category']);
 
 
     this.prod.getShop(params).subscribe((data) => {
@@ -126,11 +126,11 @@ export class ShopComponent implements OnInit {
 
     const params = new HttpParams()
       .set('pageNumber', this.pageNumber)
-      .set('pageSize', this.pageSize)
-      .set('Category', this.filterForm.value['category'])
-      .set('Gender', this.filterForm.value['type'])
-      .set('MaxPrice', this.filterForm.value['MaxPrice'])
-      .set('MinPrice', this.filterForm.value['MinPrice']);
+      .set('pageSize', this.pageSize);
+      // .set('Category', this.filterForm.value['category'])
+      // .set('Gender', this.filterForm.value['type'])
+      // .set('MaxPrice', this.filterForm.value['MaxPrice'])
+      // .set('MinPrice', this.filterForm.value['MinPrice']);
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data;
       this.count = this.newProds[0].count;
