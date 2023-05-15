@@ -41,6 +41,7 @@ export const apiEndpoints = {
     editCustomerProfile: 'Customers/EditCustomerProfile',
     viewVendorProfile: 'Customers/ViewVendorProfile',
     editVendorProfile: 'Customers/EditVendorProfile',
+    deletCustomerCart: 'Customers/DeleteCustomerCart'
   },
   productsActions: {
     productsActions: (threshold: string) =>
