@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from 'src/app/core/services/orders.service';
-import { order } from 'src/app/core/interfaces/order';
+import { order, orderData } from 'src/app/core/interfaces/order';
+import { HttpParams } from '@angular/common/http';
 @Component({
   selector: 'app-my-orders',
   templateUrl: './my-orders.component.html',
   styleUrls: ['./my-orders.component.css'],
 })
 export class MyOrdersComponent implements OnInit {
-  myOrders: order[] = [];
+  myOrders?: orderData[];
+  count: number;
   p: any;
+  pageNumber: number = 1;
+  pageSize: number = 5;
   constructor(private orders: OrdersService) {}
 
   ngOnInit(): void {
-    this.myOrders = this.orders.orders;
+    this.getOrders(this.pageNumber);
   }
   //noFavItems() {
   // const tableContainer2 = document.getElementById('ordersContainer');
@@ -25,4 +29,18 @@ export class MyOrdersComponent implements OnInit {
   //     noFavsDiv.classList.add('d-none');
   //   }
   // }
+  getOrders(pageNum) {
+    this.pageNumber = pageNum;
+    const param = new HttpParams()
+      .set('PageNumber', this.pageNumber)
+      .set('PageSize', this.pageSize);
+    this.orders.getOrders(param).subscribe((data) => {
+      this.myOrders = (data as order).productsWithAvgRates;
+      this.count = (data as order).count;
+      for (let i = 0; i < this.myOrders.length; i++) {
+        const dateTime = this.myOrders[i].dateTime;
+        this.myOrders[i].dateTime = dateTime.substring(0, 10);
+      }
+    });
+  }
 }

@@ -41,12 +41,14 @@ export class HeaderComponent implements OnInit {
   searchQuery = '';
   cartProducts: cart[] = [];
   newProd: any;
+  shopFilter: string = 'Men';
   collapsed = true;
   nativeElement: any;
   ActivatedRoute: any;
   userList = false;
   searchedProd: product[];
   searchNone: string = '';
+  newFilter: any;
   toggler(): void {
     this.collapsed = !this.collapsed;
     const nav = document.getElementById('lower-nav');
@@ -62,12 +64,21 @@ export class HeaderComponent implements OnInit {
     private elementrf: ElementRef,
     private cart: CartService,
     private auth: AuthService,
-    private location: Location
+    private location: Location,
+    private prod: ProdService
   ) {}
 
   ngOnInit(): void {
     // this.cartProducts = this.cart.getCart();
     this.showUserList();
+  }
+
+  setFilter() {
+    const params = new HttpParams().append('Gender', this.shopFilter);
+
+    this.prod.getShop(params).subscribe((data) => {
+      this.newFilter = data.productsWithAvgRates;
+    });
   }
   showUserList() {
     if (this.auth.getUser()) {

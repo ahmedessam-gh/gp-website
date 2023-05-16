@@ -1,9 +1,13 @@
-export class order {
-  orderNumber: Number;
-  orderDate: string;
+export interface order {
+  count: number;
+  productsWithAvgRates: orderData[];
+}
+
+export interface orderData {
+  orderId: number;
   totalPrice: number;
   status: string;
-  orderArrival: string;
+  dateTime: string;
   paymentMethod: string;
   quantity: number;
 }

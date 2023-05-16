@@ -17,20 +17,23 @@ export const apiEndpoints = {
     deletePhoto: 'Auth/DeletePhoto',
   },
   carts: {
-    getCustomerCart :(pNum :number,pSize :number) => `Carts/GetCustomerCart?PageNumber=${pNum}&PageSize=${pSize}`,
+    getCustomerCart: (pNum: number, pSize: number) =>
+      `Carts/GetCustomerCart?PageNumber=${pNum}&PageSize=${pSize}`,
     getOrderSummary: 'Carts/GetOrderSummary',
     payWithCash: 'Carts/paywithCash',
-    payWithCredit : 'Carts/paywithCredit',
-    stripeToken : 'Carts/testPaywithCredit',
+    payWithCredit: 'Carts/paywithCredit',
+    stripeToken: 'Carts/testPaywithCredit',
     // incrementQuantity: (id: number) => `Carts/IncrementQuantity/${id}`,
     // decrementQuantity: (id: number) => `Carts/DecrementQuantity${id}`,
-    incrementQuantity:  `Carts/IncrementQuantity`,
+    incrementQuantity: `Carts/IncrementQuantity`,
     decrementQuantity: `Carts/DecrementQuantity`,
     removeFromCart: (id: number) => `Carts/RemoveFromCart?productId=${id}`,
     cancelOrder: (id: number) => `Carts/CancelOrder/${id}`,
     testPay: 'Carts/testPay',
   },
   customers: {
+    getOrderDetails: 'Customers/getOrderDetails',
+    getCustomerOrders: 'Customers/GetCustomerOrders',
     rateProduct: 'Customers/RateProduct',
     addToWishList: 'Customers/addToWishList',
     deleteFromWishList: 'Customers/DeleteFromWishList',
@@ -41,7 +44,7 @@ export const apiEndpoints = {
     editCustomerProfile: 'Customers/EditCustomerProfile',
     viewVendorProfile: 'Customers/ViewVendorProfile',
     editVendorProfile: 'Customers/EditVendorProfile',
-    deletCustomerCart: 'Customers/DeleteCustomerCart'
+    deletCustomerCart: 'Customers/DeleteCustomerCart',
   },
   productsActions: {
     productsActions: (threshold: string) =>

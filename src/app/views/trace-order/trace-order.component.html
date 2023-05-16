@@ -2,13 +2,13 @@
   <article class="card">
     <h1 class="card-header">Your Order Status</h1>
     <div class="card-body" *ngIf="myOrders">
-      <h6>Order Number : {{ myOrders.orderNumber }}</h6>
+      <h6>Order Number : {{ myOrders.orderId }}</h6>
       <article class="card">
         <div class="card-body row">
           <div class="col-6 col-xl-3 py-2">
             <strong> <fa-icon icon="calendar"></fa-icon> Order Date: </strong>
             <br />
-            <p>{{ myOrders.orderDate }}</p>
+            <p>{{ myOrders.dateTime }}</p>
           </div>
           <div class="col-6 col-xl-3 py-2">
             <strong>
@@ -25,61 +25,55 @@
           </div>
           <div class="col-6 col-xl-3 py-2">
             <strong>
-              <fa-icon icon="truck"> </fa-icon>
-              Expected Arrival Date:</strong
+              <fa-icon icon="shop"> </fa-icon>
+              Total Order Quantity:</strong
             >
             <br />
-            <p>{{ myOrders.orderArrival }}</p>
+            <p>{{ myOrders.quantity }}</p>
           </div>
         </div>
       </article>
       <div class="track">
         <div class="step active">
           <span class="icon"><fa-icon icon="user"> </fa-icon> </span>
-          <span class="text">Order Placed </span>
+          <span class="text">Pending </span>
         </div>
 
-        <div class="step" *ngIf="myOrders.status == 'Order Placed'">
+        <div class="step" *ngIf="myOrders.status == 'Pending'">
           <span class="icon"> <fa-icon icon="bread-slice"></fa-icon> </span>
-          <span class="text"> Preparing Order</span>
+          <span class="text"> Confirmed</span>
         </div>
         <div
           class="step active"
           *ngIf="
-            myOrders.status == 'Preparing Order' ||
-            myOrders.status == 'Out for delivery' ||
+            myOrders.status == 'Confirmed' ||
+            myOrders.status == 'Shipped' ||
             myOrders.status == 'Delivered'
           "
         >
           <span class="icon"> <fa-icon icon="bread-slice"></fa-icon> </span>
-          <span class="text"> Preparing Order</span>
+          <span class="text"> Confirmed</span>
         </div>
         <div
           class="step"
-          *ngIf="
-            myOrders.status == 'Preparing Order' ||
-            myOrders.status == 'Order Placed'
-          "
+          *ngIf="myOrders.status == 'Confirmed' || myOrders.status == 'Pending'"
         >
           <span class="icon"><fa-icon icon="truck"> </fa-icon></span>
-          <span class="text"> Out for delivery </span>
+          <span class="text"> Shipped </span>
         </div>
         <div
           class="step active"
-          *ngIf="
-            myOrders.status == 'Out for delivery' ||
-            myOrders.status == 'Delivered'
-          "
+          *ngIf="myOrders.status == 'Shipped' || myOrders.status == 'Delivered'"
         >
           <span class="icon"><fa-icon icon="truck"> </fa-icon></span>
-          <span class="text"> Out for delivery </span>
+          <span class="text"> Shipped </span>
         </div>
         <div
           class="step"
           *ngIf="
-            myOrders.status == 'Preparing Order' ||
-            myOrders.status == 'Order Placed' ||
-            myOrders.status == 'Out for delivery'
+            myOrders.status == 'Confirmed' ||
+            myOrders.status == 'Pending' ||
+            myOrders.status == 'Shipped'
           "
         >
           <span class="icon">
