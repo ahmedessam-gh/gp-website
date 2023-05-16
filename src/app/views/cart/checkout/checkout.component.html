@@ -31,16 +31,17 @@
                                 <div class="mt-3 mb-3">
                                     <label for="">Address</label>
                                     <input type="text" formControlName="address" class="form-control my-2"
-                                        placeholder="address ...">
+                                        placeholder="Address ...">
 
                                 </div>
                                 <div class="">
                                     <label for="">Phone</label>
                                     <input type="text" formControlName="phone" class="form-control col-md-6 my-2"
-                                        placeholder="First Name ...">
+                                        placeholder="Phone Number ...">
                                 </div>
+                                
                             </div>
-                            <div class="step">
+                            <div class="step w-100">
                                 <div class="steps">
                                     <h5>STEP 2 : Choose your payment method</h5>
                                 </div>
@@ -115,7 +116,7 @@
 
                 </div>
                 <div
-                    class="col-md-5 d-flex flex-column justify-content-between checkoutPlaceOrder position-relative ps-0 ">
+                    class="col-md-5 p-0 d-flex flex-column justify-content-between checkoutPlaceOrder position-relative ps-0 ">
                     <div>
                         <h5 style="color: var(--main-color);font-size: 1.6rem;" class="my-3 text-center">Your Order</h5>
                         <table class="table table-borderless w-75 m-auto">
@@ -141,11 +142,15 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="placeOrderBtn mb-4">
-                        <app-main-button type="submit" (click)="placeOrder()" borderRadius="0%" width="100%"
-                            content="Place Order"></app-main-button>
+                  
+                    
+                    <div class="placeOrderBtn mb-4 w-100">
+                        <div class="errorOrder" *ngIf="submitted && orderForm.invalid">
+                            <p style="color: red;font-size: 0.85rem;">please fill your information and choose a payment method to proceed to checkout</p>
+                        </div>
+                        <app-main-button type="submit" style="width: 80%;" (click)="placeOrder(orderForm)" borderRadius="0%" width="100%"
+                            content="Place Order" ></app-main-button>
                     </div>
-
                 </div>
             </div>
 

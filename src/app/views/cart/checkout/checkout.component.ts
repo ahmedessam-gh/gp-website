@@ -43,6 +43,8 @@ export class CheckoutComponent implements OnInit {
   clientSecret: any;
   modifiedClientSecret: any;
   creditChecked: string;
+  submitted=false;
+  ngbService: any;
   constructor(private cart: CartService, private fb: FormBuilder, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
@@ -125,7 +127,9 @@ export class CheckoutComponent implements OnInit {
       this.cardCvC.update({ disabled: true });
     }
   }
-  placeOrder() {
+  placeOrder(form) {
+    
+    this.submitted = true;
     if (this.orderForm.valid) {
       if (this.orderForm.get('method').value == 'credit') {
         this.cart.payWithCredit(this.orderForm.value).subscribe((clientSecret) => {
@@ -150,11 +154,20 @@ export class CheckoutComponent implements OnInit {
       } else if (this.orderForm.get('method').value == 'cash') {
         this.cart.payWithCash(this.orderForm.value).subscribe((res) => {
           console.log('cash payment success');
+          
         });
+
       }
+      
+
     }
 
 
+  }
+  showStandard(review, form) {
+    if (form.valid) {
+      this.ngbService.show(review, {});
+    }
   }
   //
   setActive() {
