@@ -9,7 +9,13 @@
 >
   <div
     *ngFor="
-      let order of myOrders | paginate : { itemsPerPage: 4, currentPage: p };
+      let order of myOrders
+        | paginate
+          : {
+              itemsPerPage: pageSize,
+              currentPage: pageNumber,
+              totalItems: count
+            };
       let i = index
     "
   >
@@ -36,15 +42,15 @@
             <span
               class="py-1 ongoing-class"
               *ngIf="
-                order.status == 'Order Placed' ||
-                order.status === 'Preparing Order' ||
-                order.status === 'Out for delivery'
+                order.status == 'Pending' ||
+                order.status == 'Shipped' ||
+                order.status == 'Confirmed'
               "
             >
               {{ order.status }}</span
             >
 
-            <span class="py-1 failed-class" *ngIf="order.status == 'Failed'">
+            <span class="py-1 failed-class" *ngIf="order.status == 'Cancelled'">
               {{ order.status }}</span
             >
           </p>
@@ -54,7 +60,7 @@
           <div class="d-flex flex-start">
             <p class="card-title d-flex flex-column">
               <label> order No.</label
-              ><span class="py-1"> #{{ order.orderNumber }}</span>
+              ><span class="py-1"> #{{ order.orderId }}</span>
             </p>
           </div>
           <p class="card-title d-flex flex-column">
@@ -63,7 +69,7 @@
           </p>
           <p class="card-title d-flex flex-column">
             <label> Ordered On </label>
-            <span class="py-1"> {{ order.orderDate }}</span>
+            <span class="py-1"> {{ order.dateTime }}</span>
           </p>
         </div>
 
@@ -72,7 +78,7 @@
           iconLeft="shipping-fast"
           class="traceB"
           id="app-button"
-          [routerLink]="['/trace-order', order.orderNumber]"
+          [routerLink]="['/trace-order', order.orderId]"
         ></app-main-button>
       </div>
     </div>
@@ -80,7 +86,7 @@
   <div class="paginationCustom">
     <pagination-controls
       class="my-pagination"
-      (pageChange)="p = $event"
+      (pageChange)="getOrders($event)"
       previousLabel="Previous"
       nextLabel="Next"
       screenReaderPaginationLabel="Pagination"

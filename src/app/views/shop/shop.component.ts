@@ -77,13 +77,13 @@ export class ShopComponent implements OnInit {
     });
     const params = new HttpParams()
       .set('pageNumber', this.pageNumber)
-      .set('pageSize', this.pageSize)
+      .set('pageSize', this.pageSize);
 
-      .set('Gender', this.filterForm.value['type'])
-      .set('MaxPrice', this.filterForm.value['MaxPrice'])
-      .set('MinPrice', this.filterForm.value['MinPrice'])
-      .set('Category', this.filterForm.value['category'])
-      .set('SearchTerm', this.searchTerm);
+    // .set('Gender', this.filterForm.value['type'])
+    // .set('MaxPrice', this.filterForm.value['MaxPrice'])
+    // .set('MinPrice', this.filterForm.value['MinPrice'])
+    // .set('Category', this.filterForm.value['category'])
+    // .set('SearchTerm', this.searchTerm);
 
     this.prod.getShop(params).subscribe((data) => {
       this.newProds = data.productsWithAvgRates;
@@ -137,7 +137,7 @@ export class ShopComponent implements OnInit {
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize)
       .set('Category', this.filterForm.value['category'])
-      .set('Gender', this.filterForm.value['type'])
+      // .set('Gender', this.filterForm.value['type'])
       .set('MaxPrice', this.filterForm.value['MaxPrice'])
       .set('MinPrice', this.filterForm.value['MinPrice'])
       .set('SearchTerm', this.searchTerm);
