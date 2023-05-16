@@ -28,8 +28,7 @@ export const apiEndpoints = {
     incrementQuantity: `Carts/IncrementQuantity`,
     decrementQuantity: `Carts/DecrementQuantity`,
     removeFromCart: (id: number) => `Carts/RemoveFromCart?productId=${id}`,
-    cancelOrder: (id: number) => `Carts/CancelOrder/${id}`,
-    testPay: 'Carts/testPay',
+    cancelOrder: `Carts/CancelOrder`,
   },
   customers: {
     getOrderDetails: 'Customers/getOrderDetails',

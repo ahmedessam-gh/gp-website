@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OrdersService } from 'src/app/core/services/orders.service';
 import { order, orderData } from 'src/app/core/interfaces/order';
 import { HttpParams } from '@angular/common/http';
+import { CartService } from 'src/app/core/services/cart.service';
+import { NgbService } from 'src/app/core/services/ngb.service';
 @Component({
   selector: 'app-my-orders',
   templateUrl: './my-orders.component.html',
@@ -13,7 +15,15 @@ export class MyOrdersComponent implements OnInit {
   p: any;
   pageNumber: number = 1;
   pageSize: number = 5;
-  constructor(private orders: OrdersService) {}
+  orderId: any;
+  cancelToaster: string = '';
+  errors: any;
+
+  constructor(
+    private orders: OrdersService,
+    private cart: CartService,
+    private ngbService: NgbService
+  ) {}
 
   ngOnInit(): void {
     this.getOrders(this.pageNumber);
@@ -42,5 +52,19 @@ export class MyOrdersComponent implements OnInit {
         this.myOrders[i].dateTime = dateTime.substring(0, 10);
       }
     });
+  }
+
+  cancelOrder(orderId, message) {
+    this.orderId = orderId;
+    const param = new HttpParams().set('orderId', this.orderId);
+    this.orders.cancelOrder(param).subscribe(
+      (data) => {
+        console.log(this.orderId);
+      },
+      (error) => {
+        this.errors = error.error;
+      }
+    );
+    this.ngbService.show(message);
   }
 }

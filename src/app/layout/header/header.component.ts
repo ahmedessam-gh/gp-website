@@ -159,9 +159,4 @@ export class HeaderComponent implements OnInit {
         );
     }
   }
-
-  searchtexttest() {
-    console.log(this.searchText);
-  }
-  ngOnDestroy() {}
 }

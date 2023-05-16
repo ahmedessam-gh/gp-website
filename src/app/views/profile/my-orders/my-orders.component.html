@@ -72,14 +72,35 @@
             <span class="py-1"> {{ order.dateTime }}</span>
           </p>
         </div>
-
-        <app-main-button
-          content="Track Order"
-          iconLeft="shipping-fast"
-          class="traceB"
-          id="app-button"
-          [routerLink]="['/trace-order', order.orderId]"
-        ></app-main-button>
+        <div class="d-flex justify-content-between">
+          <app-main-button
+            content="Track Order"
+            iconLeft="shipping-fast"
+            class="traceB"
+            id="app-button"
+            [routerLink]="['/trace-order', order.orderId]"
+          ></app-main-button>
+          <label class="pt-3"
+            >*note: you can't cancel your order after being confirmed</label
+          >
+          <app-main-button
+            *ngIf="order.status != 'Pending'"
+            content="Cancel Order"
+            iconLeft="cancel"
+            class="px-3"
+            id="app-button"
+            [disabledBtn]="true"
+          ></app-main-button>
+          <app-main-button
+            *ngIf="order.status == 'Pending'"
+            content="Cancel Order"
+            iconLeft="cancel"
+            class="px-3"
+            id="app-button"
+            (click)="cancelOrder(order.orderId, 'order cancelled succesfully')"
+          ></app-main-button>
+        </div>
+        <app-toaster></app-toaster>
       </div>
     </div>
   </div>

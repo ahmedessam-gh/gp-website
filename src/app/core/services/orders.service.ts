@@ -23,4 +23,10 @@ export class OrdersService {
       { params }
     );
   }
+
+  cancelOrder(params: HttpParams): Observable<any> {
+    return this.http.put(`${this.URL}${apiEndpoints.carts.cancelOrder}`, '', {
+      params,
+    });
+  }
 }

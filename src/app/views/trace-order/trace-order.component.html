@@ -33,7 +33,7 @@
           </div>
         </div>
       </article>
-      <div class="track">
+      <div *ngIf="myOrders.status != 'Cancelled'" class="track">
         <div class="step active">
           <span class="icon"><fa-icon icon="user"> </fa-icon> </span>
           <span class="text">Pending </span>
@@ -89,6 +89,11 @@
           ></span>
           <span class="text">Delivered</span>
         </div>
+      </div>
+      <div *ngIf="myOrders.status == 'Cancelled'">
+        <h1 class="cancelorder py-3">
+          You have cancelled this order previously
+        </h1>
       </div>
       <hr />
       <ul class="row">
