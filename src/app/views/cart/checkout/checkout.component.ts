@@ -67,8 +67,8 @@ export class CheckoutComponent implements OnInit {
       this.orderForm = this.fb.group({
         address: [this.orderDetails['address'] || '', Validators.required],
         phone: [this.orderDetails['phone'] || '', Validators.required],
-        method: [''],
-        name: [''],
+        method: ['',Validators.required],
+        name: ['',Validators.required],
       });
     });
     this.orderTotal = await this.cart.totalPrice();
@@ -133,7 +133,7 @@ export class CheckoutComponent implements OnInit {
       this.cardCvC.update({ disabled: true });
     }
   }
-  placeOrder(form) {
+  placeOrder() {
     
     this.submitted = true;
     if (this.orderForm.valid) {
