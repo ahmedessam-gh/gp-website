@@ -46,16 +46,19 @@ legend {
 /*payment method*/
 .paymentCont {
     overflow: hidden;
-    box-shadow: 1px 1px 5px;
+    box-shadow: 1px 1px 3px;
     border-radius: 10px;
-    background-color: rgb(205,234,215);
-    
+    background-color: rgb(255, 255, 255); 
+    margin-left: 10px;
 }
-
+/* .ElementsApp::ng-deep .InputElement{
+    pointer-events: none !important;
+    cursor: none !important;
+} */
 .billingDetails {
     position: relative;
     overflow: hidden;
-    height: 500px;
+    height: 450px;
 
 }
 
