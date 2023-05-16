@@ -148,8 +148,9 @@
                         <div class="errorOrder" *ngIf="submitted && orderForm.invalid">
                             <p style="color: red;font-size: 0.85rem;">please fill your information and choose a payment method to proceed to checkout</p>
                         </div>
-                        <app-main-button type="submit" style="width: 80%;" (click)="placeOrder()" borderRadius="0%" width="100%"
+                        <app-main-button type="submit" style="width: 80%;" (click)="placeOrder('Payment Success')" borderRadius="0%" width="100%"
                             content="Place Order" ></app-main-button>
+                            <app-toaster></app-toaster>
                     </div>
                 </div>
             </div>

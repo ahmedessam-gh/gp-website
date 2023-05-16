@@ -3,7 +3,7 @@
 
   <span class="pb-1"> {{ toastMessage }}</span>
 </ng-template>
-<div class="basictoaster" style="z-index: 1200">
+<div class="basictoaster mt-2" style="z-index: 1200">
   <ngb-toast
     *ngFor="let toast of ngbService.toasts"
     [class]="toast.classname"

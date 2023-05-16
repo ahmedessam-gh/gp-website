@@ -18,6 +18,7 @@ import {
   loadStripe,
 } from '@stripe/stripe-js';
 import { Router } from '@angular/router';
+import { NgbService } from 'src/app/core/services/ngb.service';
 
 @Component({
   selector: 'app-checkout',
@@ -54,11 +55,11 @@ export class CheckoutComponent implements OnInit {
   cardErrors: any;
   clientSecret: any;
   modifiedClientSecret: any;
- 
+
   creditChecked: string;
-  submitted=false;
-  ngbService: any;
-  constructor(private cart: CartService, private fb: FormBuilder, private router: Router) { }
+  submitted = false;
+  checkoutToastr: any;
+  constructor(private cart: CartService, private fb: FormBuilder, private router: Router, private ngb: NgbService) { }
 
   async ngOnInit(): Promise<void> {
     this.cart.getOrderDetails().subscribe((data) => {
@@ -67,12 +68,13 @@ export class CheckoutComponent implements OnInit {
       this.orderForm = this.fb.group({
         address: [this.orderDetails['address'] || '', Validators.required],
         phone: [this.orderDetails['phone'] || '', Validators.required],
-        method: ['',Validators.required],
-        name: ['',Validators.required],
+        method: ['', Validators.required],
+        name: ['', Validators.required],
       });
     });
     this.orderTotal = await this.cart.totalPrice();
     console.log(this.orderTotal);
+    // this.cashMethod();
     loadStripe(
       'pk_test_51N4OuSDz65k2SKUd7lEOmteETYa5cBdBWL3QVtibiLctz1t7LVoRTMBI7dR5PYtEsNZYnsZbTtR0Ec3p1imWqzqQ00J0j9kTO9'
     ).then((stripe) => {
@@ -128,15 +130,15 @@ export class CheckoutComponent implements OnInit {
 
     if (this.creditChecked === 'cash') {
       this.orderForm.get('name').disable();
-      this.cardNum.update({ disabled: true });
-      this.cardExp.update({ disabled: true });
-      this.cardCvC.update({ disabled: true });
+      // this.cardNum.update({ disabled: true })
+      // this.cardExp.update({ disabled: true });
+      // this.cardCvC.update({ disabled: true });
     }
   }
-  placeOrder() {
-    
+  placeOrder(toaster) {
+    this.checkoutToastr = toaster;
     this.submitted = true;
-    if (this.orderForm.valid) {
+    if (this.orderForm.valid && !this.cardErrors) {
       if (this.orderForm.get('method').value == 'credit') {
         this.cart.payWithCredit(this.orderForm.value).subscribe((clientSecret) => {
           this.clientSecret = clientSecret;
@@ -160,17 +162,19 @@ export class CheckoutComponent implements OnInit {
       } else if (this.orderForm.get('method').value == 'cash') {
         this.cart.payWithCash(this.orderForm.value).subscribe((res) => {
           console.log('cash payment success');
-          
+          this.router.navigate(['/shop']);
+
         });
 
       }
-      
+      this.ngb.show(this.checkoutToastr);
+
 
     }
 
 
   }
-  
+
   //
   setActive() {
     const billingContainer = document.getElementById('billingContainer');
