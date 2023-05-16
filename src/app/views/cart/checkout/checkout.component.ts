@@ -54,11 +54,11 @@ export class CheckoutComponent implements OnInit {
   cardErrors: any;
   clientSecret: any;
   modifiedClientSecret: any;
-  constructor(
-    private cart: CartService,
-    private fb: FormBuilder,
-    private router: Router
-  ) {}
+ 
+  creditChecked: string;
+  submitted=false;
+  ngbService: any;
+  constructor(private cart: CartService, private fb: FormBuilder, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
     this.cart.getOrderDetails().subscribe((data) => {
@@ -111,36 +111,66 @@ export class CheckoutComponent implements OnInit {
       }
     });
   }
-  //
-  payWithCredit() {}
-  //
-  placeOrder() {
-    this.cart.payWithCredit(this.orderForm.value).subscribe((clientSecret) => {
-      this.clientSecret = clientSecret;
-      console.log(this.clientSecret);
-      console.log('orderCreated');
-      this.stripe
-        ?.confirmCardPayment(this.clientSecret, {
-          payment_method: {
-            card: this.cardNum!,
-            billing_details: {
-              name: this.orderForm.get('name').value,
-            },
-          },
-        })
-        .then((res) => {
-          console.log(res);
-          // if(res.paymentIntent){
-          //   this.router.navigate(['/shop']);
-          // }
-        });
-    });
-    // if (this.orderForm.valid) {
-    //   this.cart.payWithCash(this.orderForm.value).subscribe();
-    // } else {
-    //   console.log('enter a valid data');
-    // }
+  //stripe placing order with cash or credit
+  removeDisabled() {
+    const credit = document.getElementById('method') as HTMLInputElement;
+    this.creditChecked = credit.value;
+    if (this.creditChecked === 'credit') {
+      this.orderForm.get('name').enable();
+      this.cardNum.update({ disabled: false });
+      this.cardExp.update({ disabled: false });
+      this.cardCvC.update({ disabled: false });
+    }
   }
+  cashMethod() {
+    const cash = document.getElementById('cash') as HTMLInputElement;
+    this.creditChecked = cash.value;
+
+    if (this.creditChecked === 'cash') {
+      this.orderForm.get('name').disable();
+      this.cardNum.update({ disabled: true });
+      this.cardExp.update({ disabled: true });
+      this.cardCvC.update({ disabled: true });
+    }
+  }
+  placeOrder(form) {
+    
+    this.submitted = true;
+    if (this.orderForm.valid) {
+      if (this.orderForm.get('method').value == 'credit') {
+        this.cart.payWithCredit(this.orderForm.value).subscribe((clientSecret) => {
+          this.clientSecret = clientSecret;
+          console.log(this.clientSecret);
+          console.log('orderCreated');
+          this.stripe?.confirmCardPayment(this.clientSecret, {
+            payment_method: {
+              card: this.cardNum!,
+              billing_details: {
+                name: this.orderForm.get('name').value,
+              }
+            }
+          }).then(res => {
+            console.log(res);
+            console.log('credit payment success');
+            if (res.paymentIntent) {
+              this.router.navigate(['/shop']);
+            }
+          })
+        });
+      } else if (this.orderForm.get('method').value == 'cash') {
+        this.cart.payWithCash(this.orderForm.value).subscribe((res) => {
+          console.log('cash payment success');
+          
+        });
+
+      }
+      
+
+    }
+
+
+  }
+  
   //
   setActive() {
     const billingContainer = document.getElementById('billingContainer');

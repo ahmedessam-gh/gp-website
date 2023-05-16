@@ -25,10 +25,13 @@ legend {
 
 .placeOrderBtn {
     position: relative;
-    bottom: 0%;
-    left: 50%;
+    /* bottom: 0%; */
+    /* left: 50%;
     width: 80%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
+    display: flex;
+    justify-content: center;
+   
 }
 
 .steps {
@@ -40,7 +43,11 @@ legend {
     font-size: 1.3em;
 }
 
-
+.errorOrder{
+  position: absolute;
+  bottom: 60px;
+width: 80%;
+}
 
 
 /*payment method*/
@@ -49,7 +56,7 @@ legend {
     box-shadow: 1px 1px 3px;
     border-radius: 10px;
     background-color: rgb(255, 255, 255); 
-    margin-left: 10px;
+    margin:0 1px;
 }
 /* .ElementsApp::ng-deep .InputElement{
     pointer-events: none !important;
