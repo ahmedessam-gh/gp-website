@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { cart } from '../interfaces/cart';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { apiEndpoints } from '../api-endpoints';
 import { Observable, map } from 'rxjs';
 import { orderDetails } from '../interfaces/orderDetails';
@@ -40,8 +40,8 @@ export class CartService {
   payWithCash(payUpdates:any){
     return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCash}`,payUpdates);
   }
-  payWithCredit(payUpdates:any){
-    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCredit}`,payUpdates);
+  payWithCredit(payUpdates:string){
+    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCredit}`,payUpdates,{responseType:'text'});
   }
   sendStripToken(stripeToken){
     return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.stripeToken}`,stripeToken);
