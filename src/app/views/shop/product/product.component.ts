@@ -45,6 +45,8 @@ export class ProductComponent implements OnInit {
   prodWithQuantity: any;
   quantity: any;
   allprod: any;
+  cartError: any;
+  favError: any;
   constructor(
     private cart: CartService,
     private prod: ProdService,
@@ -53,7 +55,7 @@ export class ProductComponent implements OnInit {
     private ngbService: NgbService,
     private customer: CustomerService,
     private auth: AuthService
-  ) { }
+  ) {}
 
   async ngOnInit() {
     this.showUserList();
@@ -104,10 +106,16 @@ export class ProductComponent implements OnInit {
     const data = {
       productId: prod.product.productId,
       quantity: prod.quantity,
-      isRent: true
-    }
-    this.customer.addToCart(data).subscribe();
-    console.log(data);
+      isRent: true,
+    };
+    this.customer.addToCart(data).subscribe(
+      (next) => {
+        console.log(data);
+      },
+      (error) => {
+        this.cartError = error.error;
+      }
+    );
   }
   showUserList() {
     if (this.auth.getUser()) {
@@ -173,12 +181,18 @@ export class ProductComponent implements OnInit {
       this.allprod.quantity;
     } else {
       this.allprod.quantity -= 1;
-
     }
   }
 
-  addToFav(productId:any) {
-    this.customer.addToWishList(productId).subscribe();
+  addToFav(productId: any) {
+    this.customer.addToWishList(productId).subscribe(
+      (next) => {
+        console.log(productId);
+      },
+      (error) => {
+        this.favError = error.error;
+      }
+    );
   }
 
   onSizeChanged(prod: Prod) {

@@ -41,14 +41,17 @@ export class HeaderComponent implements OnInit {
   searchQuery = '';
   cartProducts: cart[] = [];
   newProd: any;
-  shopFilter: string = 'Men';
+  shopFilter: string = '';
   collapsed = true;
   nativeElement: any;
   ActivatedRoute: any;
   userList = false;
-  searchedProd: product[];
+  searchedProd: any;
   searchNone: string = '';
   newFilter: any;
+  count: any;
+  genderParam: string;
+  prodLength: any;
   toggler(): void {
     this.collapsed = !this.collapsed;
     const nav = document.getElementById('lower-nav');
@@ -73,11 +76,22 @@ export class HeaderComponent implements OnInit {
     this.showUserList();
   }
 
-  setFilter() {
-    const params = new HttpParams().append('Gender', this.shopFilter);
-
+  setFilter(filter) {
+    this.shopFilter = filter;
+    const params = new HttpParams().set('Gender', this.shopFilter);
+    this.genderParam = params.get('Gender');
+    localStorage.setItem('gender', this.genderParam);
     this.prod.getShop(params).subscribe((data) => {
       this.newFilter = data.productsWithAvgRates;
+      this.count = data.count;
+      console.log(this.count);
+      console.log(this.newFilter);
+
+      const serializedData = JSON.stringify(this.newFilter);
+      localStorage.setItem('data', serializedData);
+
+      const countData = JSON.stringify(this.count);
+      localStorage.setItem('count', countData);
     });
   }
   showUserList() {
@@ -128,13 +142,15 @@ export class HeaderComponent implements OnInit {
     } else {
       this.showSuggetions = false;
       this.showResults = true;
-      this.search
-        .getSearchProds(params)
+      this.prod
+        .getShop(params)
         .pipe(debounceTime(5000)) // Adjust the delay duration as needed (in milliseconds)
         .subscribe(
           (data) => {
-            this.searchedProd = data as product[];
+            this.searchedProd = data.productsWithAvgRates;
             console.log(this.searchedProd);
+            this.prodLength = this.searchedProd.length;
+            console.log(this.prodLength);
           },
           (error) => {
             this.searchNone = error.error;

@@ -573,3 +573,10 @@
         display: none;
     }
 }
+
+.noprodfoundsearch{
+
+  color: var(--gray--color);
+  font-family: var(--main-font);
+  margin-left: 15px;
+}

@@ -173,7 +173,7 @@
       <ul class="navbar-nav navbar-ul">
         <li class="nav-item nav-li-dropdown">
           <a
-            (click)="setFilter()"
+            (click)="setFilter('Men')"
             routerLink="/shop"
             class="nav-link nav-line"
             [ngClass]="{
@@ -195,7 +195,8 @@
         </li>
         <li class="nav-item nav-li-dropdown">
           <a
-            href=""
+            (click)="setFilter('Women')"
+            routerLink="/shop"
             class="nav-link nav-line"
             [ngClass]="{
               navColorScrollLink: header.applyScrollStyling$ | async
@@ -518,7 +519,7 @@
               name="search"
               placeholder="Search"
               [(ngModel)]="searchText"
-              (change)="onSearchInput()"
+              (keyup)="onSearchInput()"
             />
           </div>
         </div>
@@ -533,15 +534,13 @@
           </ul>
         </div>
         <div class="search-results" *ngIf="showResults">
-          <div *ngIf="searchNone != ''">{{ searchNone }}</div>
-
-          <ul
-            class="navbar-nav py-2 px-5"
-            *ngFor="let pro of searchedProd | slice : 0 : 3"
-          >
-            <li *ngIf="searchNone == ''">
-              <a>
-                {{ pro.productName }}
+          <div class="px-1 noprodfoundsearch" *ngIf="prodLength == 0">
+            No Product Found
+          </div>
+          <ul class="navbar-nav py-2 px-5" *ngFor="let pro of searchedProd">
+            <li *ngIf="prodLength > 0">
+              <a [routerLink]="['/shop/product', pro.product.productId]">
+                {{ pro.product.productName }}
               </a>
             </li>
           </ul>

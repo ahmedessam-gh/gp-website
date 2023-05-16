@@ -1,6 +1,6 @@
 import { Error404Component } from './views/error404/error404.component';
 import { HomeComponent } from './views/home/home.component';
-import { Router, Routes, RouterModule,Scroll } from '@angular/router';
+import { Router, Routes, RouterModule, Scroll } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
@@ -70,19 +70,22 @@ const routes: Routes = [
 
   {
     path: 'error-404',
-    component:Error404Component
+    component: Error404Component,
   },
-  { path: 'shared', loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule) },
-  { path: 'spinner',component:SpinnerComponent},
+  {
+    path: 'shared',
+    loadChildren: () =>
+      import('./shared/shared.module').then((m) => m.SharedModule),
+  },
+  { path: 'spinner', component: SpinnerComponent },
   { path: '**', component: Error404Component },
-  
 ];
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled'}),//enableTracing: true ,
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }), //enableTracing: true ,
   ],
   exports: [RouterModule],
 })

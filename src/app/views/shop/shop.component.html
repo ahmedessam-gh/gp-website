@@ -711,18 +711,21 @@
           </div>
           <div class="paginationCustom">
             <pagination-controls
-            class="my-pagination"
-            (pageChange)="changePage($event)"
-            previousLabel="Previous"
-            nextLabel="Next"
-            screenReaderPaginationLabel="Pagination"
-            screenReaderPageLabel="page"
-            screenReaderCurrentLabel="You're on page"
-          >
-          </pagination-controls>
+              class="my-pagination"
+              (pageChange)="changePage($event)"
+              previousLabel="Previous"
+              nextLabel="Next"
+              screenReaderPaginationLabel="Pagination"
+              screenReaderPageLabel="page"
+              screenReaderCurrentLabel="You're on page"
+            >
+            </pagination-controls>
           </div>
         </div>
-        <div *ngIf="newProds.length == 0">NO PRODUCTS HERE</div>
+        <div class="shopnoprod" *ngIf="newProds.length == 0">
+          <fa-icon icon="shop"></fa-icon>
+          NO PRODUCTS FOUND
+        </div>
       </div>
     </div>
   </div>
