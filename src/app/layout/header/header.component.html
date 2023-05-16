@@ -173,7 +173,8 @@
       <ul class="navbar-nav navbar-ul">
         <li class="nav-item nav-li-dropdown">
           <a
-            href="#"
+            (click)="setFilter()"
+            routerLink="/shop"
             class="nav-link nav-line"
             [ngClass]="{
               navColorScrollLink: header.applyScrollStyling$ | async
