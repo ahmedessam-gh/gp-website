@@ -42,7 +42,8 @@ export class CheckoutComponent implements OnInit {
   cardErrors: any;
   clientSecret: any;
   modifiedClientSecret: any;
-  constructor(private cart: CartService, private fb: FormBuilder,private router:Router) { }
+  creditChecked: string;
+  constructor(private cart: CartService, private fb: FormBuilder, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
     this.cart.getOrderDetails().subscribe((data) => {
@@ -51,32 +52,38 @@ export class CheckoutComponent implements OnInit {
       this.orderForm = this.fb.group({
         address: [this.orderDetails['address'] || '', Validators.required],
         phone: [this.orderDetails['phone'] || '', Validators.required],
-        method: [''],
-        name:['']
+        method: ['', Validators.required],
+        name: ['', Validators.required]
       })
     })
     this.orderTotal = await this.cart.totalPrice();
     console.log(this.orderTotal);
+    this.orderForm.get('name').disable();
+
+    //stripe pk defining and creating input elements from stripe
     loadStripe('pk_test_51N4OuSDz65k2SKUd7lEOmteETYa5cBdBWL3QVtibiLctz1t7LVoRTMBI7dR5PYtEsNZYnsZbTtR0Ec3p1imWqzqQ00J0j9kTO9').then(stripe => {
       this.stripe = stripe;
       const elements = stripe?.elements();
       if (elements) {
         this.cardNum = elements.create('cardNumber');
         this.cardNum.mount(this.cardNumber?.nativeElement);
-        this.cardNum.on('change',event=>{
-          if(event.error){
+        this.cardNum.update({ disabled: true });
+        this.cardNum.on('change', event => {
+          if (event.error) {
             this.cardErrors = event.error.message;
-          }else{
+          } else {
             this.cardErrors = null;
           }
         })
 
         this.cardExp = elements.create('cardExpiry');
         this.cardExp.mount(this.cardExpiry?.nativeElement);
-        this.cardExp.on('change',event=>{
-          if(event.error){
+        this.cardExp.update({ disabled: true });
+
+        this.cardExp.on('change', event => {
+          if (event.error) {
             this.cardErrors = event.error.message;
-          }else{
+          } else {
             this.cardErrors = null;
           }
         })
@@ -84,45 +91,70 @@ export class CheckoutComponent implements OnInit {
 
         this.cardCvC = elements.create('cardCvc');
         this.cardCvC.mount(this.cardCvc?.nativeElement);
-        this.cardCvC.on('change',event=>{
-          if(event.error){
+        this.cardCvC.update({ disabled: true });
+
+        this.cardCvC.on('change', event => {
+          if (event.error) {
             this.cardErrors = event.error.message;
-          }else{
+          } else {
             this.cardErrors = null;
           }
         })
       }
     });
   }
-  //
-  payWithCredit() {
-   
+  //stripe placing order with cash or credit
+  removeDisabled() {
+    const credit = document.getElementById('method') as HTMLInputElement;
+    this.creditChecked = credit.value;
+    if (this.creditChecked === 'credit') {
+      this.orderForm.get('name').enable();
+      this.cardNum.update({ disabled: false });
+      this.cardExp.update({ disabled: false });
+      this.cardCvC.update({ disabled: false });
+    }
   }
-  //
+  cashMethod() {
+    const cash = document.getElementById('cash') as HTMLInputElement;
+    this.creditChecked = cash.value;
+
+    if (this.creditChecked === 'cash') {
+      this.orderForm.get('name').disable();
+      this.cardNum.update({ disabled: true });
+      this.cardExp.update({ disabled: true });
+      this.cardCvC.update({ disabled: true });
+    }
+  }
   placeOrder() {
-    this.cart.payWithCredit(this.orderForm.value).subscribe((clientSecret)=>{
-      this.clientSecret = clientSecret;
-      console.log(this.clientSecret);
-      console.log('orderCreated');
-      this.stripe?.confirmCardPayment(this.clientSecret,{
-        payment_method:{
-          card:this.cardNum!,
-          billing_details:{
-            name:this.orderForm.get('name').value,
-          }
-        }
-      }).then(res=>{
-        console.log(res);
-        // if(res.paymentIntent){
-        //   this.router.navigate(['/shop']);
-        // }
-      })
-    });
-    // if (this.orderForm.valid) {
-    //   this.cart.payWithCash(this.orderForm.value).subscribe();
-    // } else {
-    //   console.log('enter a valid data');
-    // }
+    if (this.orderForm.valid) {
+      if (this.orderForm.get('method').value == 'credit') {
+        this.cart.payWithCredit(this.orderForm.value).subscribe((clientSecret) => {
+          this.clientSecret = clientSecret;
+          console.log(this.clientSecret);
+          console.log('orderCreated');
+          this.stripe?.confirmCardPayment(this.clientSecret, {
+            payment_method: {
+              card: this.cardNum!,
+              billing_details: {
+                name: this.orderForm.get('name').value,
+              }
+            }
+          }).then(res => {
+            console.log(res);
+            console.log('credit payment success');
+            if (res.paymentIntent) {
+              this.router.navigate(['/shop']);
+            }
+          })
+        });
+      } else if (this.orderForm.get('method').value == 'cash') {
+        this.cart.payWithCash(this.orderForm.value).subscribe((res) => {
+          console.log('cash payment success');
+        });
+      }
+    }
+
+
   }
   //
   setActive() {
