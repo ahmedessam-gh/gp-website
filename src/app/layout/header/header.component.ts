@@ -24,6 +24,7 @@ import { product } from 'src/app/core/interfaces/product';
 import { SearchService } from 'src/app/core/services/search.service';
 import { HttpParams } from '@angular/common/http';
 import { debounceTime } from 'rxjs/operators';
+import { orderDetails } from 'src/app/core/interfaces/orderDetails';
 
 @Component({
   selector: 'app-header',
@@ -39,7 +40,7 @@ export class HeaderComponent implements OnInit {
   showSuggetions = true;
   showResults = false;
   searchQuery = '';
-  cartProducts: cart[] = [];
+  cartProducts: any[] = [];
   newProd: any;
   shopFilter: string = '';
   collapsed = true;
@@ -72,7 +73,10 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.cartProducts = this.cart.getCart();
+    this.cart.viewCart().subscribe((data)=>{
+      this.cartProducts = data['carts'];
+      console.log(this.cartProducts.length);
+    })
     this.showUserList();
   }
 

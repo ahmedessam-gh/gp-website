@@ -1,7 +1,7 @@
 import { CartService } from 'src/app/core/services/cart.service';
 import { Prod } from 'src/app/core/interfaces/Prod';
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ProdService } from 'src/app/core/services/prod.service';
 import {
   FormGroup,
@@ -56,7 +56,8 @@ export class ProductComponent implements OnInit {
     private fb: FormBuilder,
     private ngbService: NgbService,
     private customer: CustomerService,
-    private auth: AuthService
+    private auth: AuthService,
+    private cd:ChangeDetectorRef
   ) {}
 
   async ngOnInit() {
@@ -113,6 +114,7 @@ export class ProductComponent implements OnInit {
     };
     this.customer.addToCart(data).subscribe(
       (next) => {
+        
         console.log(data);
         this.ngbService.show(this.cartMsg);
       },

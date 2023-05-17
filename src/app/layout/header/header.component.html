@@ -360,6 +360,7 @@
         </div>
         <div class="head-end-icons position-relative">
           <fa-icon
+          *ngIf="userList"
             [ngClass]="{
               'header-icons-scroll': header.applyScrollStyling$ | async
             }"
@@ -367,9 +368,7 @@
             [routerLink]="['/cart']"
             routerLinkActive="router-link-active"
           ></fa-icon>
-          <span *ngIf="cartProducts.length != 0" class="badge custom-badge">{{
-            cartProducts.length
-          }}</span>
+          <span *ngIf="cartProducts.length != 0" class="badge custom-badge">{{cartProducts.length}}</span>
         </div>
       </div>
     </div>

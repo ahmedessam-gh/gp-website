@@ -12,8 +12,8 @@ export class CartService {
   order: any;
   orderTotal: number = 0
   constructor(private http: HttpClient) { }
-  viewCart(pNumber: number, pSize: number){
-    return this.http.get(`${apiEndpoints.baseUrl}${apiEndpoints.carts.getCustomerCart(pNumber, pSize)}`);
+  viewCart():Observable<any[]>{
+    return this.http.get<any[]>(`${apiEndpoints.baseUrl}${apiEndpoints.carts.getCustomerCart}`);
   }
   deleteCart(id) {
     return this.http.delete(`${apiEndpoints.baseUrl}${apiEndpoints.carts.removeFromCart(id)}`);

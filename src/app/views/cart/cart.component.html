@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="tableContainer">
-    <div class="row g-0" *ngFor="let cartProd of cartProducts | paginate:{itemsPerPage:pageSize,currentPage:pageNumber,totalItems:count}">
+    <div class="row g-0" *ngFor="let cartProd of cartProducts | paginate:{itemsPerPage:pageSize,currentPage:pageNumber}">
       <div class="prodInfo d-flex col-12 col-lg-6 mb-5 my-3">
         <img src="{{ cartProd.product.productImages[0].imageUrl}}" width="150px" height="150px" alt="" />
         <div class="content-cart ms-4">

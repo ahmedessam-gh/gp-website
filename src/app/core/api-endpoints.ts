@@ -17,8 +17,7 @@ export const apiEndpoints = {
     deletePhoto: 'Auth/DeletePhoto',
   },
   carts: {
-    getCustomerCart: (pNum: number, pSize: number) =>
-      `Carts/GetCustomerCart?PageNumber=${pNum}&PageSize=${pSize}`,
+    getCustomerCart: 'Carts/GetCustomerCart',
     getOrderSummary: 'Carts/GetOrderSummary',
     payWithCash: 'Carts/paywithCash',
     payWithCredit: 'Carts/paywithCredit',

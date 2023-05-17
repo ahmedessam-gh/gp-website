@@ -37,16 +37,16 @@ export class CartComponent implements OnInit {
 
   //
   ngOnInit(): void {
-    this.cart.viewCart(this.pageNumber, this.pageSize).subscribe((cart) => {
+    this.getCartItems();
+  }
+  getCartItems(){
+    this.cart.viewCart().subscribe((cart) => {
       this.cartProducts = cart['carts'];
-      this.changeDetector.detectChanges();
       console.log(this.cartProducts)
       this.totalPrice();
-      this.count = cart['count'];
-      console.log(this.count)
+      // this.count = cart['count'];
+      // console.log(this.count)
     });
-
-    
   }
   changePage(pageNum){
     this.pageNumber = pageNum;
