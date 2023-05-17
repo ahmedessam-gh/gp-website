@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { cart } from '../interfaces/cart';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { apiEndpoints } from '../api-endpoints';
-import { Observable, map } from 'rxjs';
+import { Observable, Subject, map } from 'rxjs';
 import { orderDetails } from '../interfaces/orderDetails';
 
 @Injectable({
@@ -10,8 +10,12 @@ import { orderDetails } from '../interfaces/orderDetails';
 })
 export class CartService {
   order: any;
-  orderTotal: number = 0
+  orderTotal: number = 0;
+  private total$ = new Subject<number>();
   constructor(private http: HttpClient) { }
+  getTotal(){
+    return this.getTotal()
+  }
   viewCart():Observable<any[]>{
     return this.http.get<any[]>(`${apiEndpoints.baseUrl}${apiEndpoints.carts.getCustomerCart}`);
   }

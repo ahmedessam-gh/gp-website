@@ -358,9 +358,8 @@
             </ul>
           </div>
         </div>
-        <div class="head-end-icons position-relative">
+        <div class="head-end-icons position-relative" *ngIf="userList">
           <fa-icon
-          *ngIf="userList"
             [ngClass]="{
               'header-icons-scroll': header.applyScrollStyling$ | async
             }"

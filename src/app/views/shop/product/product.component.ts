@@ -112,9 +112,9 @@ export class ProductComponent implements OnInit {
       quantity: prod.quantity,
       isRent: true,
     };
+    
     this.customer.addToCart(data).subscribe(
       (next) => {
-        
         console.log(data);
         this.ngbService.show(this.cartMsg);
       },

@@ -25,6 +25,7 @@ import { SearchService } from 'src/app/core/services/search.service';
 import { HttpParams } from '@angular/common/http';
 import { debounceTime } from 'rxjs/operators';
 import { orderDetails } from 'src/app/core/interfaces/orderDetails';
+import { CustomerService } from 'src/app/core/services/customer.service';
 
 @Component({
   selector: 'app-header',
@@ -69,17 +70,23 @@ export class HeaderComponent implements OnInit {
     private cart: CartService,
     private auth: AuthService,
     private location: Location,
-    private prod: ProdService
+    private prod: ProdService,
+    private customer:CustomerService
   ) {}
 
   ngOnInit(): void {
-    this.cart.viewCart().subscribe((data)=>{
-      this.cartProducts = data['carts'];
-      console.log(this.cartProducts.length);
+    this.customer.refetchData$().subscribe(()=>{
+     this.getCart();
     })
+   this.getCart();
     this.showUserList();
   }
-
+getCart(){
+  this.cart.viewCart().subscribe((data)=>{
+    this.cartProducts = data['carts'];
+    console.log(this.cartProducts.length);
+  })
+}
   setFilter(filter) {
     this.shopFilter = filter;
     const params = new HttpParams().set('Gender', this.shopFilter);
