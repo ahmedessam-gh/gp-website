@@ -1,5 +1,5 @@
 import { HttpParams } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { event } from 'jquery';
 import { Observable } from 'rxjs';
 import { Prod } from 'src/app/core/interfaces/Prod';
@@ -9,6 +9,8 @@ import { CartService } from 'src/app/core/services/cart.service';
 import { ProdService } from 'src/app/core/services/prod.service';
 import { StripeScriptTag } from 'stripe-angular';
 import { ViewportScroller } from '@angular/common';
+import { CustomerService } from 'src/app/core/services/customer.service';
+import { PaginationService } from 'src/app/core/services/pagination.service';
 
 @Component({
   selector: 'app-cart',
@@ -29,7 +31,7 @@ export class CartComponent implements OnInit {
   priceOfProduct: number;
   count:number;
 
-  constructor(private cart: CartService,private scroller:ViewportScroller) {
+  constructor(private cart: CartService,private paginationService:PaginationService,private scroller:ViewportScroller,private changeDetector:ChangeDetectorRef,private customer:CustomerService) {
     
   }
 
@@ -37,6 +39,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cart.viewCart(this.pageNumber, this.pageSize).subscribe((cart) => {
       this.cartProducts = cart['carts'];
+      this.changeDetector.detectChanges();
       console.log(this.cartProducts)
       this.totalPrice();
       this.count = cart['count'];
@@ -47,7 +50,8 @@ export class CartComponent implements OnInit {
   }
   changePage(pageNum){
     this.pageNumber = pageNum;
-    // this.scroller.getScrollPosition(;);
+    this.paginationService.emitPageChange();
+
   }
   //
   totalPrice() {
@@ -90,9 +94,10 @@ export class CartComponent implements OnInit {
 
   //
   clearCart() {
-
-    this.cartProducts.length = 0;
-    this.totalPrice();
+    this.customer.deleteCustomerCart().subscribe(()=>{
+      this.cartProducts=false;
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
   }
 
 

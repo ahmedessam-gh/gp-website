@@ -13,6 +13,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ScrollTopDirective } from 'src/app/core/directives/scroll-top.directive';
+import { PaginationService } from 'src/app/core/services/pagination.service';
 @NgModule({
   declarations: [CartComponent, CheckoutComponent],
   imports: [
@@ -23,6 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     NgxPaginationModule,
     ReactiveFormsModule,
+    
   ],
+ 
 })
 export class CartModule {}

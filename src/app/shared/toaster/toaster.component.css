@@ -1,29 +1,30 @@
-.toaster{
+.toaster {
 
   font-family: var(--main-color);
 }
-fa-icon{
 
-color: var(--hover-color);
+fa-icon {
+
+  color: var(--hover-color);
 }
 
 
-.content{
+.content {
   font-family: var(--main-font);
 }
 
-span{
+span {
 
 
   font-family: var(--main-font);
   color: var(--main-color);
 }
-.basictoaster{
-position: fixed;
-right: 0 ;
-top: 10%;
+
+.basictoaster {
+  position: fixed;
+  right: 0;
+  top: 10%;
 
 }
-@media screen and (max-width:796px){
 
-}
+@media screen and (max-width:796px) {}

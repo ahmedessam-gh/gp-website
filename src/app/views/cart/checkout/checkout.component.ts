@@ -75,7 +75,7 @@ export class CheckoutComponent implements OnInit {
     this.orderTotal = await this.cart.totalPrice();
     console.log(this.orderTotal);
     const cash = document.getElementById('cash');
- 
+
     cash.click();
     // this.cash.nativeElement.click();
     loadStripe(
@@ -120,7 +120,7 @@ export class CheckoutComponent implements OnInit {
         });
       }
     });
-    
+
   }
   //stripe placing order with cash or credit
   removeDisabled() {

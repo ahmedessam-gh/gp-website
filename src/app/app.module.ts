@@ -28,6 +28,7 @@ import { Error404Component } from './views/error404/error404.component';
 import { SharedModule } from './shared/shared.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { JwtInterceptor } from './core/Jwt-Interceptor/jwt.interceptor';
+import { ScrollTopDirective } from './core/directives/scroll-top.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { JwtInterceptor } from './core/Jwt-Interceptor/jwt.interceptor';
     FooterComponent,
     HeadFootComponent,
     Error404Component,
+    
      
   ],
   providers: [

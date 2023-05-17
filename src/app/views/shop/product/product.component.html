@@ -162,7 +162,7 @@
       </div> -->
 
       <app-main-button
-        (click)="addToCart(allprod)"
+        (click)="addToCart(allprod,'Product has been added to your cart')"
         class="buttons mx-3"
         class="orderButton"
         iconLeft="cart-shopping"
@@ -170,7 +170,7 @@
       ></app-main-button>
 
       <app-main-button
-        (click)="addToFav(myprod)"
+        (click)="addToFav(myprod,'Product has been added to your wishlist')"
         class="buttons mx-2"
         iconLeft="heart"
         content="Favorite"

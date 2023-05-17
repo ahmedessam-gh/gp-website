@@ -23,6 +23,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PaymentComponent } from './payment/payment.component';
+import { PaginationService } from '../core/services/pagination.service';
+import { ScrollTopDirective } from '../core/directives/scroll-top.directive';
 const sharedComponents = [
   ProductboxComponent,
   MainButtonComponent,
@@ -32,7 +34,8 @@ const sharedComponents = [
   CarouselComponent,
   ToasterComponent,
   PaymentComponent,
-  SpinnerComponent
+  SpinnerComponent,
+  ScrollTopDirective
 ];
 
 @NgModule({
@@ -49,5 +52,8 @@ const sharedComponents = [
     NgbTooltipModule,
   ],
   exports: [sharedComponents],
+  providers: [
+    PaginationService
+  ]
 })
 export class SharedModule {}

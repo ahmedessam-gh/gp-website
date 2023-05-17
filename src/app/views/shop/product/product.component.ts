@@ -47,6 +47,8 @@ export class ProductComponent implements OnInit {
   allprod: any;
   cartError: any;
   favError: any;
+  favMsg:string;
+  cartMsg:string;
   constructor(
     private cart: CartService,
     private prod: ProdService,
@@ -102,7 +104,8 @@ export class ProductComponent implements OnInit {
     // });
   }
 
-  addToCart(prod: any) {
+  addToCart(prod: any,msg) {
+    this.cartMsg = msg
     const data = {
       productId: prod.product.productId,
       quantity: prod.quantity,
@@ -111,6 +114,7 @@ export class ProductComponent implements OnInit {
     this.customer.addToCart(data).subscribe(
       (next) => {
         console.log(data);
+        this.ngbService.show(this.cartMsg);
       },
       (error) => {
         this.cartError = error.error;
@@ -184,10 +188,12 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  addToFav(productId: any) {
+  addToFav(productId: any,msg) {
+    this.favMsg = msg
     this.customer.addToWishList(productId).subscribe(
       (next) => {
         console.log(productId);
+        this.ngbService.show(msg);
       },
       (error) => {
         this.favError = error.error;
