@@ -57,7 +57,7 @@ export class ShopComponent implements OnInit, OnDestroy {
       console.log(this.count);
       const genderParam = new HttpParams().get('Gender');
       console.log(genderParam);
-    } else this.changePage(this.pageNumber);
+    } else this.getProducts(this.pageNumber);
   }
 
   ngOnDestroy() {
@@ -74,28 +74,8 @@ export class ShopComponent implements OnInit, OnDestroy {
       MaxPrice: [''],
       category: [''],
     });
-    const params = new HttpParams()
-
-      .set('pageNumber', this.pageNumber)
-      .set('pageSize', this.pageSize)
-
-      .set('MaxPrice', this.filterForm.value['MaxPrice'])
-      .set('MinPrice', this.filterForm.value['MinPrice'])
-      .set('Category', this.filterForm.value['category'])
-      .set('SearchTerm', this.searchTerm);
-
-    this.prod.getShop(params).subscribe((data) => {
-      this.newProds = data.productsWithAvgRates;
-      this.count = data.count;
-
-      console.log(this.count);
-      this.filterForm = this.fb.group({
-        type: [''],
-        MinPrice: [''],
-        MaxPrice: [''],
-        category: [''],
-      });
-    });
+    this.searchTerm = '';
+    this.getProducts(this.pageNumber);
     $(document).ready(() => {
       $('#uncheck').click(() => {
         $('[type=radio], [type=checkbox').prop('checked', false);
@@ -103,189 +83,62 @@ export class ShopComponent implements OnInit, OnDestroy {
     });
   }
 
+  getProducts(pageNum: number) {
+    this.pageNumber = pageNum;
+    let params = new HttpParams()
+      .set('pageNumber', this.pageNumber)
+      .set('pageSize', this.pageSize);
+
+    if (this.filterForm.value['MaxPrice'] !== '') {
+      params = params.set('MaxPrice', this.filterForm.value['MaxPrice']);
+    }
+
+    if (this.filterForm.value['MinPrice'] !== '') {
+      params = params.set('MinPrice', this.filterForm.value['MinPrice']);
+    }
+
+    if (this.filterForm.value['category'] !== '') {
+      params = params.set('Category', this.filterForm.value['category']);
+    }
+    if (this.filterForm.value['type'] !== '') {
+      params = params.set('Gender', this.filterForm.value['type']);
+    } else if (this.localstoargeGender) {
+      params = params.set('Gender', this.localstoargeGender);
+    }
+
+    if (this.searchTerm !== '') {
+      params = params.set('SearchTerm', this.searchTerm);
+    }
+
+    this.prod.getShop(params).subscribe(
+      (data) => {
+        this.newProds = data.productsWithAvgRates;
+        this.count = data.count;
+        console.log(this.count);
+        this.filterForm = this.fb.group({
+          type: [this.filterForm.value['type'] || ''],
+          MinPrice: [this.filterForm.value['MinPrice'] || ''],
+          MaxPrice: [this.filterForm.value['MaxPrice'] || ''],
+          category: [this.filterForm.value['category'] || ''],
+        });
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
   onSubmit() {
     this.filtered = true;
     const filters = this.filterForm.value;
-    if (
-      this.filterForm.value['type'] == '' &&
-      this.localstoargeGender != null
-    ) {
-      const params = new HttpParams()
-        .set('Gender', this.localstoargeGender)
-        .set('pageNumber', this.pageNumber)
-        .set('pageSize', this.pageSize)
-        .set('MaxPrice', this.filterForm.value['MaxPrice'])
-        .set('MinPrice', this.filterForm.value['MinPrice'])
-        .set('Category', this.filterForm.value['category'])
-        .set('SearchTerm', this.searchTerm);
-
-      this.prod.getShop(params).subscribe((data) => {
-        this.newProds = data.productsWithAvgRates;
-        this.count = data.count;
-
-        console.log(this.newProds);
-      });
-      console.log(filters);
-    } else if (
-      this.filterForm.value['type'] != '' &&
-      this.localstoargeGender != null
-    ) {
-      const params = new HttpParams()
-        .set('Gender', this.filterForm.value['type'])
-        .set('pageNumber', this.pageNumber)
-        .set('pageSize', this.pageSize)
-        .set('MaxPrice', this.filterForm.value['MaxPrice'])
-        .set('MinPrice', this.filterForm.value['MinPrice'])
-        .set('Category', this.filterForm.value['category'])
-        .set('SearchTerm', this.searchTerm);
-
-      this.prod.getShop(params).subscribe((data) => {
-        this.newProds = data.productsWithAvgRates;
-        this.count = data.count;
-
-        console.log(this.newProds);
-      });
-      console.log(filters);
-    } else if (
-      this.filterForm.value['type'] != '' ||
-      (this.filterForm.value['type'] == '' && this.localstoargeGender == null)
-    ) {
-      const params = new HttpParams()
-        .set('Gender', this.filterForm.value['type'])
-        .set('pageNumber', this.pageNumber)
-        .set('pageSize', this.pageSize)
-        .set('MaxPrice', this.filterForm.value['MaxPrice'])
-        .set('MinPrice', this.filterForm.value['MinPrice'])
-        .set('Category', this.filterForm.value['category'])
-        .set('SearchTerm', this.searchTerm);
-
-      this.prod.getShop(params).subscribe((data) => {
-        this.newProds = data.productsWithAvgRates;
-        this.count = data.count;
-
-        console.log(this.newProds);
-      });
-      console.log(filters);
-    }
+    this.getProducts(this.pageNumber);
+    console.log(filters);
   }
   openFilter() {
     this.showFilter = !this.showFilter;
   }
 
-  changePage(pageNum: number) {
-    this.pageNumber = pageNum;
-
-    console.log(this.pageNumber);
-    if (this.filtered == false && this.localstoargeGender == null) {
-      const params = new HttpParams()
-        .set('pageNumber', this.pageNumber)
-        .set('pageSize', this.pageSize)
-        .set('Gender', this.filterForm.value['type'])
-        .set('Category', this.filterForm.value['category'])
-        .set('MaxPrice', this.filterForm.value['MaxPrice'])
-        .set('MinPrice', this.filterForm.value['MinPrice'])
-        .set('SearchTerm', this.searchTerm);
-
-      this.prod.getShop(params).subscribe((data) => {
-        this.newProds = data.productsWithAvgRates;
-        // this.count = this.newProds[0].count;
-        this.count = data.count;
-
-        this.filterForm = this.fb.group({
-          type: [this.filterForm.value['type'] || ''],
-          MinPrice: [this.filterForm.value['MinPrice'] || ''],
-          MaxPrice: [this.filterForm.value['MaxPrice'] || ''],
-          category: [this.filterForm.value['category'] || ''],
-        });
-        console.log(this.newProds);
-      });
-    } else if (this.filtered == false && this.localstoargeGender != null) {
-      const params = new HttpParams()
-        .set('pageNumber', this.pageNumber)
-        .set('pageSize', this.pageSize)
-        .set('Gender', this.localstoargeGender)
-        .set('Category', this.filterForm.value['category'])
-        .set('MaxPrice', this.filterForm.value['MaxPrice'])
-        .set('MinPrice', this.filterForm.value['MinPrice'])
-        .set('SearchTerm', this.searchTerm);
-
-      this.prod.getShop(params).subscribe((data) => {
-        this.newProds = data.productsWithAvgRates;
-        // this.count = this.newProds[0].count;
-        this.count = data.count;
-
-        this.filterForm = this.fb.group({
-          type: [this.filterForm.value['type'] || ''],
-          MinPrice: [this.filterForm.value['MinPrice'] || ''],
-          MaxPrice: [this.filterForm.value['MaxPrice'] || ''],
-          category: [this.filterForm.value['category'] || ''],
-        });
-        console.log(this.newProds);
-      });
-    } else if (this.filtered == true && this.localstoargeGender != null) {
-      const params = new HttpParams()
-        .set('pageNumber', this.pageNumber)
-        .set('pageSize', this.pageSize)
-        .set('Gender', this.filterForm.value['type'])
-        .set('Category', this.filterForm.value['category'])
-        .set('MaxPrice', this.filterForm.value['MaxPrice'])
-        .set('MinPrice', this.filterForm.value['MinPrice'])
-        .set('SearchTerm', this.searchTerm);
-
-      this.prod.getShop(params).subscribe((data) => {
-        this.newProds = data.productsWithAvgRates;
-        // this.count = this.newProds[0].count;
-        this.count = data.count;
-
-        this.filterForm = this.fb.group({
-          type: [this.filterForm.value['type'] || ''],
-          MinPrice: [this.filterForm.value['MinPrice'] || ''],
-          MaxPrice: [this.filterForm.value['MaxPrice'] || ''],
-          category: [this.filterForm.value['category'] || ''],
-        });
-        console.log(this.newProds);
-      });
-    } else if (this.filtered == true && this.localstoargeGender == null) {
-      const params = new HttpParams()
-        .set('pageNumber', this.pageNumber)
-        .set('pageSize', this.pageSize)
-        .set('Gender', this.filterForm.value['type'])
-        .set('Category', this.filterForm.value['category'])
-        .set('MaxPrice', this.filterForm.value['MaxPrice'])
-        .set('MinPrice', this.filterForm.value['MinPrice'])
-        .set('SearchTerm', this.searchTerm);
-
-      this.prod.getShop(params).subscribe((data) => {
-        this.newProds = data.productsWithAvgRates;
-        // this.count = this.newProds[0].count;
-        this.count = data.count;
-
-        this.filterForm = this.fb.group({
-          type: [this.filterForm.value['type'] || ''],
-          MinPrice: [this.filterForm.value['MinPrice'] || ''],
-          MaxPrice: [this.filterForm.value['MaxPrice'] || ''],
-          category: [this.filterForm.value['category'] || ''],
-        });
-        console.log(this.newProds);
-      });
-    }
-  }
-
   getSearch() {
-    const params = new HttpParams()
-      .set('Gender', this.filterForm.value['type'])
-      .set('pageNumber', this.pageNumber)
-      .set('pageSize', this.pageSize)
-      .set('MaxPrice', this.filterForm.value['MaxPrice'])
-      .set('MinPrice', this.filterForm.value['MinPrice'])
-      .set('Category', this.filterForm.value['category'])
-      .set('SearchTerm', this.searchTerm);
-
-    this.prod.getShop(params).subscribe((data) => {
-      this.newProds = data.productsWithAvgRates;
-      this.count = data.count;
-
-      console.log(this.newProds);
-    });
+    this.getProducts(this.pageNumber);
   }
 }

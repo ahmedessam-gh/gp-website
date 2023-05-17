@@ -22,8 +22,7 @@ export class MyOrdersComponent implements OnInit {
   constructor(
     private orders: OrdersService,
     private cart: CartService,
-    private ngbService: NgbService,
-    
+    private ngbService: NgbService
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +40,6 @@ export class MyOrdersComponent implements OnInit {
   //   }
   // }
   getOrders(pageNum) {
-
     this.pageNumber = pageNum;
     const param = new HttpParams()
       .set('PageNumber', this.pageNumber)
@@ -62,6 +60,7 @@ export class MyOrdersComponent implements OnInit {
     this.orders.cancelOrder(param).subscribe(
       (data) => {
         console.log(this.orderId);
+        this.getOrders(this.pageNumber);
       },
       (error) => {
         this.errors = error.error;

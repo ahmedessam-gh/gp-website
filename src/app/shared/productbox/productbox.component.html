@@ -1,7 +1,9 @@
 <div class="card">
   <div class="product-box">
     <div class="product-img position-relative">
-      <div class="ribbon-danger" *ngIf="product.rentable">Rent</div>
+      <div class="ribbon-danger" *ngIf="product.sale > 0">
+        {{ product.sale }}%
+      </div>
       <div class="ribbon-success" *ngIf="product.sale > 0">Sale</div>
       <a>
         <img
@@ -17,13 +19,13 @@
       >
         <ul>
           <li
-            (click)="addToFav(product,$event)"
-            [ngClass]="{ favIcon: favouriteList.includes(product)}"
+            (click)="addToFav(product, $event)"
+            [ngClass]="{ favIcon: favouriteList.includes(product) }"
           >
             <a
               ><fa-icon
                 id="{{ product.productId }}"
-                [ngClass]="{ favIcon: favouriteList.includes(product)}"
+                [ngClass]="{ favIcon: favouriteList.includes(product) }"
                 icon="heart"
               ></fa-icon
             ></a>
@@ -50,8 +52,8 @@
 
       <p>{{ product.type }}</p>
       <div class="product-price">
-        {{ product.price }} EGP
-        <del *ngIf="product.sale > 0">{{ product.sale }} EGP</del>
+        {{ discountedprice }} EGP
+        <del *ngIf="product.sale > 0">{{ product.price }} EGP</del>
       </div>
     </div>
   </div>

@@ -16,28 +16,33 @@ import { ProdService } from 'src/app/core/services/prod.service';
 export class ProductboxComponent implements OnInit {
   @Input() product: product;
   @Input() rating: product;
+
   public form: FormGroup;
   favouriteList: any = [];
+  discountedprice: number;
   constructor(
     private prod: ProdService,
     private cart: CartService,
     private fb: FormBuilder,
     private customer: CustomerService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    const param = new HttpParams().set('productId', this.product.productId)
+    const param = new HttpParams().set('productId', this.product.productId);
     this.customer.getWishList(param).subscribe((data) => {
       this.favouriteList = data['productList'];
       console.log(this.favouriteList);
+
+      const sale_percentage = this.product.sale / 100;
+      this.discountedprice =
+        this.product.price - sale_percentage * this.product.price;
     });
   }
   //
- 
+
   addToFav(productId: any, e) {
     this.customer.addToWishList(productId).subscribe();
     this.disableLink(e);
-
   }
   // addToFav(product: product, event) {
   //   this.disableLink(event);

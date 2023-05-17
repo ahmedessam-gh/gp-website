@@ -7,6 +7,7 @@
           src="{{ myprod?.productImages[0].imageUrl }}"
           alt="sss"
           width="80%"
+          height="400px"
           [ngClass]="{ fadeInLeft: isBigPhotoUpdated }"
           (load)="isBigPhotoUpdated = true"
         />
@@ -21,6 +22,7 @@
           }"
           alt=""
           width="17%"
+          height="100px"
           (click)="changePhoto(smallimg.imageUrl)"
         />
         <!-- <img
@@ -44,15 +46,15 @@
     <hr class="d-lg-none d-md-none d-xl-none d-block" />
     <div class="productDetails col-xl-6 col-12 col-md-6 mt-lg-0 mt-4">
       <h1 class="productName">{{ myprod?.productName }}</h1>
-      <label class="productRent" *ngIf="myprod?.rentable">
-        <fa-icon class="px-1" icon="circle-check"></fa-icon> Avaliable for
-        rent</label
+      <label class="productRent" *ngIf="myprod?.sale > 0">
+        <fa-icon class="px-1" icon="dollar"></fa-icon>{{ myprod?.sale }}%
+        discount on this product !</label
       >
 
-      <label class="productNoRent" *ngIf="!myprod?.rentable">
-        <fa-icon class="px-1" icon="times"></fa-icon> Currently not available
-        for rent</label
-      >
+      <label class="productNoRent" *ngIf="myprod?.sale == 0">
+        <fa-icon class="px-1" icon="times"></fa-icon> No discount for this
+        product at the moment
+      </label>
       <br />
       <div class="rating px-2 py-2">
         <app-rating [product]="rates?.average"></app-rating>
@@ -68,9 +70,9 @@
       <div class="productCategory py-2">{{ myprod?.description }}</div>
       <hr />
       <div class="productPriceDiscount">
-        <label class="productPrice">{{ myprod?.price }} EGP</label>
+        <label class="productPrice">{{ discountedprice }} EGP</label>
         <del *ngIf="myprod?.sale > 0" class="productDiscount py-2"
-          >{{ myprod?.sale }} EGP</del
+          >{{ myprod?.price }} EGP</del
         >
       </div>
       <!-- <div class="productSize py-2">
@@ -162,21 +164,38 @@
       </div> -->
 
       <app-main-button
-        (click)="addToCart(allprod,'Product has been added to your cart')"
+        *ngIf="userList == true"
+        (click)="addToCart(allprod, 'Product has been added to your cart')"
         class="buttons mx-3"
         class="orderButton"
         iconLeft="cart-shopping"
         content="Add To Cart"
       ></app-main-button>
+      <app-main-button
+        *ngIf="userList == false"
+        class="buttons mx-3"
+        class="orderButton"
+        routerLink="/welcome/loginn"
+        iconLeft="cart-shopping"
+        content="Add To Cart"
+      ></app-main-button>
 
       <app-main-button
-        (click)="addToFav(myprod,'Product has been added to your wishlist')"
+        *ngIf="userList == true"
+        (click)="addToFav(myprod, 'Product has been added to your wishlist')"
         class="buttons mx-2"
         iconLeft="heart"
         content="Favorite"
         backGroundColor="grey"
       ></app-main-button>
-
+      <app-main-button
+        *ngIf="userList == false"
+        class="buttons mx-2"
+        iconLeft="heart"
+        routerLink="/welcome/loginn"
+        content="Favorite"
+        backGroundColor="grey"
+      ></app-main-button>
       <div class="py-4">
         <label class="productLabel py-3"> Select Your Quantity : </label>
         <div class="input-number">
@@ -267,7 +286,7 @@
       >
         <form
           [formGroup]="addQuestions"
-          (ngSubmit)="addQuestion()"
+          (ngSubmit)="addQuestion('Questions has been added successfully')"
           #myForm="ngForm"
         >
           <label for="question"> Enter a new question :</label>
@@ -288,11 +307,7 @@
           <app-main-button
             type="submit"
             content="Submit Question"
-            (click)="
-              showStandard('Your questions was added sucessfully', addQuestions)
-            "
           ></app-main-button>
-          <app-toaster></app-toaster>
         </form>
       </div>
       <div class="loginerror" *ngIf="showNewQuestionForm && userList == false">
@@ -351,7 +366,10 @@
         class="questionform px-4 py-3"
         *ngIf="showRatingForm && userList == true"
       >
-        <form [formGroup]="ratings" (ngSubmit)="addRating()">
+        <form
+          [formGroup]="ratings"
+          (ngSubmit)="addRating('Your rating has been added successfully')"
+        >
           <div class="d-flex">
             <label> Enter your Rating: </label>
             <ng-template #t let-fill="fill">
@@ -383,14 +401,8 @@
           <br />
 
           <div class="rateerror mb-2">{{ errors }}</div>
-          <app-main-button
-            type="submit"
-            content="Submit Review"
-            (click)="showStandard('Review submitted successfully', ratings)"
-          >
+          <app-main-button type="submit" content="Submit Review">
           </app-main-button>
-
-          <app-toaster *ngIf="errors == ''"></app-toaster>
         </form>
       </div>
       <div class="loginerror" *ngIf="showRatingForm && userList == false">
@@ -400,3 +412,4 @@
     </div>
   </div>
 </div>
+<app-toaster></app-toaster>

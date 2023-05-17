@@ -47,8 +47,9 @@ export class ProductComponent implements OnInit {
   allprod: any;
   cartError: any;
   favError: any;
-  favMsg:string;
-  cartMsg:string;
+  favMsg: string;
+  cartMsg: string;
+  discountedprice: number;
   constructor(
     private cart: CartService,
     private prod: ProdService,
@@ -73,6 +74,10 @@ export class ProductComponent implements OnInit {
       this.quantity = (data as any).quantity;
       console.log(this.quantity);
       this.questions = this.myprod.questions;
+      const sale_percentage = this.myprod.sale / 100;
+      this.discountedprice =
+        this.myprod.price - sale_percentage * this.myprod.price;
+
       this.addQuestions = this.fb.group({
         productId: [this.myprod.productId],
         question: ['', [Validators.required, Validators.minLength(9)]],
@@ -104,8 +109,7 @@ export class ProductComponent implements OnInit {
     // });
   }
 
-  addToCart(prod: any,msg) {
-    this.cartMsg = msg
+  addToCart(prod: any, msg) {
     const data = {
       productId: prod.product.productId,
       quantity: prod.quantity,
@@ -114,10 +118,11 @@ export class ProductComponent implements OnInit {
     this.customer.addToCart(data).subscribe(
       (next) => {
         console.log(data);
-        this.ngbService.show(this.cartMsg);
+        this.showToaster(msg);
       },
       (error) => {
         this.cartError = error.error;
+        this.showDanger(this.cartError);
       }
     );
   }
@@ -126,7 +131,7 @@ export class ProductComponent implements OnInit {
       this.userList = true;
     } else this.userList = false;
   }
-  addQuestion() {
+  addQuestion(msg) {
     this.submitted = true;
     if (this.addQuestions.valid) {
       this.prod.sendQuestions(this.addQuestions.value).subscribe((next) => {
@@ -135,11 +140,12 @@ export class ProductComponent implements OnInit {
         this.questions.push({ question: newQuestionValue });
         this.submitted = false;
         this.addQuestions.get('question').setValue('');
+        this.showToaster(msg);
       }); // Clear the form control after adding the new question
     }
   }
 
-  addRating() {
+  addRating(msg: string) {
     if (this.ratings.valid) {
       this.prod.sendRatings(this.ratings.value).subscribe(
         (next) => {
@@ -151,6 +157,7 @@ export class ProductComponent implements OnInit {
             rateComment: newReviewValue,
           });
           this.ratings.reset();
+          this.showToaster(msg);
         },
         (error) => {
           this.errors = error.error;
@@ -188,15 +195,17 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  addToFav(productId: any,msg) {
-    this.favMsg = msg
+  addToFav(productId: any, msg) {
     this.customer.addToWishList(productId).subscribe(
       (next) => {
         console.log(productId);
-        this.ngbService.show(msg);
+        this.showToaster(msg);
       },
       (error) => {
+        console.log(error);
         this.favError = error.error;
+
+        this.showDanger('Item is already in your wishlist');
       }
     );
   }
@@ -213,9 +222,14 @@ export class ProductComponent implements OnInit {
   showNewQuestionForms() {
     this.showNewQuestionForm = !this.showNewQuestionForm;
   }
-  showStandard(review, form) {
-    if (form.valid) {
-      this.ngbService.show(review, {});
-    }
+
+  showToaster(msg: string) {
+    this.ngbService.show(msg);
+  }
+
+  showDanger(msg: string) {
+    this.ngbService.show(msg, {
+      classname: 'dangertoast',
+    });
   }
 }
