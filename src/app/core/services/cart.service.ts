@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { cart } from '../interfaces/cart';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { apiEndpoints } from '../api-endpoints';
-import { Observable, Subject, map } from 'rxjs';
+import { Observable, Subject, map, tap } from 'rxjs';
 import { orderDetails } from '../interfaces/orderDetails';
 
 @Injectable({
@@ -11,16 +11,24 @@ import { orderDetails } from '../interfaces/orderDetails';
 export class CartService {
   order: any;
   orderTotal: number = 0;
+  private _refreshDataAfterDeletion$ = new Subject<void>();
   private total$ = new Subject<number>();
   constructor(private http: HttpClient) { }
-  getTotal(){
+  getTotal() {
     return this.getTotal()
   }
-  viewCart():Observable<any[]>{
+  refetchAfterDeletion$(){
+    return this._refreshDataAfterDeletion$;
+  }
+  viewCart(): Observable<any[]> {
     return this.http.get<any[]>(`${apiEndpoints.baseUrl}${apiEndpoints.carts.getCustomerCart}`);
   }
   deleteCart(id) {
-    return this.http.delete(`${apiEndpoints.baseUrl}${apiEndpoints.carts.removeFromCart(id)}`);
+    return this.http.delete(`${apiEndpoints.baseUrl}${apiEndpoints.carts.removeFromCart(id)}`).pipe(
+      tap(() => {
+        this._refreshDataAfterDeletion$.next();
+        })
+    );
   }
   incrementQuantity(param: HttpParams) {
     return this.http.put(`${apiEndpoints.baseUrl}${apiEndpoints.carts.incrementQuantity}`, '', { params: param });
@@ -41,13 +49,13 @@ export class CartService {
     return this.orderTotal;
   }
 
-  payWithCash(payUpdates:any){
-    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCash}`,payUpdates);
+  payWithCash(payUpdates: any) {
+    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCash}`, payUpdates);
   }
-  payWithCredit(payUpdates:string){
-    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCredit}`,payUpdates,{responseType:'text'});
+  payWithCredit(payUpdates: string) {
+    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCredit}`, payUpdates, { responseType: 'text' });
   }
-  sendStripToken(stripeToken){
-    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.stripeToken}`,stripeToken);
+  sendStripToken(stripeToken) {
+    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.stripeToken}`, stripeToken);
   }
 }

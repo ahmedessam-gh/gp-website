@@ -36,10 +36,7 @@ export class CartComponent implements OnInit {
   }
 
   //
-  ngOnInit(): void {
-    this.customer.refetchData$().subscribe(()=>{
-      this.getCartItems();
-    });
+  ngOnInit(): void { 
     this.getCartItems();
   }
   getCartItems(){

@@ -78,10 +78,17 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.customer.refetchAfterCartDeletion$().subscribe(() => {
+      console.log('all cart has been deleted');
+      this.getCart();
+      console.log(this.cartProducts);
+    });
+    this.cart.refetchAfterDeletion$().subscribe(() => {
+      this.getCart();
+    });
     this.customer.refetchData$().subscribe(() => {
       this.getCart();
     });
-    this.getCart();
     this.showUserList();
     this.getAllCategories();
   }

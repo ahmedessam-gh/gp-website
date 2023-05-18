@@ -10,9 +10,13 @@ import { Observable, Subject, tap } from 'rxjs';
 })
 export class CustomerService {
   private refetch$ = new Subject<void>();
+  private _refetchAfterCartDeletion$ = new Subject<void>();
   constructor(private http: HttpClient) { }
   refetchData$() {
     return this.refetch$;
+  }
+  refetchAfterCartDeletion$():Observable<void> {
+    return this._refetchAfterCartDeletion$.asObservable();
   }
   addToCart(item): Observable<any[]> {
     return this.http.post<any[]>(`${apiEndpoints.baseUrl}${apiEndpoints.customers.addToCart}`, item)
@@ -31,7 +35,12 @@ export class CustomerService {
   deleteWishList(param: HttpParams): Observable<any[]> {
     return this.http.delete<any[]>(`${apiEndpoints.baseUrl}${apiEndpoints.customers.deleteFromWishList}`, { params: param });
   }
-  deleteCustomerCart() {
-    return this.http.delete(`${apiEndpoints.baseUrl}${apiEndpoints.customers.deletCustomerCart}`)
+  deleteCustomerCart():Observable<void>{
+    return this.http.delete<void>(`${apiEndpoints.baseUrl}${apiEndpoints.customers.deletCustomerCart}`)
+    .pipe(
+      tap(() => {
+        this._refetchAfterCartDeletion$.next();
+      })
+    );
   }
 }
