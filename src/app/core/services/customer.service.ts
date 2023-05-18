@@ -15,9 +15,9 @@ export class CustomerService {
   refetchData$() {
     return this.refetch$;
   }
-  refetchAfterCartDeletion$():Observable<void> {
-    return this._refetchAfterCartDeletion$;
-  }
+  // refetchAfterCartDeletion$():Observable<void> {
+  //   return this._refetchAfterCartDeletion$;
+  // }
   addToCart(item): Observable<any[]> {
     return this.http.post<any[]>(`${apiEndpoints.baseUrl}${apiEndpoints.customers.addToCart}`, item)
       .pipe(
@@ -39,7 +39,7 @@ export class CustomerService {
     return this.http.delete<void>(`${apiEndpoints.baseUrl}${apiEndpoints.customers.deletCustomerCart}`)
     .pipe(
       tap(() => {
-        this._refetchAfterCartDeletion$.next();
+        this.refetch$.next();
       })
     );
   }

@@ -78,11 +78,11 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.customer.refetchAfterCartDeletion$().subscribe(() => {
-      console.log('all cart has been deleted');
-      this.getCart();
-      console.log(this.cartProducts);
-    });
+    // this.customer.refetchAfterCartDeletion$().subscribe(() => {
+    //   console.log('all cart has been deleted');
+    //   this.getCart();
+    //   console.log(this.cartProducts);
+    // });
     this.cart.refetchAfterDeletion$().subscribe(() => {
       this.getCart();
     });
@@ -91,6 +91,7 @@ export class HeaderComponent implements OnInit {
     });
     this.showUserList();
     this.getAllCategories();
+    this.getCart();
   }
   getCart() {
     this.cart.viewCart().subscribe((data) => {
