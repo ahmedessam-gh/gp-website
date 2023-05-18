@@ -54,6 +54,7 @@ export const apiEndpoints = {
     getProductDetails: `Products/GetProductDetails`,
     searchProducts: `Products/SearchProducts`,
     getSuspendedProducts: 'Products/GetSuspendedProducts?searchTerm=',
+    getCategories: `Products/GetCategories`,
   },
   productsReports: {
     getAllReports: 'ProductsReports/GetAllReports',

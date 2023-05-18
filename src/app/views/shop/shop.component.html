@@ -17,19 +17,22 @@
             </button>
 
             <div class="collapse show" id="categories-collapse">
-              <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
+              <ul
+                *ngFor="let category of categories.categories"
+                class="btn-toggle-nav list-unstyled fw-normal small px-3"
+              >
                 <li class="position-relative"></li>
 
                 <li class="position-relative">
                   <label
                     for="cat"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >cat</label
+                    >{{ category }}</label
                   >
                   <input
                     type="radio"
-                    id="cat"
-                    value="cat"
+                    id="{{ category }}"
+                    value="{{ category }}"
                     formControlName="category"
                   />
                 </li>

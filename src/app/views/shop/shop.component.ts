@@ -30,6 +30,8 @@ export class ShopComponent implements OnInit, OnDestroy {
   localstorageData: string;
   localstorageNumber: string;
   localstoargeGender: string;
+  localstoargeCategory: string;
+  categories: any;
 
   constructor(
     private fb: FormBuilder,
@@ -46,9 +48,10 @@ export class ShopComponent implements OnInit, OnDestroy {
       MaxPrice: [''],
       category: [''],
     });
-
+    this.getAllCategories();
     this.localstorageData = localStorage.getItem('data');
     this.localstoargeGender = localStorage.getItem('gender');
+    this.localstoargeCategory = localStorage.getItem('category');
     if (this.localstorageData !== null) {
       this.newProds = JSON.parse(this.localstorageData);
 
@@ -64,10 +67,13 @@ export class ShopComponent implements OnInit, OnDestroy {
     localStorage.removeItem('data');
     localStorage.removeItem('count');
     localStorage.removeItem('gender');
+    localStorage.removeItem('category');
   }
 
   clearAllFilters() {
     this.filtered = true;
+    this.pageNumber = 1;
+
     this.filterForm = this.fb.group({
       type: [''],
       MinPrice: [''],
@@ -99,6 +105,8 @@ export class ShopComponent implements OnInit, OnDestroy {
 
     if (this.filterForm.value['category'] !== '') {
       params = params.set('Category', this.filterForm.value['category']);
+    } else if (this.localstoargeCategory) {
+      params = params.set('Category', this.localstoargeCategory);
     }
     if (this.filterForm.value['type'] !== '') {
       params = params.set('Gender', this.filterForm.value['type']);
@@ -131,6 +139,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   onSubmit() {
     this.filtered = true;
     const filters = this.filterForm.value;
+    this.pageNumber = 1;
     this.getProducts(this.pageNumber);
     console.log(filters);
   }
@@ -139,6 +148,14 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
 
   getSearch() {
+    this.pageNumber = 1;
+
     this.getProducts(this.pageNumber);
+  }
+
+  getAllCategories() {
+    this.prod.getCategory().subscribe((data) => {
+      this.categories = data;
+    });
   }
 }

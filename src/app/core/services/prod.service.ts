@@ -677,19 +677,21 @@ export class ProdService {
       { params }
     );
   }
-  getProds(param:HttpParams) {
-    return this.http
-      .get(`${this.URL}${apiEndpoints.products.getProductDetails}`,{params:param})
-      // .pipe(
-      //   map((data: any[]) => {
-      //     const productsArray = Object.values(data);
-      //     const product = productsArray.find(
-      //       (prod: any) => prod.productId == id
-      //     );
-      //     console.log(product);
-      //     return product || null;
-      //   })
-      // );
+  getProds(param: HttpParams) {
+    return this.http.get(
+      `${this.URL}${apiEndpoints.products.getProductDetails}`,
+      { params: param }
+    );
+    // .pipe(
+    //   map((data: any[]) => {
+    //     const productsArray = Object.values(data);
+    //     const product = productsArray.find(
+    //       (prod: any) => prod.productId == id
+    //     );
+    //     console.log(product);
+    //     return product || null;
+    //   })
+    // );
   }
   // getProdsQuantity(id: number) {
   //   return this.http.get(
@@ -718,7 +720,7 @@ export class ProdService {
       );
   }
 
-  // getCategory() {
-  //   return this.http.get(`${this.URL}${apiEndpoints.products.getCategories}`);
-  // }
+  getCategory(): Observable<any> {
+    return this.http.get(`${this.URL}${apiEndpoints.products.getCategories}`);
+  }
 }

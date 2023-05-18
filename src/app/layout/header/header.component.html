@@ -173,7 +173,7 @@
       <ul class="navbar-nav navbar-ul">
         <li class="nav-item nav-li-dropdown">
           <a
-            (click)="setFilter('Men')"
+            (click)="setFilter('Men', ' ')"
             routerLink="/shop"
             class="nav-link nav-line"
             [ngClass]="{
@@ -182,20 +182,24 @@
             >MEN</a
           >
           <div class="dropdown-list">
-            <ul class="navbar-nav">
-              <li class=""><a href="" class="nav-link">Shirt</a></li>
-              <li class=""><a href="" class="nav-link">Pants</a></li>
-              <li class=""><a href="" class="nav-link">Shoes</a></li>
-              <li class=""><a href="" class="nav-link">Shirt</a></li>
-              <li class=""><a href="" class="nav-link">Pants</a></li>
-              <li class=""><a href="" class="nav-link">Shoes</a></li>
-              <li class=""><a href="" class="nav-link">Shirt</a></li>
+            <ul
+              class="navbar-nav"
+              *ngFor="let category of categories.categories"
+            >
+              <li class="">
+                <a
+                  (click)="setFilter('Men', category)"
+                  class="nav-link"
+                  routerLink="/shop"
+                  >{{ category }}</a
+                >
+              </li>
             </ul>
           </div>
         </li>
         <li class="nav-item nav-li-dropdown">
           <a
-            (click)="setFilter('Women')"
+            (click)="setFilter('Women', ' ')"
             routerLink="/shop"
             class="nav-link nav-line"
             [ngClass]="{
@@ -204,12 +208,18 @@
             >WOMEN</a
           >
           <div class="dropdown-list">
-            <ul class="navbar-nav">
-              <li class=""><a href="" class="nav-link">Shirt</a></li>
-              <li class=""><a href="" class="nav-link">Pants</a></li>
-              <li class=""><a href="" class="nav-link">Shoes</a></li>
-              <li class=""><a href="" class="nav-link">Shirt</a></li>
-              <li class=""><a href="" class="nav-link">Pants</a></li>
+            <ul
+              class="navbar-nav"
+              *ngFor="let category of categories.categories"
+            >
+              <li class="">
+                <a
+                  (click)="setFilter('Women', category)"
+                  class="nav-link"
+                  routerLink="/shop"
+                  >{{ category }}</a
+                >
+              </li>
             </ul>
           </div>
         </li>
@@ -246,7 +256,7 @@
           >
           <div class="dropdown-list">
             <ul class="navbar-nav">
-              <li class=""><a href="" class="nav-link">Shirt</a></li>
+              <li class=""><a class="nav-link"></a></li>
               <li class=""><a href="" class="nav-link">Pants</a></li>
               <li class=""><a href="" class="nav-link">Shoes</a></li>
               <li class=""><a href="" class="nav-link">Shirt</a></li>
@@ -367,7 +377,9 @@
             [routerLink]="['/cart']"
             routerLinkActive="router-link-active"
           ></fa-icon>
-          <span *ngIf="cartProducts.length != 0" class="badge custom-badge">{{cartProducts.length}}</span>
+          <span *ngIf="cartProducts.length != 0" class="badge custom-badge">{{
+            cartProducts.length
+          }}</span>
         </div>
       </div>
     </div>

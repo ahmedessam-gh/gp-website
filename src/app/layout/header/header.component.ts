@@ -54,6 +54,9 @@ export class HeaderComponent implements OnInit {
   count: any;
   genderParam: string;
   prodLength: any;
+  categoryFIlter: string = '';
+  categoryParam: string;
+  categories: any;
   toggler(): void {
     this.collapsed = !this.collapsed;
     const nav = document.getElementById('lower-nav');
@@ -71,27 +74,34 @@ export class HeaderComponent implements OnInit {
     private auth: AuthService,
     private location: Location,
     private prod: ProdService,
-    private customer:CustomerService
+    private customer: CustomerService
   ) {}
 
   ngOnInit(): void {
-    this.customer.refetchData$().subscribe(()=>{
-     this.getCart();
-    })
-   this.getCart();
+    this.customer.refetchData$().subscribe(() => {
+      this.getCart();
+    });
+    this.getCart();
     this.showUserList();
+    this.getAllCategories();
   }
-getCart(){
-  this.cart.viewCart().subscribe((data)=>{
-    this.cartProducts = data['carts'];
-    console.log(this.cartProducts.length);
-  })
-}
-  setFilter(filter) {
-    this.shopFilter = filter;
-    const params = new HttpParams().set('Gender', this.shopFilter);
+  getCart() {
+    this.cart.viewCart().subscribe((data) => {
+      this.cartProducts = data['carts'];
+      console.log(this.cartProducts.length);
+    });
+  }
+  setFilter(genderFilter, categoryFilter) {
+    this.shopFilter = genderFilter;
+    this.categoryFIlter = categoryFilter;
+    let params = new HttpParams().set('Gender', this.shopFilter);
+    if (this.categoryFIlter !== '') {
+      params = params.set('Category', this.categoryFIlter);
+    }
+    this.categoryParam = params.get('Category');
     this.genderParam = params.get('Gender');
     localStorage.setItem('gender', this.genderParam);
+    localStorage.setItem('category', this.categoryParam);
     this.prod.getShop(params).subscribe((data) => {
       this.newFilter = data.productsWithAvgRates;
       this.count = data.count;
@@ -155,7 +165,7 @@ getCart(){
       this.showResults = true;
       this.prod
         .getShop(params)
-        .pipe(debounceTime(5000)) // Adjust the delay duration as needed (in milliseconds)
+        // Adjust the delay duration as needed (in milliseconds)
         .subscribe(
           (data) => {
             this.searchedProd = data.productsWithAvgRates;
@@ -169,5 +179,11 @@ getCart(){
           }
         );
     }
+  }
+  getAllCategories() {
+    this.prod.getCategory().subscribe((data) => {
+      console.log(data);
+      this.categories = data;
+    });
   }
 }

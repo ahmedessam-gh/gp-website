@@ -21,6 +21,7 @@ import { HeadFootComponent } from '../head-foot/head-foot.component';
 import { HeaderComponent } from 'src/app/layout/header/header.component';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 import { product } from 'src/app/core/interfaces/product';
+import { HttpParams } from '@angular/common/http';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -31,6 +32,12 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   newProds;
   favouriteList: any = [];
   removeScroll = false;
+  shopFilter: any;
+  categoryFIlter: any;
+  categoryParam: string;
+  genderParam: string;
+  newFilter: any;
+  count: any;
   constructor(
     private elementRef: ElementRef,
     private renderer: Renderer2,
