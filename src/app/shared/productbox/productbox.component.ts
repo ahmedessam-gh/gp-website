@@ -32,10 +32,6 @@ export class ProductboxComponent implements OnInit {
     this.customer.getWishList(param).subscribe((data) => {
       this.favouriteList = data['productList'];
       console.log(this.favouriteList);
-
-      const sale_percentage = this.product.sale / 100;
-      this.discountedprice =
-        this.product.price - sale_percentage * this.product.price;
     });
   }
   //
