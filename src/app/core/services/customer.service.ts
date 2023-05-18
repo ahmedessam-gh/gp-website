@@ -16,7 +16,7 @@ export class CustomerService {
     return this.refetch$;
   }
   refetchAfterCartDeletion$():Observable<void> {
-    return this._refetchAfterCartDeletion$.asObservable();
+    return this._refetchAfterCartDeletion$;
   }
   addToCart(item): Observable<any[]> {
     return this.http.post<any[]>(`${apiEndpoints.baseUrl}${apiEndpoints.customers.addToCart}`, item)
