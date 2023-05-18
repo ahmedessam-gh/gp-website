@@ -71,22 +71,29 @@ export class HeaderComponent implements OnInit {
     private auth: AuthService,
     private location: Location,
     private prod: ProdService,
-    private customer:CustomerService
-  ) {}
+    private customer: CustomerService
+  ) { }
 
   ngOnInit(): void {
-    this.customer.refetchData$().subscribe(()=>{
-     this.getCart();
+    this.customer.refetchAfterCartDeletion$().subscribe(() => {
+      console.log('all cart has been deleted');
+      this.getCart();
+      console.log(this.cartProducts);
     })
-   this.getCart();
+    this.cart.refetchAfterDeletion$().subscribe(() => {
+      this.getCart();
+    });
+    this.customer.refetchData$().subscribe(() => {
+      this.getCart();
+    });
     this.showUserList();
   }
-getCart(){
-  this.cart.viewCart().subscribe((data)=>{
-    this.cartProducts = data['carts'];
-    console.log(this.cartProducts.length);
-  })
-}
+  getCart() {
+    this.cart.viewCart().subscribe((data) => {
+      this.cartProducts = data['carts'];
+      console.log(this.cartProducts.length);
+    })
+  }
   setFilter(filter) {
     this.shopFilter = filter;
     const params = new HttpParams().set('Gender', this.shopFilter);
