@@ -1,7 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { event } from 'jquery';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { Prod } from 'src/app/core/interfaces/Prod';
 import { cart } from 'src/app/core/interfaces/cart';
 import { product } from 'src/app/core/interfaces/product';
@@ -11,6 +11,7 @@ import { StripeScriptTag } from 'stripe-angular';
 import { ViewportScroller } from '@angular/common';
 import { CustomerService } from 'src/app/core/services/customer.service';
 import { PaginationService } from 'src/app/core/services/pagination.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-cart',
@@ -39,7 +40,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void { 
     this.getCartItems();
   }
-  getCartItems(){
+  getCartItems(){ 
     this.cart.viewCart().subscribe((cart) => {
       this.cartProducts = cart['carts'];
       console.log(this.cartProducts)
