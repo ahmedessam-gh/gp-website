@@ -155,6 +155,9 @@ input[type=number] {
   outline: none;
 
 }
+.bigImg{
+  max-height: 400px;
+}
 
 .productDetails .productName {
   margin: 0;

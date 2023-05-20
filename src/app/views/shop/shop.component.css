@@ -308,7 +308,7 @@ float: right;
   }
   .smallFilterDiv{
 
-    width: 35%;
+    width: 40%;
   }
 .smallFilter ul{
 
@@ -321,7 +321,7 @@ float: right;
 
 .smallFilter{
   padding-top: 15px;
-  width: 250px;
+  width: 200px;
   z-index: 3;
   background: white;
 }
@@ -352,4 +352,7 @@ margin-top: 10%;
   font-size: 10vh;
   color: var(--main-color);
   font-family: var(--main-font);
+}
+mat-slider {
+  width: 300px;
 }

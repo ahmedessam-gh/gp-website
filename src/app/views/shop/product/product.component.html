@@ -3,11 +3,10 @@
     <div class="productImg col-xl-6 col-md-6 col-12 mb-lg-0 mb-5">
       <div class="productBigImg py-2">
         <img
-          class="bigImg"
+          class="bigImg img-fluid"
           src="{{ myprod?.productImages[0].imageUrl }}"
           alt="sss"
           width="80%"
-          height="400px"
           [ngClass]="{ fadeInLeft: isBigPhotoUpdated }"
           (load)="isBigPhotoUpdated = true"
         />

@@ -94,16 +94,19 @@ export class HeaderComponent implements OnInit {
     this.getCart();
   }
   getCart() {
-    this.cart.viewCart().subscribe((data) => {
-      this.cartProducts = data['carts'];
-      console.log(this.cartProducts.length);
-    },error=>{
-      if(error.status == 400){
-        this.cartProducts = [];
-        console.log('no products in your cart');
-        return;
+    this.cart.viewCart().subscribe(
+      (data) => {
+        this.cartProducts = data['carts'];
+        console.log(this.cartProducts.length);
+      },
+      (error) => {
+        if (error.status == 400) {
+          this.cartProducts = [];
+          console.log('no products in your cart');
+          return;
+        }
       }
-    })
+    );
   }
   setFilter(genderFilter, categoryFilter) {
     this.shopFilter = genderFilter;

@@ -14,8 +14,8 @@ import { ProdService } from 'src/app/core/services/prod.service';
   styleUrls: ['./productbox.component.css'],
 })
 export class ProductboxComponent implements OnInit {
-  @Input() product: product;
-  @Input() rating: product;
+  @Input() product: any;
+  @Input() rating: any;
 
   public form: FormGroup;
   favouriteList: any = [];

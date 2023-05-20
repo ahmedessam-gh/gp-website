@@ -46,6 +46,7 @@ export class MyOrdersComponent implements OnInit {
       .set('PageSize', this.pageSize);
     this.orders.getOrders(param).subscribe((data) => {
       this.myOrders = (data as order).productsWithAvgRates;
+
       this.count = (data as order).count;
       for (let i = 0; i < this.myOrders.length; i++) {
         const dateTime = this.myOrders[i].dateTime;
@@ -60,12 +61,15 @@ export class MyOrdersComponent implements OnInit {
     this.orders.cancelOrder(param).subscribe(
       (data) => {
         console.log(this.orderId);
-        this.getOrders(this.pageNumber);
+        setTimeout(() => {
+          this.getOrders(this.pageNumber);
+        }, 3000);
       },
       (error) => {
         this.errors = error.error;
       }
     );
+
     this.ngbService.show(message);
   }
 }

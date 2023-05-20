@@ -38,6 +38,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   genderParam: string;
   newFilter: any;
   count: any;
+  newArrival: any;
+  param: HttpParams;
   constructor(
     private elementRef: ElementRef,
     private renderer: Renderer2,
@@ -107,8 +109,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     // console.log(this.elementRef.nativeElement.parentElement.parentElement.querySelectorAll('.end-nav .header-icons fa-icon'));
   }
   ngOnInit(): void {
-    // this.prod.getShop().subscribe((data) => {
-    //   this.newProds = data;
+    // this.prod.getShop(this.param).subscribe((data) => {
+    //   this.newProds = data.productsWithAvgRates;
     // });
 
     Aos.init({});
@@ -117,11 +119,15 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     // this.getFavourites();
     this.onWindowScroll();
   }
+  params(params: any) {
+    throw new Error('Method not implemented.');
+  }
 
   addToFav(newProd: Prod, event) {
     this.prod.addToFav(newProd, event);
     // this.getFavourites();
   }
+
   // getFavourites() {
   //   var favs = document.getElementsByClassName("favs");
   //   if(this.favouriteList.length==0){

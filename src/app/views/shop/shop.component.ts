@@ -23,6 +23,9 @@ export class ShopComponent implements OnInit, OnDestroy {
   pageNumber: number = 1;
   sendPage: FormGroup;
   selectedOption: string;
+  sliderValues: number[] = [300, 400];
+  startValue: number = 200;
+  endValue: number = 200;
 
   count?: number;
   searchTerm: string = '';
@@ -32,6 +35,8 @@ export class ShopComponent implements OnInit, OnDestroy {
   localstoargeGender: string;
   localstoargeCategory: string;
   categories: any;
+  params: HttpParams;
+  genderchecked: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -42,25 +47,27 @@ export class ShopComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     Aos.init();
-    this.filterForm = this.fb.group({
-      type: [''],
-      MinPrice: [''],
-      MaxPrice: [''],
-      category: [''],
-    });
+
     this.getAllCategories();
     this.localstorageData = localStorage.getItem('data');
     this.localstoargeGender = localStorage.getItem('gender');
     this.localstoargeCategory = localStorage.getItem('category');
+    this.filterForm = this.fb.group({
+      type: [this.localstoargeGender || ''],
+      MinPrice: [''],
+      MaxPrice: [''],
+      category: [this.localstoargeCategory || ''],
+      subcategory: [''],
+    });
     if (this.localstorageData !== null) {
       this.newProds = JSON.parse(this.localstorageData);
-
       this.localstorageNumber = localStorage.getItem('count');
       this.count = JSON.parse(this.localstorageNumber);
       console.log(this.count);
-      const genderParam = new HttpParams().get('Gender');
-      console.log(genderParam);
-    } else this.getProducts(this.pageNumber);
+      console.log(this.localstoargeGender);
+    } else if (this.localstorageData == null) {
+      this.getProducts(this.pageNumber);
+    }
   }
 
   ngOnDestroy() {
@@ -79,7 +86,10 @@ export class ShopComponent implements OnInit, OnDestroy {
       MinPrice: [''],
       MaxPrice: [''],
       category: [''],
+      subcategory: [''],
     });
+    this.localstoargeGender = '';
+    this.localstoargeCategory = '';
     this.searchTerm = '';
     this.getProducts(this.pageNumber);
     $(document).ready(() => {
@@ -91,34 +101,49 @@ export class ShopComponent implements OnInit, OnDestroy {
 
   getProducts(pageNum: number) {
     this.pageNumber = pageNum;
-    let params = new HttpParams()
+    this.params = new HttpParams()
       .set('pageNumber', this.pageNumber)
       .set('pageSize', this.pageSize);
 
     if (this.filterForm.value['MaxPrice'] !== '') {
-      params = params.set('MaxPrice', this.filterForm.value['MaxPrice']);
+      this.params = this.params.set(
+        'MaxPrice',
+        this.filterForm.value['MaxPrice']
+      );
     }
 
     if (this.filterForm.value['MinPrice'] !== '') {
-      params = params.set('MinPrice', this.filterForm.value['MinPrice']);
+      this.params = this.params.set(
+        'MinPrice',
+        this.filterForm.value['MinPrice']
+      );
     }
 
+    if (this.filterForm.value['subcategory'] !== '') {
+      this.params = this.params.set(
+        'SubCategory',
+        this.filterForm.value['subcategory']
+      );
+    }
     if (this.filterForm.value['category'] !== '') {
-      params = params.set('Category', this.filterForm.value['category']);
+      this.params = this.params.set(
+        'Category',
+        this.filterForm.value['category']
+      );
     } else if (this.localstoargeCategory) {
-      params = params.set('Category', this.localstoargeCategory);
+      this.params = this.params.set('Category', this.localstoargeCategory);
     }
     if (this.filterForm.value['type'] !== '') {
-      params = params.set('Gender', this.filterForm.value['type']);
+      this.params = this.params.set('Gender', this.filterForm.value['type']);
     } else if (this.localstoargeGender) {
-      params = params.set('Gender', this.localstoargeGender);
+      this.params = this.params.set('Gender', this.localstoargeGender);
     }
 
     if (this.searchTerm !== '') {
-      params = params.set('SearchTerm', this.searchTerm);
+      this.params = this.params.set('SearchTerm', this.searchTerm);
     }
 
-    this.prod.getShop(params).subscribe(
+    this.prod.getShop(this.params).subscribe(
       (data) => {
         this.newProds = data.productsWithAvgRates;
         this.count = data.count;
@@ -128,6 +153,7 @@ export class ShopComponent implements OnInit, OnDestroy {
           MinPrice: [this.filterForm.value['MinPrice'] || ''],
           MaxPrice: [this.filterForm.value['MaxPrice'] || ''],
           category: [this.filterForm.value['category'] || ''],
+          subcategory: [this.filterForm.value['subcategory'] || ''],
         });
       },
       (error) => {
@@ -157,5 +183,22 @@ export class ShopComponent implements OnInit, OnDestroy {
     this.prod.getCategory().subscribe((data) => {
       this.categories = data;
     });
+  }
+  changePage(pageNum: number) {
+    this.pageNumber = pageNum;
+
+    this.params = this.params
+      .set('pageNumber', this.pageNumber)
+      .set('pageSize', this.pageSize);
+    this.prod.getShop(this.params).subscribe(
+      (data) => {
+        this.newProds = data.productsWithAvgRates;
+        this.count = data.count;
+        console.log(this.count);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

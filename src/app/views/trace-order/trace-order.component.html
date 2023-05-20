@@ -97,73 +97,19 @@
       </div>
       <hr />
       <ul class="row">
-        <li class="col-md-6 col-xl-4">
+        <li
+          *ngFor="let orderDetails of myOrders.productDetails"
+          class="col-md-6 col-xl-4"
+        >
           <figure class="itemside mb-5">
             <div class="aside mx-3">
-              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
+              <img alt="" [src]="orderDetails.img" class="img-sm" />
             </div>
             <figcaption class="info align-self-center">
-              <p class="title">Solid Polo Collar T-shirt</p>
-              <p class="title">Size: XL</p>
-              <p class="title">Quantity : X 3</p>
+              <p class="title">{{ orderDetails.productName }}</p>
+              <p class="title">Quantity : {{ orderDetails.quantity }}</p>
 
-              <span class="text-muted">$100 </span>
-            </figcaption>
-          </figure>
-        </li>
-        <li class="col-md-6 col-xl-4">
-          <figure class="itemside mb-5">
-            <div class="aside mx-3">
-              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
-            </div>
-            <figcaption class="info align-self-center">
-              <p class="title">Solid Polo Collar T-shirt</p>
-              <p class="title">Size: XL</p>
-              <p class="title">Quantity : X 3</p>
-
-              <span class="text-muted">$100 </span>
-            </figcaption>
-          </figure>
-        </li>
-        <li class="col-md-6 col-xl-4">
-          <figure class="itemside mb-5">
-            <div class="aside mx-3">
-              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
-            </div>
-            <figcaption class="info align-self-center">
-              <p class="title">Solid Polo Collar T-shirt</p>
-              <p class="title">Size: XL</p>
-              <p class="title">Quantity : X 3</p>
-
-              <span class="text-muted">$100 </span>
-            </figcaption>
-          </figure>
-        </li>
-        <li class="col-md-6 col-xl-4">
-          <figure class="itemside mb-5">
-            <div class="aside mx-3">
-              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
-            </div>
-            <figcaption class="info align-self-center">
-              <p class="title">Solid Polo Collar T-shirt</p>
-              <p class="title">Size: XL</p>
-              <p class="title">Quantity : X 3</p>
-
-              <span class="text-muted">$100 </span>
-            </figcaption>
-          </figure>
-        </li>
-        <li class="col-md-6 col-xl-4">
-          <figure class="itemside mb-5">
-            <div class="aside mx-3">
-              <img alt="" src="assets/images/casual.jpg" class="img-sm" />
-            </div>
-            <figcaption class="info align-self-center">
-              <p class="title">Solid Polo Collar T-shirt</p>
-              <p class="title">Size: XL</p>
-              <p class="title">Quantity : X 3</p>
-
-              <span class="text-muted">$100 </span>
+              <span class="text-muted">${{ orderDetails.productPrice }} </span>
             </figcaption>
           </figure>
         </li>

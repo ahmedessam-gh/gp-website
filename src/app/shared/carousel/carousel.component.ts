@@ -29,15 +29,15 @@ export class CarouselComponent implements OnInit {
         items: 2,
       },
       740: {
-        items: 2.5,
+        items: 2,
       },
       940: {
-        items: 3.5,
+        items: 3,
       },
     },
     nav: true,
   };
-  @Input() prods;
+  @Input() prods: any;
   constructor() {}
 
   ngOnInit(): void {}

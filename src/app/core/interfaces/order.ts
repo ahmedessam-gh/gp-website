@@ -10,4 +10,10 @@ export interface orderData {
   dateTime: string;
   paymentMethod: string;
   quantity: number;
+  productDetails: {
+    img: string;
+    productPrice: number;
+    quantity: number;
+    productName: string;
+  }[];
 }

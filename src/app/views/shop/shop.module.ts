@@ -9,7 +9,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Pipe } from '@angular/core';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatInputModule } from '@angular/material/input';
 
+import { MatCommonModule } from '@angular/material/core';
 SharedModule;
 @NgModule({
   declarations: [ShopComponent],
@@ -19,8 +22,10 @@ SharedModule;
     FontAwesomeModule,
     NgxPaginationModule,
     SharedModule,
-    MatFormFieldModule,
+    MatSliderModule,
+
     ReactiveFormsModule,
+
     FormsModule,
   ],
 })
