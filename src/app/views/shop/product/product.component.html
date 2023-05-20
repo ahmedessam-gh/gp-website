@@ -45,7 +45,10 @@
     </div>
     <hr class="d-lg-none d-md-none d-xl-none d-block" />
     <div class="productDetails col-xl-6 col-12 col-md-6 mt-lg-0 mt-4">
-      <h1 class="productName">{{ myprod?.productName }}</h1>
+      <div class="d-flex justify-content-between">
+        <h1 class="productName">{{ myprod?.productName }}</h1>
+        <button (click)="reportProduct(myprod)" ngbTooltip="Report this product" class="question-icon">?</button>
+      </div>
       <label class="productRent" *ngIf="myprod?.sale > 0">
         <fa-icon class="px-1" icon="dollar"></fa-icon>{{ myprod?.sale }}%
         discount on this product !</label

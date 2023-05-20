@@ -9,7 +9,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Pipe } from '@angular/core';
-
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 SharedModule;
 @NgModule({
   declarations: [ShopComponent],
@@ -22,6 +22,7 @@ SharedModule;
     MatFormFieldModule,
     ReactiveFormsModule,
     FormsModule,
+    NgbTooltipModule
   ],
 })
 export class ShopModule {}

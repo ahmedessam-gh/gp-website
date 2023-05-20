@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm, Validators } from '@angular/forms';
 import { FormBuilder,FormGroup } from '@angular/forms';
 import * as Aos from 'aos';
+import { CustomerService } from 'src/app/core/services/customer.service';
 
 @Component({
   selector: 'app-report',
@@ -12,23 +13,29 @@ import * as Aos from 'aos';
 export class ReportComponent implements OnInit {
   submitted = false;
   reportForm:FormGroup;
-  constructor(private fb:FormBuilder){}
+  reportData:any;
+  constructor(private fb:FormBuilder,private customer:CustomerService){}
  
   ngOnInit(): void {
     Aos.init({});
+    this.reportData = this.customer.getReportData();
+    console.log(this.reportData.productName);
     this.reportForm = this.fb.group({
-      fullName:['',Validators.required],
-      email:['',[Validators.required,Validators.email]],
-      problem:['',Validators.required],
+      productId:[{value:this.reportData.productId,disabled:true}],
       description:['',Validators.required],
-      upload:['',Validators.required]
+      date:new Date().toISOString()
     })
+    
   }
 
   
-  addShake() {
+  reportProduct() {
     this.submitted = true;
-    console.log(this.reportForm);
+    if(this.reportForm.valid){
+      this.customer.reportProduct(this.reportForm.value).subscribe(()=>{
+        console.log('Product has been reported successfuly!');
+      })
+    }
   }
 
 }

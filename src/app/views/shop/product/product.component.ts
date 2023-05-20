@@ -1,6 +1,6 @@
 import { CartService } from 'src/app/core/services/cart.service';
 import { Prod } from 'src/app/core/interfaces/Prod';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ProdService } from 'src/app/core/services/prod.service';
 import {
@@ -58,7 +58,8 @@ export class ProductComponent implements OnInit {
     private ngbService: NgbService,
     private customer: CustomerService,
     private auth: AuthService,
-    private cd:ChangeDetectorRef
+    private cd:ChangeDetectorRef,
+    private router:Router 
   ) {}
 
   async ngOnInit() {
@@ -109,7 +110,10 @@ export class ProductComponent implements OnInit {
     //   newReview: [''],
     // });
   }
-
+  reportProduct(prod:any){
+    this.customer.setReportData(prod);
+    this.router.navigate(['/report']);
+  }
   addToCart(prod: any, msg) {
     const data = {
       productId: prod.product.productId,

@@ -7,6 +7,7 @@ import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { CheckoutComponent } from './views/cart/checkout/checkout.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { PaymentComponent } from './shared/payment/payment.component';
+import { AuthGuard } from './core/AuthGuard/auth.guard';
 const routes: Routes = [
   {
     path: '',
@@ -33,6 +34,7 @@ const routes: Routes = [
       },
       {
         path: 'contact-us',
+        canActivate:[AuthGuard],
         loadChildren: () =>
           import('./views/contact-us/contact-us.module').then(
             (m) => m.ContactUsModule
@@ -40,6 +42,7 @@ const routes: Routes = [
       },
       {
         path: 'report',
+        canActivate:[AuthGuard],
         loadChildren: () =>
           import('./views/report/report.module').then((m) => m.ReportModule),
       },

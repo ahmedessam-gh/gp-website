@@ -21,6 +21,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ToasterComponent } from 'src/app/shared/toaster/toaster.component';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [ProductComponent],
   imports: [
@@ -39,6 +40,7 @@ import { ToasterComponent } from 'src/app/shared/toaster/toaster.component';
     NgxPaginationModule,
     CarouselModule,
     NgbToastModule,
+    NgbTooltipModule
   ],
 })
 export class ProductModule {}
