@@ -16,19 +16,23 @@
 
     <div class="contactusform m-auto w-75">
       <form [formGroup]="reportForm">
-        <label for="">Product Name</label>
-        <input class="form-control mb-4" formControlName="productId"  type="text"
-          placeholder="Enter your name...." />
+        <!-- <label for="">Product Name</label>
+        <input class="form-control mb-4" formControlName="productId" 
+          placeholder="Enter your name...." /> -->
+          <label for="">Product Name</label>
+          <input class="form-control mb-4" value="{{reportData.productName}}"
+            placeholder="Enter your name...." disabled/>
         <label for="">Full Name</label>
-        <input class="form-control mb-4" value="{{reportData.vendor.fName+' '+reportData.vendor.lName}}" type="text"
+        <input class="form-control mb-4" value="{{reportData.vendor.fName+' '+reportData.vendor.lName}}" 
           placeholder="Enter your name...." disabled/>
 
         <label>Email</label>
-        <input class="form-control mb-4" value="{{reportData.vendor.email}}" type="email"
+        <input class="form-control mb-4" value="{{reportData.vendor.email}}"
           placeholder="Enter your email...." disabled/>
-          <label>date</label>
-          <input class="form-control mb-4" formControlName="date" type="text"
-            placeholder="Enter your email...."/>
+          <!-- <label>date</label> -->
+          <!-- <input class="form-control mb-4" formControlName="date" type="datetime"
+            placeholder="Enter your email...."/> -->
+
         <!-- <div class="">
           <label>Problem</label>
           <select class="w-100 mb-4 py-2 form-select form-control" formControlName="problem" id="">
@@ -53,12 +57,13 @@
         </div>
         <div>
           <!-- calling shared component (main-button) to use it in form submission-->
-          <app-main-button (click)="reportProduct()" type="submit" content="Submit" id="app-button"></app-main-button>
+          <app-main-button (click)="reportProduct('Product has been reported')" type="submit" content="Submit" id="app-button"></app-main-button>
         </div>
       </form>
     </div>
   </div>
 </div>
+<app-toaster></app-toaster>
     <!-- calling shared component (main-categories)-->
     <div>
       <app-main-categories class="main-categories-class"></app-main-categories>
