@@ -1,3 +1,9 @@
+
+:host{
+
+  width: 100%;
+}
+
 .product-box {
   background-color: #fff;
   }
@@ -38,6 +44,7 @@
   }
   .product-box .product-img img{
     height: 300px;
+    width: 100%;
 
   }
    .product-img .product-hover {

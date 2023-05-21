@@ -31,7 +31,7 @@
 .favIcon {
     background-color: var(--main-color) !important;
     color: #ffffff !important;
-    border-radius: 50%;
+    border-radius: 50% !important;
 }
 
 .profile-animation {

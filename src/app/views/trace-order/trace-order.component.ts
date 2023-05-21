@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from 'src/app/core/services/orders.service';
 import { order, orderData } from 'src/app/core/interfaces/order';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import * as Aos from 'aos';
 import { HttpParams } from '@angular/common/http';
@@ -18,7 +18,8 @@ export class TraceOrderComponent implements OnInit {
   orderId: number;
   constructor(
     private orders: OrdersService,
-    private ActivatedRoute: ActivatedRoute
+    private ActivatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -26,10 +27,14 @@ export class TraceOrderComponent implements OnInit {
     this.orderId = Number(ordersrouting.get('orderNumber'));
     const param = new HttpParams().set('OrderId', this.orderId);
     this.orders.getOrderDetails(param).subscribe((data) => {
-      this.myOrders = data as orderData;
+      if (data) {
+        this.myOrders = data as orderData;
 
-      const dateTime = this.myOrders.dateTime;
-      this.myOrders.dateTime = dateTime.substring(0, 10);
+        const dateTime = this.myOrders.dateTime;
+        this.myOrders.dateTime = dateTime.substring(0, 10);
+      } else {
+        this.router.navigate(['/home']);
+      }
     });
 
     Aos.init();
