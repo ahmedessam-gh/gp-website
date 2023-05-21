@@ -356,3 +356,8 @@ margin-top: 10%;
 mat-slider {
   width: 300px;
 }
+
+.lengthcheck{
+
+  width: 0;
+}

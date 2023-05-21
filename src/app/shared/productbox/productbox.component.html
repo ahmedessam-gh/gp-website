@@ -9,7 +9,6 @@
         <img
           class="img-fluid position-relative"
           height="70px"
-          width="300px"
           src="{{ product.productImages[0].imageUrl }}"
           alt=""
         />
@@ -25,6 +24,7 @@
           >
             <a
               ><fa-icon
+                (click)="addToFav(product, $event)"
                 id="{{ product.productId }}"
                 [ngClass]="{ favIcon: favouriteList.includes(product) }"
                 icon="heart"

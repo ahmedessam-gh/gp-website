@@ -46,7 +46,6 @@ export class HeaderComponent implements OnInit {
   shopFilter: string = '';
   collapsed = true;
   nativeElement: any;
-  ActivatedRoute: any;
   userList = false;
   searchedProd: Array<{ product: any }>;
   searchNone: string = '';
@@ -74,7 +73,8 @@ export class HeaderComponent implements OnInit {
     private auth: AuthService,
     private location: Location,
     private prod: ProdService,
-    private customer: CustomerService
+    private customer: CustomerService,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -111,27 +111,33 @@ export class HeaderComponent implements OnInit {
   setFilter(genderFilter, categoryFilter) {
     this.shopFilter = genderFilter;
     this.categoryFIlter = categoryFilter;
+
     let params = new HttpParams().set('Gender', this.shopFilter);
     if (this.categoryFIlter !== '') {
       params = params.set('Category', this.categoryFIlter);
     }
+
     this.categoryParam = params.get('Category');
     this.genderParam = params.get('Gender');
     localStorage.setItem('gender', this.genderParam);
     localStorage.setItem('category', this.categoryParam);
-    this.prod.getShop(params).subscribe((data) => {
-      this.newFilter = data.productsWithAvgRates;
-      this.count = data.count;
-      console.log(this.count);
-      console.log(this.newFilter);
+    this.activatedRoute.queryParams.subscribe((param) => {
+      this.genderParam = param['type'];
+      this.prod.getShop(params).subscribe((data) => {
+        this.newFilter = data.productsWithAvgRates;
+        this.count = data.count;
+        console.log(this.count);
+        console.log(this.newFilter);
 
-      const serializedData = JSON.stringify(this.newFilter);
-      localStorage.setItem('data', serializedData);
+        const serializedData = JSON.stringify(this.newFilter);
+        localStorage.setItem('data', serializedData);
 
-      const countData = JSON.stringify(this.count);
-      localStorage.setItem('count', countData);
+        const countData = JSON.stringify(this.count);
+        localStorage.setItem('count', countData);
+      });
     });
   }
+
   showUserList() {
     if (this.auth.getUser()) {
       this.userList = true;

@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { ProdService } from 'src/app/core/services/prod.service';
 import { CartService } from 'src/app/core/services/cart.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import * as Aos from 'aos';
@@ -23,7 +23,7 @@ import 'slick-carousel';
 })
 export class ShopComponent implements OnInit, OnDestroy {
   newProds?: any;
-  pageSize: number = 1;
+  pageSize: number = 9;
   filterForm: FormGroup;
   showFilter: boolean = false;
   pageNumber: number = 1;
@@ -48,7 +48,8 @@ export class ShopComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private prod: ProdService,
     private cart: CartService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -66,13 +67,20 @@ export class ShopComponent implements OnInit, OnDestroy {
       subcategory: [''],
     });
     if (this.localstorageData !== null) {
-      this.newProds = JSON.parse(this.localstorageData);
-      this.localstorageNumber = localStorage.getItem('count');
-      this.count = JSON.parse(this.localstorageNumber);
-      console.log(this.count);
-      console.log(this.localstoargeGender);
+      this.activatedRoute.queryParams.subscribe((params) => {
+        this.localstoargeGender = params['type'];
+        this.newProds = JSON.parse(this.localstorageData);
+        this.localstorageNumber = localStorage.getItem('count');
+        this.count = JSON.parse(this.localstorageNumber);
+        console.log(this.count);
+        console.log(this.localstoargeGender);
+      });
     } else if (this.localstorageData == null) {
-      this.getProducts(this.pageNumber);
+      this.activatedRoute.queryParams.subscribe((params) => {
+        this.localstoargeGender = params['type'];
+
+        this.getProducts(this.pageNumber);
+      });
     }
   }
 

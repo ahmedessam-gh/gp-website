@@ -303,12 +303,7 @@
               <ul
                 class="custom-sizes btn-toggle-nav list-unstyled fw-normal small px-3"
               >
-                <input
-                  type="radio"
-                  id="none"
-                  formControlName="type"
-                  value=" "
-                />
+                <input type="radio" id="none" value="" formControlName="type" />
 
                 <label for="none" class="size-filter">All </label>
                 <li>
@@ -848,40 +843,38 @@
             </div>
           </div>
         </div>
-        <div *ngIf="newProds.length > 0">
-          <div
-            class="card col-xl-4 col-md-4 col-6"
-            *ngFor="
-              let newProd of newProds
-                | paginate
-                  : {
-                      itemsPerPage: pageSize,
-                      currentPage: pageNumber,
-                      totalItems: count
-                    };
-              let i = index
-            "
-            data-aos="fade-up"
-            data-aos-once="true"
-            data-aos-duration="100"
+        <div
+          class="card col-xl-4 col-md-4 col-6"
+          *ngFor="
+            let newProd of newProds
+              | paginate
+                : {
+                    itemsPerPage: pageSize,
+                    currentPage: pageNumber,
+                    totalItems: count
+                  };
+            let i = index
+          "
+          data-aos="fade-up"
+          data-aos-once="true"
+          data-aos-duration="100"
+        >
+          <app-productbox
+            [product]="newProd?.product"
+            [rating]="newProd?.avgRate"
+          ></app-productbox>
+        </div>
+        <div *ngIf="newProds.length > 0" class="paginationCustom">
+          <pagination-controls
+            class="my-pagination"
+            (pageChange)="changePage($event)"
+            previousLabel="Previous"
+            nextLabel="Next"
+            screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page"
           >
-            <app-productbox
-              [product]="newProd?.product"
-              [rating]="newProd?.avgRate"
-            ></app-productbox>
-          </div>
-          <div class="paginationCustom">
-            <pagination-controls
-              class="my-pagination"
-              (pageChange)="changePage($event)"
-              previousLabel="Previous"
-              nextLabel="Next"
-              screenReaderPaginationLabel="Pagination"
-              screenReaderPageLabel="page"
-              screenReaderCurrentLabel="You're on page"
-            >
-            </pagination-controls>
-          </div>
+          </pagination-controls>
         </div>
         <div class="shopnoprod" *ngIf="newProds.length == 0">
           <fa-icon icon="shop"></fa-icon>
