@@ -13,6 +13,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 
 import { MatCommonModule } from '@angular/material/core';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 SharedModule;
 @NgModule({
   declarations: [ShopComponent],
@@ -27,6 +28,7 @@ SharedModule;
     ReactiveFormsModule,
 
     FormsModule,
+    NgbTooltipModule
   ],
 })
 export class ShopModule {}

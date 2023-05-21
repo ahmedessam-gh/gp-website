@@ -11,6 +11,7 @@ import { Observable, Subject, tap } from 'rxjs';
 export class CustomerService {
   private refetch$ = new Subject<void>();
   private _refetchAfterCartDeletion$ = new Subject<void>();
+  data:any;
   constructor(private http: HttpClient) { }
   refetchData$() {
     return this.refetch$;
@@ -42,5 +43,14 @@ export class CustomerService {
         this.refetch$.next();
       })
     );
+  }
+  reportProduct(form:any){
+    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.customers.reportProduct}`,form);
+  }
+  setReportData(myData:any){
+    this.data = myData;
+  }
+  getReportData(){
+    return this.data; 
   }
 }

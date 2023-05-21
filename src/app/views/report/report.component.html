@@ -16,15 +16,24 @@
 
     <div class="contactusform m-auto w-75">
       <form [formGroup]="reportForm">
+        <!-- <label for="">Product Name</label>
+        <input class="form-control mb-4" formControlName="productId" 
+          placeholder="Enter your name...." /> -->
+          <label for="">Product Name</label>
+          <input class="form-control mb-4" value="{{reportData.productName}}"
+            placeholder="Enter your name...." disabled/>
         <label for="">Full Name</label>
-        <input class="form-control mb-4" formControlName="fullName"  type="text" title="name"
-          placeholder="Enter your name...."/>
+        <input class="form-control mb-4" value="{{reportData.vendor.fName+' '+reportData.vendor.lName}}" 
+          placeholder="Enter your name...." disabled/>
 
         <label>Email</label>
-        <input class="form-control mb-4" formControlName="email" type="email" title="name"
-          placeholder="Enter your email...." />
+        <input class="form-control mb-4" value="{{reportData.vendor.email}}"
+          placeholder="Enter your email...." disabled/>
+          <!-- <label>date</label> -->
+          <!-- <input class="form-control mb-4" formControlName="date" type="datetime"
+            placeholder="Enter your email...."/> -->
 
-        <div class="">
+        <!-- <div class="">
           <label>Problem</label>
           <select class="w-100 mb-4 py-2 form-select form-control" formControlName="problem" id="">
             <option value="" disabled selected class="py-3">Your Problem ...</option>
@@ -32,15 +41,15 @@
             <option value="product-issue">I have a problem with my product</option>
             <option value="website-issue">I have a problem with the interface</option>
           </select>
-        </div>
+        </div> -->
 
 
         <label for="">Description</label>
-        <textarea class="form-control mb-3" formControlName="description" title="textarea"
+        <textarea class="form-control mb-3" formControlName="description"
           placeholder="Enter your subject"></textarea>
-
+<!-- 
         <label for="">Upload</label>
-        <input type="file" class="form-control" formControlName="upload" accept="image/*">
+        <input type="file" class="form-control" formControlName="upload" accept="image/*"> -->
         
         <label for=""></label>
         <div *ngIf="submitted && reportForm.invalid" class="error-contact">
@@ -48,12 +57,13 @@
         </div>
         <div>
           <!-- calling shared component (main-button) to use it in form submission-->
-          <app-main-button (click)="addShake()" type="submit" content="Submit" id="app-button"></app-main-button>
+          <app-main-button (click)="reportProduct('Product has been reported')" type="submit" content="Submit" id="app-button"></app-main-button>
         </div>
       </form>
     </div>
   </div>
 </div>
+<app-toaster></app-toaster>
     <!-- calling shared component (main-categories)-->
     <div>
       <app-main-categories class="main-categories-class"></app-main-categories>
