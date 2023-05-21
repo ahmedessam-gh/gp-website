@@ -46,7 +46,13 @@
     <div class="productDetails col-xl-6 col-12 col-md-6 mt-lg-0 mt-4">
       <div class="d-flex justify-content-between">
         <h1 class="productName">{{ myprod?.productName }}</h1>
-        <button (click)="reportProduct(myprod)" ngbTooltip="Report this product" class="question-icon">?</button>
+        <button
+          (click)="reportProduct(myprod)"
+          ngbTooltip="Report this product"
+          class="question-icon"
+        >
+          ?
+        </button>
       </div>
       <label class="productRent" *ngIf="myprod?.sale > 0">
         <fa-icon class="px-1" icon="dollar"></fa-icon>{{ myprod?.sale }}%
@@ -229,7 +235,7 @@
     <div class="row"></div>
   </div>
 </div>
-<app-carousel [prods]="prods"></app-carousel>
+<app-carousel (click)="getProduct()" [prods]="prods"></app-carousel>
 <hr />
 
 <div class="prodHeaders">

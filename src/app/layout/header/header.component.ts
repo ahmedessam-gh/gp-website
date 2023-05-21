@@ -48,7 +48,7 @@ export class HeaderComponent implements OnInit {
   nativeElement: any;
   ActivatedRoute: any;
   userList = false;
-  searchedProd: any;
+  searchedProd: Array<{ product: any }>;
   searchNone: string = '';
   newFilter: any;
   count: any;

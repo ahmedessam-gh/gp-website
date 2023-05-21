@@ -1,6 +1,12 @@
 import { HttpParams } from '@angular/common/http';
 import { Prod } from 'src/app/core/interfaces/Prod';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { ProdService } from 'src/app/core/services/prod.service';
 import { CartService } from 'src/app/core/services/cart.service';
 import { Router } from '@angular/router';

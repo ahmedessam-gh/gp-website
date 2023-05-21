@@ -50,6 +50,7 @@ export class ProductComponent implements OnInit {
   favMsg: string;
   cartMsg: string;
   discountedprice: number;
+  param: HttpParams;
   constructor(
     private cart: CartService,
     private prod: ProdService,
@@ -58,51 +59,19 @@ export class ProductComponent implements OnInit {
     private ngbService: NgbService,
     private customer: CustomerService,
     private auth: AuthService,
-    private cd:ChangeDetectorRef,
-    private router:Router 
+    private cd: ChangeDetectorRef,
+    private router: Router
   ) {}
 
   async ngOnInit() {
     this.showUserList();
-    this.prodid = this.ActivatedRoute.snapshot.paramMap.get('prodid');
-    // this.prod.getShop().subscribe((carouselprod) => {
-    //   this.prods = carouselprod;
-    // });
-    const param = new HttpParams().set('id', this.prodid);
-    this.prod.getProds(param).subscribe((data) => {
-      this.allprod = data;
-      console.log(this.allprod);
-      this.myprod = (data as any).product;
-      this.quantity = (data as any).quantity;
-      console.log(this.quantity);
-      this.questions = this.myprod.questions;
-      const sale_percentage = this.myprod.sale / 100;
-      this.discountedprice =
-        this.myprod.price - sale_percentage * this.myprod.price;
-
-      this.addQuestions = this.fb.group({
-        productId: [this.myprod.productId],
-        question: ['', [Validators.required, Validators.minLength(9)]],
-      });
-
-      this.selectedPhoto = this.myprod.productImages[0].imageUrl;
-      this.isBigPhotoUpdated = false;
-      this.submitted = false;
-
-      this.prod.getRatings(this.prodid).subscribe((data) => {
-        this.rates = data as rating;
-
-        console.log(this.rates);
-        this.myratings = this.rates.customerRates;
-
-        this.ratings = this.fb.group({
-          rate: [1, [Validators.required]],
-          productId: [this.myprod.productId],
-          rateComment: [''],
-        });
-      });
+    this.prod.getArrival().subscribe((carouselprod) => {
+      this.prods = carouselprod.productsWithAvgRates;
     });
-
+    this.ActivatedRoute.params.subscribe((params) => {
+      this.prodid = params['prodid'];
+      this.getProduct();
+    });
     // this.ratings = this.fb.group({
     //   newRating: [0, [Validators.required]],
     //   newName: ['', [Validators.required]],
@@ -110,7 +79,7 @@ export class ProductComponent implements OnInit {
     //   newReview: [''],
     // });
   }
-  reportProduct(prod:any){
+  reportProduct(prod: any) {
     this.customer.setReportData(prod);
     this.router.navigate(['/report']);
   }
@@ -120,7 +89,7 @@ export class ProductComponent implements OnInit {
       quantity: prod.quantity,
       isRent: true,
     };
-    
+
     this.customer.addToCart(data).subscribe(
       (next) => {
         console.log(data);
@@ -236,6 +205,42 @@ export class ProductComponent implements OnInit {
   showDanger(msg: string) {
     this.ngbService.show(msg, {
       classname: 'dangertoast',
+    });
+  }
+  getProduct() {
+    this.param = new HttpParams().set('id', this.prodid);
+    this.prod.getProds(this.param).subscribe((data) => {
+      this.allprod = data;
+      console.log(this.allprod);
+      this.myprod = (data as any).product;
+      this.quantity = (data as any).quantity;
+      console.log(this.quantity);
+      this.questions = this.myprod.questions;
+      const sale_percentage = this.myprod.sale / 100;
+      this.discountedprice =
+        this.myprod.price - sale_percentage * this.myprod.price;
+
+      this.addQuestions = this.fb.group({
+        productId: [this.myprod.productId],
+        question: ['', [Validators.required, Validators.minLength(9)]],
+      });
+
+      this.selectedPhoto = this.myprod.productImages[0].imageUrl;
+      this.isBigPhotoUpdated = false;
+      this.submitted = false;
+
+      this.prod.getRatings(this.prodid).subscribe((data) => {
+        this.rates = data as rating;
+
+        console.log(this.rates);
+        this.myratings = this.rates.customerRates;
+
+        this.ratings = this.fb.group({
+          rate: [1, [Validators.required]],
+          productId: [this.myprod.productId],
+          rateComment: [''],
+        });
+      });
     });
   }
 }

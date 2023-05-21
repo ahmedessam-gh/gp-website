@@ -547,9 +547,15 @@
           <div class="px-1 noprodfoundsearch" *ngIf="prodLength == 0">
             No Product Found
           </div>
-          <ul class="navbar-nav py-2 px-5" *ngFor="let pro of searchedProd">
+          <ul
+            class="navbar-nav py-2 px-5"
+            *ngFor="let pro of searchedProd | slice : 0 : 3"
+          >
             <li *ngIf="prodLength > 0">
-              <a [routerLink]="['/shop/product', pro.product.productId]">
+              <a
+                [routerLink]="['/shop/product', pro.product.productId]"
+                (click)="removeContainer()"
+              >
                 {{ pro.product.productName }}
               </a>
             </li>
