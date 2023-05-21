@@ -20,7 +20,7 @@ export class LoginnComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      stringLogin :['',Validators.email],
+      stringLogin :['',Validators.required],
       password : ['',Validators.pattern]
   
     });

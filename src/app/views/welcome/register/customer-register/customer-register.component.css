@@ -1,0 +1,23 @@
+.registerForm > div{
+    margin: 20px 0 0 0;
+}
+
+ .error-pass p{
+    line-height: 16px !important;
+    font: 12rem !important;
+ }
+ ::ng-deep .tooltip {
+    width: 200px !important;
+    --bs-tooltip-max-width: 200px !important;
+    --bs-tooltip-padding-x: 0.5rem;
+    --bs-tooltip-padding-y: 0.25rem;
+    --bs-tooltip-font-size: 0.875rem;
+    --bs-tooltip-color: #fff;
+    --bs-tooltip-bg: #4f0000;
+   
+    
+  }
+  
+  
+  
+  
