@@ -34,6 +34,15 @@ export class AuthService {
       })
     )
   }
+  vendorRegister(vendorCredetials:any){
+    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.auth.vendorRegister}`,vendorCredetials).pipe(
+      delay(1000),
+      map((res:any)=>{
+        console.log(res);
+        sessionStorage.setItem('token',res.token)
+      })
+    );
+  }
   // secured(): Observable<any>{
   //   return this.http.get(this.URL+ 'Secured')
   // }
