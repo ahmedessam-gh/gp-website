@@ -121,8 +121,9 @@ export class HeaderComponent implements OnInit {
     this.genderParam = params.get('Gender');
     localStorage.setItem('gender', this.genderParam);
     localStorage.setItem('category', this.categoryParam);
-    this.activatedRoute.queryParams.subscribe((param) => {
+    this.activatedRoute.queryParamMap.subscribe((param) => {
       this.genderParam = param['type'];
+      console.log(this.genderParam);
       this.prod.getShop(params).subscribe((data) => {
         this.newFilter = data.productsWithAvgRates;
         this.count = data.count;

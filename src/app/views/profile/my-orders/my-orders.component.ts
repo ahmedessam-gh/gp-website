@@ -63,7 +63,7 @@ export class MyOrdersComponent implements OnInit {
         console.log(this.orderId);
         setTimeout(() => {
           this.getOrders(this.pageNumber);
-        }, 3000);
+        }, 500);
       },
       (error) => {
         this.errors = error.error;

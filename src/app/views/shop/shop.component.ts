@@ -43,6 +43,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   categories: any;
   params: HttpParams;
   genderchecked: boolean;
+  isGender: any;
 
   constructor(
     private fb: FormBuilder,
@@ -67,8 +68,9 @@ export class ShopComponent implements OnInit, OnDestroy {
       subcategory: [''],
     });
     if (this.localstorageData !== null) {
-      this.activatedRoute.queryParams.subscribe((params) => {
-        this.localstoargeGender = params['type'];
+      this.activatedRoute.queryParamMap.subscribe((params) => {
+        this.localstoargeGender = params.get['type'];
+        console.log(this.localstoargeCategory);
         this.newProds = JSON.parse(this.localstorageData);
         this.localstorageNumber = localStorage.getItem('count');
         this.count = JSON.parse(this.localstorageNumber);
@@ -76,11 +78,7 @@ export class ShopComponent implements OnInit, OnDestroy {
         console.log(this.localstoargeGender);
       });
     } else if (this.localstorageData == null) {
-      this.activatedRoute.queryParams.subscribe((params) => {
-        this.localstoargeGender = params['type'];
-
-        this.getProducts(this.pageNumber);
-      });
+      this.getProducts(this.pageNumber);
     }
   }
 
@@ -156,24 +154,26 @@ export class ShopComponent implements OnInit, OnDestroy {
     if (this.searchTerm !== '') {
       this.params = this.params.set('SearchTerm', this.searchTerm);
     }
-
-    this.prod.getShop(this.params).subscribe(
-      (data) => {
-        this.newProds = data.productsWithAvgRates;
-        this.count = data.count;
-        console.log(this.count);
-        this.filterForm = this.fb.group({
-          type: [this.filterForm.value['type'] || ''],
-          MinPrice: [this.filterForm.value['MinPrice'] || ''],
-          MaxPrice: [this.filterForm.value['MaxPrice'] || ''],
-          category: [this.filterForm.value['category'] || ''],
-          subcategory: [this.filterForm.value['subcategory'] || ''],
-        });
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.activatedRoute.queryParamMap.subscribe((params) => {
+      this.filterForm.value['Gender'] = params.get['type'];
+      this.prod.getShop(this.params).subscribe(
+        (data) => {
+          this.newProds = data.productsWithAvgRates;
+          this.count = data.count;
+          console.log(this.count);
+          this.filterForm = this.fb.group({
+            type: [this.filterForm.value['type'] || ''],
+            MinPrice: [this.filterForm.value['MinPrice'] || ''],
+            MaxPrice: [this.filterForm.value['MaxPrice'] || ''],
+            category: [this.filterForm.value['category'] || ''],
+            subcategory: [this.filterForm.value['subcategory'] || ''],
+          });
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    });
   }
 
   onSubmit() {

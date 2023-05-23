@@ -133,6 +133,7 @@ export class ProductComponent implements OnInit {
           });
           this.ratings.reset();
           this.showToaster(msg);
+          this.getProduct();
         },
         (error) => {
           this.errors = error.error;

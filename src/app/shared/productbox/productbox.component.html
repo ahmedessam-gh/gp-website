@@ -47,11 +47,13 @@
       <div>
         <app-rating [product]="rating"></app-rating>
       </div>
-      <h4>{{ product.productName }}</h4>
+      <h4>{{ product.productName | slice : 0 : 20 }}</h4>
 
       <p>{{ product.type }}</p>
       <div class="product-price">
-        {{ product.price - (product.sale / 100) * product.price | number }} EGP
+        {{ (product.price - (product.sale / 100) * product.price).toFixed(0) }}
+        EGP
+
         <del *ngIf="product.sale > 0">{{ product.price }} EGP</del>
       </div>
     </div>
