@@ -256,7 +256,7 @@
                   <label
                     for="p3"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    checked
+                    checked="checked"
                     >300-</label
                   >
                 </li>
@@ -303,9 +303,6 @@
               <ul
                 class="custom-sizes btn-toggle-nav list-unstyled fw-normal small px-3"
               >
-                <input type="radio" id="none" value="" formControlName="type" />
-
-                <label for="none" class="size-filter">All </label>
                 <li>
                   <input
                     type="radio"
@@ -324,6 +321,15 @@
                   />
 
                   <label for="Female" class="size-filter">Female </label>
+
+                  <input
+                    type="radio"
+                    id="mennone"
+                    value=" "
+                    formControlName="type"
+                  />
+
+                  <label for="mennone" class="size-filter">All </label>
                 </li>
               </ul>
             </div>
@@ -655,9 +661,9 @@
                     <label
                       for="p3"
                       class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                      checked
-                      >300-</label
-                    >
+                      checked="checked"
+                      >300-
+                    </label>
                   </li>
                   <li class="position-relative">
                     <label
@@ -693,12 +699,12 @@
                   <h5 class="filterName">Gender</h5>
                   <input
                     type="radio"
-                    id="none"
+                    id="noneall"
                     formControlName="type"
                     value=" "
                   />
 
-                  <label for="none" class="size-filter">All </label>
+                  <label for="noneall" class="size-filter">All </label>
                   <li>
                     <input
                       type="radio"
@@ -712,12 +718,12 @@
 
                     <input
                       type="radio"
-                      id="Female"
+                      id="Femalea"
                       formControlName="type"
                       value="Women"
                     />
 
-                    <label for="Female" class="size-filter">Female </label>
+                    <label for="Femalea" class="size-filter">Female </label>
                   </li>
                 </ul>
                 <hr />

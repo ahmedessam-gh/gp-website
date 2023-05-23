@@ -20,6 +20,7 @@ export class ProductboxComponent implements OnInit {
   public form: FormGroup;
   favouriteList: any = [];
   discountedprice: number;
+  param: HttpParams;
   constructor(
     private prod: ProdService,
     private cart: CartService,
@@ -28,8 +29,8 @@ export class ProductboxComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const param = new HttpParams().set('productId', this.product.productId);
-    this.customer.getWishList(param).subscribe((data) => {
+    this.param = new HttpParams().set('productId', this.product.productId);
+    this.customer.getWishList(this.param).subscribe((data) => {
       this.favouriteList = data['productList'];
       console.log(this.favouriteList);
     });
@@ -38,6 +39,10 @@ export class ProductboxComponent implements OnInit {
 
   addToFav(productId: any, e) {
     this.customer.addToWishList(productId).subscribe();
+    this.customer.getWishList(this.param).subscribe((data) => {
+      this.favouriteList = data['productList'];
+      console.log(this.favouriteList);
+    });
     this.disableLink(e);
   }
   // addToFav(product: product, event) {
