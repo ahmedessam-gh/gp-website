@@ -12,6 +12,10 @@ export class VendorRegisterComponent implements OnInit {
   submitted: boolean = false;
   vendorRegisterForm: FormGroup;
   loading = false;
+  emailError = '';
+  userError = '';
+  passError = '';
+  storeError :string = '';
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -33,6 +37,10 @@ export class VendorRegisterComponent implements OnInit {
 
 
   vendorRegister() {
+    this.emailError = '';
+  this.userError = '';
+  this.passError = '';
+  this.storeError = '';
     this.submitted = true;
     this.loading = true;
     if (this.vendorRegisterForm.valid) {
@@ -43,10 +51,26 @@ export class VendorRegisterComponent implements OnInit {
         
       }, error => {
         this.loading = false;
-        console.log(error);
+        for (let i = 0; i < error.error.length; i++) {
+          if (error.error[i] === "Email is already registered!") {
+            this.emailError = error.error[i];
+          } else if (error.error[i] === "Username is already registered!") {
+            this.userError = error.error[i];
+          } else if (error.error[i] === "Passwords must be at least 6 characters." || error.error[i] == "Passwords must have at least one non alphanumeric character." || error.error[i] == "Passwords must have at least one digit ('0'-'9')." || error.error[i] == "Passwords must have at least one uppercase ('A'-'Z').") {
+            this.passError = "Passwords must be at least 6 characters,Passwords must have at least one non alphanumeric character,Passwords must have at least one digit ('0'-'9') and Passwords must have at least one uppercase ('A'-'Z')."
+          }else if (error.error[i] === "Store Name is already registered!") {
+            this.storeError = error.error[i];
+          } 
+          
+          console.log(error.error[i]);
+        }
       })
     } else {
       this.loading = false;
+      this.emailError = 'enter a valid email address';
+      this.userError = 'enter a valid username';
+      this.passError = 'enter a valid password';
+      this.storeError = "The field StoreName must be a string or array type with a minimum length of '4'"
     }
   }
 
