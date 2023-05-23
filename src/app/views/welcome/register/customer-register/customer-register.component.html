@@ -26,15 +26,15 @@
           <div class="tooltip-container">
             <input type="text" [ngClass]="{'error-border': submitted && registerForm.get('username').invalid}" formControlName="username" class="d-block form-control"
               placeholder="enter your username">
-            <div class="error" *ngIf="submitted && registerForm.get('username').invalid">
-              <fa-icon class="text-danger" ngbTooltip="enter a username" [icon]="['fas','circle-exclamation']"></fa-icon>
+            <div class="error" *ngIf="submitted && userError!=''">
+              <fa-icon class="text-danger" ngbTooltip="{{userError}}" [icon]="['fas','circle-exclamation']"></fa-icon>
             </div>
           </div>
           <div class="tooltip-container">
             <input [ngClass]="{'error-border': submitted && registerForm.get('email').invalid}" type="email" formControlName="email" class="d-block form-control" placeholder="Enter your email ...">
             <div class="error" 
-            *ngIf="submitted && registerForm.get('email').invalid">
-              <fa-icon class="text-danger" ngbTooltip="enter a valid email address" [icon]="['fas','circle-exclamation']"></fa-icon>
+            *ngIf="submitted && emailError!=''">
+              <fa-icon class="text-danger" ngbTooltip="{{emailError}}" [icon]="['fas','circle-exclamation']"></fa-icon>
               <!-- <div class="error-message">
                 <p>enter your email</p>
               </div> -->
@@ -44,8 +44,8 @@
           <div class="tooltip-container">
             <input [ngClass]="{'error-border': submitted && registerForm.get('password').invalid}" type="password" formControlName="password" class="d-block form-control"
               placeholder="Enter your password ...">
-            <div class="error" *ngIf="submitted && registerForm.get('password').invalid">
-              <fa-icon class="tooltip-icon text-danger" ngbTooltip="must contain capital letter,special character and number." [icon]="['fas','circle-exclamation']"></fa-icon>
+            <div class="error" *ngIf="submitted && passError!=''">
+              <fa-icon class="tooltip-icon text-danger" ngbTooltip="{{passError}}" [icon]="['fas','circle-exclamation']"></fa-icon>
               <!-- <div class="error-message error-pass">
                 <p>must contain 6 letters or more.</p>
                 <p>must contain letters and numbers only.</p>
