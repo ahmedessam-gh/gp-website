@@ -11,6 +11,8 @@ import { ProdService } from 'src/app/core/services/prod.service';
 import { CartService } from 'src/app/core/services/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import * as Aos from 'aos';
 import * as $ from 'jquery';
@@ -23,7 +25,7 @@ import 'slick-carousel';
 })
 export class ShopComponent implements OnInit, OnDestroy {
   newProds?: any;
-  pageSize: number = 9;
+  pageSize: number = 5;
   filterForm: FormGroup;
   showFilter: boolean = false;
   pageNumber: number = 1;
@@ -40,10 +42,12 @@ export class ShopComponent implements OnInit, OnDestroy {
   localstorageNumber: string;
   localstoargeGender: string;
   localstoargeCategory: string;
+  localstoargeGenderChanges$: Observable<any>;
   categories: any;
   params: HttpParams;
   genderchecked: boolean;
   isGender: any;
+  flagGender: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -67,19 +71,12 @@ export class ShopComponent implements OnInit, OnDestroy {
       category: [this.localstoargeCategory || ''],
       subcategory: [''],
     });
-    if (this.localstorageData !== null) {
-      this.activatedRoute.queryParamMap.subscribe((params) => {
-        this.localstoargeGender = params.get['type'];
-        console.log(this.localstoargeCategory);
-        this.newProds = JSON.parse(this.localstorageData);
-        this.localstorageNumber = localStorage.getItem('count');
-        this.count = JSON.parse(this.localstorageNumber);
-        console.log(this.count);
-        console.log(this.localstoargeGender);
-      });
-    } else if (this.localstorageData == null) {
-      this.getProducts(this.pageNumber);
-    }
+
+    this.getProducts(this.pageNumber);
+
+    setInterval(() => {
+      this.getLocalStorageGender();
+    }, 1000);
   }
 
   ngOnDestroy() {
@@ -100,8 +97,7 @@ export class ShopComponent implements OnInit, OnDestroy {
       category: [''],
       subcategory: [''],
     });
-    this.localstoargeGender = '';
-    this.localstoargeCategory = '';
+
     this.searchTerm = '';
     this.getProducts(this.pageNumber);
     $(document).ready(() => {
@@ -109,6 +105,43 @@ export class ShopComponent implements OnInit, OnDestroy {
         $('[type=radio], [type=checkbox').prop('checked', false);
       });
     });
+  }
+  getLocalStorageGender(): void {
+    const updatedGender = localStorage.getItem('gender');
+    const updatedCategory = localStorage.getItem('category');
+    console.log(updatedCategory, updatedGender);
+    console.log(this.localstoargeCategory, this.localstoargeGender);
+    if (
+      updatedGender !== this.localstoargeGender &&
+      this.localstoargeGender !== ''
+    ) {
+      this.localstoargeGender = updatedGender;
+      this.filterForm = this.fb.group({
+        type: [this.localstoargeGender || ''],
+        MinPrice: [''],
+        MaxPrice: [''],
+        category: [this.localstoargeCategory || ''],
+        subcategory: [''],
+      });
+      this.getProducts(this.pageNumber);
+      this.flagGender = true;
+    }
+
+    if (
+      updatedCategory !== this.localstoargeCategory &&
+      this.localstoargeCategory !== ''
+    ) {
+      this.localstoargeCategory = updatedCategory;
+      this.filterForm = this.fb.group({
+        type: [this.localstoargeGender || ''],
+        MinPrice: [''],
+        MaxPrice: [''],
+        category: [this.localstoargeCategory || ''],
+        subcategory: [''],
+      });
+      this.getProducts(this.pageNumber);
+      this.flagGender = true;
+    }
   }
 
   getProducts(pageNum: number) {
@@ -142,13 +175,9 @@ export class ShopComponent implements OnInit, OnDestroy {
         'Category',
         this.filterForm.value['category']
       );
-    } else if (this.localstoargeCategory) {
-      this.params = this.params.set('Category', this.localstoargeCategory);
     }
     if (this.filterForm.value['type'] !== '') {
       this.params = this.params.set('Gender', this.filterForm.value['type']);
-    } else if (this.localstoargeGender) {
-      this.params = this.params.set('Gender', this.localstoargeGender);
     }
 
     if (this.searchTerm !== '') {
