@@ -26,9 +26,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Error404Component } from './views/error404/error404.component';
 import { SharedModule } from './shared/shared.module';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './core/Jwt-Interceptor/jwt.interceptor';
 import { ScrollTopDirective } from './core/directives/scroll-top.directive';
+import { ShopComponent } from './views/shop/shop.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,15 +37,14 @@ import { ScrollTopDirective } from './core/directives/scroll-top.directive';
     FooterComponent,
     HeadFootComponent,
     Error404Component,
-    
-     
   ],
+
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
   imports: [
@@ -60,7 +60,6 @@ import { ScrollTopDirective } from './core/directives/scroll-top.directive';
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
-    
   ],
 })
 export class AppModule {
