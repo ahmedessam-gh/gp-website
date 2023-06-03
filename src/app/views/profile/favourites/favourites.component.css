@@ -30,10 +30,7 @@
 :host{
     font-family: var(--main-font);
 }
-.cartPlus{
-  font-size: 6rem;
-  color: var(--main-color);
-}
+
 .orderstitle h1 {
     font-family: var(--main-font);
       font-weight: bold;

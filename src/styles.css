@@ -17,7 +17,10 @@
     --main-font: 'Bellota', cursive;
     --secondary-font: 'Segoe UI', Tahoma, Geneva, Verdana;
 }
-
+.cartPlus{
+    font-size: 6rem;
+    color: var(--main-color);
+  }
 * {
     padding: 0;
     margin: 0;

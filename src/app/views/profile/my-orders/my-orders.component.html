@@ -119,7 +119,7 @@
   </div>
 </div>
 
-<div *ngIf="myOrders.length === 0" id="noOrdersid" class="noOrders">
-  <fa-icon icon="cart-shopping"></fa-icon>
-  <p>No orders placed</p>
+<div [routerLink]="['/shop']" style="cursor: pointer;" *ngIf="myOrders.length === 0" id="noOrdersid" class="noOrders cartPlus">
+  <fa-icon style="font-size:6rem;" icon="cart-shopping"></fa-icon>
+  <p style="font-size: 1rem;color: black;">No orders placed <br>, go to shop to add products</p>
 </div>
