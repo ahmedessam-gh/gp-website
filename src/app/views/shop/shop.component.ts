@@ -25,7 +25,7 @@ import 'slick-carousel';
 })
 export class ShopComponent implements OnInit, OnDestroy {
   newProds?: any;
-  pageSize: number = 5;
+  pageSize: number = 9;
   filterForm: FormGroup;
   showFilter: boolean = false;
   pageNumber: number = 1;
@@ -48,6 +48,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   genderchecked: boolean;
   isGender: any;
   flagGender: boolean = false;
+  localstoargeSearch: string;
 
   constructor(
     private fb: FormBuilder,
@@ -64,6 +65,7 @@ export class ShopComponent implements OnInit, OnDestroy {
     this.localstorageData = localStorage.getItem('data');
     this.localstoargeGender = localStorage.getItem('gender');
     this.localstoargeCategory = localStorage.getItem('category');
+    this.localstoargeSearch = localStorage.getItem('search');
     this.filterForm = this.fb.group({
       type: [this.localstoargeGender || ''],
       MinPrice: [''],
@@ -71,12 +73,9 @@ export class ShopComponent implements OnInit, OnDestroy {
       category: [this.localstoargeCategory || ''],
       subcategory: [''],
     });
+    this.searchTerm = this.localstoargeSearch || '';
 
     this.getProducts(this.pageNumber);
-
-    setInterval(() => {
-      this.getLocalStorageGender();
-    }, 1000);
   }
 
   ngOnDestroy() {
@@ -84,6 +83,7 @@ export class ShopComponent implements OnInit, OnDestroy {
     localStorage.removeItem('count');
     localStorage.removeItem('gender');
     localStorage.removeItem('category');
+    localStorage.removeItem('search');
   }
 
   clearAllFilters() {
@@ -106,43 +106,43 @@ export class ShopComponent implements OnInit, OnDestroy {
       });
     });
   }
-  getLocalStorageGender(): void {
-    const updatedGender = localStorage.getItem('gender');
-    const updatedCategory = localStorage.getItem('category');
-    console.log(updatedCategory, updatedGender);
-    console.log(this.localstoargeCategory, this.localstoargeGender);
-    if (
-      updatedGender !== this.localstoargeGender &&
-      this.localstoargeGender !== ''
-    ) {
-      this.localstoargeGender = updatedGender;
-      this.filterForm = this.fb.group({
-        type: [this.localstoargeGender || ''],
-        MinPrice: [''],
-        MaxPrice: [''],
-        category: [this.localstoargeCategory || ''],
-        subcategory: [''],
-      });
-      this.getProducts(this.pageNumber);
-      this.flagGender = true;
-    }
+  // getLocalStorageGender(): void {
+  //   const updatedGender = localStorage.getItem('gender');
+  //   const updatedCategory = localStorage.getItem('category');
+  //   console.log(updatedCategory, updatedGender);
+  //   console.log(this.localstoargeCategory, this.localstoargeGender);
+  //   if (
+  //     updatedGender !== this.localstoargeGender &&
+  //     this.localstoargeGender !== ''
+  //   ) {
+  //     this.localstoargeGender = updatedGender;
+  //     this.filterForm = this.fb.group({
+  //       type: [this.localstoargeGender || ''],
+  //       MinPrice: [''],
+  //       MaxPrice: [''],
+  //       category: [this.localstoargeCategory || ''],
+  //       subcategory: [''],
+  //     });
+  //     this.getProducts(this.pageNumber);
+  //     this.flagGender = true;
+  //   }
 
-    if (
-      updatedCategory !== this.localstoargeCategory &&
-      this.localstoargeCategory !== ''
-    ) {
-      this.localstoargeCategory = updatedCategory;
-      this.filterForm = this.fb.group({
-        type: [this.localstoargeGender || ''],
-        MinPrice: [''],
-        MaxPrice: [''],
-        category: [this.localstoargeCategory || ''],
-        subcategory: [''],
-      });
-      this.getProducts(this.pageNumber);
-      this.flagGender = true;
-    }
-  }
+  //   if (
+  //     updatedCategory !== this.localstoargeCategory &&
+  //     this.localstoargeCategory !== ''
+  //   ) {
+  //     this.localstoargeCategory = updatedCategory;
+  //     this.filterForm = this.fb.group({
+  //       type: [this.localstoargeGender || ''],
+  //       MinPrice: [''],
+  //       MaxPrice: [''],
+  //       category: [this.localstoargeCategory || ''],
+  //       subcategory: [''],
+  //     });
+  //     this.getProducts(this.pageNumber);
+  //     this.flagGender = true;
+  //   }
+  // }
 
   getProducts(pageNum: number) {
     this.pageNumber = pageNum;

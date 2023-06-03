@@ -17,21 +17,19 @@ export class MainCategoriesComponent implements OnInit {
   ngOnInit(): void {}
   setFilter(genderFilter) {
     this.shopFilter = genderFilter;
-    let params = new HttpParams().set('Gender', this.shopFilter);
 
-    this.genderParam = params.get('Gender');
-    localStorage.setItem('gender', this.genderParam);
-    this.prod.getShop(params).subscribe((data) => {
-      this.newFilter = data.productsWithAvgRates;
-      this.count = data.count;
-      console.log(this.count);
-      console.log(this.newFilter);
+    localStorage.setItem('gender', this.shopFilter);
+    // this.prod.getShop(params).subscribe((data) => {
+    //   this.newFilter = data.productsWithAvgRates;
+    //   this.count = data.count;
+    //   console.log(this.count);
+    //   console.log(this.newFilter);
 
-      const serializedData = JSON.stringify(this.newFilter);
-      localStorage.setItem('data', serializedData);
+    //   const serializedData = JSON.stringify(this.newFilter);
+    //   localStorage.setItem('data', serializedData);
 
-      const countData = JSON.stringify(this.count);
-      localStorage.setItem('count', countData);
-    });
+    //   const countData = JSON.stringify(this.count);
+    //   localStorage.setItem('count', countData);
+    // });
   }
 }

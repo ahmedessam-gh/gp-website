@@ -173,7 +173,6 @@
       <ul class="navbar-nav navbar-ul">
         <li class="nav-item nav-li-dropdown">
           <a
-            
             routerLink=""
             class="nav-link nav-line"
             [ngClass]="{
@@ -199,7 +198,6 @@
         </li>
         <li class="nav-item nav-li-dropdown">
           <a
-            
             routerLink="/shop"
             class="nav-link nav-line"
             [ngClass]="{
@@ -548,7 +546,13 @@
       <div class="inputBox ms-4 ms-lg-0 col-8">
         <div class="inputBox">
           <div class="search-items bg-light">
-            <span> <fa-icon icon="magnifying-glass"></fa-icon></span>
+            <span
+              routerLink="/shop"
+              (click)="getSearch(searchText)"
+              (click)="removeContainer()"
+            >
+              <fa-icon icon="magnifying-glass"></fa-icon
+            ></span>
             <input
               type="search"
               name="search"

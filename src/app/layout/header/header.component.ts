@@ -56,6 +56,7 @@ export class HeaderComponent implements OnInit {
   categoryFIlter: string = '';
   categoryParam: string;
   categories: any;
+  searchFilter: any;
   toggler(): void {
     this.collapsed = !this.collapsed;
     const nav = document.getElementById('lower-nav');
@@ -108,36 +109,36 @@ export class HeaderComponent implements OnInit {
       }
     );
   }
-  setFilter(genderFilter, categoryFilter) {
-    this.shopFilter = genderFilter;
-    this.categoryFIlter = categoryFilter;
+  // setFilter(genderFilter, categoryFilter) {
+  //   this.shopFilter = genderFilter;
+  //   this.categoryFIlter = categoryFilter;
 
-    let params = new HttpParams().set('Gender', this.shopFilter);
-    if (this.categoryFIlter !== '') {
-      params = params.set('Category', this.categoryFIlter);
-    }
+  //   let params = new HttpParams().set('Gender', this.shopFilter);
+  //   if (this.categoryFIlter !== '') {
+  //     params = params.set('Category', this.categoryFIlter);
+  //   }
 
-    this.categoryParam = params.get('Category');
-    this.genderParam = params.get('Gender');
-    localStorage.setItem('gender', this.genderParam);
-    localStorage.setItem('category', this.categoryParam);
-    this.activatedRoute.queryParamMap.subscribe((param) => {
-      this.genderParam = param['type'];
-      console.log(this.genderParam);
-      this.prod.getShop(params).subscribe((data) => {
-        this.newFilter = data.productsWithAvgRates;
-        this.count = data.count;
-        console.log(this.count);
-        console.log(this.newFilter);
+  //   this.categoryParam = params.get('Category');
+  //   this.genderParam = params.get('Gender');
+  //   localStorage.setItem('gender', this.genderParam);
+  //   localStorage.setItem('category', this.categoryParam);
+  //   this.activatedRoute.queryParamMap.subscribe((param) => {
+  //     this.genderParam = param['type'];
+  //     console.log(this.genderParam);
+  //     this.prod.getShop(params).subscribe((data) => {
+  //       this.newFilter = data.productsWithAvgRates;
+  //       this.count = data.count;
+  //       console.log(this.count);
+  //       console.log(this.newFilter);
 
-        const serializedData = JSON.stringify(this.newFilter);
-        localStorage.setItem('data', serializedData);
+  //       const serializedData = JSON.stringify(this.newFilter);
+  //       localStorage.setItem('data', serializedData);
 
-        const countData = JSON.stringify(this.count);
-        localStorage.setItem('count', countData);
-      });
-    });
-  }
+  //       const countData = JSON.stringify(this.count);
+  //       localStorage.setItem('count', countData);
+  //     });
+  //   });
+  // }
 
   showUserList() {
     if (this.auth.getUser()) {
@@ -209,5 +210,10 @@ export class HeaderComponent implements OnInit {
       console.log(data);
       this.categories = data;
     });
+  }
+
+  getSearch(SearchText) {
+    this.searchFilter = SearchText;
+    localStorage.setItem('search', this.searchFilter);
   }
 }
