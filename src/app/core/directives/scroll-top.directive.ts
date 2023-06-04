@@ -5,11 +5,12 @@ import { PaginationService } from '../services/pagination.service';
   selector: '[appScrollTop]'
 })
 export class ScrollTopDirective {
+  constructor() { }
 
-  constructor(private paginationService:PaginationService,private elementRef:ElementRef) { }
+  // constructor(private paginationService:PaginationService,private elementRef:ElementRef) { }
   ngOnInit(){
-    this.paginationService.pageChange$.subscribe(() => {
-      this.elementRef.nativeElement.scrollTo({top:0, behavior: 'smooth' });
-    });
+    // this.paginationService.pageChange$.subscribe(() => {
+    //   this.elementRef.nativeElement.scrollTo({top:0, behavior: 'smooth' });
+    // });
   }
 }
