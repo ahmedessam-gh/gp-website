@@ -13,17 +13,18 @@
       </div>
       <div class="smallImgDiv mt-3">
         <img
-          *ngFor="let smallimg of myprod?.productImages"
+          *ngFor="let smallimg of myprod?.productImages?.slice(0, 3)"
           class="productSmallimgs mx-2"
           src="{{ smallimg?.imageUrl }}"
           [ngClass]="{
-            selected: selectedPhoto === smallimg.imageUrl
+            selected: selectedPhoto === smallimg?.imageUrl
           }"
           alt=""
-          width="11%"
+          width="15%"
           height="100px"
-          (click)="changePhoto(smallimg.imageUrl)"
+          (click)="changePhoto(smallimg?.imageUrl)"
         />
+
         <!-- <img
           class="productSmallimgs mx-2"
           src="assets\images\02.jpg"
@@ -78,7 +79,7 @@
       <div class="productCategory py-2">{{ myprod?.description }}</div>
       <hr />
       <div class="productPriceDiscount">
-        <label class="productPrice">{{ discountedprice }} EGP</label>
+        <label class="productPrice">{{ discountedprice.toFixed(0) }} EGP</label>
         <del *ngIf="myprod?.sale > 0" class="productDiscount py-2"
           >{{ myprod?.price }} EGP</del
         >

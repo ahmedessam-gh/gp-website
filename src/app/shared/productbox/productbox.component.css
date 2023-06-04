@@ -12,9 +12,10 @@
   }
   .product-box .product-details h4 {
     font-family:var(--main-font) ;
-  color: #2b2b2b;
-  font-size: 20px;
-  line-height: 1;
+  color: var(--main-color);
+  font-size: 18px;
+  line-height: 1.5;
+
   margin-bottom: 10px;
   text-transform: capitalize;
   text-decoration: none;
