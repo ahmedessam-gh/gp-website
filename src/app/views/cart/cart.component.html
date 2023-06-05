@@ -11,7 +11,7 @@
   <div class="tableContainer">
     <div class="row g-0" *ngFor="let cartProd of cartProducts | paginate:{itemsPerPage:pageSize,currentPage:pageNumber}">
       <div class="prodInfo d-flex col-12 col-lg-6 mb-5 my-3">
-        <img src="{{ cartProd.product.productImages[0].imageUrl}}" width="150px" height="150px" alt="" />
+        <img src="{{ cartProd.product.productImages[0]?.imageUrl || 'https://www.bevi.com/static/files/0/ecommerce-default-product.png'}}" width="150px" height="150px" alt="" />
         <div class="content-cart ms-4">
           <h6>{{ cartProd.product.productName}}</h6>
           <p>{{ cartProd.product.category }}</p>

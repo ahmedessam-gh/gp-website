@@ -103,7 +103,7 @@
         >
           <figure class="itemside mb-5">
             <div class="aside mx-3">
-              <img alt="" [src]="orderDetails.img" class="img-sm" />
+              <img alt="" src="{{orderDetails?.img || 'https://www.bevi.com/static/files/0/ecommerce-default-product.png'}} " class="img-sm" />
             </div>
             <figcaption class="info align-self-center">
               <p class="title">{{ orderDetails.productName }}</p>

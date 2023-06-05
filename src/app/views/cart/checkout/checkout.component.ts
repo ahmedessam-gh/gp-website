@@ -59,7 +59,7 @@ export class CheckoutComponent implements OnInit {
   creditChecked: string = 'cash';
   submitted = false;
   checkoutToastr: any;
-  constructor(private cart: CartService, private fb: FormBuilder, private router: Router, private ngb: NgbService) { }
+  constructor(private cart: CartService, public fb: FormBuilder, public router: Router, public ngb: NgbService) { }
 
   async ngOnInit(): Promise<void> {
     this.cart.getOrderDetails().subscribe((data) => {
@@ -135,8 +135,8 @@ export class CheckoutComponent implements OnInit {
   }
   cashMethod() {
     const cash = document.getElementById('cash') as HTMLInputElement;
-    this.creditChecked = cash.value;
-    cash.click();
+    this.creditChecked = cash?.value;
+    cash?.click();
     if (this.creditChecked === 'cash') {
       this.orderForm.get('name').disable();
       this.cardNum.update({ disabled: true })

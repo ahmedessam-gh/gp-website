@@ -4,7 +4,7 @@
       <div class="productBigImg py-2">
         <img
           class="bigImg img-fluid"
-          src="{{ myprod?.productImages[0].imageUrl }}"
+          src="{{ myprod?.productImages[0]?.imageUrl || 'https://www.bevi.com/static/files/0/ecommerce-default-product.png'}}"
           alt="sss"
           width="80%"
           [ngClass]="{ fadeInLeft: isBigPhotoUpdated }"
@@ -15,7 +15,7 @@
         <img
           *ngFor="let smallimg of myprod?.productImages?.slice(0, 3)"
           class="productSmallimgs mx-2"
-          src="{{ smallimg?.imageUrl }}"
+          src="{{ smallimg?.imageUrl || 'https://www.bevi.com/static/files/0/ecommerce-default-product.png'}}"
           [ngClass]="{
             selected: selectedPhoto === smallimg?.imageUrl
           }"

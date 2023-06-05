@@ -9,8 +9,8 @@
         <img
           class="img-fluid position-relative"
           height="70px"
-          src="{{ product.productImages[0].imageUrl }}"
-          alt=""
+          src="{{product.productImages[0]?.imageUrl || 'https://www.bevi.com/static/files/0/ecommerce-default-product.png'}}"
+          alt="product"
         />
       </a>
       <div

@@ -1,6 +1,6 @@
 export interface orderDetails {
   address: string;
-  detailsList: productDetails[];
+  detailsList?: productDetails[];
   email: string;
   fname: string;
   lname: string;
