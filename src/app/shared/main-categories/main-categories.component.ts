@@ -12,6 +12,7 @@ export class MainCategoriesComponent implements OnInit {
   genderParam: string;
   newFilter: any;
   count: any;
+  shopCategoryFilter: any;
   constructor(private prod: ProdService) {}
 
   ngOnInit(): void {}
@@ -31,5 +32,10 @@ export class MainCategoriesComponent implements OnInit {
     //   const countData = JSON.stringify(this.count);
     //   localStorage.setItem('count', countData);
     // });
+  }
+  setCategory(categoryFilter) {
+    this.shopCategoryFilter = categoryFilter;
+
+    localStorage.setItem('category', this.shopCategoryFilter);
   }
 }
