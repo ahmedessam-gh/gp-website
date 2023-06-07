@@ -558,18 +558,23 @@
               name="search"
               placeholder="Search"
               [(ngModel)]="searchText"
-              (keyup)="onSearchInput()"
+              (input)="onSearchInput()"
             />
           </div>
         </div>
         <br />
         <div class="search-suggesions" *ngIf="showSuggetions">
-          <span>Top Suggestions</span>
+          <span>New Arrivals</span>
           <br /><br />
-          <ul class="navbar-nav">
-            <li><a class="nav-link">Air force</a></li>
-            <li><a class="nav-link">T-shirt</a></li>
-            <li><a class="nav-link">Pants</a></li>
+          <ul class="navbar-nav" *ngFor="let pro of newArrival | slice : 0 : 3">
+            <li>
+              <a
+                [routerLink]="['/shop/product', pro.product.productId]"
+                (click)="removeContainer()"
+              >
+                {{ pro.product.productName }}
+              </a>
+            </li>
           </ul>
         </div>
         <div class="search-results" *ngIf="showResults">

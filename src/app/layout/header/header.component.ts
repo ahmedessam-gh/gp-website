@@ -23,7 +23,7 @@ import { Location } from '@angular/common';
 import { product } from 'src/app/core/interfaces/product';
 import { SearchService } from 'src/app/core/services/search.service';
 import { HttpParams } from '@angular/common/http';
-import { debounceTime } from 'rxjs/operators';
+import { auditTime, debounceTime } from 'rxjs/operators';
 import { orderDetails } from 'src/app/core/interfaces/orderDetails';
 import { CustomerService } from 'src/app/core/services/customer.service';
 
@@ -57,6 +57,7 @@ export class HeaderComponent implements OnInit {
   categoryParam: string;
   categories: any;
   searchFilter: any;
+  newArrival: Array<{ product: any }>;
   toggler(): void {
     this.collapsed = !this.collapsed;
     const nav = document.getElementById('lower-nav');
@@ -79,6 +80,9 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.prod.getArrival().subscribe((data) => {
+      this.newArrival = data.productsWithAvgRates;
+    });
     // this.customer.refetchAfterCartDeletion$().subscribe(() => {
     //   console.log('all cart has been deleted');
     //   this.getCart();
@@ -190,6 +194,7 @@ export class HeaderComponent implements OnInit {
       this.showResults = true;
       this.prod
         .getShop(params)
+
         // Adjust the delay duration as needed (in milliseconds)
         .subscribe(
           (data) => {

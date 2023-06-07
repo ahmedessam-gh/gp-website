@@ -22,6 +22,7 @@ import { HeaderComponent } from 'src/app/layout/header/header.component';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 import { product } from 'src/app/core/interfaces/product';
 import { HttpParams } from '@angular/common/http';
+import { AuthService } from 'src/app/core/services/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -40,13 +41,15 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   count: any;
   newArrival: any;
   param: HttpParams;
+  userList: boolean;
   constructor(
     private elementRef: ElementRef,
     private renderer: Renderer2,
     private prod: ProdService,
     private cart: CartService,
     private router: Router,
-    public headerHome: HeaderService
+    public headerHome: HeaderService,
+    private auth: AuthService
   ) {
     this.headerHome.navPosition = 'fixed';
   }
@@ -113,6 +116,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       this.newArrival = data.productsWithAvgRates;
     });
 
+    this.showUserList();
+
     Aos.init({});
     this.favouriteList = this.prod.getFav();
     console.log(this.favouriteList);
@@ -173,5 +178,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       .forEach((elem) => {
         elem.classList.remove('header-icons-no-scroll');
       });
+  }
+  showUserList() {
+    if (this.auth.getUser()) {
+      this.userList = true;
+    } else this.userList = false;
   }
 }
