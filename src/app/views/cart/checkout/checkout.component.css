@@ -5,7 +5,12 @@
 input::placeholder {
     font-family: var(--secondary-font);
 }
-
+.table-checkout-content{
+    width: 90%;
+}
+.checkout-productname{
+    width: 90%;
+}
 fieldset {
     margin-bottom: 1em !important;
     border: 1px solid black !important;
