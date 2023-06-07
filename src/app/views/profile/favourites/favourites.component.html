@@ -13,13 +13,13 @@
             </thead>
             <tbody *ngFor="let fav of favouriteList | paginate :{itemsPerPage:pageSize,currentPage:pageNumber,totalItems:count}">
                 <tr class="tableInfoCell">
-                    <td class="d-flex ">
+                    <td class="d-flex">
                         <div>
                             <img src="{{fav.productImages[0].imageUrl}}" width="150px" height="150px" alt="">
                         </div>
-                        <div class="prodInfo ms-3">
-                            <h6>{{fav.productName}}</h6>
-                            <p>{{fav.description}}</p>
+                        <div style="cursor: pointer;" class="prodInfo ms-3">
+                            <h6 [routerLink]="['/shop/product',fav.productId]">{{fav.productName}}</h6>
+                            <!-- <p>{{fav.description}}</p> -->
                             <p>${{fav.price}}</p>
                         </div>
                     </td>

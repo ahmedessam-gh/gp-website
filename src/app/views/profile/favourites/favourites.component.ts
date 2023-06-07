@@ -10,7 +10,7 @@ import { ProdService } from 'src/app/core/services/prod.service';
 })
 export class FavouriteComponent implements OnInit {
   pageNumber:number=1;
-  pageSize:number = 2; 
+  pageSize:number = 4; 
   count:number;
   favouriteList: any;
   constructor(private prod: ProdService, private customer: CustomerService) { }

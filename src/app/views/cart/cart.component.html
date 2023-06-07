@@ -13,7 +13,7 @@
       <div class="prodInfo d-flex col-12 col-lg-6 mb-5 my-3">
         <img src="{{ cartProd.product.productImages[0]?.imageUrl || 'https://www.bevi.com/static/files/0/ecommerce-default-product.png'}}" width="150px" height="150px" alt="" />
         <div class="content-cart ms-4">
-          <h6>{{ cartProd.product.productName}}</h6>
+          <h6 style="cursor: pointer;" [routerLink]="['/shop/product',cartProd.product.productId]">{{ cartProd.product.productName}}</h6>
           <p>{{ cartProd.product.category }}</p>
           <p>${{ cartProd.product.price }}</p>
           <!-- <p>{{ cartProd.product.size }}</p> -->
