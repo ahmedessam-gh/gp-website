@@ -50,6 +50,7 @@ export const apiEndpoints = {
       `ProductsActions/NeedToPunch/${threshold}`,
   },
   products: {
+    getRecommended: 'Products/Recommended',
     getProductsPage: 'Products/GetProductspage',
     getProductReviews: (id: number) => `Products/GetProductReviews/?id=${id}`,
     getProductDetails: `Products/GetProductDetails`,

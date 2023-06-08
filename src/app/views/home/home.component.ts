@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   newArrival: any;
   param: HttpParams;
   userList: boolean;
+  suggestedProds: any;
   constructor(
     private elementRef: ElementRef,
     private renderer: Renderer2,
@@ -114,6 +115,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit(): void {
     this.prod.getArrival().subscribe((data) => {
       this.newArrival = data.productsWithAvgRates;
+    });
+
+    this.prod.getRecommended().subscribe((data) => {
+      this.suggestedProds = data.productsWithAvgRates;
     });
 
     this.showUserList();

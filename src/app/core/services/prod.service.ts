@@ -94,4 +94,7 @@ export class ProdService {
   getArrival(): Observable<any> {
     return this.http.get(`${this.URL}${apiEndpoints.products.getNewArrivals}`);
   }
+  getRecommended(): Observable<any> {
+    return this.http.get(`${this.URL}${apiEndpoints.products.getRecommended}`);
+  }
 }

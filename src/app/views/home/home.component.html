@@ -56,22 +56,8 @@
       SUGGESTED FOR <br />
       YOU
     </h1>
-    <div class="container">
-      <div class="row">
-        <div
-          class="card col-xl-3 col-lg-4 col-sm-6"
-          *ngFor="let newProd of newProds; let i = index"
-          data-aos="fade-up"
-          data-aos-once="true"
-          data-aos-duration="1000"
-        >
-          <app-productbox
-            [product]="newProd.product"
-            [rating]="newProd.avgRate"
-          ></app-productbox>
-        </div>
-      </div>
-    </div>
+    <app-carousel [prods]="suggestedProds"></app-carousel>
+
     <h1>
       <button
         data-aos="fade-up"
