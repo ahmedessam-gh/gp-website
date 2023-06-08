@@ -564,10 +564,10 @@
         </div>
         <br />
         <div class="search-suggesions" *ngIf="showSuggetions">
-          <span>New Arrivals</span>
-          <br /><br />
+          <span class="my-3">New Arrivals</span>
+          <br />
           <ul class="navbar-nav" *ngFor="let pro of newArrival | slice : 0 : 3">
-            <li>
+            <li class="py-1">
               <a
                 [routerLink]="['/shop/product', pro.product.productId]"
                 (click)="removeContainer()"

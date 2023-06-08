@@ -219,7 +219,7 @@ export class ProductComponent implements OnInit {
       this.questions = this.myprod.questions;
       const sale_percentage = this.myprod.sale / 100;
       this.discountedprice =
-        this.myprod.price - sale_percentage * this.myprod.price.toFixed(0);
+        this.myprod.price - sale_percentage * this.myprod.price;
 
       this.addQuestions = this.fb.group({
         productId: [this.myprod.productId],
