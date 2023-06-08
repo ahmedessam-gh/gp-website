@@ -151,7 +151,10 @@ export class HeaderComponent implements OnInit {
   }
   logOut() {
     this.auth.logOut();
-    this.router.navigate(['']);
+    // this.router.navigate(['']);
+    this.router.navigate(['']).then(()=>{
+      window.location.reload();
+    });
     this.userList = false;
   }
   changeColor() {
