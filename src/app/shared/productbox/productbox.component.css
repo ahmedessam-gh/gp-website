@@ -26,6 +26,7 @@
   color: #999999;
   font-weight: 500;
   font-family: var(--button-font);
+  text-transform: capitalize;
   }
   .product-box .product-details h6 {
   color: #2b2b2b;
