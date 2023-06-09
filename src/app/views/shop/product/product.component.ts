@@ -1,7 +1,7 @@
 import { CartService } from 'src/app/core/services/cart.service';
 import { Prod } from 'src/app/core/interfaces/Prod';
-import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ProdService } from 'src/app/core/services/prod.service';
 import {
   FormGroup,
@@ -9,127 +9,137 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
-import 'owl.carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import { OwlOptions } from 'ngx-owl-carousel-o';
-import { NgbProgressbar } from '@ng-bootstrap/ng-bootstrap';
 
-declare var $: any;
-import 'slick-carousel';
+import { NgbService } from 'src/app/core/services/ngb.service';
+import { CustomerService } from 'src/app/core/services/customer.service';
+import { rating } from 'src/app/core/interfaces/rating';
+import { throws } from 'assert';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { product } from 'src/app/core/interfaces/product';
+import { HttpParams } from '@angular/common/http';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  submitted: boolean = false;
+  submitted: boolean;
   ratingSub = false;
   myprod: any;
   p: any;
-
-  prods: Prod[] = [];
-  customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    dots: false,
-    navSpeed: 700,
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 1,
-      },
-      550: {
-        items: 2,
-      },
-      740: {
-        items: 2.5,
-      },
-      940: {
-        items: 3.5,
-      },
-    },
-    nav: true,
-  };
-  question: FormGroup;
+  q: any;
+  prodid: any;
+  prods;
+  rates: rating;
+  addQuestions: FormGroup;
   selectedPhoto: string;
   isBigPhotoUpdated: boolean;
-  myratings: {
-    rating: Number;
-    name: string;
-    review: string;
-  }[];
+  myratings: any;
   showNewQuestionForm: boolean = false;
   showRatingForm: boolean = false;
-  questions: { question: string; answer: string }[];
   ratings: FormGroup;
   selectedValue: string;
+  questions: any;
+  userList: boolean = false;
+  errors: string = '';
+  prodWithQuantity: any;
+  quantity: any;
+  allprod: any;
+  cartError: any;
+  favError: any;
+  favMsg: string;
+  cartMsg: string;
+  discountedprice: number;
+  param: HttpParams;
   constructor(
     private cart: CartService,
     private prod: ProdService,
     private ActivatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private ngbService: NgbService,
+    private customer: CustomerService,
+    private auth: AuthService,
+    private cd: ChangeDetectorRef,
+    private router: Router
   ) {}
 
-  ngOnInit(): void {
-    const ordersrouting = this.ActivatedRoute.snapshot.paramMap;
-    const prodid = ordersrouting.get('prodid');
-    this.prods = this.prod.product;
-    this.myprod = this.prod.product.find((prod) => prod.id === prodid);
-    this.selectedPhoto = this.myprod.img;
-    this.isBigPhotoUpdated = false;
-    this.questions = this.myprod.questions;
-    this.myratings = this.myprod.ratings;
-    this.submitted = true;
-
-    this.question = this.fb.group({
-      newQuestion: ['', [Validators.required, Validators.minLength(6)]],
+  async ngOnInit() {
+    this.showUserList();
+    this.prod.getArrival().subscribe((carouselprod) => {
+      this.prods = carouselprod.productsWithAvgRates;
     });
-
-    this.ratings = this.fb.group({
-      newRating: [0, [Validators.required]],
-      newName: ['', [Validators.required]],
-      newReview: [''],
+    this.ActivatedRoute.params.subscribe((params) => {
+      this.prodid = params['prodid'];
+      this.getProduct();
     });
+    // this.ratings = this.fb.group({
+    //   newRating: [0, [Validators.required]],
+    //   newName: ['', [Validators.required]],
+    //   productId: [this.myprod.id],
+    //   newReview: [''],
+    // });
   }
-
-  addToCart(prod: Prod) {
-    this.onSizeChanged(prod);
-    this.cart.addToCart({
-      items: prod,
-      total: 0,
-    });
-    console.log(prod);
+  reportProduct(prod: any) {
+    this.customer.setReportData(prod);
+    this.router.navigate(['/report']);
   }
+  addToCart(prod: any, msg) {
+    const data = {
+      productId: prod.product.productId,
+      quantity: prod.quantity,
+      isRent: true,
+    };
 
-  addQuestion() {
+    this.customer.addToCart(data).subscribe(
+      (next) => {
+        console.log(data);
+        this.showToaster(msg);
+      },
+      (error) => {
+        this.cartError = error.error;
+        this.showDanger(this.cartError);
+      }
+    );
+  }
+  showUserList() {
+    if (this.auth.getUser()) {
+      this.userList = true;
+    } else this.userList = false;
+  }
+  addQuestion(msg) {
     this.submitted = true;
-    if (this.question.valid) {
-      this.submitted = false;
-      const newQuestionValue = this.question.controls['newQuestion'].value;
-      this.questions.push({ question: newQuestionValue, answer: '' });
-      this.question.reset();
-      // Clear the form control after adding the new question
+    if (this.addQuestions.valid) {
+      this.prod.sendQuestions(this.addQuestions.value).subscribe((next) => {
+        const newQuestionValue = this.addQuestions.get('question').value;
+        console.log(newQuestionValue);
+        this.questions.push({ question: newQuestionValue });
+        this.submitted = false;
+        this.addQuestions.get('question').setValue('');
+        this.showToaster(msg);
+      }); // Clear the form control after adding the new question
     }
   }
 
-  addRating() {
+  addRating(msg: string) {
     if (this.ratings.valid) {
-      const newRatingValue = this.ratings.controls['newRating'].value;
-      const newNameValue = this.ratings.controls['newName'].value;
-      const newReviewValue = this.ratings.controls['newReview'].value;
+      this.prod.sendRatings(this.ratings.value).subscribe(
+        (next) => {
+          const newRatingValue = this.ratings.controls['rate'].value;
+          const newReviewValue = this.ratings.controls['rateComment'].value;
 
-      this.myratings.push({
-        rating: newRatingValue,
-        name: newNameValue,
-        review: newReviewValue,
-      });
-      this.ratings.reset();
-    } // Clear the form control after adding the new question
+          this.myratings.push({
+            rate: newRatingValue,
+            rateComment: newReviewValue,
+          });
+          this.ratings.reset();
+          this.showToaster(msg);
+          this.getProduct();
+        },
+        (error) => {
+          this.errors = error.error;
+        }
+      ); // Clear the form control after adding the new question
+    }
   }
   changePhoto(photo: any) {
     const smallPhotos = document.querySelectorAll(
@@ -144,30 +154,94 @@ export class ProductComponent implements OnInit {
     this.isBigPhotoUpdated = true;
     this.isBigPhotoUpdated = false;
   }
-
-  minus(obj) {
-    if (obj.quantity <= 1) {
-      obj.quantity;
+  //
+  plus() {
+    if (this.allprod.quantity >= 10) {
+      this.allprod.quantity = 10;
     } else {
-      obj.quantity--;
+      this.allprod.quantity += 1;
     }
   }
-  plus(obj) {
-    if (obj.quantity >= 10) {
-      obj.quantity;
+  //
+  minus() {
+    if (this.allprod.quantity <= 1) {
+      this.allprod.quantity;
     } else {
-      obj.quantity++;
+      this.allprod.quantity -= 1;
     }
   }
 
-  addToFav(product: Prod, event) {
-    this.prod.addToFav(product, event);
-    // this.getFavourites();
+  addToFav(productId: any, msg) {
+    this.customer.addToWishList(productId).subscribe(
+      (next) => {
+        console.log(productId);
+        this.showToaster(msg);
+      },
+      (error) => {
+        console.log(error);
+        this.favError = error.error;
+
+        this.showDanger('Item is already in your wishlist');
+      }
+    );
   }
 
   onSizeChanged(prod: Prod) {
     const newProd = { ...prod };
     newProd.size = prod.size;
     newProd.id = `${prod.id}_${prod.size}`;
+  }
+
+  showRatingForms() {
+    this.showRatingForm = !this.showRatingForm;
+  }
+  showNewQuestionForms() {
+    this.showNewQuestionForm = !this.showNewQuestionForm;
+  }
+
+  showToaster(msg: string) {
+    this.ngbService.show(msg);
+  }
+
+  showDanger(msg: string) {
+    this.ngbService.show(msg, {
+      classname: 'dangertoast',
+    });
+  }
+  getProduct() {
+    this.param = new HttpParams().set('id', this.prodid);
+    this.prod.getProds(this.param).subscribe((data) => {
+      this.allprod = data;
+      console.log(this.allprod);
+      this.myprod = (data as any).product;
+      this.quantity = (data as any).quantity;
+      console.log(this.quantity);
+      this.questions = this.myprod.questions;
+      const sale_percentage = this.myprod.sale / 100;
+      this.discountedprice =
+        this.myprod.price - sale_percentage * this.myprod.price;
+
+      this.addQuestions = this.fb.group({
+        productId: [this.myprod.productId],
+        question: ['', [Validators.required, Validators.minLength(9)]],
+      });
+
+      this.selectedPhoto = this.myprod.productImages[0].imageUrl;
+      this.isBigPhotoUpdated = false;
+      this.submitted = false;
+
+      this.prod.getRatings(this.prodid).subscribe((data) => {
+        this.rates = data as rating;
+
+        console.log(this.rates);
+        this.myratings = this.rates.customerRates;
+
+        this.ratings = this.fb.group({
+          rate: [1, [Validators.required]],
+          productId: [this.myprod.productId],
+          rateComment: [''],
+        });
+      });
+    });
   }
 }

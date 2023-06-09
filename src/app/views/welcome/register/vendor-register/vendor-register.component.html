@@ -1,0 +1,148 @@
+<div *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>
+  <div
+    class=" animate__animated animate__fadeIn mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
+    <h5 style="color:var(--main-color)">Sign Up</h5>
+    <div class="w-50 form-content">
+      <form [formGroup]="vendorRegisterForm">
+        <div class="registerForm">
+          <div class="row">
+            <div class="tooltip-container col-6 ps-0">
+              <input [ngClass]="{'error-border': submitted && vendorRegisterForm.get('fName').invalid}" type="text" formControlName="fName" class="d-block form-control" placeholder="first name ...">
+              <div class="error"
+              *ngIf="submitted && vendorRegisterForm.get('fName').invalid">
+              <fa-icon class="text-danger" ngbTooltip="enter your first name" [icon]="['fas','circle-exclamation']"></fa-icon>
+              <!-- <div class="error-message">
+                <p>enter your name</p>
+              </div> -->
+            </div>
+            </div>
+            <div class="tooltip-container col-6 pe-0">
+              <input [ngClass]="{'error-border': submitted && vendorRegisterForm.get('lName').invalid}" type="text" formControlName="lName" class="d-block form-control" placeholder="last name ...">
+              <div class="error"
+                *ngIf="submitted && vendorRegisterForm.get('lName').invalid && vendorRegisterForm.get('lname').invalid">
+                <fa-icon class="text-danger" ngbTooltip="enter your last name" [icon]="['fas','circle-exclamation']"></fa-icon>
+                <!-- <div class="error-message">
+                  <p>enter your name</p>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="tooltip-container">
+            <input type="text" [ngClass]="{'error-border': submitted && vendorRegisterForm.get('userName').invalid}" formControlName="userName" class="d-block form-control"
+              placeholder="username ...">
+            <div class="error" *ngIf="submitted  && userError != ''">
+              <fa-icon class="text-danger" ngbTooltip="{{userError}}" [icon]="['fas','circle-exclamation']"></fa-icon>
+            </div>
+          </div>
+          <div class="tooltip-container">
+            <input [ngClass]="{'error-border': submitted && vendorRegisterForm.get('email').invalid}" formControlName="email" class="d-block form-control" placeholder="Enter your email ...">
+            <div class="error" 
+            *ngIf="submitted  && emailError != ''">
+              <fa-icon class="text-danger" ngbTooltip="{{emailError}}" [icon]="['fas','circle-exclamation']"></fa-icon>
+              <!-- <div class="error-message">
+                <p>enter your email</p>
+              </div> -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="tooltip-container col-6 ps-0">
+              <input [ngClass]="{'error-border': submitted && vendorRegisterForm.get('phone').invalid}" type="text" formControlName="phone" class="d-block form-control" placeholder="phone number ...">
+              <div class="error"
+              *ngIf="submitted && vendorRegisterForm.get('phone').invalid">
+              <fa-icon class="text-danger" ngbTooltip="enter your phone number" [icon]="['fas','circle-exclamation']"></fa-icon>
+              <!-- <div class="error-message">
+                <p>enter your name</p>
+              </div> -->
+            </div>
+            </div>
+            <div class="tooltip-container col-6 pe-0">
+              <input [ngClass]="{'error-border': submitted && vendorRegisterForm.get('storeName').invalid}" type="text" formControlName="storeName" class="d-block form-control" placeholder="store name ...">
+              <div class="error"
+                *ngIf="submitted  && storeError != ''">
+                <fa-icon class="text-danger" ngbTooltip="{{storeError}}" [icon]="['fas','circle-exclamation']"></fa-icon>
+                <!-- <div class="error-message">
+                  <p>enter your name</p>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="tooltip-container col-6 ps-0">
+              <input [ngClass]="{'error-border': submitted && vendorRegisterForm.get('address').invalid}" type="text" formControlName="address" class="d-block form-control" placeholder="address ...">
+              <div class="error"
+              *ngIf="submitted && vendorRegisterForm.get('address').invalid">
+              <fa-icon class="text-danger" ngbTooltip="enter your address" [icon]="['fas','circle-exclamation']"></fa-icon>
+              <!-- <div class="error-message">
+                <p>enter your name</p>
+              </div> -->
+            </div>
+            </div>
+            <div class="tooltip-container col-6 pe-0">
+              <input [ngClass]="{'error-border': submitted && vendorRegisterForm.get('nId').invalid}" type="text" formControlName="nId" class="d-block form-control" placeholder="national Id ...">
+              <div class="error"
+                *ngIf="submitted && vendorRegisterForm.get('nId').invalid">
+                <fa-icon class="text-danger" ngbTooltip="enter your national id" [icon]="['fas','circle-exclamation']"></fa-icon>
+                <!-- <div class="error-message">
+                  <p>enter your name</p>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          
+          <div class="tooltip-container">
+            <input [ngClass]="{'error-border': submitted && vendorRegisterForm.get('password').invalid}" type="password" formControlName="password" class="d-block form-control"
+              placeholder="password ...">
+            <div class="error" *ngIf="submitted && passError != ''">
+              <fa-icon class="tooltip-icon text-danger" ngbTooltip="{{passError}}" [icon]="['fas','circle-exclamation']"></fa-icon>
+              <!-- <div class="error-message error-pass">
+                <p>must contain 6 letters or more.</p>
+                <p>must contain letters and numbers only.</p>
+              </div> -->
+            </div>
+          </div>
+         
+          <!-- <div class="tooltip-container">
+            <input [ngClass]="{'error-border': registerForm.get('confirmPassword').hasError('passNotMatching')}" type="password" formControlName="confirmPassword" class="d-block form-control"
+              placeholder="Re enter your password ...">
+            <div class="error" *ngIf="registerForm.get('confirmPassword').hasError('passNotMatching')">
+              <fa-icon class="tooltip-icon text-danger" [icon]="['fas','circle-exclamation']"></fa-icon>
+              <div class="error-message">
+                <p>password is not matching</p>
+              </div>
+            </div>
+          </div> -->
+  
+          <!-- <div class="tooltip-container">
+            <input type="radio" formControlName="role" value="customer"> <span class="mx-3">Customer</span>
+            <input type="radio" formControlName="role" value="vendor"> <span class="ms-3">Vendor</span>
+            <div class="error" *ngIf="submitted && registerForm.get('role').invalid">
+              <fa-icon class="text-danger" ngbTooltip="you must choose of of the following" [icon]="['fas','circle-exclamation']"></fa-icon>
+              <div class="error-message">
+                <p>please choose one of the following</p>
+              </div>
+            </div>
+          </div> -->
+          <div>
+            <div class="tooltip-container">
+              <div>
+                <input type="checkbox"
+                placeholder="Enter your password ...">
+                <label for="" class="ms-2" style="color:gray; font-size: 0.75rem;">I agree to <a href="#">terms</a> and <a href="#">conditions</a></label>
+              </div>
+              
+              
+              <!-- <div class="error" *ngIf="submitted && registerForm.get('password').invalid">
+                <fa-icon class="tooltip-icon text-danger" ngbTooltip="must contain capital letter,special character and number." [icon]="['fas','circle-exclamation']"></fa-icon>
+              </div> -->
+            </div>
+           </div>
+          <div>
+            <app-main-button id="app-button" width="100%" content="register" (click)="vendorRegister()"></app-main-button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button class="btn" [routerLink]="['/welcome/loginn']">Login</button>
+  </div>

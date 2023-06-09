@@ -13,3 +13,22 @@ i {
   top: 0;
   left: 0;
 }
+@supports (-ms-ime-align: auto) {
+  /* CSS rules specifically for Microsoft Edge */
+  /* Add your specific styles here */
+  i {
+    position: relative;
+    display: inline-block;
+    font-size: 1rem;
+    padding-right: 0.1rem;
+    color: #d3d3d3;
+  }
+
+  .filled {
+    color: #ffa800;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

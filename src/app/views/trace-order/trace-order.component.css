@@ -94,4 +94,8 @@ ul.row-sm {
   transform: rotate(180deg);
 }
 
+.cancelorder{
+color: var(--main-color);
+text-align:center
 
+}

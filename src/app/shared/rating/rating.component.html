@@ -1,8 +1,8 @@
 <ng-template #t let-fill="fill">
-  <i class="bi-star-fill pb-1">
+  <i class="fa fa-star pb-1">
     <i
       *ngIf="fill > 0"
-      class="bi-star-fill filled pb-1"
+      class="fa fa-star filled pb-1"
       [style.width.%]="fill"
     ></i>
   </i>
@@ -10,7 +10,7 @@
 
 <ngb-rating
   [starTemplate]="t"
-  [(rate)]="product.rating"
+  [(rate)]="product"
   [readonly]="true"
   [max]="5"
 ></ngb-rating>

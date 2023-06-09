@@ -3,8 +3,11 @@
     <div class="productImg col-xl-6 col-md-6 col-12 mb-lg-0 mb-5">
       <div class="productBigImg py-2">
         <img
-          class="bigImg"
-          src="{{ myprod.img }}"
+          class="bigImg img-fluid"
+          src="{{
+            myprod?.productImages[0]?.imageUrl ||
+              'https://www.bevi.com/static/files/0/ecommerce-default-product.png'
+          }}"
           alt="sss"
           width="80%"
           [ngClass]="{ fadeInLeft: isBigPhotoUpdated }"
@@ -13,14 +16,22 @@
       </div>
       <div class="smallImgDiv mt-3">
         <img
+          *ngFor="let smallimg of myprod?.productImages?.slice(0, 3)"
           class="productSmallimgs mx-2"
-          src="{{ myprod.img }}"
-          [ngClass]="{ selected: selectedPhoto === myprod.img }"
+          src="{{
+            smallimg?.imageUrl ||
+              'https://www.bevi.com/static/files/0/ecommerce-default-product.png'
+          }}"
+          [ngClass]="{
+            selected: selectedPhoto === smallimg?.imageUrl
+          }"
           alt=""
-          width="17%"
-          (click)="changePhoto(myprod.img)"
+          width="15%"
+          height="100px"
+          (click)="changePhoto(smallimg?.imageUrl)"
         />
-        <img
+
+        <!-- <img
           class="productSmallimgs mx-2"
           src="assets\images\02.jpg"
           [ngClass]="{ selected: selectedPhoto === 'assets/images/02.jpg' }"
@@ -35,37 +46,53 @@
           [ngClass]="{ selected: selectedPhoto === 'assets/images/04.jpg' }"
           width="17%"
           (click)="changePhoto('assets/images/04.jpg')"
-        />
+        /> -->
       </div>
     </div>
     <hr class="d-lg-none d-md-none d-xl-none d-block" />
     <div class="productDetails col-xl-6 col-12 col-md-6 mt-lg-0 mt-4">
-      <h1 class="productName">{{ myprod.ProdName }}</h1>
-      <label class="productRent" *ngIf="myprod.rent">
-        <fa-icon class="px-1" icon="circle-check"></fa-icon> Avaliable for
-        rent</label
+      <div class="d-flex justify-content-between">
+        <h1 class="productName">{{ myprod?.productName }}</h1>
+        <button
+          (click)="reportProduct(myprod)"
+          ngbTooltip="Report this product"
+          class="question-icon"
+        >
+          ?
+        </button>
+      </div>
+      <label class="productRent" *ngIf="myprod?.sale > 0">
+        <fa-icon class="px-1" icon="dollar"></fa-icon>{{ myprod?.sale }}%
+        discount on this product !</label
       >
 
-      <label class="productNoRent" *ngIf="!myprod.rent">
-        <fa-icon class="px-1" icon="times"></fa-icon> Currently not available
-        for rent</label
-      >
+      <label class="productNoRent" *ngIf="myprod?.sale == 0">
+        <fa-icon class="px-1" icon="times"></fa-icon> No discount for this
+        product at the moment
+      </label>
       <br />
       <div class="rating px-2 py-2">
-        <app-rating [product]="myprod"></app-rating>
-        ( {{ myprod.rating }} )
+        <app-rating [product]="rates?.average"></app-rating>
+        <label class="ratecount mx-2" *ngIf="rates?.average > 0">
+          ( {{ rates.count }} votes )</label
+        >
+        <label class="ratecount mx-2" *ngIf="rates?.average == 0">
+          ( product not rated yet )</label
+        >
       </div>
 
       <hr />
-      <div class="productCategory py-2">{{ myprod.details }}</div>
+      <div class="productCategory py-2">{{ myprod?.description }}</div>
       <hr />
       <div class="productPriceDiscount">
-        <label class="productPrice">{{ myprod.Price }} EGP</label>
-        <del class="productDiscount py-2">{{ myprod.discount }} EGP</del>
+        <label class="productPrice">{{ discountedprice.toFixed(0) }} EGP</label>
+        <del *ngIf="myprod?.sale > 0" class="productDiscount py-2"
+          >{{ myprod?.price }} EGP</del
+        >
       </div>
-      <div class="productSize py-2">
-        <label class="productLabel">Select your Size</label>
-        <ul class="productSizes py-3 list-unstyled">
+      <!-- <div class="productSize py-2">
+        <label class="productLabel">Select your Size</label> -->
+      <!-- <ul class="productSizes py-3 list-unstyled">
           <li>
             <input
               type="radio"
@@ -73,7 +100,6 @@
               name="size"
               value="xs"
               [(ngModel)]="myprod.size"
-              (change)="onSizeChanged(myprod)"
             />
 
             <label for="xs" class="productsingelSize">XS </label>
@@ -84,7 +110,6 @@
               name="size"
               value="s"
               [(ngModel)]="myprod.size"
-              (change)="onSizeChanged(myprod)"
             />
 
             <label for="s" class="productsingelSize">S </label>
@@ -95,7 +120,6 @@
               name="size"
               value="m"
               [(ngModel)]="myprod.size"
-              (change)="onSizeChanged(myprod)"
             />
 
             <label for="m" class="productsingelSize">M </label>
@@ -106,7 +130,6 @@
               name="size"
               value="l"
               [(ngModel)]="myprod.size"
-              (change)="onSizeChanged(myprod)"
             />
 
             <label for="l" class="productsingelSize">L </label>
@@ -117,7 +140,6 @@
               name="size"
               value="xl"
               [(ngModel)]="myprod.size"
-              (change)="onSizeChanged(myprod)"
             />
 
             <label for="xl" class="productsingelSize">XL </label>
@@ -128,13 +150,12 @@
               name="size"
               value="xxl"
               [(ngModel)]="myprod.size"
-              (change)="onSizeChanged(myprod)"
             />
           </li>
-        </ul>
-      </div>
+        </ul> -->
+      <!-- </div> -->
 
-      <div class="productColors">
+      <!-- <div class="productColors">
         <label class="productLabel">Select Your Color</label>
 
         <ul
@@ -155,42 +176,59 @@
             </label>
           </li>
         </ul>
-      </div>
+      </div> -->
 
       <app-main-button
-        (click)="addToCart(myprod)"
+        *ngIf="userList == true"
+        (click)="addToCart(allprod, 'Product has been added to your cart')"
         class="buttons mx-3"
         class="orderButton"
         iconLeft="cart-shopping"
         content="Add To Cart"
       ></app-main-button>
+      <app-main-button
+        *ngIf="userList == false"
+        class="buttons mx-3"
+        class="orderButton"
+        routerLink="/welcome/loginn"
+        iconLeft="cart-shopping"
+        content="Add To Cart"
+      ></app-main-button>
 
       <app-main-button
-        (click)="addToFav(myprod, 0)"
+        *ngIf="userList == true"
+        (click)="addToFav(myprod, 'Product has been added to your wishlist')"
         class="buttons mx-2"
         iconLeft="heart"
         content="Favorite"
         backGroundColor="grey"
       ></app-main-button>
-
+      <app-main-button
+        *ngIf="userList == false"
+        class="buttons mx-2"
+        iconLeft="heart"
+        routerLink="/welcome/loginn"
+        content="Favorite"
+        backGroundColor="grey"
+      ></app-main-button>
       <div class="py-4">
         <label class="productLabel py-3"> Select Your Quantity : </label>
         <div class="input-number">
-          <button class="minus" (click)="minus(myprod)">-</button>
+          <button class="minus" (click)="minus()">-</button>
           <input
             readonly
             type="number"
             id="quantity"
-            [(ngModel)]="myprod.quantity"
+            [(ngModel)]="allprod.quantity"
             value="1"
             min="1"
             max="20"
           />
-          <button class="plus" (click)="plus(myprod)">+</button>
+          <button class="plus" (click)="plus()">+</button>
         </div>
       </div>
-      <div *ngIf="myprod.isStock == true" class="inStock">IN STOCK</div>
-      <div *ngIf="myprod.isStock == false" class="outOfStock">OUT OF STOCK</div>
+      <div *ngIf="myprod.quantity > 0" class="inStock">IN STOCK</div>
+      <div *ngIf="myprod.quantity == 0" class="outOfStock">OUT OF STOCK</div>
     </div>
   </div>
 </div>
@@ -204,22 +242,28 @@
     <div class="row"></div>
   </div>
 </div>
-<div class="carousel-wrap">
-  <owl-carousel-o [options]="customOptions" class="carousel">
-    <ng-container *ngFor="let prod of prods">
-      <ng-template carouselSlide class="carousel-slide">
-        <app-productbox [product]="prod"></app-productbox>
-      </ng-template>
-    </ng-container>
-  </owl-carousel-o>
-</div>
+<app-carousel (click)="getProduct()" [prods]="prods"></app-carousel>
 <hr />
 
 <div class="prodHeaders">
   <div class="container pad-sections">
     <h3 class="prodh3 pad-sections">Product Questions & Answers</h3>
-    <div class="py-3" *ngFor="let question of myprod.questions">
-      <div class="questionsection py-3">
+    <h3 class="prodratingheader2" *ngIf="myprod.questions.length === 0">
+      No questions about this product yet
+    </h3>
+    <div
+      class="py-3"
+      *ngFor="
+        let question of myprod.questions
+          | paginate
+            : {
+                itemsPerPage: 3,
+                currentPage: q,
+                id: 'listing-questions'
+              }
+      "
+    >
+      <div class="questionsection py-3" *ngIf="question.question.length > 0">
         <strong class="px-3"> Question: </strong>
         <label> {{ question.question }}</label>
         <br />
@@ -231,36 +275,59 @@
         </div>
       </div>
     </div>
+    <div class="p-0">
+      <pagination-controls
+        class="my-pagination"
+        (pageChange)="q = $event"
+        previousLabel="Previous"
+        nextLabel="Next"
+        id="listing-questions"
+      >
+      </pagination-controls>
+    </div>
     <div class="adding-question">
       <div class="addinglabela pad-sections">
         <label class="addlabel">
           Do you have a question about the product? </label
         ><br />
-        <a class="add-question" (click)="showNewQuestionForm = true">
+        <a class="add-question" (click)="showNewQuestionForms()">
           Click here to ask us a question!
         </a>
       </div>
 
-      <div class="questionform px-4 py-3" *ngIf="showNewQuestionForm">
-        <form [formGroup]="question" (ngSubmit)="addQuestion()">
+      <div
+        class="questionform px-4 py-3"
+        *ngIf="showNewQuestionForm && userList == true"
+      >
+        <form
+          [formGroup]="addQuestions"
+          (ngSubmit)="addQuestion('Questions has been added successfully')"
+          #myForm="ngForm"
+        >
           <label for="question"> Enter a new question :</label>
           <input
             class="form-control my-2"
             placeholder="Enter your Question"
-            formControlName="newQuestion"
+            formControlName="question"
           />
           <div
             class="error-note position-relative"
-            *ngIf="submitted && question.controls['newQuestion'].invalid"
+            *ngIf="submitted && addQuestions.controls['question'].invalid"
           >
-            <span class="error">enter a valid question with min 6 letters</span>
+            <span class="error"
+              >this field is required ( atleast 9 letters )
+            </span>
           </div>
           <br />
+          <app-main-button
+            type="submit"
+            content="Submit Question"
+          ></app-main-button>
         </form>
-        <app-main-button
-          content="Submit Question"
-          (click)="addQuestion()"
-        ></app-main-button>
+      </div>
+      <div class="loginerror" *ngIf="showNewQuestionForm && userList == false">
+        You need to <a routerLink="/welcome/loginn">login</a> to submit your
+        question !
       </div>
     </div>
   </div>
@@ -269,28 +336,33 @@
 <div class="prodRating pad-sections">
   <div class="container">
     <h3 class="prodh3 pad-sections">Reviews & Ratings</h3>
-    <h3 class="prodratingheader">
-      {{ myprod.rating }}<span class="px-1">out of 5</span>
+    <h3 class="prodratingheader" *ngIf="rates?.average > 0">
+      {{ rates.average | number : "1.1-1" }}<span class="px-1">out of 5</span>
+    </h3>
+
+    <h3 class="prodratingheader2" *ngIf="rates?.average == 0">
+      Product not rated yet
     </h3>
     <hr />
     <br />
     <div
-      class="card w-50 py-3 px-2 my-2 userRatings"
+      class="card py-3 px-2 my-2 userRatings"
       *ngFor="
-        let rating of myprod.ratings
-          | paginate : { itemsPerPage: 1, currentPage: p }
+        let rating of rates?.customerRates
+          | paginate : { itemsPerPage: 3, currentPage: p, id: 'listing-rating' }
       "
     >
-      <label> {{ rating.name }} </label>
-      <app-rating class="py-1" [product]="rating"></app-rating>
+      <label> {{ rating.customerName }} </label>
+      <app-rating class="py-1" [product]="rating?.rate"></app-rating>
 
-      <p *ngIf="rating.review">{{ rating.review }}</p>
+      <p *ngIf="rating?.rateComment">{{ rating?.rateComment }}</p>
     </div>
     <div class="p-0">
       <pagination-controls
         class="my-pagination"
         (pageChange)="p = $event"
         previousLabel="Previous"
+        id="listing-rating"
         nextLabel="Next"
       >
       </pagination-controls>
@@ -300,20 +372,26 @@
         <label class="addlabel">
           Do you want to submit a review about the product? </label
         ><br />
-        <a class="add-question" (click)="showRatingForm = true">
+        <a class="add-question" (click)="showRatingForms()">
           Click here to review it!
         </a>
       </div>
 
-      <div class="questionform px-4 py-3" *ngIf="showRatingForm">
-        <form [formGroup]="ratings" (ngSubmit)="addRating()">
+      <div
+        class="questionform px-4 py-3"
+        *ngIf="showRatingForm && userList == true"
+      >
+        <form
+          [formGroup]="ratings"
+          (ngSubmit)="addRating('Your rating has been added successfully')"
+        >
           <div class="d-flex">
             <label> Enter your Rating: </label>
             <ng-template #t let-fill="fill">
-              <i class="bi-star-fill pb-1">
+              <i class="fa fa-star pb-1">
                 <i
                   *ngIf="fill > 0"
-                  class="bi-star-fill filled pb-1"
+                  class="fa fa-star filled pb-1"
                   [style.width.%]="fill"
                 ></i>
               </i>
@@ -321,39 +399,32 @@
             <ngb-rating
               class="px-2"
               [starTemplate]="t"
-              formControlName="newRating"
-              [resettable]="true"
+              formControlName="rate"
               [max]="5"
             ></ngb-rating>
             <br />
           </div>
-          <label class="pt-3"> Enter your name :</label>
 
-          <input
-            class="form-control my-2"
-            placeholder="Enter your name"
-            formControlName="newName"
-          />
           <br />
           <label> Enter your review :</label>
 
           <input
-            class="form-control my-2"
+            class="form-control mt-2"
             placeholder="Enter your review (Optional)"
-            formControlName="newReview"
+            formControlName="rateComment"
           />
           <br />
 
-          <div
-            class="error-note"
-            *ngIf="ratingSub && ratings.controls['newQuestion'].invalid"
-          >
-            <span class="error">You must enter your name</span>
-          </div>
-          <app-main-button content="Submit Review"></app-main-button>
+          <div class="rateerror mb-2">{{ errors }}</div>
+          <app-main-button type="submit" content="Submit Review">
+          </app-main-button>
         </form>
+      </div>
+      <div class="loginerror" *ngIf="showRatingForm && userList == false">
+        You need to <a routerLink="/welcome/loginn">login</a> to submit your
+        rate !
       </div>
     </div>
   </div>
-  <p></p>
 </div>
+<app-toaster></app-toaster>

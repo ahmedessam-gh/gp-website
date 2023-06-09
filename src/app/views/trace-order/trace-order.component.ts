@@ -1,13 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from 'src/app/core/services/orders.service';
-import { order } from 'src/app/core/interfaces/order';
-import { ActivatedRoute } from '@angular/router';
-declare var $: any;
-import 'slick-carousel';
-import 'owl.carousel';
+import { order, orderData } from 'src/app/core/interfaces/order';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import * as Aos from 'aos';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-trace-order',
@@ -15,20 +12,31 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
   styleUrls: ['./trace-order.component.css'],
 })
 export class TraceOrderComponent implements OnInit {
-  myOrders: any;
+  myOrders: orderData;
 
   number: any;
+  orderId: number;
   constructor(
     private orders: OrdersService,
-    private ActivatedRoute: ActivatedRoute
+    private ActivatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     const ordersrouting = this.ActivatedRoute.snapshot.paramMap;
-    const orderid = Number(ordersrouting.get('orderNumber'));
-    this.myOrders = this.orders.orders.find(
-      (order) => order.orderNumber === orderid
-    );
+    this.orderId = Number(ordersrouting.get('orderNumber'));
+    const param = new HttpParams().set('OrderId', this.orderId);
+    this.orders.getOrderDetails(param).subscribe((data) => {
+      if (data) {
+        this.myOrders = data as orderData;
+
+        const dateTime = this.myOrders.dateTime;
+        this.myOrders.dateTime = dateTime.substring(0, 10);
+      } else {
+        this.router.navigate(['/home']);
+      }
+    });
+
     Aos.init();
   }
 }

@@ -1,58 +1,32 @@
+import { Observable } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { order } from '../interfaces/order';
+import { order, orderData } from '../interfaces/order';
+import { apiEndpoints } from '../api-endpoints';
 @Injectable({
   providedIn: 'root',
 })
 export class OrdersService {
-  orders: order[] = [];
-  constructor() {
-    this.orders = [
-      {
-        orderNumber: 1,
-        orderDate: '15th Jan. 2022',
-        totalPrice: 1000,
-        status: 'Preparing Order',
-        orderArrival: '15th Jan. 2022',
-        paymentMethod: 'Online Payment',
-        quantity: 10,
-      },
+  URL = apiEndpoints.baseUrl;
+  constructor(private http: HttpClient) {}
 
-      {
-        orderNumber: 2,
-        orderDate: '1st Jan 2001',
-        totalPrice: 1000,
-        status: 'Delivered',
-        orderArrival: '10st Jan 2001',
-        paymentMethod: 'Online Payment',
-        quantity: 10,
-      },
-      {
-        orderNumber: 3,
-        orderDate: '1st Jan 2001',
-        totalPrice: 2000,
-        status: 'Out for delivery',
-        orderArrival: '10st Jan 2001',
-        paymentMethod: 'Cash on Delivery',
-        quantity: 10,
-      },
-      {
-        orderNumber: 4,
-        orderDate: '1st Jan 2001',
-        totalPrice: 1000,
-        status: 'Preparing Order',
-        orderArrival: '10st Jan 2001',
-        paymentMethod: 'Cash on Delivery',
-        quantity: 10,
-      },
-      {
-        orderNumber: 5,
-        orderDate: '1st Jan 2001',
-        totalPrice: 1000,
-        status: 'Failed',
-        orderArrival: '10st Jan 2001',
-        paymentMethod: 'Cash on Delivery',
-        quantity: 10,
-      },
-    ];
+  getOrders(params: HttpParams): Observable<any> {
+    return this.http.get(
+      `${this.URL}${apiEndpoints.customers.getCustomerOrders}`,
+      { params }
+    );
+  }
+
+  getOrderDetails(params: HttpParams): Observable<any> {
+    return this.http.get(
+      `${this.URL}${apiEndpoints.customers.getOrderDetails}`,
+      { params }
+    );
+  }
+
+  cancelOrder(params: HttpParams): Observable<any> {
+    return this.http.put(`${this.URL}${apiEndpoints.carts.cancelOrder}`, '', {
+      params,
+    });
   }
 }

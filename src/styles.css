@@ -17,21 +17,28 @@
     --main-font: 'Bellota', cursive;
     --secondary-font: 'Segoe UI', Tahoma, Geneva, Verdana;
 }
-
+.cartPlus{
+    font-size: 6rem;
+    color: var(--main-color);
+  }
 * {
     padding: 0;
     margin: 0;
 }
 
 .pad-sections {
-    margin: 50px auto ;
+    margin: 50px auto;
     border: 0;
 }
 
 .favIcon {
     background-color: var(--main-color) !important;
     color: #ffffff !important;
-    border-radius: 50%;
+    border-radius: 50% !important;
+}
+
+.profile-animation {
+    animation: fadeIn 0.2s ease-in-out;
 }
 
 html,
@@ -46,9 +53,10 @@ body {
     height: 100vh;
     width: 100vw;
     z-index: 99999;
+    transition: background-color 0.2s ease-in-out;
 }
 
-.form-control{
+.form-control {
     background-color: transparent;
     border-radius: 10px;
 
@@ -76,23 +84,22 @@ input::placeholder {
 
 .tooltip-container {
     position: relative;
+
 }
 
 .error {
     position: absolute;
-    right: 0;
     top: 50%;
+    right: 0;
     transform: translateY(-50%);
 }
 
-.tooltip-icon {
-    position: relative;
-}
 
-.error .tooltip-icon:hover~.error-message {
+
+/* .error .tooltip-icon:hover~.error-message {
     display: block;
-}
-
+} */
+/*
 .error-message {
     display: none;
     position: absolute;
@@ -108,21 +115,87 @@ input::placeholder {
     font-size: 0.75rem;
     z-index: 9999;
     transition: all 0.2s ease-in !important;
-}
+} */
 
 .error-message p {
     margin-bottom: 0 !important;
 }
 
-.error-border{
-    border-color:rgb(255, 162, 162) !important;
+.error-border {
+    border-color: rgb(255, 162, 162) !important;
 }
+
 .input-group h5 {
     font-size: 1.5rem;
 
     color: var(--main-color);
 }
 
+.toast:before {
+
+    color: var(--main-color);
+    font-family: var(--main-font);
+    content: '\2713';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+
+
+}
+
+.toast {
+
+    color: var(--main-color);
+    font-family: var(--main-font);
+    margin-left: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.dangertoast {
+
+
+    color: var(--red-color);
+    font-family: var(--main-font);
+    margin-left: 15px;
+    padding-left: 20px;
+    position: relative;
+
+}
+
+.dangertoast:before {
+
+    color: var(--red-color);
+    font-family: var(--main-font);
+    content: '\2715';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+
+
+}
+.paginationCustom{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+/* .my-pagination ::ng-deep .ngx-pagination {
+    margin-top: 100% !important;
+    padding-left: 0px !important;
+    color: var(--main-color) !important;
+}
+
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background-color: var(--main-color);
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current span {
+    color: white;
+} */
 
 body {
     margin: 0;

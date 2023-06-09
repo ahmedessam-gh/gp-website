@@ -1,10 +1,13 @@
 import { Error404Component } from './views/error404/error404.component';
 import { HomeComponent } from './views/home/home.component';
-import { Router, Routes, RouterModule,Scroll } from '@angular/router';
+import { Router, Routes, RouterModule, Scroll } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeadFootComponent } from './views/head-foot/head-foot.component';
 import { CheckoutComponent } from './views/cart/checkout/checkout.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { PaymentComponent } from './shared/payment/payment.component';
+import { AuthGuard } from './core/AuthGuard/auth.guard';
 const routes: Routes = [
   {
     path: '',
@@ -31,6 +34,7 @@ const routes: Routes = [
       },
       {
         path: 'contact-us',
+        canActivate:[AuthGuard],
         loadChildren: () =>
           import('./views/contact-us/contact-us.module').then(
             (m) => m.ContactUsModule
@@ -38,6 +42,7 @@ const routes: Routes = [
       },
       {
         path: 'report',
+        canActivate:[AuthGuard],
         loadChildren: () =>
           import('./views/report/report.module').then((m) => m.ReportModule),
       },
@@ -68,10 +73,14 @@ const routes: Routes = [
 
   {
     path: 'error-404',
-    component:Error404Component
+    component: Error404Component,
   },
-  { path: 'shared', loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule) },
-
+  {
+    path: 'shared',
+    loadChildren: () =>
+      import('./shared/shared.module').then((m) => m.SharedModule),
+  },
+  { path: 'spinner', component: SpinnerComponent },
   { path: '**', component: Error404Component },
 ];
 
@@ -79,7 +88,7 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, { enableTracing: true ,scrollPositionRestoration: 'enabled'}),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }), //enableTracing: true ,
   ],
   exports: [RouterModule],
 })

@@ -361,10 +361,22 @@
     color: black;
 }
 
-.search-container .search-results a:hover {
+.search-suggestions a:hover {
     color: var(--main-color);
 }
+.search-suggesions  a {
+  text-decoration: none;
+  color: black;
+  outline: 0;
+  text-decoration: none;
+  font-weight: 100;
+  font-family: var(--main-font);
+  cursor: pointer;
+}
 
+.search-container .search-results a:hover {
+  color: var(--main-color);
+}
 .search-container .search-results .card {
     padding: 1rem;
 
@@ -572,4 +584,11 @@
     .auth-small{
         display: none;
     }
+}
+
+.noprodfoundsearch{
+
+  color: var(--gray--color);
+  font-family: var(--main-font);
+  margin-left: 15px;
 }

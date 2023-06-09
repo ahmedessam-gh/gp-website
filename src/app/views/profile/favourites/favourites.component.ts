@@ -1,4 +1,6 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from 'src/app/core/services/customer.service';
 import { ProdService } from 'src/app/core/services/prod.service';
 
 @Component({
@@ -7,18 +9,37 @@ import { ProdService } from 'src/app/core/services/prod.service';
   styleUrls: ['./favourites.component.css']
 })
 export class FavouriteComponent implements OnInit {
-  favouriteList:any;
-  constructor(private prod:ProdService) { }
+  pageNumber:number=1;
+  pageSize:number = 4; 
+  count:number;
+  favouriteList: any;
+  constructor(private prod: ProdService, private customer: CustomerService) { }
 
   ngOnInit(): void {
-    this.favouriteList = this.prod.getFav();
-    console.log(this.favouriteList);
+    this.changePage(this.pageNumber);
   }
-  removeItem(i) {
-    this.favouriteList.splice(i, 1); 
+  changePage(pageNum){
+    const param = new HttpParams()
+      .set('PageNumber', this.pageNumber)
+      .set('PageSize', this.pageSize);
+      this.customer.getWishList(param).subscribe((data)=>{
+        this.favouriteList = data['productList'];
+        console.log(this.favouriteList);
+      })
+      this.pageNumber = pageNum;
   }
-  clearCart() {   
+  removeItem(product:number){
+    const param = new HttpParams().set('ProductId',product)
+    this.customer.deleteWishList(param).subscribe(()=>{
+      this.favouriteList = this.favouriteList.filter((fav) => fav.productId !== product);
+      if(this.favouriteList.length == 0){
+        this.favouriteList = false;
+      }
+
+    });
+  }
+  clearCart() {
     this.favouriteList = []
   }
-  
+
 }

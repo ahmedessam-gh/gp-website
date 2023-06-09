@@ -1,3 +1,4 @@
+
 .btn-edit{
     background-color: transparent;
     color:var(--secondary-color);
@@ -5,6 +6,12 @@
 }
 
 .info-p{
-    font-family: var(--secondary-font);
-    color: var(--main-color) !important;
+    font-size: 1rem;
+    font-family: var(--secondary-font); 
+    font-weight: 500;
+    color: var(--main-color);
+}
+.imgPen{
+    width: 150px;
+    height: 150px;
 }

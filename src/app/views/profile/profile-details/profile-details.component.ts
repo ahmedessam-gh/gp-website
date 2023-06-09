@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { ProfileDetailsService } from 'src/app/core/services/profile-details.service';
 
 @Component({
   selector: 'app-profile-details',
@@ -7,12 +7,14 @@ import { NgModel } from '@angular/forms';
   styleUrls: ['./profile-details.component.css']
 })
 export class ProfileDetailsComponent implements OnInit {
-
-  constructor() { }
+  userDetails:any
+  constructor(private profile:ProfileDetailsService) { }
 
   ngOnInit(): void {
+    this.profile.getDetails().subscribe((data)=>{
+      this.userDetails = data; 
+      // console.log(this.userDetails);
+    })
   }
-  
-  
 
 }

@@ -8,9 +8,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { RegisterComponent } from './register/register.component';
 import { LoginnComponent } from './loginn/loginn.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { CustomerRegisterComponent } from './register/customer-register/customer-register.component';
+import { VendorRegisterComponent } from './register/vendor-register/vendor-register.component';
+import { RegisterModule } from './register/register.module';
+import { RegisterRoutingModule } from './register/register-routing.module';
+
 @NgModule({
   declarations: [
-      WelcomeComponent , RegisterComponent , LoginnComponent,
+      WelcomeComponent,LoginnComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +24,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RouterModule,
     ReactiveFormsModule,
     SharedModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbTooltipModule,
   ]
 })
 export class WelcomeModule { }

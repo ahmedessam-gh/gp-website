@@ -1,37 +1,70 @@
 <!--contact us photo section-->
 <div class="contactus-photo">
-  <img src="../../../assets/images/contact (2).png" class="img-fluid" alt="" width="100%" height="50%" />
+  <img
+    src="../../../assets/images/contact (2).png"
+    class="img-fluid"
+    alt=""
+    width="100%"
+    height="50%"
+  />
 </div>
 <!--contact us form section-->
 <div class="row contact-container">
   <div class="col-md-6">
     <h2 class="headertext">Get in touch</h2>
-    <p>Get in touch with us anytime. We're always happy to answer your questions and help in any way we can.</p>
+    <p>
+      Get in touch with us anytime. We're always happy to answer your questions
+      and help in any way we can.
+    </p>
     <ul class="list-unstyled">
-      <li><fa-icon [icon]="['fas','phone']" class="me-2" style="color: var(--main-color);"></fa-icon>0121823781</li>
+      <li>
+        <fa-icon
+          [icon]="['fas', 'phone']"
+          class="me-2"
+          style="color: var(--main-color)"
+        ></fa-icon
+        >0121823781
+      </li>
     </ul>
   </div>
   <div class="col-md-6 mt-4 mt-md-0">
-
     <div class="contactusform m-auto w-75">
       <form [formGroup]="contactForm">
         <label for="">Full Name</label>
-        <input class="form-control mb-4" formControlName="fullName" type="text" title="name"
-          placeholder="Enter your name...."/>
+        <input
+          class="form-control mb-4"
+          formControlName="fullName"
+          type="text"
+          title="name"
+          placeholder="Enter your name...."
+        />
 
         <label>Email</label>
-        <input class="form-control mb-4" formControlName="email" type="email" title="name"
-          placeholder="Enter your email...." />
+        <input
+          class="form-control mb-4"
+          formControlName="email"
+          type="email"
+          title="name"
+          placeholder="Enter your email...."
+        />
 
         <label for="">Subject</label>
-        <textarea class="form-control mb-3" formControlName="subject" title="textarea"
-          placeholder="Enter your subject"></textarea>
+        <textarea
+          class="form-control mb-3"
+          formControlName="subject"
+          title="textarea"
+          placeholder="Enter your subject"
+        ></textarea>
         <div *ngIf="submitted && contactForm.invalid" class="error-contact">
           <p>Please fill the form</p>
         </div>
         <div>
           <!-- calling shared component (main-button) to use it in form submission-->
-          <app-main-button (click)="addShake()" content="Submit" id="app-button"></app-main-button>
+          <app-main-button
+            (click)="addShake()"
+            content="Submit"
+            id="app-button"
+          ></app-main-button>
         </div>
       </form>
     </div>

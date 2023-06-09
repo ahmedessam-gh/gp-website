@@ -8,7 +8,9 @@ const routes: Routes = [
     path:'', component: WelcomeComponent,
     children: [
       { path:'loginn',component:LoginnComponent },
-      { path:'register',component:RegisterComponent},
+      { path:'register',
+        loadChildren:()=>import('./register/register.module').then(m=>m.RegisterModule)
+      },
     ],
   }
 ];

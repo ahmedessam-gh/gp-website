@@ -1,0 +1,79 @@
+:host {
+    font-family: var(--main-font);
+}
+
+.accountCont {
+    box-sizing: border-box;
+
+}
+
+
+.accountEditDetails label {
+    font-size: 1rem;
+    font-family: var(--secondary-font);
+    font-weight: 500;
+    color: var(--main-color);
+}
+
+input::placeholder {
+    font-family: var(--button-font);
+}
+
+@media screen and (max-width:600px) {
+    .accountCont {
+        width: 75%;
+
+    }
+}
+.imgPen{
+    width: 150px;
+    height: 150px;
+}
+.img-x-cont{
+    position: relative;
+}
+.imgX{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #ffffff;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0;
+    outline: 0;
+    border: 2px solid #ffffff;
+    transition: all 0.2s ease-in-out;
+}
+
+.imgX:hover{
+   background-color: rgb(255, 127, 127);
+} 
+
+#choose-file {
+
+    display: none;
+}
+
+.choose-file-lable {
+    background-color: var(--main-color);
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 0.75em;
+    font-family: var(--button-font);
+    text-decoration: none;
+    letter-spacing: -0.015em;
+    padding: 0.8em 2.5em;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+.choose-file-lable:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
+}

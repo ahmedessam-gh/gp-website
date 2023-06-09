@@ -1,12 +1,17 @@
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+
 <div class="container pad-sections">
   <div class="row">
     <div
-      class="shopSidebar col-xl-3 col-lg-3 py-1 d-none d-lg-block d-xl-block"
+      class="shopSidebar col-xl-3 col-lg-3 py-1 d-none d-lg-block d-xl-block *ngi"
     >
       <ul class="list-unstyled">
         <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
           <li>
             <button
+              type="button"
               class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
               data-bs-toggle="collapse"
               data-bs-target="#categories-collapse"
@@ -19,55 +24,31 @@
               <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
                 <li class="position-relative">
                   <label
-                    for="men"
-                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >Men</label
+                    for="none"
+                    class="link-dark text-muted text-capitalize d-inline-flex text-decoration-none rounded"
+                    >none</label
                   >
                   <input
-                    type="checkbox"
-                    id="men"
+                    type="radio"
+                    id="none"
+                    value=" "
                     formControlName="category"
-                    value="men"
                   />
                 </li>
-                <li class="position-relative">
+                <li
+                  *ngFor="let category of categories.categories"
+                  class="position-relative"
+                >
                   <label
-                    for="women"
-                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >Women</label
+                    for="cat"
+                    class="link-dark text-muted text-capitalize text-captialize d-inline-flex text-decoration-none rounded"
+                    >{{ category }}</label
                   >
                   <input
-                    type="checkbox"
-                    id="women"
+                    type="radio"
+                    id="{{ category }}"
+                    value="{{ category }}"
                     formControlName="category"
-                    value="women"
-                  />
-                </li>
-                <li class="position-relative">
-                  <label
-                    for="accessories"
-                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >Accessories</label
-                  >
-                  <input
-                    type="checkbox"
-                    id="accessories"
-                    formControlName="category"
-                    value="accessories"
-                  />
-                </li>
-                <li class="position-relative">
-                  <label
-                    for="shoes"
-                    href="#"
-                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >Shoes</label
-                  >
-                  <input
-                    type="checkbox"
-                    id="shoes"
-                    formControlName="category"
-                    value="shoes"
                   />
                 </li>
               </ul>
@@ -75,80 +56,141 @@
           </li>
           <li>
             <button
+              type="button"
+              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
+              data-bs-toggle="collapse"
+              data-bs-target="#sub-collapse"
+              aria-expanded="true"
+            >
+              <h5>Sub Categories</h5>
+            </button>
+
+            <div class="collapse show" id="sub-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
+                <li class="position-relative">
+                  <label
+                    for="none"
+                    class="link-dark text-muted text-capitalize d-inline-flex text-decoration-none rounded"
+                    >none</label
+                  >
+                  <input
+                    type="radio"
+                    id="none"
+                    value=" "
+                    formControlName="subcategory"
+                  />
+                </li>
+                <li
+                  class="position-relative"
+                  *ngFor="let subcategory of categories.subCategories"
+                >
+                  <label
+                    for="cat"
+                    class="link-dark text-muted d-inline-flex text-capitalize text-decoration-none rounded"
+                    >{{ subcategory }}</label
+                  >
+                  <input
+                    type="radio"
+                    id="{{ subcategory }}"
+                    value="{{ subcategory }}"
+                    formControlName="subcategory"
+                  />
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <button
+              type="button"
               class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
               data-bs-toggle="collapse"
               data-bs-target="#filterPrice-collapse"
               aria-expanded="true"
             >
-              <h5>Filter Price</h5>
+              <h5>Minimum Price</h5>
             </button>
             <div class="collapse show" id="filterPrice-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
                 <li class="position-relative">
                   <label
                     for="p1"
-                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >$0-$50</label
+                    class="link-dark text-muted text-capitalize d-inline-flex text-decoration-none rounded"
+                    >none</label
                   >
                   <input
-                    type="checkbox"
+                    type="radio"
                     id="p1"
-                    formControlName="price"
-                    value="150"
+                    formControlName="MinPrice"
+                    value=" "
+                  />
+                </li>
+
+                <li class="position-relative">
+                  <label
+                    for="p1"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >100+</label
+                  >
+                  <input
+                    type="radio"
+                    id="p1"
+                    formControlName="MinPrice"
+                    value="100"
                   />
                 </li>
                 <li class="position-relative">
                   <input
-                    type="checkbox"
+                    type="radio"
                     id="p2"
-                    formControlName="price"
-                    value="p2"
+                    formControlName="MinPrice"
+                    value="200"
                   />
 
                   <label
                     for="p2"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >$50-$100</label
+                    >200+</label
                   >
                 </li>
                 <li class="position-relative">
                   <input
-                    type="checkbox"
+                    type="radio"
+                    formControlName="MinPrice"
                     id="p3"
-                    formControlName="price"
-                    value="p3"
+                    value="300"
                   />
 
                   <label
                     for="p3"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >$100-$150</label
+                    >300+</label
                   >
                 </li>
                 <li class="position-relative">
                   <label
                     for="p4"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >$150-$200</label
+                    >400+</label
                   >
                   <input
-                    type="checkbox"
+                    type="radio"
+                    formControlName="MinPrice"
                     id="p4"
-                    formControlName="price"
-                    value="$150-200"
+                    value="400"
                   />
                 </li>
                 <li class="position-relative">
                   <label
                     for="p5"
                     class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                    >$200+</label
+                    >500+</label
                   >
                   <input
-                    type="checkbox"
+                    type="radio"
                     id="p5"
-                    formControlName="price"
-                    value="p5"
+                    formControlName="MinPrice"
+                    value="500"
                   />
                 </li>
               </ul>
@@ -156,91 +198,148 @@
           </li>
           <li>
             <button
+              type="button"
               class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
               data-bs-toggle="collapse"
-              data-bs-target="#size-collapse"
+              data-bs-target="#filtermax-collapse"
               aria-expanded="true"
             >
-              <h5>Size</h5>
+              <h5>Maximum Price</h5>
             </button>
-            <div class="collapse show" id="size-collapse">
+            <div class="collapse show" id="filtermax-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
+                <li class="position-relative">
+                  <label
+                    for="p1"
+                    class="link-dark text-muted text-capitalize d-inline-flex text-decoration-none rounded"
+                    >none</label
+                  >
+                  <input
+                    type="radio"
+                    id="p1"
+                    formControlName="MaxPrice"
+                    value=" "
+                  />
+                </li>
+
+                <li class="position-relative">
+                  <label
+                    for="p1"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >100-</label
+                  >
+                  <input
+                    type="radio"
+                    id="p1"
+                    formControlName="MaxPrice"
+                    value="100"
+                  />
+                </li>
+                <li class="position-relative">
+                  <input
+                    type="radio"
+                    id="p2"
+                    formControlName="MaxPrice"
+                    value="200"
+                  />
+
+                  <label
+                    for="p2"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >200-</label
+                  >
+                </li>
+                <li class="position-relative">
+                  <input
+                    type="radio"
+                    formControlName="MaxPrice"
+                    id="p3"
+                    value="300"
+                  />
+
+                  <label
+                    for="p3"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    checked="checked"
+                    >300-</label
+                  >
+                </li>
+                <li class="position-relative">
+                  <label
+                    for="p4"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >400-</label
+                  >
+                  <input
+                    type="radio"
+                    formControlName="MaxPrice"
+                    id="p4"
+                    value="400"
+                  />
+                </li>
+                <li class="position-relative">
+                  <label
+                    for="p5"
+                    class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                    >500-</label
+                  >
+                  <input
+                    type="radio"
+                    id="p5"
+                    formControlName="MaxPrice"
+                    value="500"
+                  />
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
+              data-bs-toggle="collapse"
+              data-bs-target="#gender-collapse"
+              aria-expanded="true"
+            >
+              <h5>Gender</h5>
+            </button>
+            <div class="collapse show" id="gender-collapse">
               <ul
                 class="custom-sizes btn-toggle-nav list-unstyled fw-normal small px-3"
               >
                 <li>
                   <input
                     type="radio"
-                    id="xs"
-                    formControlName="size"
-                    value="xs"
+                    id="Male"
+                    formControlName="type"
+                    value="Men"
                   />
 
-                  <label for="xs" class="size-filter">XS </label>
-
-                  <input type="radio" id="s" formControlName="size" value="s" />
-
-                  <label for="s" class="size-filter">s </label>
-
-                  <input type="radio" id="m" formControlName="size" value="m" />
-
-                  <label for="m" class="size-filter">M </label>
-                </li>
-                <li>
-                  <input type="radio" id="l" formControlName="size" value="l" />
-
-                  <label for="l" class="size-filter">L </label>
+                  <label for="Male" class="size-filter">Men </label>
 
                   <input
                     type="radio"
-                    id="xl"
-                    formControlName="size"
-                    value="xl"
+                    id="Female"
+                    formControlName="type"
+                    value="Women"
                   />
 
-                  <label for="xl" class="size-filter">XL </label>
+                  <label for="Female" class="size-filter">Women </label>
 
                   <input
                     type="radio"
-                    id="xxl"
-                    formControlName="size"
-                    value="xxl"
+                    id="mennone"
+                    value=" "
+                    formControlName="type"
                   />
 
-                  <label for="xxl" class="size-filter">XXL </label>
-                </li>
-                <li>
-                  <input
-                    type="radio"
-                    id="xxxl"
-                    formControlName="size"
-                    value="xxxl"
-                  />
-
-                  <label for="xxxl" class="size-filter">xxxl </label>
-
-                  <input
-                    type="radio"
-                    id="xxxxl"
-                    formControlName="size"
-                    value="xxxxl"
-                  />
-
-                  <label for="xxxxl" class="size-filter">XxxxL </label>
+                  <label for="mennone" class="size-filter">All </label>
                 </li>
               </ul>
             </div>
           </li>
 
-          <li>
-            <button
-              class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed position-relative"
-              data-bs-toggle="collapse"
-              data-bs-target="#color-collapse"
-              aria-expanded="true"
-            >
-              <h5>Color</h5>
-            </button>
-            <div class="collapse show" id="color-collapse">
+          <!-- <div class="collapse show" id="color-collapse">
               <ul
                 class="custom-radios btn-toggle-nav list-unstyled fw-normal small px-3"
               >
@@ -315,15 +414,13 @@
                   </label>
                 </li>
               </ul>
-            </div>
-          </li>
+            </div> -->
 
           <hr />
           <ul class="list-unstyled">
             <li>
               <app-main-button
                 [iconLeft]="'filter'"
-                (click)="onSubmit()"
                 content=" Filter"
                 width="150px"
                 fontSize="0.8rem"
@@ -354,7 +451,7 @@
             class="smallFilterDiv col-6 d-block d-xl-none d-md-block d-lg-none position-relative"
           >
             <div
-              class="filterBox px-3 bg-light d-block d-xl-none d-md-block d-lg-none"
+              class="filterBox px-3 mt-4 bg-light d-block d-xl-none d-md-block d-lg-none"
               (click)="openFilter()"
             >
               <p class="mt-3 ml-3">
@@ -363,220 +460,278 @@
             </div>
             <div class="smallFilter position-absolute" *ngIf="showFilter">
               <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
-                <ul
-                  class="btn-toggle-nav list-unstyled fw-normal small px-3 d-block d-lg-none d-xl-none"
-                >
+                <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
                   <h5 class="filterName px-0">Category</h5>
                   <li class="position-relative">
                     <label
-                      for="man"
+                      for="none"
                       class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                      >Men</label
+                      >none</label
                     >
                     <input
-                      type="checkbox"
-                      id="man"
+                      type="radio"
+                      id="none"
+                      value=" "
                       formControlName="category"
-                      value="men"
                     />
                   </li>
+                  <li
+                    *ngFor="let category of categories.categories"
+                    class="position-relative"
+                  >
+                    <label
+                      for="cat"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >{{ category }}</label
+                    >
+                    <input
+                      type="radio"
+                      id="{{ category }}"
+                      value="{{ category }}"
+                      formControlName="category"
+                    />
+                  </li>
+                </ul>
+                <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
+                  <h5 class="filterName px-0">Sub Categories</h5>
                   <li class="position-relative">
                     <label
-                      for="women"
+                      for="none"
                       class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                      >Women</label
+                      >none</label
                     >
                     <input
-                      type="checkbox"
-                      id="woman"
-                      formControlName="category"
-                      value="women"
+                      type="radio"
+                      id="none"
+                      value=" "
+                      formControlName="subcategory"
                     />
                   </li>
-                  <li class="position-relative">
+                  <li
+                    *ngFor="let subcategory of categories.subCategories"
+                    class="position-relative"
+                  >
                     <label
-                      for="accessorie"
+                      for="cat"
                       class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                      >Accessories</label
+                      >{{ subcategory }}</label
                     >
                     <input
-                      type="checkbox"
-                      id="accessorie"
-                      formControlName="category"
-                      value="accessories"
+                      type="radio"
+                      id="{{ subcategory }}"
+                      value="{{ subcategory }}"
+                      formControlName="subcategory"
                     />
                   </li>
-                  <li class="position-relative">
-                    <label
-                      for="shoe"
-                      href="#"
-                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                      >Shoes</label
-                    >
-                    <input
-                      type="checkbox"
-                      id="shoe"
-                      formControlName="category"
-                      value="shoes"
-                    />
-                  </li>
-                  <hr />
                 </ul>
 
                 <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
+                  <h5 class="filterName px-0">Minimum Price</h5>
                   <li class="position-relative">
-                    <h5 class="filterName">Price</h5>
                     <label
-                      for="price1"
+                      for="p1"
                       class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                      >$0-$50</label
+                      >none</label
                     >
                     <input
-                      type="checkbox"
-                      id="price1"
-                      formControlName="price"
-                      value="p1"
+                      type="radio"
+                      id="p1"
+                      formControlName="MinPrice"
+                      value=" "
+                    />
+                  </li>
+
+                  <li class="position-relative">
+                    <label
+                      for="p1"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >100+</label
+                    >
+                    <input
+                      type="radio"
+                      id="p1"
+                      formControlName="MinPrice"
+                      value="100"
                     />
                   </li>
                   <li class="position-relative">
                     <input
-                      type="checkbox"
-                      id="price2"
-                      formControlName="price"
-                      value="p2"
+                      type="radio"
+                      id="p2"
+                      formControlName="MinPrice"
+                      value="200"
                     />
 
                     <label
-                      for="price2"
+                      for="p2"
                       class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                      >$50-$100</label
+                      >200+</label
                     >
                   </li>
                   <li class="position-relative">
                     <input
-                      type="checkbox"
-                      id="price3"
-                      formControlName="price"
-                      value="p3"
+                      type="radio"
+                      formControlName="MinPrice"
+                      id="p3"
+                      value="300"
                     />
 
                     <label
-                      for="price3"
+                      for="p3"
                       class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                      >$100-$150</label
+                      >300+</label
                     >
                   </li>
                   <li class="position-relative">
                     <label
-                      for="price4"
+                      for="p4"
                       class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                      >$150-$200</label
+                      >400+</label
                     >
                     <input
-                      type="checkbox"
-                      id="price4"
-                      formControlName="price"
-                      value="p4"
+                      type="radio"
+                      formControlName="MinPrice"
+                      id="p4"
+                      value="400"
                     />
                   </li>
                   <li class="position-relative">
                     <label
-                      for="price5"
+                      for="p5"
                       class="link-dark text-muted d-inline-flex text-decoration-none rounded"
-                      >$200+</label
+                      >500+</label
                     >
                     <input
-                      type="checkbox"
-                      id="price5"
-                      formControlName="price"
-                      value="p5"
+                      type="radio"
+                      id="p5"
+                      formControlName="MinPrice"
+                      value="500"
                     />
                   </li>
                 </ul>
+                <hr />
+                <ul class="btn-toggle-nav list-unstyled fw-normal small px-3">
+                  <h5 class="filterName px-0">Maximum Price</h5>
 
+                  <li class="position-relative">
+                    <label
+                      for="p1"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >none</label
+                    >
+                    <input
+                      type="radio"
+                      id="p1"
+                      formControlName="MaxPrice"
+                      value=" "
+                    />
+                  </li>
+
+                  <li class="position-relative">
+                    <label
+                      for="p1"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >100-</label
+                    >
+                    <input
+                      type="radio"
+                      id="p1"
+                      formControlName="MaxPrice"
+                      value="100"
+                    />
+                  </li>
+                  <li class="position-relative">
+                    <input
+                      type="radio"
+                      id="p2"
+                      formControlName="MaxPrice"
+                      value="200"
+                    />
+
+                    <label
+                      for="p2"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >200-</label
+                    >
+                  </li>
+                  <li class="position-relative">
+                    <input
+                      type="radio"
+                      formControlName="MaxPrice"
+                      id="p3"
+                      value="300"
+                    />
+
+                    <label
+                      for="p3"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      checked="checked"
+                      >300-
+                    </label>
+                  </li>
+                  <li class="position-relative">
+                    <label
+                      for="p4"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >400-</label
+                    >
+                    <input
+                      type="radio"
+                      formControlName="MaxPrice"
+                      id="p4"
+                      value="400"
+                    />
+                  </li>
+                  <li class="position-relative">
+                    <label
+                      for="p5"
+                      class="link-dark text-muted d-inline-flex text-decoration-none rounded"
+                      >500-</label
+                    >
+                    <input
+                      type="radio"
+                      id="p5"
+                      formControlName="MaxPrice"
+                      value="500"
+                    />
+                  </li>
+                </ul>
                 <hr />
                 <ul
                   class="custom-sizes btn-toggle-nav list-unstyled fw-normal small px-3"
                 >
-                  <h5 class="filterName">Size</h5>
+                  <h5 class="filterName">Gender</h5>
+                  <input
+                    type="radio"
+                    id="noneall"
+                    formControlName="type"
+                    value=" "
+                  />
+
+                  <label for="noneall" class="size-filter">All </label>
                   <li>
                     <input
                       type="radio"
-                      id="xsmall"
-                      formControlName="size"
-                      value="xs"
+                      id="Men"
+                      formControlName="type"
+                      value="Men"
+                      checked="checked"
                     />
 
-                    <label for="xsmall" class="size-filter">XS </label>
+                    <label for="Men" class="size-filter">Men </label>
 
                     <input
                       type="radio"
-                      id="small"
-                      formControlName="size"
-                      value="s"
+                      id="Femalea"
+                      formControlName="type"
+                      value="Women"
                     />
 
-                    <label for="small" class="size-filter">s </label>
-
-                    <input
-                      type="radio"
-                      id="medium"
-                      formControlName="size"
-                      value="m"
-                    />
-
-                    <label for="medium" class="size-filter">M </label>
-                  </li>
-                  <li>
-                    <input
-                      type="radio"
-                      id="large"
-                      formControlName="size"
-                      value="l"
-                    />
-
-                    <label for="large" class="size-filter">L </label>
-
-                    <input
-                      type="radio"
-                      id="xlarge"
-                      formControlName="size"
-                      value="xl"
-                    />
-
-                    <label for="xlarge" class="size-filter">XL </label>
-
-                    <input
-                      type="radio"
-                      id="xxlarge"
-                      formControlName="size"
-                      value="xxl"
-                    />
-
-                    <label for="xxlarge" class="size-filter">XXL </label>
-                  </li>
-                  <li>
-                    <input
-                      type="radio"
-                      id="xxxlarge"
-                      formControlName="size"
-                      value="xxxl"
-                    />
-
-                    <label for="xxxlarge" class="size-filter">xxxl </label>
-
-                    <input
-                      type="radio"
-                      id="xxxxlarge"
-                      formControlName="size"
-                      value="xxxxl"
-                    />
-
-                    <label for="xxxxlarge" class="size-filter">XxxxL </label>
+                    <label for="Femalea" class="size-filter">Women </label>
                   </li>
                 </ul>
                 <hr />
-                <ul
+                <!-- <ul
                   class="custom-radios btn-toggle-nav list-unstyled fw-normal small px-3"
                 >
                   <li class="py-3">
@@ -649,7 +804,7 @@
                       </span>
                     </label>
                   </li>
-                </ul>
+                </ul> -->
                 <hr />
                 <ul class="list-unstyled">
                   <li>
@@ -683,40 +838,57 @@
           <div class="searchbox col-6 col-xl-12 col-lg-6 col-lg-12">
             <div class="inputBox">
               <div class="search-items bg-light">
-                <span> <fa-icon icon="magnifying-glass"></fa-icon></span>
+                <span class="searchIcon" (click)="getSearch()">
+                  <fa-icon icon="magnifying-glass"></fa-icon
+                ></span>
+
                 <input
                   type="search"
                   name="search"
-                  placeholder="Search by category"
+                  [(ngModel)]="searchTerm"
+                  placeholder="Search by name"
                 />
               </div>
             </div>
           </div>
         </div>
-
         <div
           class="card col-xl-4 col-md-4 col-6"
           *ngFor="
             let newProd of newProds
-              | paginate : { itemsPerPage: 9, currentPage: p };
+              | paginate
+                : {
+                    itemsPerPage: pageSize,
+                    currentPage: pageNumber,
+                    totalItems: count
+                  };
             let i = index
           "
           data-aos="fade-up"
           data-aos-once="true"
           data-aos-duration="100"
         >
-          <app-productbox [product]="newProd"></app-productbox>
+          <app-productbox
+            [product]="newProd?.product"
+            [rating]="newProd?.avgRate"
+          ></app-productbox>
         </div>
-        <pagination-controls
-          class="my-pagination"
-          (pageChange)="p = $event"
-          previousLabel="Previous"
-          nextLabel="Next"
-          screenReaderPaginationLabel="Pagination"
-          screenReaderPageLabel="page"
-          screenReaderCurrentLabel="You're on page"
-        >
-        </pagination-controls>
+        <div *ngIf="newProds.length > 0" class="paginationCustom">
+          <pagination-controls
+            class="my-pagination"
+            (pageChange)="changePage($event)"
+            previousLabel="Previous"
+            nextLabel="Next"
+            screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page"
+          >
+          </pagination-controls>
+        </div>
+        <div class="shopnoprod" *ngIf="newProds.length == 0">
+          <fa-icon icon="shop"></fa-icon>
+          NO PRODUCTS FOUND
+        </div>
       </div>
     </div>
   </div>

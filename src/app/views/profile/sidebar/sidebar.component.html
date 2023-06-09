@@ -4,6 +4,19 @@
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="">
 
+      <a href="#" class="nav-link text-dark d-flex justify-content-between" [routerLink]="['dashboard']"
+        [routerLinkActive]="['active']" aria-current="page">
+        <!--        <svg class="bi me-2" width="16" height="16">-->
+        <!--          <use xlink:href="#profile"></use>-->
+        <!--        </svg>-->
+        <span>Menu</span>
+        <fa-icon [icon]="['fas','ellipsis']"></fa-icon>
+
+      </a>
+
+    </li>
+    <li class="">
+
       <a href="#" class="nav-link text-dark d-flex justify-content-between" [routerLink]="['details']"
         [routerLinkActive]="['active']" aria-current="page">
         <!--        <svg class="bi me-2" width="16" height="16">-->
@@ -37,16 +50,14 @@
         
       </a>
     </li>
-    <li>
+    <!-- <li>
       <a href="#" class="nav-link nav-link-side text-dark d-flex justify-content-between"
         [routerLinkActive]="['active', 'text-white']">
-        <!--        <svg class="bi me-2" width="16" height="16">-->
-        <!--          <use xlink:href="#"></use>-->
-        <!--        </svg>-->
+       
         <span>Products</span>
         <fa-icon [icon]="['fab','sellsy']"></fa-icon>
       </a>
-    </li>
+    </li> -->
     <!-- <li>
         <a href="#" class="nav-link link-dark">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#"></use></svg>

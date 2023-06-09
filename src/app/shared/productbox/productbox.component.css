@@ -1,3 +1,9 @@
+
+:host{
+
+  width: 100%;
+}
+
 .product-box {
   background-color: #fff;
   }
@@ -6,9 +12,10 @@
   }
   .product-box .product-details h4 {
     font-family:var(--main-font) ;
-  color: #2b2b2b;
-  font-size: 20px;
-  line-height: 1;
+  color: var(--main-color);
+  font-size: 18px;
+  line-height: 1.5;
+
   margin-bottom: 10px;
   text-transform: capitalize;
   text-decoration: none;
@@ -19,6 +26,7 @@
   color: #999999;
   font-weight: 500;
   font-family: var(--button-font);
+  text-transform: capitalize;
   }
   .product-box .product-details h6 {
   color: #2b2b2b;
@@ -38,6 +46,7 @@
   }
   .product-box .product-img img{
     height: 300px;
+    width: 100%;
 
   }
    .product-img .product-hover {

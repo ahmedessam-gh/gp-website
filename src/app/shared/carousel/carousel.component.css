@@ -1,0 +1,59 @@
+.carousel-wrap {
+  margin: 90px auto;
+  padding: 0 5%;
+  width: 85%;
+  position: relative;
+  background: none;
+}
+
+.carousel::ng-deep .owl-nav  .owl-next {
+  background: 0 0 !important;
+  color: inherit !important;
+  border: none !important;
+  padding: 0 !important;
+  font: inherit;
+  position: absolute;
+  top: 40% !important;
+  transform: translateY(-50%);
+  color: var(--main-color) !important;
+  right: -80px !important;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='60'  height='80' viewBox='0 0 30 30'%3e%3cpath fill='none'  stroke='darkcyan' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e") !important;
+
+
+}
+
+.carousel::ng-deep .owl-nav  .owl-prev {
+  background: 0 0 !important;
+  color: inherit !important;
+  border: none !important;
+  padding: 0 !important;
+  font: inherit;
+  position: absolute;
+  top: 40% !important;
+  transform: translateY(-50%) rotateY(180deg);
+  color: var(--main-color) !important;
+  left: -80px !important;
+  /* transform: rotate(180deg); */
+
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='70'  height='80' viewBox='0 0 30 30'%3e%3cpath fill='none'  stroke='darkcyan' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e") !important;
+
+}
+.carousel::ng-deep .owl-item{
+
+padding-right:30px;
+cursor:pointer ;
+height: 500px !important;
+
+}
+.carousel::ng-deep .owl-theme {
+background-color: transparent !important
+}
+@media screen and (min-width:0px) and (max-width:590px) {
+
+  .carousel::ng-deep .owl-item{
+
+    padding: 0 0 0 0 ;
+
+  }
+
+}

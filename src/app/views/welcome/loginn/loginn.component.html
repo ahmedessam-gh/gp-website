@@ -1,14 +1,18 @@
-<div class="loginError error animate__animated animate__fadeInDown" *ngIf="submitted && loginForm.invalid ">
-  <p style="font-size: 0.8rem; color: red;">Email or Password is not valid</p>
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
 </div>
 
-<div class="animate__animated animate__backInDown mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
+<div class="loginError error animate__animated animate__fadeInDown" *ngIf="submitted">
+  <p style="font-size: 0.8rem; color: red;">{{errors}}</p>
+</div>
+
+<div class=" animate__animated animate__fadeIn mx-auto input-group h-100 d-flex flex-column justify-content-center align-content-center">
     <h5>Login</h5>
    <form  class="w-50" [formGroup]="loginForm" >
     <div class="form-content">
 
-      <input type="email" name="email" formControlName="email" class="d-block form-control my-3"
-        placeholder="Email..." required>
+      <input type="email" name="email" formControlName="stringLogin" class="d-block form-control my-3"
+        placeholder="Email or Username..." required>
        
       <input type="password" name="password" formControlName="password" class="d-block form-control my-3"
         placeholder="Password..." required>
@@ -20,3 +24,5 @@
    </form>
     <button class="btn" [routerLink]="['/welcome/register']">Create Account?</button>
   </div>
+
+  

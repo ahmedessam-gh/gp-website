@@ -1,87 +1,87 @@
-:host{
+:host {
     font-family: var(--main-font);
 }
-input::placeholder{
+
+input::placeholder {
     font-family: var(--secondary-font);
+}
+.table-checkout-content{
+    width: 90%;
+}
+.checkout-productname{
+    width: 90%;
 }
 fieldset {
     margin-bottom: 1em !important;
     border: 1px solid black !important;
-    padding:1px !important;
+    padding: 1px !important;
 }
 
 legend {
     padding: 1px 10px !important;
-    float:none;
-    width:auto;
+    float: none;
+    width: auto;
 }
-.checkoutPlaceOrder{
+
+.checkoutPlaceOrder {
     background-color: rgba(255, 255, 255, 0.2);
     box-shadow: 1px 1px 5px;
 }
-.placeOrderBtn{
+
+.placeOrderBtn {
     position: relative;
-    bottom: 0%;
-    left: 50%;
+    /* bottom: 0%; */
+    /* left: 50%;
     width: 80%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
+    display: flex;
+    justify-content: center;
+   
 }
 
-.steps{
+.steps {
     margin-bottom: 20px;
-    
+
 }
-.steps h5{
+
+.steps h5 {
     font-size: 1.3em;
 }
 
-
+.errorOrder{
+  position: absolute;
+  bottom: 60px;
+width: 80%;
+}
 
 
 /*payment method*/
-.paymentCont
-{
-    box-shadow: 1px 1px 5px;
+.paymentCont {
+    overflow: hidden;
+    box-shadow: 1px 1px 3px;
     border-radius: 10px;
-    background-color: rgba(130, 202, 156, 0.4);
+    background-color: rgb(255, 255, 255); 
+    margin:0 1px;
 }
-.billingDetails{
+/* .ElementsApp::ng-deep .InputElement{
+    pointer-events: none !important;
+    cursor: none !important;
+} */
+.billingDetails {
     position: relative;
     overflow: hidden;
-    height: 500px;
-    
+    height: 450px;
+
 }
-.step{
+
+.step {
     position: absolute;
     top: 0;
     opacity: 0;
+    transition: all 0.1s ease-in-out;
 }
-.step.active{
+
+.step.active {
     opacity: 1;
     z-index: 9999;
 }
-/* .slideInOut {
-    display: block;
-  }
-  
-  .slideInOut.ng-enter,
-  .slideInOut.ng-leave {
-    transition: all 0.3s ease;
-  }
-  
-  .slideInOut.ng-enter {
-    transform: translateY(-100%);
-  }
-  
-  .slideInOut.ng-enter-active {
-    transform: translateY(0);
-  }
-  
-  .slideInOut.ng-leave {
-    transform: translateY(0);
-  }
-  
-  .slideInOut.ng-leave-active {
-    transform: translateY(-100%);
-  } */
-  

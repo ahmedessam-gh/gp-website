@@ -2,7 +2,9 @@
 
   font-family: var(--main-font);
 }
-
+:host{
+  animation: fadeIn 0.3s ease-in-out;
+}
 .noOrders {
 
   text-align: center;
@@ -11,14 +13,14 @@
   justify-content: center;
   align-content: center;
   font-size: 10vh;
-  height: 100%;
-  color: var(--main-color);
+  height: 80%;
+  /* color: var(--main-color); */
 
 }
 
 .noOrders p {
 
-  font-family: var(--main-font);
+  /* font-family: var(--main-font); */
 }
 
 
@@ -44,7 +46,7 @@ font-family: var(--main-font);
   box-shadow: 3px;
   border-radius: 0;
   overflow: hidden;
-  animation: fadeInLeft 1s ease-in-out;
+  /* animation: fadeInRight 0.5s ease-in-out; */
 
 }
 .card-title{
