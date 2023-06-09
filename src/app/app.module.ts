@@ -30,6 +30,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './core/Jwt-Interceptor/jwt.interceptor';
 import { ScrollTopDirective } from './core/directives/scroll-top.directive';
 import { ShopComponent } from './views/shop/shop.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +62,12 @@ import { ShopComponent } from './views/shop/shop.component';
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
 })
 export class AppModule {
