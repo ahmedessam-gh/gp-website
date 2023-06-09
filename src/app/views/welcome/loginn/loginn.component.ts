@@ -13,7 +13,7 @@ export class LoginnComponent implements OnInit {
 
   loginForm:FormGroup;
   submitted:boolean = false;
-  loading = false;
+  // loading = false;
   errors:string = '';
   
   constructor(private fb : FormBuilder,private auth:AuthService,private router:Router) { }
@@ -27,20 +27,20 @@ export class LoginnComponent implements OnInit {
   }
   login(){
     this.submitted = true;
-    this.loading = true;
+    // this.loading = true;
     if(this.loginForm.valid){
       
       this.auth.login(this.loginForm.value).subscribe(next => {
-        this.loading = false;
+        // this.loading = false;
         this.router.navigate(['/shop']);
         
       },error => {
-        this.loading = false;
+        // this.loading = false;
         console.log(error.error);
         this.errors = error.error;
       })
     }else{
-      this.loading = false;
+      // this.loading = false;
       this.errors = "Please Fill Your Email or Password";
     }
    
