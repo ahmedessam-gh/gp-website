@@ -34,7 +34,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   sliderValues: number[] = [300, 400];
   startValue: number = 200;
   endValue: number = 200;
-
+  loading = false;
   count?: number;
   searchTerm: string = '';
   filtered: boolean = false;
@@ -60,7 +60,7 @@ export class ShopComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     Aos.init();
-
+    
     this.getAllCategories();
     this.localstorageData = localStorage.getItem('data');
     this.localstoargeGender = localStorage.getItem('gender');
@@ -145,6 +145,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   // }
 
   getProducts(pageNum: number) {
+    this.loading = true;
     this.pageNumber = pageNum;
     this.params = new HttpParams()
       .set('pageNumber', this.pageNumber)
@@ -197,9 +198,11 @@ export class ShopComponent implements OnInit, OnDestroy {
             category: [this.filterForm.value['category'] || ''],
             subcategory: [this.filterForm.value['subcategory'] || ''],
           });
+          this.loading = false;
         },
         (error) => {
           console.log(error);
+          this.loading = false;
         }
       );
     });

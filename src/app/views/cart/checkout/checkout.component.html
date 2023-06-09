@@ -128,7 +128,7 @@
                             </thead>
                             <tbody *ngFor="let order of orderDetails['detailsList']; let last = last">
                                 <tr>
-                                    <td class="checkout-productname">{{order.productName}}</td>
+                                    <td class="checkout-productname">{{order.productName}} <span style="color: red;">x{{order.quantity}}</span></td>
                                     <td>{{order.price}}$</td>
                                 </tr>
                                 <tr *ngIf="last">

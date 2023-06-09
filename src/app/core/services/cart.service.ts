@@ -50,10 +50,18 @@ export class CartService {
   }
 
   payWithCash(payUpdates: any) {
-    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCash}`, payUpdates);
+    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCash}`, payUpdates).pipe(
+      tap(()=>{
+        this._refreshDataAfterDeletion$.next();
+      })
+    );
   }
   payWithCredit(payUpdates: string) {
-    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCredit}`, payUpdates, { responseType: 'text' });
+    return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.payWithCredit}`, payUpdates, { responseType: 'text' }).pipe(
+      tap(()=>{
+        this._refreshDataAfterDeletion$.next();
+      })
+    );
   }
   sendStripToken(stripeToken) {
     return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.carts.stripeToken}`, stripeToken);

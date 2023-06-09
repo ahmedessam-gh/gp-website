@@ -1,3 +1,7 @@
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+
 <div class="container pad-sections">
   <div class="row">
     <div
@@ -833,7 +837,6 @@
 
           <div class="searchbox col-6 col-xl-12 col-lg-6 col-lg-12">
             <div class="inputBox">
-              -
               <div class="search-items bg-light">
                 <span class="searchIcon" (click)="getSearch()">
                   <fa-icon icon="magnifying-glass"></fa-icon
