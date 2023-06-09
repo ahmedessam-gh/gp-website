@@ -170,6 +170,8 @@ export class HeaderComponent implements OnInit {
   searchContainer() {
     const search_container = document.querySelector('.search-container');
     search_container?.classList.add('activeSearchcontainer');
+    document.body.children[0].classList.add('layout');
+
   }
   changeProd(product: Prod) {
     // this.router.navigate(['/shop/product',product.id]);
@@ -179,9 +181,15 @@ export class HeaderComponent implements OnInit {
       const search_container = document.querySelector('.search-container');
 
       search_container?.classList.remove('activeSearchcontainer');
+      // document.body.children[0].addEventListener('click',()=>{
+      //   search_container?.classList.remove('activeSearchcontainer');
+      // });
       this.searchText = '';
       this.showSuggetions = true;
       this.showResults = false;
+      document.body.children[0].classList.remove('layout');
+
+
     }
     // this.router.navigate(['/shop/product',prod.id])
   }
