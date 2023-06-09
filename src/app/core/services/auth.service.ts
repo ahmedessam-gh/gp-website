@@ -17,7 +17,6 @@ export class AuthService {
 
   login(credentials:any){
     return this.http.post(`${this.URL}${apiEndpoints.auth.login}`,credentials).pipe(
-      delay(1000),
       map((res:any) => {
         console.log(res);
         sessionStorage.setItem('token',res.token);
@@ -27,7 +26,6 @@ export class AuthService {
   }
   register(registeration:any){
     return this.http.post(`${this.URL}${apiEndpoints.auth.customerRegister}`,registeration).pipe(
-      delay(1000),
       map((res:any) => {
         console.log(res);
         sessionStorage.setItem('token',res.token);
@@ -36,7 +34,6 @@ export class AuthService {
   }
   vendorRegister(vendorCredetials:any){
     return this.http.post(`${apiEndpoints.baseUrl}${apiEndpoints.auth.vendorRegister}`,vendorCredetials).pipe(
-      delay(1000),
       map((res:any)=>{
         console.log(res);
         sessionStorage.setItem('token',res.token)

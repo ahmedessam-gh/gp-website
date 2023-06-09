@@ -12,7 +12,7 @@ export class CustomerRegisterComponent implements OnInit {
 
   submitted: boolean = false;
   registerForm: FormGroup;
-  loading = false;
+  // loading = false;
   emailError: string = '';
   userError: string = '';
   passError: string = '';
@@ -38,15 +38,15 @@ export class CustomerRegisterComponent implements OnInit {
     this.passError = '';
     this.emailError = '';
     this.submitted = true;
-    this.loading = true;
+    // this.loading = true;
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
       this.auth.register(this.registerForm.value).subscribe(response => {
         console.log(response);
-        this.loading = false;
+        // this.loading = false;
         this.router.navigate(['/shop']);
       }, error => {
-        this.loading = false;
+        // this.loading = false;
         for (let i = 0; i < error.error.length; i++) {
           if (error.error[i] === 'Email is already registered!') {
             this.emailError = error.error[i];
@@ -62,7 +62,7 @@ export class CustomerRegisterComponent implements OnInit {
         // console.log(error.error);
       })
     } else {
-      this.loading = false;
+      // this.loading = false;
       this.emailError = 'enter a valid email address';
       this.userError = 'enter a valid username';
       this.passError = 'enter a valid password';
