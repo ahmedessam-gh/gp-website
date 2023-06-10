@@ -118,7 +118,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     });
 
     this.prod.getRecommended().subscribe((data) => {
-      this.suggestedProds = data.productsWithAvgRates;
+      this.suggestedProds = data;
     });
 
     this.showUserList();
