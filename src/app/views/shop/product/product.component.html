@@ -224,7 +224,9 @@
             min="1"
             max="20"
           />
-          <button class="plus" (click)="plus('No quantity left in stock')">+</button>
+          <button class="plus" (click)="plus('No quantity left in stock')">
+            +
+          </button>
         </div>
       </div>
       <div *ngIf="myprod.quantity > 0" class="inStock">IN STOCK</div>
@@ -234,16 +236,15 @@
 </div>
 
 <hr />
-
-<div class="similarProducts">
-  <div class="container pad-sections">
-    <h3 class="prodh3">Similar Products</h3>
-
-    <div class="row"></div>
+<div *ngIf="userList">
+  <div class="similarProducts">
+    <div class="container pad-sections">
+      <h3 class="prodh3">Suggested For You</h3>
+    </div>
   </div>
+  <app-carousel (click)="getProduct()" [prods]="prods"></app-carousel>
+  <hr />
 </div>
-<app-carousel (click)="getProduct()" [prods]="prods"></app-carousel>
-<hr />
 
 <div class="prodHeaders">
   <div class="container pad-sections">

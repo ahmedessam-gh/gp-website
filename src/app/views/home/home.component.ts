@@ -115,6 +115,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit(): void {
     this.prod.getArrival().subscribe((data) => {
       this.newArrival = data.productsWithAvgRates;
+      if (Array.isArray(this.newArrival)) {
+        this.newArrival.splice(5, 1);
+      }
     });
 
     this.prod.getRecommended().subscribe((data) => {
