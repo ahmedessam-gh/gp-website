@@ -224,7 +224,7 @@
             min="1"
             max="20"
           />
-          <button class="plus" (click)="plus()">+</button>
+          <button class="plus" (click)="plus('No quantity left in stock')">+</button>
         </div>
       </div>
       <div *ngIf="myprod.quantity > 0" class="inStock">IN STOCK</div>

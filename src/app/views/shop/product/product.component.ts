@@ -155,11 +155,19 @@ export class ProductComponent implements OnInit {
     this.isBigPhotoUpdated = false;
   }
   //
-  plus() {
+  plus(msg:string) {
     if (this.allprod.quantity >= 10) {
+      
       this.allprod.quantity = 10;
     } else {
-      this.allprod.quantity += 1;
+      if(this.allprod.product.quantity!=this.allprod.quantity){
+        this.allprod.quantity += 1;
+      }else{
+        this.allprod.quantity=this.allprod.product.quantity;
+        this.showDanger(msg);
+      }
+      
+      
     }
   }
   //

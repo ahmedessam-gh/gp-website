@@ -28,7 +28,7 @@
               <button class="minus" (click)="minus(cartProd,cartProd.product.productId,$event)">-</button>
               <input readonly type="number" id="quantity" (ngModelChange)="totalPrice()" [(ngModel)]="cartProd.quantity"
                  maxlength="10" />
-              <button class="plus" (click)="plus(cartProd,cartProd.product.productId,$event)">+</button>
+              <button class="plus" (click)="plus(cartProd,cartProd.product.productId,$event,'No quantity left in stock')">+</button>
             </div>
             <div class="ms-4 ">
               <button class="btn-remove-respons bg-transparent" (click)="deleteItem(cartProd.product.productId)">remove</button>
@@ -47,7 +47,7 @@
         <button class="minus" (click)="minus(cartProd,cartProd.product.productId,$event)">-</button>
         <input type="number" id="quantity" (ngModelChange)="totalPrice()" [(ngModel)]="cartProd.quantity"
            min="1" max="20" />
-        <button class="plus" (click)="plus(cartProd,cartProd.product.productId,$event)">+</button>
+        <button class="plus" (click)="plus(cartProd,cartProd.product.productId,$event,'No quantity left in stock')">+</button>
       </div>
 
       <div class="tableBtnRemove col-6 col-lg-1 my-lg-auto d-none d-lg-block" (click)="deleteItem(cartProd.product.productId)">
@@ -108,3 +108,4 @@
     got to shop to add more products
   </p>
 </div>
+<app-toaster></app-toaster>

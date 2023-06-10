@@ -55,11 +55,11 @@ export class CheckoutComponent implements OnInit {
   cardErrors: any;
   clientSecret: any;
   modifiedClientSecret: any;
-
+  noQuantityError:string;
   creditChecked: string = 'cash';
   submitted = false;
   checkoutToastr: any;
-  constructor(private cart: CartService, public fb: FormBuilder, public router: Router, public ngb: NgbService) { }
+  constructor(private ngbService:NgbService,private cart: CartService, public fb: FormBuilder, public router: Router, public ngb: NgbService) { }
 
   async ngOnInit(): Promise<void> {
     this.cart.getOrderDetails().subscribe((data) => {
@@ -71,6 +71,13 @@ export class CheckoutComponent implements OnInit {
         method: ['cash', Validators.required],
         name: ['', Validators.required],
       });
+    },error=>{
+      this.noQuantityError = error.error;
+      this.router.navigate(['/cart']).then(()=>{
+        this.showDanger(this.noQuantityError);
+
+      });
+      console.log(this.noQuantityError);
     });
     this.orderTotal = await this.cart.totalPrice();
     console.log(this.orderTotal);
@@ -121,6 +128,12 @@ export class CheckoutComponent implements OnInit {
       }
     });
 
+  }
+  //
+  showDanger(msg: string) {
+    this.ngbService.show(msg, {
+      classname: 'dangertoast',
+    });
   }
   //stripe placing order with cash or credit
   removeDisabled() {
