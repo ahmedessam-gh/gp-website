@@ -65,8 +65,8 @@ export class ProductComponent implements OnInit {
 
   async ngOnInit() {
     this.showUserList();
-    this.prod.getArrival().subscribe((carouselprod) => {
-      this.prods = carouselprod.productsWithAvgRates;
+    this.prod.getRecommended().subscribe((carouselprod) => {
+      this.prods = carouselprod;
     });
     this.ActivatedRoute.params.subscribe((params) => {
       this.prodid = params['prodid'];
@@ -155,19 +155,16 @@ export class ProductComponent implements OnInit {
     this.isBigPhotoUpdated = false;
   }
   //
-  plus(msg:string) {
+  plus(msg: string) {
     if (this.allprod.quantity >= 10) {
-      
       this.allprod.quantity = 10;
     } else {
-      if(this.allprod.product.quantity!=this.allprod.quantity){
+      if (this.allprod.product.quantity != this.allprod.quantity) {
         this.allprod.quantity += 1;
-      }else{
-        this.allprod.quantity=this.allprod.product.quantity;
+      } else {
+        this.allprod.quantity = this.allprod.product.quantity;
         this.showDanger(msg);
       }
-      
-      
     }
   }
   //
