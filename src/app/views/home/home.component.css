@@ -293,7 +293,9 @@
 }
 
 /* bg2-styling */
-
+.homeBgs{
+  margin-top: 100px;
+}
 .homeBgs img {
   width: 100%;
   height: 800px;
