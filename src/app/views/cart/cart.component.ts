@@ -69,6 +69,17 @@ export class CartComponent implements OnInit {
       }
     });
   }
+  //
+  isValidImage(imageUrl: string): boolean {
+    // Check if the imageUrl is empty or does not load a valid image
+    // For example, you can use an Image object to check if it's a valid image
+    if (imageUrl) {
+      const image = new Image();
+      image.src = imageUrl;
+      return image.complete && image.naturalWidth !== 0;
+    }
+    return false;
+  }
   showDanger(msg: string) {
     this.ngbService.show(msg, {
       classname: 'dangertoast',

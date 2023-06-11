@@ -81,9 +81,11 @@ export class CheckoutComponent implements OnInit {
     });
     this.orderTotal = await this.cart.totalPrice();
     console.log(this.orderTotal);
-    const cash = document.getElementById('cash');
+    // const cash = document.getElementById('cash');
+    this.orderForm.get('name').disable();
+    this.orderForm.get('method').reset();
 
-    cash.click();
+    // cash.click();
     // this.cash.nativeElement.click();
     loadStripe(
       'pk_test_51N4OuSDz65k2SKUd7lEOmteETYa5cBdBWL3QVtibiLctz1t7LVoRTMBI7dR5PYtEsNZYnsZbTtR0Ec3p1imWqzqQ00J0j9kTO9'

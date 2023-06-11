@@ -9,11 +9,15 @@
     </div>
   </div>
   <div class="tableContainer">
-    <div class="row g-0" *ngFor="let cartProd of cartProducts | paginate:{itemsPerPage:pageSize,currentPage:pageNumber}">
+    <div class="row g-0"
+      *ngFor="let cartProd of cartProducts | paginate:{itemsPerPage:pageSize,currentPage:pageNumber}">
       <div class="prodInfo d-flex col-12 col-lg-6 mb-5 my-3">
-        <img src="{{ cartProd.product.productImages[0]?.imageUrl || 'https://www.bevi.com/static/files/0/ecommerce-default-product.png'}}" width="150px" height="150px" alt="" />
+        <img
+          [src]="isValidImage(cartProd.product.productImages[0]?.imageUrl) ? cartProd.product.productImages[0]?.imageUrl : 'https://www.bevi.com/static/files/0/ecommerce-default-product.png'"
+          width="150px" height="150px" alt="" />
         <div class="content-cart ms-4">
-          <h6 style="cursor: pointer;" [routerLink]="['/shop/product',cartProd.product.productId]">{{ cartProd.product.productName}}</h6>
+          <h6 style="cursor: pointer;" [routerLink]="['/shop/product',cartProd.product.productId]">{{
+            cartProd.product.productName}}</h6>
           <p>{{ cartProd.product.category }}</p>
           <p>${{ cartProd.product.price }}</p>
           <!-- <p>{{ cartProd.product.size }}</p> -->
@@ -27,11 +31,13 @@
             <div class="input-number d-flex">
               <button class="minus" (click)="minus(cartProd,cartProd.product.productId,$event)">-</button>
               <input readonly type="number" id="quantity" (ngModelChange)="totalPrice()" [(ngModel)]="cartProd.quantity"
-                 maxlength="10" />
-              <button class="plus" (click)="plus(cartProd,cartProd.product.productId,$event,'No quantity left in stock')">+</button>
+                maxlength="10" />
+              <button class="plus"
+                (click)="plus(cartProd,cartProd.product.productId,$event,'No quantity left in stock')">+</button>
             </div>
             <div class="ms-4 ">
-              <button class="btn-remove-respons bg-transparent" (click)="deleteItem(cartProd.product.productId)">remove</button>
+              <button class="btn-remove-respons bg-transparent"
+                (click)="deleteItem(cartProd.product.productId)">remove</button>
             </div>
           </div>
         </div>
@@ -45,23 +51,20 @@
 
       <div class="input-number col-6 col-lg-2 my-auto d-none d-lg-block">
         <button class="minus" (click)="minus(cartProd,cartProd.product.productId,$event)">-</button>
-        <input type="number" id="quantity" (ngModelChange)="totalPrice()" [(ngModel)]="cartProd.quantity"
-           min="1" max="20" />
-        <button class="plus" (click)="plus(cartProd,cartProd.product.productId,$event,'No quantity left in stock')">+</button>
+        <input type="number" id="quantity" (ngModelChange)="totalPrice()" [(ngModel)]="cartProd.quantity" min="1"
+          max="20" />
+        <button class="plus"
+          (click)="plus(cartProd,cartProd.product.productId,$event,'No quantity left in stock')">+</button>
       </div>
 
-      <div class="tableBtnRemove col-6 col-lg-1 my-lg-auto d-none d-lg-block" (click)="deleteItem(cartProd.product.productId)">
+      <div class="tableBtnRemove col-6 col-lg-1 my-lg-auto d-none d-lg-block"
+        (click)="deleteItem(cartProd.product.productId)">
         <fa-icon [icon]="['fas', 'circle-xmark']"></fa-icon>
       </div>
     </div>
     <div class="paginationCustom">
-      <pagination-controls
-        appScrollTop
-        class="my-pagination"
-        (pageChange)="changePage($event)"
-        previousLabel="Previous"
-        nextLabel="Next"
-      >
+      <pagination-controls appScrollTop class="my-pagination" (pageChange)="changePage($event)" previousLabel="Previous"
+        nextLabel="Next">
       </pagination-controls>
     </div>
     <div class="d-md-flex justify-content-between pad-sections">
@@ -91,15 +94,10 @@
       </div>
     </div>
   </div>
-  
+
 </div>
-<div
-  *ngIf="!cartProducts"
-  [routerLink]="['/shop']"
-  id="noItemsDiv"
-  style="cursor: pointer"
-  class="pad-sections noItems d-flex align-content-center flex-column justify-content-center align-items-center"
->
+<div *ngIf="!cartProducts" [routerLink]="['/shop']" id="noItemsDiv" style="cursor: pointer"
+  class="pad-sections noItems d-flex align-content-center flex-column justify-content-center align-items-center">
   <p class="cartPlus">
     <fa-icon [icon]="['fas','cart-plus']"></fa-icon>
   </p>
@@ -109,3 +107,4 @@
   </p>
 </div>
 <app-toaster></app-toaster>
+<!-- src="{{ cartProd.product.productImages[0]?.imageUrl || 'https://www.bevi.com/static/files/0/ecommerce-default-product.png'}}" -->

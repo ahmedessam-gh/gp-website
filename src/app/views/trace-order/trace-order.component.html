@@ -13,8 +13,7 @@
           <div class="col-6 col-xl-3 py-2">
             <strong>
               <fa-icon icon="dollar"> </fa-icon>
-              Total Price:</strong
-            >
+              Total Price:</strong>
             <br />
 
             <p>{{ myOrders.totalPrice }} EGP</p>
@@ -26,8 +25,7 @@
           <div class="col-6 col-xl-3 py-2">
             <strong>
               <fa-icon icon="shop"> </fa-icon>
-              Total Order Quantity:</strong
-            >
+              Total Order Quantity:</strong>
             <br />
             <p>{{ myOrders.quantity }}</p>
           </div>
@@ -43,50 +41,40 @@
           <span class="icon"> <fa-icon icon="bread-slice"></fa-icon> </span>
           <span class="text"> Confirmed</span>
         </div>
-        <div
-          class="step active"
-          *ngIf="
+        <div class="step active" *ngIf="
             myOrders.status == 'Confirmed' ||
             myOrders.status == 'Shipped' ||
             myOrders.status == 'Delivered'
-          "
-        >
+          ">
           <span class="icon"> <fa-icon icon="bread-slice"></fa-icon> </span>
           <span class="text"> Confirmed</span>
         </div>
-        <div
-          class="step"
-          *ngIf="myOrders.status == 'Confirmed' || myOrders.status == 'Pending'"
-        >
+        <div class="step" *ngIf="myOrders.status == 'Confirmed' || myOrders.status == 'Pending'">
           <span class="icon"><fa-icon icon="truck"> </fa-icon></span>
           <span class="text"> Shipped </span>
         </div>
-        <div
-          class="step active"
-          *ngIf="myOrders.status == 'Shipped' || myOrders.status == 'Delivered'"
-        >
+        <div class="step active" *ngIf="myOrders.status == 'Shipped' || myOrders.status == 'Delivered'">
           <span class="icon"><fa-icon icon="truck"> </fa-icon></span>
           <span class="text"> Shipped </span>
         </div>
-        <div
-          class="step"
-          *ngIf="
+        <div class="step" *ngIf="
             myOrders.status == 'Confirmed' ||
             myOrders.status == 'Pending' ||
             myOrders.status == 'Shipped'
-          "
-        >
+          ">
           <span class="icon">
             <div>
-              <fa-icon icon="birthday-cake"></fa-icon></div
-          ></span>
+              <fa-icon icon="birthday-cake"></fa-icon>
+            </div>
+          </span>
           <span class="text">Delivered</span>
         </div>
         <div class="step active" *ngIf="myOrders.status == 'Delivered'">
           <span class="icon">
             <div>
-              <fa-icon icon="birthday-cake"></fa-icon></div
-          ></span>
+              <fa-icon icon="birthday-cake"></fa-icon>
+            </div>
+          </span>
           <span class="text">Delivered</span>
         </div>
       </div>
@@ -97,13 +85,12 @@
       </div>
       <hr />
       <ul class="row">
-        <li
-          *ngFor="let orderDetails of myOrders.productDetails"
-          class="col-md-6 col-xl-4"
-        >
+        <li *ngFor="let orderDetails of myOrders.productDetails" class="col-md-6 col-xl-4">
           <figure class="itemside mb-5">
             <div class="aside mx-3">
-              <img alt="" src="{{orderDetails?.img || 'https://www.bevi.com/static/files/0/ecommerce-default-product.png'}} " class="img-sm" />
+              <img alt=""
+              [src]="isValidImage(orderDetails?.img) ? orderDetails?.img : 'https://www.bevi.com/static/files/0/ecommerce-default-product.png'"
+                class="img-sm" />
             </div>
             <figcaption class="info align-self-center">
               <p class="title">{{ orderDetails.productName }}</p>
@@ -116,11 +103,7 @@
       </ul>
       <hr />
       <a [routerLink]="['/profile/myorders']">
-        <app-main-button
-          class="orderButton"
-          icon="arrow-left"
-          content="Back to orders"
-        ></app-main-button>
+        <app-main-button class="orderButton" icon="arrow-left" content="Back to orders"></app-main-button>
       </a>
     </div>
   </article>
