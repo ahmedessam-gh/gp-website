@@ -68,7 +68,7 @@ export class CheckoutComponent implements OnInit {
       this.orderForm = this.fb.group({
         address: [this.orderDetails['address'] || '', Validators.required],
         phone: [this.orderDetails['phone'] || '', Validators.required],
-        method: [null, Validators.required],
+        method: ['cash', Validators.required],
         name: ['', Validators.required],
       });
     },error=>{
@@ -139,8 +139,10 @@ export class CheckoutComponent implements OnInit {
   }
   //stripe placing order with cash or credit
   removeDisabled() {
-    const credit = document.getElementById('method') as HTMLInputElement;
+    const credit = document.getElementById('credit') as HTMLInputElement;
     this.creditChecked = credit.value;
+    this.orderForm.get('method').setValue('credit');
+
     if (this.creditChecked === 'credit') {
       this.orderForm.get('name').enable();
       this.cardNum.update({ disabled: false });
@@ -151,7 +153,7 @@ export class CheckoutComponent implements OnInit {
   cashMethod() {
     const cash = document.getElementById('cash') as HTMLInputElement;
     this.creditChecked = cash?.value;
-    cash?.click();
+    this.orderForm.get('method').setValue('cash');
     if (this.creditChecked === 'cash') {
       this.orderForm.get('name').disable();
       this.cardNum.update({ disabled: true })
