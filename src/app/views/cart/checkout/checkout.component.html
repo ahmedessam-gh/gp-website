@@ -1,4 +1,5 @@
 <div class="pad-sections ">
+    {{noQuantityError}}
     <div class="container " *ngIf="orderForm">
         <!-- <app-checkout></app-checkout> -->
         <form [formGroup]="orderForm">
@@ -167,3 +168,6 @@
 <div class="pt-4">
     <app-features-section></app-features-section>
 </div>
+<!-- <div *ngIf="noQuantityError">
+    {{noQuantityError}}
+</div> -->

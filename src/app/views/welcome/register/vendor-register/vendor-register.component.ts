@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class VendorRegisterComponent implements OnInit {
   submitted: boolean = false;
   vendorRegisterForm: FormGroup;
-  loading = false;
+  // loading = false;
   emailError = '';
   userError = '';
   passError = '';
@@ -42,15 +42,15 @@ export class VendorRegisterComponent implements OnInit {
   this.passError = '';
   this.storeError = '';
     this.submitted = true;
-    this.loading = true;
+    // this.loading = true;
     if (this.vendorRegisterForm.valid) {
       console.log(this.vendorRegisterForm.value);
       this.auth.vendorRegister(this.vendorRegisterForm.value).subscribe(response => {
         console.log(response);
-        this.loading = false;
+        // this.loading = false;
         
       }, error => {
-        this.loading = false;
+        // this.loading = false;
         for (let i = 0; i < error.error.length; i++) {
           if (error.error[i] === "Email is already registered!") {
             this.emailError = error.error[i];
@@ -66,7 +66,7 @@ export class VendorRegisterComponent implements OnInit {
         }
       })
     } else {
-      this.loading = false;
+      // this.loading = false;
       this.emailError = 'enter a valid email address';
       this.userError = 'enter a valid username';
       this.passError = 'enter a valid password';

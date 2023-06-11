@@ -55,11 +55,11 @@ export class CheckoutComponent implements OnInit {
   cardErrors: any;
   clientSecret: any;
   modifiedClientSecret: any;
-
+  noQuantityError:string;
   creditChecked: string = 'cash';
   submitted = false;
   checkoutToastr: any;
-  constructor(private cart: CartService, public fb: FormBuilder, public router: Router, public ngb: NgbService) { }
+  constructor(private ngbService:NgbService,private cart: CartService, public fb: FormBuilder, public router: Router, public ngb: NgbService) { }
 
   async ngOnInit(): Promise<void> {
     this.cart.getOrderDetails().subscribe((data) => {
@@ -71,12 +71,21 @@ export class CheckoutComponent implements OnInit {
         method: ['cash', Validators.required],
         name: ['', Validators.required],
       });
+    },error=>{
+      this.noQuantityError = error.error;
+      this.router.navigate(['/cart']).then(()=>{
+        this.showDanger(this.noQuantityError);
+
+      });
+      console.log(this.noQuantityError);
     });
     this.orderTotal = await this.cart.totalPrice();
     console.log(this.orderTotal);
-    const cash = document.getElementById('cash');
+    // const cash = document.getElementById('cash');
+    this.orderForm.get('name').disable();
+    this.orderForm.get('method').reset();
 
-    cash.click();
+    // cash.click();
     // this.cash.nativeElement.click();
     loadStripe(
       'pk_test_51N4OuSDz65k2SKUd7lEOmteETYa5cBdBWL3QVtibiLctz1t7LVoRTMBI7dR5PYtEsNZYnsZbTtR0Ec3p1imWqzqQ00J0j9kTO9'
@@ -121,6 +130,12 @@ export class CheckoutComponent implements OnInit {
       }
     });
 
+  }
+  //
+  showDanger(msg: string) {
+    this.ngbService.show(msg, {
+      classname: 'dangertoast',
+    });
   }
   //stripe placing order with cash or credit
   removeDisabled() {

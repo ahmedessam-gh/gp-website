@@ -12,6 +12,7 @@ import { ViewportScroller } from '@angular/common';
 import { CustomerService } from 'src/app/core/services/customer.service';
 import { PaginationService } from 'src/app/core/services/pagination.service';
 import { error } from 'console';
+import { NgbService } from 'src/app/core/services/ngb.service';
 
 @Component({
   selector: 'app-cart',
@@ -32,7 +33,7 @@ export class CartComponent implements OnInit {
   priceOfProduct: number;
   count:number;
 
-  constructor(private cart: CartService,private paginationService:PaginationService,private scroller:ViewportScroller,private changeDetector:ChangeDetectorRef,private customer:CustomerService) {
+  constructor(private ngbService:NgbService,private cart: CartService,private paginationService:PaginationService,private scroller:ViewportScroller,private changeDetector:ChangeDetectorRef,private customer:CustomerService) {
     
   }
 
@@ -69,14 +70,37 @@ export class CartComponent implements OnInit {
     });
   }
   //
-  plus(cartProduct: any, prodId: number, e) {
+  isValidImage(imageUrl: string): boolean {
+    // Check if the imageUrl is empty or does not load a valid image
+    // For example, you can use an Image object to check if it's a valid image
+    if (imageUrl) {
+      const image = new Image();
+      image.src = imageUrl;
+      return image.complete && image.naturalWidth !== 0;
+    }
+    return false;
+  }
+  showDanger(msg: string) {
+    this.ngbService.show(msg, {
+      classname: 'dangertoast',
+    });
+  }
+  //
+  plus(cartProduct: any, prodId: number, e,msg:string) {
     if (cartProduct.quantity >= 10) {
       cartProduct.quantity = 10;
     } else {
-      cartProduct.quantity += 1;
-      const param = new HttpParams().set('productId', prodId);
-      this.cart.incrementQuantity(param).subscribe();
-      this.totalPrice();
+      if(cartProduct.product.quantity!=cartProduct.quantity){
+        cartProduct.quantity += 1;
+        const param = new HttpParams().set('productId', prodId);
+        this.cart.incrementQuantity(param).subscribe();
+        this.totalPrice();
+      }else{
+        cartProduct.quantity=cartProduct.product.quantity;
+        this.showDanger(msg);
+      }
+      
+     
     }
   }
   //

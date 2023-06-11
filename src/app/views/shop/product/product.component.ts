@@ -65,8 +65,8 @@ export class ProductComponent implements OnInit {
 
   async ngOnInit() {
     this.showUserList();
-    this.prod.getArrival().subscribe((carouselprod) => {
-      this.prods = carouselprod.productsWithAvgRates;
+    this.prod.getRecommended().subscribe((carouselprod) => {
+      this.prods = carouselprod;
     });
     this.ActivatedRoute.params.subscribe((params) => {
       this.prodid = params['prodid'];
@@ -155,11 +155,16 @@ export class ProductComponent implements OnInit {
     this.isBigPhotoUpdated = false;
   }
   //
-  plus() {
+  plus(msg: string) {
     if (this.allprod.quantity >= 10) {
       this.allprod.quantity = 10;
     } else {
-      this.allprod.quantity += 1;
+      if (this.allprod.product.quantity != this.allprod.quantity) {
+        this.allprod.quantity += 1;
+      } else {
+        this.allprod.quantity = this.allprod.product.quantity;
+        this.showDanger(msg);
+      }
     }
   }
   //
@@ -202,7 +207,17 @@ export class ProductComponent implements OnInit {
   showToaster(msg: string) {
     this.ngbService.show(msg);
   }
-
+//
+isValidImage(imageUrl: string): boolean {
+  // Check if the imageUrl is empty or does not load a valid image
+  // For example, you can use an Image object to check if it's a valid image
+  if (imageUrl) {
+    const image = new Image();
+    image.src = imageUrl;
+    return image.complete && image.naturalWidth !== 0;
+  }
+  return false;
+}
   showDanger(msg: string) {
     this.ngbService.show(msg, {
       classname: 'dangertoast',
