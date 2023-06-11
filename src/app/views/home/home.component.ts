@@ -116,7 +116,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     this.prod.getArrival().subscribe((data) => {
       this.newArrival = data.productsWithAvgRates;
       if (Array.isArray(this.newArrival)) {
-        this.newArrival.splice(5, 1);
+        this.newArrival.splice(7, 1);
       }
     });
 
