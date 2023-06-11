@@ -68,7 +68,7 @@ export class CheckoutComponent implements OnInit {
       this.orderForm = this.fb.group({
         address: [this.orderDetails['address'] || '', Validators.required],
         phone: [this.orderDetails['phone'] || '', Validators.required],
-        method: ['cash', Validators.required],
+        method: [null, Validators.required],
         name: ['', Validators.required],
       });
     },error=>{
